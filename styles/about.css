@@ -1,0 +1,139 @@
+.info
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    color: #3b525e; 
+
+    -webkit-box-pack: center; 
+
+        -ms-flex-pack: center; 
+
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+}
+.info .company,
+.info .contacts,
+.info .docs
+{
+    margin: 0; 
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: #020718;
+    border-radius: 10px;
+    background-color: #f7ecf3;
+
+    -ms-flex-preferred-size: 400px;
+
+        flex-basis: 400px;
+}
+.info .company h2,
+.info .contacts h2,
+.info .docs h2
+{
+    margin: 0;
+    padding: 10px;
+
+    text-align: center; 
+
+    color: #f7ecf3;
+    background-color: #020718;
+}
+.info .company,
+.info .docs
+{
+    margin-right: 20px;
+}
+.info .docs
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: visible; 
+    -webkit-box-orient: vertical; 
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: column; 
+            flex-direction: column;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+}
+.info .docs h2
+{
+    -ms-flex-item-align: stretch;
+        -ms-grid-row-align: stretch;
+        align-self: stretch;
+}
+.info .docs figure
+{
+    position: relative;
+
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+
+    cursor: pointer; 
+    -webkit-transition-timing-function: linear; 
+            transition-timing-function: linear;
+    -webkit-transition-duration: .15s;
+            transition-duration: .15s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    text-align: center;
+}
+.info .docs figure:not(:last-of-type)
+{
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #020718;
+}
+.info .docs figure img
+{
+    width: 60%;
+}
+.info .docs figure figcaption
+{
+    font-weight: bold; 
+
+    text-transform: uppercase;
+}
+.info .docs figure:hover
+{
+    box-shadow: 0 0 10px 2px inset;
+}
+.info .company p
+{
+    margin: 10px;
+
+    text-align: justify;
+}
+.info .company p::first-letter
+{
+    font-weight: bold; 
+
+    margin: 0 0 0 10px;
+}
+.info .contacts ul .mail
+{
+    list-style-image: url('../SVG/mail2.svg');
+}
+.info .contacts ul .phone
+{
+    list-style-image: url('../SVG/phone.svg');
+}
+.info .contacts ul .address
+{
+    list-style-image: url('../SVG/location2.svg');
+}
+.info .contacts ul .fb
+{
+    list-style-image: url('../SVG/facebook.svg');
+}

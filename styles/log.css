@@ -1,0 +1,187 @@
+html,
+body
+{
+    width: 100%;
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: rgba(59, 82, 94, .5);
+    background-image: url('../images/bgledn.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    background-blend-mode: overlay;
+}
+body main
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    height: 100%;
+
+    background-color: rgba(247, 236, 243, .5); 
+
+    -webkit-box-pack: center; 
+
+        -ms-flex-pack: center; 
+
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+body main #login-form
+{
+    text-align: center;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: #4d5c33;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .5);
+}
+body main #login-form p[class^='error']
+{
+    font-size: 20px;
+    font-weight: bold;
+
+    display: none;
+
+    margin: 5px 0; 
+
+    color: red;
+}
+body main #login-form h1
+{
+    margin: 0 auto;
+    padding: 10px 10px 0; 
+
+    color: #4d5c33;
+}
+body main #login-form h1 small
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+
+        -ms-flex-pack: center;
+
+            justify-content: center;
+}
+body main #login-form h1 small a
+{
+    font-size: 12px;
+
+    margin: 0;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #4d5c33; 
+    border: none;
+}
+body main #login-form h1 small a:hover
+{
+    text-decoration: underline;
+}
+body main #login-form > a
+{
+    font-weight: bold; 
+
+    display: block;
+
+    margin: 5px 0;
+    padding: 5px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #4d5c33;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #4d5c33;
+    border-right: none;
+    border-left: none;
+}
+body main #login-form > a:hover
+{
+    text-decoration: underline;
+}
+body main #login-form .form-item
+{
+    margin: 0 10px 5px;
+}
+body main #login-form .form-item input
+{
+    padding: 5px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #4d5c33;
+    border-radius: 10px;
+}
+body main #login-form .form-item input:focus,
+body main #login-form .form-item input:active
+{
+    border-color: #020718; 
+    outline: none;
+}
+body main #login-form .form-item label
+{
+    font-size: 20px;
+
+    color: #4d5c33;
+}
+body main #login-form .buttons
+{
+    margin: 10px auto;
+    padding: 0; 
+
+    border: none;
+}
+body main #login-form .buttons #submit,
+body main #login-form .buttons #reset
+{
+    font-weight: bold;
+
+    margin: 5px;
+    padding: 10px;
+
+    cursor: pointer; 
+    text-align: center;
+    text-decoration: none;
+
+    color: #f7ecf3;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(77, 92, 51, .9);
+
+    -ms-flex-preferred-size: 25%;
+
+        flex-basis: 25%;
+}
+body main #login-form .buttons #submit:hover,
+body main #login-form .buttons #reset:hover
+{
+    background-color: #4d5c33;
+}
+body main #login-form .buttons #submit:active,
+body main #login-form .buttons #submit:focus,
+body main #login-form .buttons #reset:active,
+body main #login-form .buttons #reset:focus
+{
+    border: none; 
+    outline: none;
+}
