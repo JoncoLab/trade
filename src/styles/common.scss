@@ -1,0 +1,284 @@
+@import 'templates/variables.scss';
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    transition: {
+        duration: $time * 3;
+        property:
+                background-image,
+                background-color;
+        timing-function: linear;
+    }
+
+    background: {
+        color: fade_out($light, 0.4);
+        image: url("../images/bg1.png");
+        size: 100% 100%;
+        repeat: no-repeat;
+        attachment: fixed;
+        blend-mode: overlay;
+        position: top;
+    }
+    color: $grey;
+
+    font-family: sans-serif;
+
+    @include scroll($size: $line * 1.5);
+
+    header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: $line * 10;
+
+        .logo {
+            height: $line * 9;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            cursor: pointer;
+
+            img {
+                height: inherit;
+                filter: drop-shadow($line / -10 $line / -10 $line / 8 $dark);
+            }
+
+            h1 {
+                align-self: flex-end;
+                color: $olive;
+                margin: 0 0 $line 0;
+
+                text: {
+                    transform: uppercase;
+                    shadow: $line / 10 0 $line / 10 $dark;
+                }
+                font: {
+                    size: $line * 4;
+                }
+            }
+        }
+    }
+
+    main {
+        flex-grow: 1;
+        position: relative;
+        .main-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: $line * 15;
+            z-index: 100;
+            text: {
+                transform: uppercase;
+                align: left;
+            }
+            padding: 0;
+            margin: 0 0 $line * 2 0;
+
+            > span {
+                font: {
+                    weight: bold;
+                    size: $line * 2;
+                }
+                color: $dark;
+                margin: 0 0 0 $line;
+                cursor: pointer;
+            }
+
+            .menu-icon {
+                width: $line * 5;
+                height: $line * 5;
+                cursor: pointer;
+                transition: {
+                    duration: $time / 2;
+                    timing-function: linear;
+                }
+            }
+
+            ul {
+                position: absolute;
+                display: none;
+                top: 100%;
+                left: 30%;
+                width: $line * 25;
+                background: {
+                    color: $dark;
+                }
+                border-radius: $line * 2;
+                list-style: none;
+                padding: $line;
+                box-shadow: $line / 5 $line / 5 $line / 2 $line / 5 $olive;
+                li {
+                    margin: $line / 2;
+                    padding: 0 $line;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    border-radius: $line * 2;
+                    transition: {
+                        duration: $time;
+                        timing-function: linear;
+                    }
+                    &:hover {
+                        background: {
+                            color: $olive;
+                        }
+                        transform: scale(1.2);
+                    }
+                    .ico {
+                        height: $line * 3;
+                        width: $line * 3;
+                    }
+                    a {
+                        color: $grey;
+                        text-decoration: none;
+                        flex-grow: 1;
+                        margin-left: $line * 2;
+                        height: inherit;
+                        padding: $line * 1.5 0;
+                    }
+                }
+            }
+        }
+        .feedback-form {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30%;
+            min-width: $line * 40;
+            padding: $line;
+            margin: $line * 2 auto 0 auto;
+
+            background: {
+                color: fade-out($dark, 0.1);
+            }
+            border: $line / 2 solid $dark;
+            border-radius: $line;
+            #text,
+            #name,
+            #email,
+            label {
+                display: block;
+                padding: $line / 2;
+            }
+            #text,
+            #name,
+            #email {
+                border: none;
+                color: $dark;
+                padding: $line;
+                border-radius: $line;
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 $line / 5 $line / 10 $olive inset;
+                }
+            }
+            label {
+                text-align: left;
+                margin-top: $line;
+                font: {
+                    weight: normal;
+                }
+                &:first-of-type {
+                    margin-top: 0;
+                }
+            }
+            #text {
+                resize: none;
+            }
+            .buttons {
+                position: relative;
+                text-align: center;
+                width: auto;
+                border: none;
+                padding: 0;
+                margin-top: $line;
+
+                #reset,
+                #submit {
+                    display: none;
+                }
+
+                label[for="submit"],
+                label[for="reset"] {
+                    display: inline-block;
+                    @include button($light);
+                    color: $bluegrey;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    footer {
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: $line;
+        min-height: $line * 8;
+        flex-basis: $line * 8;
+
+        margin: $line * 2 0 0 0;
+
+        .footer-item {
+            padding: $line;
+            background: $dark;
+            border-radius: $line * 2;
+            box-shadow: $line / 5 $line / 5 $line / 2 0 $olive;
+            color: $grey;
+            flex-basis: $line * 20;
+            text: {
+                decoration: none;
+                align: center;
+            }
+            font: {
+                weight: bold;
+                size: $line * 1.5;
+            }
+            transition: {
+                duration: $time;
+                timing-function: linear;
+            }
+            cursor: pointer;
+            &:hover {
+                transform: translateY($line * -1);
+            }
+        }
+        .contacts {
+            .contacts-logo {
+                height: $line * 3;
+                margin: $line 0 0 0;
+            }
+        }
+        .feedback {
+            .feedback-logo {
+                height: $line * 3;
+                margin: $line 0 0 0;
+            }
+        }
+        .developers {
+            .jonco-logo {
+                height: $line * 3;
+                background: {
+                    color: $grey;
+                }
+                border: {
+                    top-left-radius: $line;
+                    top-right-radius: $line;
+                }
+                padding: $line;
+            }
+        }
+    }
+}

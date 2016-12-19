@@ -1,0 +1,71 @@
+$line: 10px;
+$time: 0.3s;
+
+$dark: #020718;
+$bluegrey: #3b525e;
+$grey: #97a29e;
+$light: #f7ecf3;
+$olive: #4d5c33;
+
+@mixin scroll($size: $line, $track: $dark, $thumb: $light, $shadow: $dark) {
+  &::-webkit-scrollbar {
+    width: $size;
+
+    &-track {
+      background: {
+        color: $track;
+      }
+
+      &-piece {
+        background: {
+          color: transparent;
+        }
+      }
+    }
+
+    &-thumb {
+      background: {
+        color: $thumb;
+      }
+      box-shadow: 0 0 $size / 5 $size / 10 $shadow inset;
+
+      &:hover {
+        background-color: lighten($thumb, 20%);
+      }
+
+      &:active {
+        box-shadow: 0 0 $size / 2 $size / 10 $shadow inset;
+      }
+    }
+  }
+}
+
+@mixin button($color: $dark) {
+  margin: $line;
+  padding: $line;
+  border: none;
+  border-radius: $line;
+  font-weight: bold;
+  background: {
+    image: linear-gradient(to bottom, $color, fade-out($color, 0.2));
+  }
+  transition: {
+    duration: $time / 2;
+    property: opacity;
+    timing-function: linear;
+  }
+  cursor: pointer;
+  opacity: 0.9;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    background: {
+      image: linear-gradient(to top, $color, fade-out($color, 0.2));
+    }
+  }
+  &:hover {
+    opacity: 1;
+  }
+}

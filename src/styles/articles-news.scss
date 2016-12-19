@@ -1,0 +1,130 @@
+@import 'templates/variables.scss';
+
+.news {
+    min-width: $line * 70;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+
+    max-width: 80%;
+    margin: 0 auto;
+
+    .list,
+    .articles {
+        display: inline-flex;
+        flex-direction: column;
+        box-sizing: border-box;
+
+        border: $dark solid $line / 2;
+        border-radius: $line * 1.5;
+
+        background-color: white;
+
+        h2 {
+            background-color: $dark;
+            margin: 0;
+            padding: $line / 2;
+            text-align: center;
+        }
+    }
+
+    .list {
+        flex-basis: 30%;
+
+        margin-right: $line * 2;
+        max-height: $line * 50;
+
+        .article-list {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            list-style: none;
+
+            padding: $line / 2;
+            margin: 0;
+
+            color: $grey;
+
+            li {
+                padding: $line;
+                display: flex;
+                align-items: center;
+
+                cursor: pointer;
+                font: {
+                    weight: bold;
+                }
+                border: {
+                    radius: $line;
+                }
+
+                span {
+                    flex-grow: 1;
+                }
+
+                &:hover {
+                    background: {
+                        color: $dark;
+                    }
+                }
+            }
+        }
+    }
+
+    .articles {
+        flex-basis: 70%;
+
+        article {
+            display: none;
+
+            color: $bluegrey;
+            height: inherit;
+            padding: 0;
+
+            h2 {
+                color: $grey;
+            }
+
+            p {
+                white-space: pre-line;
+                text: {
+                    align: justify;
+                }
+                margin: $line;
+
+                &::first-letter {
+                    font: {
+                        weight: bold;
+                    }
+                    padding-left: $line / 2;
+                }
+            }
+
+            .footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: $line;
+                margin: 0 auto;
+                width: 60%;
+
+                color: $light;
+
+                background: {
+                    color: $olive;
+                }
+                border: {
+                    top-left-radius: $line;
+                    top-right-radius: $line;
+                }
+                box-shadow: 0 $line / -5 $line 0 $dark inset;
+            }
+
+            &[data-heading="article3"] p {
+                text: {
+                    align: center;
+                }
+            }
+        }
+    }
+}

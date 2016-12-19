@@ -1,0 +1,262 @@
+@import 'templates/variables.scss';
+
+.cabinet-content {
+    box-sizing: border-box;
+    min-width: $line * 70;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin: 0 auto;
+    background-color: unset;
+
+    .layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0 0 $line * 2 0;
+
+        .my-info,
+        .access {
+            border: {
+                color: $dark;
+                width: $line / 2;
+                style: solid;
+                radius: $line;
+            }
+            background-color: lighten($light, 20%);
+            flex-grow: 1;
+
+            h2 {
+                margin: 0;
+                font: {
+                    size: $line * 3;
+                }
+
+                background: {
+                    color: $dark;
+                }
+
+                text: {
+                    align: center;
+                }
+                padding: $line / 2;
+            }
+
+            ul {
+                list-style: none;
+
+                li {
+                    margin-bottom: $line;
+
+                    span {
+                        font: {
+                            weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .access {
+            margin: 0 0 0 $line * 2;
+
+            .auction {
+                display: block;
+                text: {
+                    align: center;
+                    decoration: none;
+                    transform: uppercase;
+                }
+                @include button();
+                color: $light;
+            }
+
+            .accessable {
+                margin: 0;
+                padding: $line 0;
+                color: $bluegrey;
+
+                li {
+                    display: flex;
+                    justify-content: space-around;
+                    margin: 0;
+                    padding: $line;
+
+                    &:not(:last-of-type) {
+                        border-bottom: $line / 5 solid $dark;
+                    }
+
+                    .lot-num,
+                    .start {
+                        padding: $line / 2;
+                    }
+
+                    .lot-num strong {
+                        border: {
+                            width: $line / 5;
+                            style: solid;
+                            color: $dark;
+                            radius: $line;
+                        }
+                        padding: $line / 5;
+                        color: $dark;
+                    }
+
+                    .start time {
+                        border: {
+                            width: $line / 5;
+                            style: solid;
+                            color: $dark;
+                            radius: $line;
+                        }
+                        padding: $line / 5;
+                        color: $dark;
+                    }
+                }
+            }
+        }
+
+        .my-info {
+            font: {
+                size: $line * 2;
+            }
+            text-align: center;
+
+            .user-id {
+                padding: $line / 2;
+                text-align-last: right;
+                background: {
+                    color: $dark;
+                }
+
+                font: {
+                    weight: bold;
+                    size: $line * 2;
+                }
+            }
+
+            ul {
+                padding: 0 0 0 $line * 2;
+                list-style: {
+                    position: inside;
+                }
+                color: $dark;
+                text-align: left;
+                margin: $line 0;
+
+                li {
+                    &.name {
+                        list-style: {
+                            image: url("../SVG/user.svg");
+                        }
+                    }
+
+                    &.number {
+                        list-style: {
+                            image: url("../SVG/phone.svg");
+                        }
+                    }
+
+                    &.mail {
+                        list-style: {
+                            image: url("../SVG/mail2.svg");
+                        }
+                    }
+
+                    &.registration-date {
+                        list-style: {
+                            image: url("../SVG/clock.svg");
+                        }
+                    }
+                }
+            }
+
+            .add-docs {
+                @include button();
+                color: $light;
+                margin: 0 0 $line;
+            }
+        }
+    }
+
+    .load-docs {
+        height: $line * 15;
+        border: {
+            color: $dark;
+            width: $line / 2;
+            style: solid;
+            radius: $line;
+        }
+        background-color: fade_out($dark, 0.1);
+
+        padding: $line / 2;
+        margin: 0;
+
+        display: none;
+        justify-content: space-between;
+
+        #drop-files {
+            flex-basis: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: {
+                style: dashed;
+                width: $line / 5;
+                color: $olive;
+                radius: $line;
+            }
+
+            background: {
+                color: $light;
+            }
+
+            transition: {
+                duration: $time;
+                timing-function: linear;
+            }
+        }
+
+        .actions {
+            flex-basis: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            padding: $line / 2;
+
+            label[for="files"],
+            label[for="reset"] {
+                @include button($light);
+                color: $bluegrey;
+                text-align: center;
+            }
+
+            #files,
+            #reset {
+                display: none;
+            }
+        }
+
+        #send-docs {
+            flex-basis: 20%;
+            display: flex;
+            padding: 0;
+
+            label[for="submit"] {
+                @include button($light);
+                color: $bluegrey;
+                text-align: center;
+                display: flex;
+                align-items: center;
+            }
+
+            #submit {
+                display: none;
+            }
+        }
+    }
+}

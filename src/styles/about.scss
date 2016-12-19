@@ -1,0 +1,145 @@
+@import "templates/variables.scss";
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: $bluegrey;
+
+  .company,
+  .contacts,
+  .docs {
+    border: {
+      radius: $line;
+      width: $line / 2;
+      style: solid;
+      color: $dark;
+    }
+    background: {
+      color: $light;
+    }
+    flex-basis: $line * 40;
+    margin: 0;
+
+    h2 {
+      background: {
+        color: $dark;
+      }
+      color: $light;
+      margin: 0;
+      padding: $line;
+      text: {
+        align: center;
+      }
+    }
+  }
+
+  .company,
+  .docs {
+    margin-right: $line * 2;
+  }
+
+  .docs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: {
+      x: hidden;
+      y: visible;
+    }
+
+    h2 {
+      align-self: stretch;
+    }
+
+    figure {
+      width: 100%;
+      position: relative;
+      text: {
+        align: center;
+      }
+      margin: 0;
+      padding: $line;
+
+      &:not(:last-of-type) {
+        border-bottom: {
+          style: solid;
+          width: $line / 2;
+          color: $dark;
+        }
+      }
+
+      img {
+        width: 60%;
+      }
+
+      figcaption {
+        text: {
+          transform: uppercase;
+        }
+        font: {
+          weight: bold;
+        }
+      }
+
+      transition: {
+        duration: $time / 2;
+        property: box-shadow;
+        timing-function: linear;
+      }
+
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 $line $line / 5 inset;
+      }
+    }
+  }
+
+  .company {
+
+    p {
+      margin: $line;
+
+      text: {
+        align: justify;
+      }
+
+      &::first-letter {
+        margin: 0 0 0 $line;
+        font: {
+          weight: bold;
+        }
+      }
+    }
+  }
+
+  .contacts {
+
+    ul {
+
+       .mail {
+         list-style: {
+           image: url("../SVG/mail2.svg");
+         }
+       }
+       .phone {
+         list-style: {
+           image: url("../SVG/phone.svg");
+         }
+       }
+       .address {
+         list-style: {
+           image: url("../SVG/location2.svg");
+         }
+       }
+       .fb {
+         list-style: {
+           image: url("../SVG/facebook.svg");
+
+         }
+       }
+    }
+  }
+}

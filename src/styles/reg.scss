@@ -1,0 +1,326 @@
+@import "templates/variables.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: {
+    color: rgba(255, 255, 255, 0.3);
+    image: url("../images/bgledn.png");
+    size: 100% 100%;
+    repeat: no-repeat;
+    blend-mode: overlay;
+    attachment: fixed;
+  }
+  color: $olive;
+  overflow: {
+    x: hidden;
+    y: scroll;
+  }
+
+  @include scroll();
+
+  main {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      text: {
+        align: center;
+      }
+      font: {
+        size: $line * 4;
+      }
+      color: $olive;
+
+      margin: 0 auto;
+      padding: $line $line 0;
+
+      border: {
+        style: solid;
+        width: $line / 2;
+        color: $olive;
+        radius: $line;
+        top: none;
+        top-left-radius: 0;
+        top-right-radius: 0;
+      }
+      background: {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      small {
+        display: flex;
+        justify-content: center;
+        padding: $line / 2;
+
+        a {
+          font: {
+            size: $line * 1.2;
+          }
+          text: {
+            decoration: none;
+            transform: uppercase;
+          }
+          border: none;
+          margin: 0;
+          color: $olive;
+
+          &:hover {
+            text: {
+              decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .status {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      border: {
+        style: solid;
+        width: $line / 2;
+        color: $olive;
+        radius: $line;
+      }
+      background: {
+        color: fade_out($light, 0.5);
+      }
+      margin: $line auto;
+
+      h2 {
+        text: {
+          align: center;
+        }
+        margin: $line / 2 0;
+      }
+
+      .buttons {
+
+        #jur,
+        #fiz {
+          display: none;
+
+          + label {
+            display: inline-block;
+            background: {
+              color: fade_out($olive, 0.1);
+            }
+            padding: $line;
+            margin: $line;
+            flex-basis: 25%;
+            font: {
+              weight: bold;
+            }
+            text: {
+              decoration: none;
+              align: center;
+            }
+            color: $light;
+            border: none;
+            border-radius: $line;
+
+            cursor: pointer;
+
+            &:hover {
+              background: {
+                color: $olive;
+              }
+            }
+            &:active {
+              outline: none;
+              border: none;
+            }
+            &:focus {
+              outline: none;
+              border: none;
+            }
+          }
+
+          &:checked + label {
+            background: {
+              color: $olive;
+            }
+            box-shadow: 0 $line / -3 0 0 $dark;
+          }
+        }
+      }
+    }
+
+    #register {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      fieldset {
+        display: none;
+        border: {
+          style: solid;
+          width: $line / 2;
+          color: $olive;
+          radius: $line;
+        }
+        background: {
+          color: fade_out($light, 0.5);
+        }
+        margin: 0 0 $line / 2;
+
+        legend {
+          font: {
+            size: $line * 2;
+            weight: bold;
+          }
+          background: {
+            color: fade_out($light, 0.5);
+          }
+          padding: $line / 2;
+          border: {
+            style: solid;
+            width: $line / 2;
+            color: $olive;
+            radius: $line;
+          }
+          margin: 0 auto;
+        }
+
+        p[class^="error"] {
+          display: none;
+          color: red;
+          font: {
+            weight: bold;
+            size: $line * 2;
+          }
+          margin: $line / 2 0;
+        }
+
+        .form-item {
+          padding: 0;
+          margin: 0 0 $line;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          justify-content: flex-end;
+
+          h2 {
+            margin: 0;
+            font-size: $line * 2;
+            color: $olive;
+          }
+
+          label {
+            font-size: $line * 2;
+            color: $olive;
+          }
+
+          input,
+          select {
+            border: {
+              radius: $line;
+              style: solid;
+              width: $line / 5;
+              color: $olive;
+            }
+            padding: $line / 2;
+            margin: 0 $line;
+            color: $dark;
+
+            &:active,
+            &:focus {
+              outline: none;
+              border: {
+                color: $dark;
+              }
+            }
+
+            &#passport-seria {
+              width: $line * 3;
+            }
+            &#passport-number {
+              width: $line * 6;
+            }
+          }
+
+          &.date,
+          &.passport {
+            flex-direction: row;
+            justify-content: flex-start;
+          }
+        }
+
+        &.docs {
+          padding: 0;
+
+          .form-item {
+            margin: 0;
+            padding: $line / 2 $line;
+
+            &:not(:last-of-type) {
+              border: {
+                bottom: $line / 5 solid $olive;
+              }
+            }
+
+            input {
+              border: none;
+            }
+
+            label {
+              font: {
+                weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > .buttons {
+      display: none;
+      margin: $line auto;
+      border: none;
+      padding: 0;
+
+      #submit,
+      #reset {
+        background: {
+          color: fade_out($olive, 0.1);
+        }
+        padding: $line;
+        margin: $line;
+        flex-basis: 25%;
+        font: {
+          weight: bold;
+          size: $line * 1.5;
+        }
+        text: {
+          decoration: none;
+          align: center;
+        }
+        color: $light;
+        border: none;
+        border-radius: $line;
+
+        cursor: pointer;
+
+        &:hover {
+          background: {
+            color: $olive;
+          }
+        }
+        &:active,
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+//.reg-log {
+//  button {
+//    @include button();
+//  }
+//  dialog.login {
+//    display: none;
+//    background: fade-out($dark, 0.1);
+//    border: {
+//      radius: $line;
+//      style: solid;
+//      width: $line / 2;
+//      color: $dark;
+//    }
+//    color: $grey;
+//    top: 100%;
+//    left: auto;
+//    right: 5%;
+//
+//    .login-form {
+//      display: flex;
+//      flex-direction: column;
+//      width: $line * 20;
+//      input {
+//        border: none;
+//        border-radius: $line;
+//        padding: $line;
+//        &:active,
+//        &:focus {
+//          outline: none;
+//          box-shadow: 0 0 $line / 5 $line / 10 $olive inset;
+//        }
+//        &#remember {
+//          display: none;
+//        }
+//        &[type="submit"] {
+//          padding: $line;
+//          border: none;
+//          border-radius: $line;
+//          color: $light;
+//          font-weight: bold;
+//          background: {
+//            image: linear-gradient(to bottom, $dark, fade-out($dark, 0.2));
+//          }
+//          cursor: pointer;
+//          &:active,
+//          &:focus {
+//            outline: none;
+//          }
+//          &:active {
+//            background: {
+//              image: linear-gradient(to top, $dark, fade-out($dark, 0.2));
+//            }
+//          }
+//        }
+//      }
+//      label {
+//        margin: $line / 2 0;
+//      }
+//      label[for="remember"] {
+//        display: flex;
+//        .checkbox {
+//          display: inline-block;
+//          height: $line * 2;
+//          width: $line * 2;
+//          background: {
+//            image: url('../SVG/checkbox-unchecked.svg');
+//            size: contain;
+//            repeat: no-repeat;
+//            position: center;
+//          }
+//          &.checked {
+//            background-image: url('../SVG/checkbox-checked.svg');
+//          }
+//        }
+//        span {
+//          margin-left: $line / 2;
+//        }
+//      }
+//    }
+//  }
+//}

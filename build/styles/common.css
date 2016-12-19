@@ -1,0 +1,451 @@
+html,
+body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: sans-serif; 
+
+    display: -webkit-box; 
+
+    display: -ms-flexbox; 
+
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    -webkit-transition-timing-function: linear;
+
+            transition-timing-function: linear;
+    -webkit-transition-duration: .9s;
+            transition-duration: .9s;
+    -webkit-transition-property: background-image,    background-color;
+    transition-property: background-image,    background-color;
+
+    color: #97a29e;
+    background-color: rgba(247, 236, 243, .6);
+    background-image: url('../images/bg1.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: 100% 100%;
+
+    background-blend-mode: overlay;
+}
+body::-webkit-scrollbar
+{
+    width: 15px;
+}
+body::-webkit-scrollbar-track
+{
+    background-color: #020718;
+}
+body::-webkit-scrollbar-track-piece
+{
+    background-color: transparent;
+}
+body::-webkit-scrollbar-thumb
+{
+    background-color: #f7ecf3;
+    box-shadow: 0 0 3px 1.5px #020718 inset;
+}
+body::-webkit-scrollbar-thumb:hover
+{
+    background-color: white;
+}
+body::-webkit-scrollbar-thumb:active
+{
+    box-shadow: 0 0 7.5px 1.5px #020718 inset;
+}
+body header
+{
+    position: relative;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    min-height: 100px; 
+
+    -webkit-box-pack: center; 
+
+        -ms-flex-pack: center; 
+
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+body header .logo
+{
+    position: relative;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    height: 90px;
+
+    cursor: pointer; 
+
+    -webkit-box-align: center; 
+
+        -ms-flex-align: center; 
+
+            align-items: center;
+}
+body header .logo img
+{
+    height: inherit;
+
+    -webkit-filter: drop-shadow(-1px -1px 1.25px #020718);
+
+            filter: drop-shadow(-1px -1px 1.25px #020718);
+}
+body header .logo h1
+{
+    font-size: 40px; 
+
+    margin: 0 0 10px 0;
+
+    text-transform: uppercase;
+
+    color: #4d5c33;
+    text-shadow: 1px 0 1px #020718;
+
+    -ms-flex-item-align: end;
+
+        align-self: flex-end;
+}
+body main
+{
+    position: relative; 
+
+    -webkit-box-flex: 1; 
+
+        -ms-flex-positive: 1; 
+
+            flex-grow: 1;
+}
+body main .main-menu
+{
+    position: relative;
+    z-index: 100;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    width: 150px;
+    margin: 0 0 20px 0; 
+    padding: 0;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+body main .main-menu > span
+{
+    font-size: 20px;
+    font-weight: bold;
+
+    margin: 0 0 0 10px;
+
+    cursor: pointer; 
+
+    color: #020718;
+}
+body main .main-menu .menu-icon
+{
+    width: 50px;
+    height: 50px;
+
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+            transition-duration: .15s;
+}
+body main .main-menu ul
+{
+    position: absolute;
+    top: 100%;
+    left: 30%;
+
+    display: none;
+
+    width: 250px;
+    padding: 10px;
+
+    list-style: none;
+
+    border-radius: 20px;
+    background-color: #020718;
+    box-shadow: 2px 2px 5px 2px #4d5c33;
+}
+body main .main-menu ul li
+{
+    position: relative;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    margin: 5px;
+    padding: 0 10px;
+
+    -webkit-transition-timing-function: linear;
+
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .3s; 
+            transition-duration: .3s;
+
+    border-radius: 20px;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+}
+body main .main-menu ul li:hover
+{
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2); 
+
+    background-color: #4d5c33;
+}
+body main .main-menu ul li .ico
+{
+    width: 30px; 
+    height: 30px;
+}
+body main .main-menu ul li a
+{
+    height: inherit;
+    margin-left: 20px;
+    padding: 15px 0; 
+
+    text-decoration: none;
+
+    color: #97a29e;
+
+    -webkit-box-flex: 1;
+
+        -ms-flex-positive: 1;
+
+            flex-grow: 1;
+}
+body main .feedback-form
+{
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    width: 30%;
+    min-width: 400px;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+
+    border: 5px solid #020718;
+    border-radius: 10px; 
+    background-color: rgba(2, 7, 24, .9);
+
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
+}
+body main .feedback-form #text,
+body main .feedback-form #name,
+body main .feedback-form #email,
+body main .feedback-form label
+{
+    display: block;
+
+    padding: 5px;
+}
+body main .feedback-form #text,
+body main .feedback-form #name,
+body main .feedback-form #email
+{
+    padding: 10px;
+
+    color: #020718;
+    border: none;
+    border-radius: 10px;
+}
+body main .feedback-form #text:focus,
+body main .feedback-form #name:focus,
+body main .feedback-form #email:focus
+{
+    outline: none;
+    box-shadow: 0 0 2px 1px #4d5c33 inset;
+}
+body main .feedback-form label
+{
+    font-weight: normal; 
+
+    margin-top: 10px;
+
+    text-align: left;
+}
+body main .feedback-form label:first-of-type
+{
+    margin-top: 0;
+}
+body main .feedback-form #text
+{
+    resize: none;
+}
+body main .feedback-form .buttons
+{
+    position: relative;
+
+    width: auto;
+    margin-top: 10px; 
+    padding: 0;
+
+    text-align: center;
+
+    border: none;
+}
+body main .feedback-form .buttons #reset,
+body main .feedback-form .buttons #submit
+{
+    display: none;
+}
+body main .feedback-form .buttons label[for='submit'],
+body main .feedback-form .buttons label[for='reset']
+{
+    font-weight: bold;
+
+    display: inline-block;
+
+    margin: 10px;
+    padding: 10px;
+
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear;
+    -webkit-transition-duration: .15s;
+            transition-duration: .15s;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    text-align: center; 
+
+    opacity: .9;
+    color: #3b525e;
+    border: none;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(top, #f7ecf3, rgba(247, 236, 243, .8));
+    background-image: linear-gradient(to bottom, #f7ecf3, rgba(247, 236, 243, .8));
+}
+body main .feedback-form .buttons label[for='submit']:active,
+body main .feedback-form .buttons label[for='submit']:focus,
+body main .feedback-form .buttons label[for='reset']:active,
+body main .feedback-form .buttons label[for='reset']:focus
+{
+    outline: none;
+}
+body main .feedback-form .buttons label[for='submit']:active,
+body main .feedback-form .buttons label[for='reset']:active
+{
+    background-image: -webkit-linear-gradient(bottom, #f7ecf3, rgba(247, 236, 243, .8));
+    background-image: linear-gradient(to top, #f7ecf3, rgba(247, 236, 243, .8));
+}
+body main .feedback-form .buttons label[for='submit']:hover,
+body main .feedback-form .buttons label[for='reset']:hover
+{
+    opacity: 1;
+}
+body footer
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    min-height: 80px;
+    margin: 20px 0 0 0; 
+    padding-bottom: 10px;
+
+    -ms-flex-pack: distribute;
+
+        justify-content: space-around;
+    -ms-flex-preferred-size: 80px;
+        flex-basis: 80px;
+}
+body footer .footer-item
+{
+    font-size: 15px;
+    font-weight: bold;
+
+    padding: 10px;
+
+    cursor: pointer; 
+    -webkit-transition-timing-function: linear; 
+            transition-timing-function: linear;
+    -webkit-transition-duration: .3s;
+            transition-duration: .3s;
+    text-align: center;
+    text-decoration: none;
+
+    color: #97a29e;
+    border-radius: 20px;
+    background: #020718;
+    box-shadow: 2px 2px 5px 0 #4d5c33;
+
+    -ms-flex-preferred-size: 200px;
+
+        flex-basis: 200px;
+}
+body footer .footer-item:hover
+{
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+}
+body footer .contacts .contacts-logo
+{
+    height: 30px;
+    margin: 10px 0 0 0;
+}
+body footer .feedback .feedback-logo
+{
+    height: 30px;
+    margin: 10px 0 0 0;
+}
+body footer .developers .jonco-logo
+{
+    height: 30px;
+    padding: 10px; 
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #97a29e;
+}

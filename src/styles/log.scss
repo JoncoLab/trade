@@ -1,0 +1,180 @@
+@import "templates/variables.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: {
+    color: fade_out($bluegrey, 0.5);
+    image: url("../images/bgledn.png");
+    size: 100% 100%;
+    repeat: no-repeat;
+    position: center;
+    blend-mode: overlay;
+  }
+
+  main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: {
+      color: fade_out($light, 0.5);
+    }
+
+    #login-form {
+      text: {
+        align: center;
+      }
+      border: {
+        width: $line / 2;
+        style: solid;
+        color: $olive;
+        radius: $line;
+      }
+      background: {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      p[class^="error"] {
+        display: none;
+        color: red;
+        font: {
+          weight: bold;
+          size: $line * 2;
+        }
+        margin: $line / 2 0;
+      }
+
+      h1 {
+        color: $olive;
+        margin: 0 auto;
+        padding: $line $line 0;
+
+        small {
+          display: flex;
+          justify-content: center;
+
+          a {
+            font: {
+              size: $line * 1.2;
+            }
+            text: {
+              decoration: none;
+              transform: uppercase;
+            }
+            border: none;
+            margin: 0;
+            color: $olive;
+
+            &:hover {
+              text: {
+                decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      > a {
+        display: block;
+        color: $olive;
+        text: {
+          decoration: none;
+          transform: uppercase;
+        }
+        padding: $line / 2;
+        margin: $line / 2 0;
+        border: {
+          width: $line / 2;
+          style: solid;
+          color: $olive;
+          left: none;
+          right: none;
+        }
+        font: {
+          weight: bold;
+        }
+
+        &:hover {
+          text: {
+           decoration: underline;
+          }
+        }
+      }
+
+      .form-item {
+        margin: 0 $line $line / 2;
+        input {
+          padding: $line / 2;
+          border: {
+            width: $line / 5;
+            style: solid;
+            color: $olive;
+            radius: $line;
+          }
+
+          &:focus,
+          &:active {
+            outline: none;
+            border: {
+              color: $dark;
+            }
+          }
+        }
+
+        label {
+          font: {
+            size: $line * 2;
+          }
+          color: $olive;
+        }
+      }
+
+      .buttons {
+        margin: $line auto;
+        border: none;
+        padding: 0;
+
+        #submit,
+        #reset {
+          background: {
+            color: fade_out($olive, 0.1);
+          }
+          padding: $line;
+          margin: $line / 2;
+          flex-basis: 25%;
+          font: {
+            weight: bold;
+          }
+          text: {
+            decoration: none;
+            align: center;
+          }
+          color: $light;
+          border: none;
+          border-radius: $line;
+
+          cursor: pointer;
+
+          &:hover {
+            background: {
+              color: $olive;
+            }
+          }
+          &:active,
+          &:focus {
+            outline: none;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}

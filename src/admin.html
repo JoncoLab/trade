@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="styles/admin-style.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="scripts/js/jquery-3.1.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="scripts/js/admin-script.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <button>Лоти</button>
+            <button id="users">Користувачі</button>
+            <button id="write-article">Статті</button>
+        </nav>
+    </header>
+    <main>
+        <div class="lots page-maker"> </div>
+        
+        <table class="users page-maker active">
+            
+            <thead>
+                <tr class="sum">
+                    <th class="total">Всього: <span id="total">324</span></th>
+                    <th class="total-verified">Верифікованих: <span id="total-verified">322</span></th>
+                    <th class="total-active">Активних:<span id="total-active">620</span></th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>ІМ'Я</th>
+                    <th>ДАТА РЕЄСТрації</th>
+                    <th>АДРЕСА</th>
+                </tr>
+<!--
+                <tr>
+                    <th>
+                        <input type="text" name="id" placeholder="id(ex.:22222)"> </th>
+                    <th>
+                        <input type="text" name="name" placeholder="name(ex.: Гунда Василь Іванович)"> </th>
+                    <th>
+                        <input type="text" name="name" placeholder="date(ex:21.10.1992)"> </th>
+                    <th>
+                        <input type="text" name="name" placeholder="adress(ex.:Закарпатська, Мукачівська, Лалово)"> </th>
+                </tr>
+-->
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr><tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">28888</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Батьово </td>
+                </tr>
+                
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Пілюлько пес</td>
+                    <td class="registr-date">29.32.199/td>
+                    <td class="adress">Mamka ahaha </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr><tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+                <tr>
+                    <td class="id">23456</td>
+                    <td class="name">Євгеній Владиславович Власенко</td>
+                    <td class="registr-date">21.12.1921</td>
+                    <td class="adress"> Закарпатська, Мукачівський район, Лалово </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        
+        <form method="post" class="write-article page-maker">
+            <fieldset class=" header">
+                <legend>Введіть заголовок:</legend>
+                <input type="text" name="header" placeholder="Mama" id="header"> </fieldset>
+            <fieldset class=" content">
+                <legend>Напишіть статтю:</legend>
+                <textarea rows="10" placeholder="you know what to do.." autofocus tabindex="2"></textarea>
+                <button class="add-paragr" type="button">Додати абзац</button>
+                <button type="button" class="clear">Очистити</button>
+            </fieldset>
+            <fieldset class=" files">
+                <legend>Приєднайте щось до неї:</legend>
+                <label>Завантажте файл сюди:
+                    <input type="file" id="upload-smth" multiple>
+                    <button class="reset-upload" type="reset">Удалить</button>
+                </label>
+            </fieldset>
+            <button type="button" class="watch">Watch article</button>
+        </form>
+    </main>
+</body>
+
+</html>

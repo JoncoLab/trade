@@ -1,0 +1,14 @@
+<form action="scripts/php/mail.php" method="post" class="feedback-form" id="feedback">
+    <label for="name">Ваше ім'я</label>
+    <input type="text" name="name" id="name" placeholder="Семен" required autofocus>
+    <label for="email">Ваша електронна адреса</label>
+    <input type="email" name="email" id="email" placeholder="zrazok@joncolab.pro" required>
+    <label for="message">Ваш коментар</label>
+    <textarea rows="5" placeholder="Введіть ваше повідомлення" maxlength="1000" id="text" name="message" id="message" required></textarea>
+    <fieldset class="buttons">
+        <label for="reset">Очистити</label>
+        <input type="reset" id="reset" name="reset" value="Очистити">
+        <label for="submit">Надіслати</label>
+        <input type="submit" id="submit" name="submit" value="Надіслати">
+    </fieldset>
+</form>
