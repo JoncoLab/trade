@@ -13,7 +13,7 @@ var path = {
     src: {
         html: [
             'src/*.html',
-            'src/*.php',
+            'src/*.php'
         ],
         css: 'src/styles/*.scss',
         php: 'src/scripts/php/*.php',
