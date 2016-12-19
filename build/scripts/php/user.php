@@ -21,13 +21,13 @@ class User
 
     public static function registerUser($email, $password, $name, $number, $address) {
         $host = '127.0.0.1';
-        $username = 'Saladin';
-        $userPassword = '0sDD0pOWnLoGCUgD';
-        $db = 'users';
+        $username = 'jonco_saladin';
+        $userPassword = '2014';
+        $db = 'jonco_trade';
         $connection = new mysqli($host, $username, $userPassword, $db);
 
         if ($connection->connect_error) {
-            die('Не вдається встановити підключення до бази даних:\r\n' . $connection->connect_error);
+            die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
         } else {
             $sql = 'INSERT INTO registered (name, email, password, number, address) VALUES (\'' . $name. '\', \'' . $email . '\', \'' . $password . '\', \'' . $number . '\', \'' . $address . '\')';
             $connection->query($sql);
@@ -41,13 +41,13 @@ class User
 
     public static function getUserById($id) {
         $host = '127.0.0.1';
-        $username = 'Saladin';
-        $userPassword = '0sDD0pOWnLoGCUgD';
-        $db = 'users';
+        $username = 'jonco_saladin';
+        $userPassword = '2014';
+        $db = 'jonco_trade';
         $connection = new mysqli($host, $username, $userPassword, $db);
 
         if ($connection->connect_error) {
-            die('Не вдається встановити підключення до бази даних:\r\n' . $connection->connect_error);
+            die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
         } else {
             $sql = 'SELECT * FROM registered WHERE id=\'' . $id . '\'';
             $result = $connection->query($sql);
@@ -59,13 +59,13 @@ class User
 
     public static function getUserByEmail($email) {
         $host = '127.0.0.1';
-        $username = 'Saladin';
-        $userPassword = '0sDD0pOWnLoGCUgD';
-        $db = 'users';
+        $username = 'jonco_saladin';
+        $userPassword = '2014';
+        $db = 'jonco_trade';
         $connection = new mysqli($host, $username, $userPassword, $db);
 
         if ($connection->connect_error) {
-            die('Не вдається встановити підключення до бази даних:\r\n' . $connection->connect_error);
+            die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
         } else {
             $sql = 'SELECT * FROM registered WHERE email=\'' . $email . '\'';
             $result = $connection->query($sql);
