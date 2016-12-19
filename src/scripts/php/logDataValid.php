@@ -8,13 +8,13 @@
 
 $permitted = true;
 $host = '127.0.0.1';
-$username = 'Saladin';
-$password = '0sDD0pOWnLoGCUgD';
-$db = 'users';
+$username = 'jonco_saladin';
+$password = '2014';
+$db = 'jonco_trade';
 $connection = new mysqli($host, $username, $password, $db);
 
 if ($connection->connect_error) {
-    echo 'Не вдається встановити підключення до бази даних:\r\n' . $connection->connect_error;
+    echo 'Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error;
 } else {
     $login = $_POST["login"];
     $password = $_POST["password"];
