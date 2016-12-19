@@ -8,7 +8,7 @@
 
 $permitted = true;
 $host = 'joncolab.mysql.ukraine.com.ua' ;
-$username = 'jonco_saladin';
+$username = 'joncolab_saladin';
 $password = '2014';
 $db = 'jonco_trade';
 $connection = new mysqli($host, $username, $password, $db);
