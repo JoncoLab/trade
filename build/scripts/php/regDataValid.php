@@ -7,7 +7,7 @@
  */
 
 $permitted = true;
-$host = '127.0.0.1';
+$$host = 'joncolab.mysql.ukraine.com.ua' ;
 $username = 'jonco_saladin';
 $password = '2014';
 $db = 'jonco_trade';

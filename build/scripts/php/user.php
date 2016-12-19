@@ -20,7 +20,7 @@ class User
     }
 
     public static function registerUser($email, $password, $name, $number, $address) {
-        $host = '127.0.0.1';
+        $$host = 'joncolab.mysql.ukraine.com.ua' ;
         $username = 'jonco_saladin';
         $userPassword = '2014';
         $db = 'jonco_trade';
@@ -40,7 +40,7 @@ class User
     }
 
     public static function getUserById($id) {
-        $host = '127.0.0.1';
+        $$host = 'joncolab.mysql.ukraine.com.ua' ;
         $username = 'jonco_saladin';
         $userPassword = '2014';
         $db = 'jonco_trade';
@@ -58,7 +58,7 @@ class User
     }
 
     public static function getUserByEmail($email) {
-        $host = '127.0.0.1';
+        $$host = 'joncolab.mysql.ukraine.com.ua' ;
         $username = 'jonco_saladin';
         $userPassword = '2014';
         $db = 'jonco_trade';
