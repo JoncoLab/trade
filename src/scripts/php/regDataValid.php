@@ -10,7 +10,7 @@ $permitted = true;
 $host = 'joncolab.mysql.ukraine.com.ua' ;
 $username = 'joncolab_saladin';
 $password = '2014';
-$db = 'jonco_trade';
+$db = 'joncolab_trade';
 $connection = new mysqli($host, $username, $password, $db);
 
 if ($connection->connect_error) {

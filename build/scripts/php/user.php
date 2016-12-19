@@ -23,7 +23,7 @@ class User
         $host = 'joncolab.mysql.ukraine.com.ua' ;
         $username = 'joncolab_saladin';
         $userPassword = '2014';
-        $db = 'jonco_trade';
+        $db = 'joncolab_trade';
         $connection = new mysqli($host, $username, $userPassword, $db);
 
         if ($connection->connect_error) {
@@ -43,7 +43,7 @@ class User
         $host = 'joncolab.mysql.ukraine.com.ua' ;
         $username = 'joncolab_saladin';
         $userPassword = '2014';
-        $db = 'jonco_trade';
+        $db = 'joncolab_trade';
         $connection = new mysqli($host, $username, $userPassword, $db);
 
         if ($connection->connect_error) {
@@ -61,7 +61,7 @@ class User
         $host = 'joncolab.mysql.ukraine.com.ua' ;
         $username = 'joncolab_saladin';
         $userPassword = '2014';
-        $db = 'jonco_trade';
+        $db = 'joncolab_trade';
         $connection = new mysqli($host, $username, $userPassword, $db);
 
         if ($connection->connect_error) {
