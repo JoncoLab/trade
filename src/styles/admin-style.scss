@@ -1,9 +1,26 @@
 @import 'templates/variables.scss';
+
+$pink: darken($light, 20px);
+@keyframes header-scale-error {
+  50% {
+    transform: scale(1.5);
+    background-color: $bluegrey;
+  }
+  100% {
+    transform: scale(1);
+    background-color: $light;
+  }
+}
+
+.error {
+  animation-name: header-scale-error;
+  animation-duration: 1.5s;
+}
+
 .navbar {
     display: flex;
     justify-content: center;
     margin: $line * 2 0;
-
     button {
         padding: $line;
         background-color: darken($light, 20px);
@@ -20,20 +37,17 @@ body {
     margin: 0;
     width: 100%;
     min-width: 800px;
-
     .page-maker {
         width: 80%;
         margin: 0 auto;
     }
-
     table.users {
         border-collapse: collapse;
-        margin: 0 auto $line * 2;
+      margin: 0 auto;
+      width: 100%;
         position: relative;
-
         td,
         th {
-          
             border: $line / 10 solid $grey;
             padding: $line;
             input {
@@ -42,7 +56,6 @@ body {
             }
         }
         thead {
-            
             z-index: 2;
             tr {
                 th {
@@ -56,22 +69,15 @@ body {
             }
         }
         tbody {
-
             box-sizing: border-box;
             z-index: -1;
-            
-
             width: 100%;
-            
-             transition-property: transform;
-                transition-duration: 2s;
+          transition-property: transform;
+          transition-duration: 2s;
             tr {
                 box-sizing: border-box;
-              
-               
-                td {
-                     
-                }
+              td {
+              }
                 &:nth-of-type(2n) {
                     background-color: lighten(lightblue, 18px);
                 }
@@ -85,14 +91,27 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+      position: relative;
         button {
             padding: $line;
-            background-color: darken($light, 20px);
+          background-color: $pink;
             font: {
                 weight: bold;
             }
             cursor: pointer;
             border: 2px double darken($light, 30px);
+          &.send-article {
+            background-color: darken($pink, 10px);
+            font: {
+              size: $line * 2;
+            }
+          }
+          &.watch {
+            background-color: darken($pink, 10px);
+            font: {
+              size: $line * 1.5;
+            }
+          }
         }
         fieldset {
             border: none;
@@ -161,8 +180,7 @@ body {
                 input {}
             }
             input,
-            textarea
-            {
+            textarea {
                 border: none;
                 background: {
                     color: $light;
@@ -170,10 +188,54 @@ body {
                 padding: $line * 1.5;
             }
         }
+      article {
+        margin-top: $line;
+        padding: $line;
+        border: $line / 2 solid darken($light, 10px);
+        p {
+          line-height: $line * 2.2;
+          padding: 0 $line * 2;
+          &::first-letter {
+            padding-left: $line *3;
+            font: {
+              size: $line *2;
+              weight: bold;
+            }
+          }
+        }
+      }
     }
 }
 
 #DataTables_Table_0_wrapper {
+  text-align: center;
     display: none;
-    margin-bottom: $line * 3;
+  margin: $line * 3;
+
+  .dataTables_filter,
+  .dataTables_length,
+  .dataTables_paginate,
+  .dataTables_info {
+    display: inline-block;
+    float: none;
+    text-align: center;
+
+    margin: 0 $line $line;
+    padding: $line;
+
+    background-color: lighten(lightblue, 10px);
+
+    font: {
+      size: $line * 1.5;
+      family: Arial;
+      weight: bold;
+    }
+    text: {
+
+    }
+  }
+  .dataTables_paginate {
+    display: block;
+    background-color: white;
+  }
 }
