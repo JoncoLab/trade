@@ -28,6 +28,7 @@ body {
       color: fade_out($light, 0.2);
     }
     height: $line * 25;
+    position: relative;
 
     display: flex;
     justify-content: space-around;
@@ -68,9 +69,14 @@ body {
 
       .buttons {
         width: $line * 70;
+        min-height: $line * 10;
 
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+
 
         .reg,
         .log,
@@ -80,7 +86,7 @@ body {
             color: fade_out($olive, 0.1);
           }
           padding: $line;
-          margin: $line;
+          margin: 0 $line $line 0;
           flex-basis: 25%;
 
           font: {

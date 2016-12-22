@@ -12,11 +12,11 @@
     max-width: 80%;
     margin: 0 auto; 
 
-    -webkit-box-align: start; 
+    -webkit-box-align: end; 
 
-        -ms-flex-align: start; 
+        -ms-flex-align: end; 
 
-            align-items: flex-start;
+            align-items: flex-end;
 }
 .news .list,
 .news .articles
@@ -47,8 +47,11 @@
 }
 .news .list
 {
-    max-height: 500px; 
-    margin-right: 20px;
+    position: fixed;
+
+    max-width: 25%; 
+    max-height: 500px;
+    margin: 0 auto 0 0;
 
     -ms-flex-preferred-size: 30%;
 
@@ -111,8 +114,11 @@
 }
 .news .articles
 {
-    -ms-flex-preferred-size: 70%;
-        flex-basis: 70%;
+    margin: 0 0 0 auto; 
+
+    -ms-flex-preferred-size: 65%; 
+
+        flex-basis: 65%;
 }
 .news .articles article
 {

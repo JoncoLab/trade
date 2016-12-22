@@ -36,8 +36,12 @@ body
 }
 body main
 {
+    position: relative;
+
     display: -webkit-box;
+
     display: -ms-flexbox;
+
     display: flex;
 
     height: 250px;
@@ -107,12 +111,20 @@ body main .content .buttons
     display: flex;
 
     width: 700px;
+    min-height: 100px;
 
     -webkit-box-pack: center;
 
         -ms-flex-pack: center;
 
             justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
 }
 body main .content .buttons .reg,
 body main .content .buttons .log,
@@ -123,7 +135,7 @@ body main .content .buttons .admin
 
     display: block;
 
-    margin: 10px;
+    margin: 0 10px 10px 0;
     padding: 10px;
 
     text-align: center;
