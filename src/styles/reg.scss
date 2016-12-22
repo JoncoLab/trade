@@ -220,6 +220,13 @@ body {
             color: $olive;
           }
 
+          input:required + label {
+            &::before {
+              content: '*';
+              color: $olive;
+            }
+          }
+
           input,
           select {
             border: {

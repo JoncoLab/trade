@@ -275,6 +275,12 @@ body main #register fieldset .form-item label
 
     color: #4d5c33;
 }
+body main #register fieldset .form-item input:required + label::before
+{
+    content: '*';
+
+    color: #4d5c33;
+}
 body main #register fieldset .form-item input,
 body main #register fieldset .form-item select
 {

@@ -24,7 +24,7 @@
                     <legend>Паспортні дані</legend>
                     <div class="form-item">
                         <input  type="text" name="company-name" id="company-name" placeholder="ТОВ 'ЛісВас'">
-                        <label for="company-name">Назва компанії:</label>
+                        <label for="company-name">Повна назва:</label>
                     </div>
                     <div class="form-item edrpou">
                         <input  type="text" name="edrpou" id="edrpou" pattern="[1-9]{8}" placeholder="34655234">
@@ -219,8 +219,44 @@
                         <label for="password-confirm">Підтвердіть пароль:</label>
                     </div>
                 </fieldset>
+                <fieldset data-display="jur">
+                    <legend>Ваша юридична адреса адреса</legend>
+                    <p class="error-address">Ця адреса вже зареєстрована!</p>
+                    <div class="form-item">
+                        <input  type="text" name="j-country" id="j-country" placeholder="Україна">
+                        <label for="j-country">Країна:</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="text" name="j-region" id="j-region" placeholder="Закарпатська">
+                        <label for="j-region">Область:</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="text" name="j-district" id="j-district" placeholder="Мукачівський">
+                        <label for="j-district">Район:</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="text" name="j-city" id="j-city" placeholder="Мукачево">
+                        <label for="j-city">Ваше місто (село):</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="text" name="j-street" id="j-street" placeholder="Собранецька">
+                        <label for="j-street">Вулиця:</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="number" name="j-streetnum" id="j-streetnum" placeholder="100" min="1">
+                        <label for="j-streetnum">Номер будинку:</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="number" name="j-doornum" id="j-doornum" placeholder="100" min="1">
+                        <label for="j-doornum">Номер квартири:</label>
+                    </div>
+                    <div class="form-item">
+                        <input  type="text" name="j-zip" id="j-zip" placeholder="00000" pattern="[0-9]{5}">
+                        <label for="j-zip">Поштовий індекс:</label>
+                    </div>
+                </fieldset>
                 <fieldset data-display="fiz-jur">
-                    <legend>Ваша адреса</legend>
+                    <legend>Ваша поштова адреса</legend>
                     <p class="error-address">Ця адреса вже зареєстрована!</p>
                     <div class="form-item">
                         <input  type="text" name="country" id="country" placeholder="Україна">
@@ -252,7 +288,7 @@
                     </div>
                     <div class="form-item">
                         <input  type="text" name="zip" id="zip" placeholder="00000" pattern="[0-9]{5}">
-                        <label for="doornum">Поштовий індекс:</label>
+                        <label for="zip">Поштовий індекс:</label>
                     </div>
                 </fieldset>
                 <fieldset  data-display="fiz" class="docs">

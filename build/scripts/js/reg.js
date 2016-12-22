@@ -105,14 +105,23 @@ var main = function () {
                         $('#city').val().trim() + ', вул. ' +
                         $('#street').val().trim() + ', ' +
                         $('#streetnum').val().trim() + '/' +
-                        $('#doornum').val().trim();
+                        $('#doornum').val().trim(),
+                    jurAddress =
+                        $('#j-zip').val().trim() + ', ' +
+                        $('#j-country').val().trim() + ', ' +
+                        $('#j-region').val().trim() + ' область, ' +
+                        $('#j-district').val().trim() + ' район, ' +
+                        $('#j-city').val().trim() + ', вул. ' +
+                        $('#j-street').val().trim() + ', ' +
+                        $('#j-streetnum').val().trim() + '/' +
+                        $('#j-doornum').val().trim();
                 $.ajax({
                     url: 'scripts/php/regDataValid.php',
                     async: false,
                     type: 'POST',
                     dataType: 'text',
                     data: {
-                        value: address,
+                        value: jurAddress,
                         type: 'address'
                     },
                     success: function (data) {
