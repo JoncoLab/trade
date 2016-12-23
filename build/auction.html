@@ -66,73 +66,7 @@
                 });
             </script>
         </menu>
-        <div class="details">
-            <h2 class="head">Назва лоту <small class="number">№546</small></h2>
-            <section class="description">
-                <div class="start"><span>Початок торгів: </span><time datetime="12:12 10-10-2010"></time></div>
-                <div class="end"><span>Закінчення торгів: </span><time datetime="12:12 10-10-2010"></time></div>
-                <h3>Опис Товару</h3>
-                <p>Тут буде опис товару. Саня його читатиме. Ы ныхто, сука, крым Саны його не читатиме. Ми слабы. Ми ни хуя не доробили. Саурон забрав кыльце. Цей абзац треба не забути стерти.</p>
-            </section>
-            <section class="pricing">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Стартова</th>
-                            <th>Крок</th>
-                            <th>Ваша ставка</th>
-                            <th>Топ ставка</th>
-                            <th>Викупна</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>800000 грн.</td>
-                            <td>50000 грн.</td>
-                            <td>3450000 грн.</td>
-                            <td>3450000 грн.</td>
-                            <td>8975000 грн.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            <section class="actions">
-                <form class="leave">
-                    <button class="leave-button">Покинути торги</button>
-                    <dialog class="leave-dialog">
-                        <p>Are you sure?</p>
-                        <label for="leave">Здатися</label>
-                        <input type="submit" name="leave" id="leave">
-                        <button class="cancel-button">Скасувати</button>
-                    </dialog>
-                </form>
-                <form class="raise steps">
-                    <div class="fieldset">
-                        <label for="raise-by-steps">Підвищити на </label>
-                        <input type="number" name="raise-by-steps" id="raise-by-steps" min="1" max="100" step="1" required placeholder="17">
-                        <label for="raise-by-steps">крок(-ів)</label>
-                    </div>
-                    <label for="submit-steps">Підтвердити</label>
-                    <input type="submit" name="submit-steps" id="submit-steps">
-                </form>
-                <form class="raise amount">
-                    <div class="fieldset">
-                        <label for="raise-by-amount">Підвищити на </label>
-                        <input type="number" name="raise-by-amount" id="raise-by-amount" min="10000" max="1000000" step="10000" required placeholder="17">
-                        <label for="raise-by-amount">грн.</label>
-                    </div>
-                    <label for="submit-amount">Підтвердити</label>
-                    <input type="submit" name="submit-amount" id="submit-amount">
-                </form>
-            </section>
-        </div>
         <table class="auction-table">
-            <thead>
-            <tr>
-                <td class="logo" colspan="3"><img src="images/logo.png"></td>
-                <td class="name" colspan="6">Назва компанії</td>
-            </tr>
-            </thead>
             <tbody>
             <tr>
                 <td class="attribute" colspan="2">Продавець:</td>
@@ -169,7 +103,7 @@
                 <td class="value" colspan="2">915</td>
                 <td class="attribute">Покупець:</td>
                 <td class="value" colspan="2">505</td>
-                <td class="attribute">Крок:</td>
+                <td class="attribute">Розмір кроку:</td>
                 <td class="value">20</td>
             </tr>
             <tr>
@@ -177,6 +111,8 @@
                 <td class="value" colspan="2">955</td>
                 <td class="attribute">Остаточна вартість, <sup>грн.</sup>/<sub>лот</sub>, в т.ч. ПДВ:</td>
                 <td class="value" colspan="2">47750</td>
+                <td class="attribute">Крок:</td>
+                <td class="value">54</td>
             </tr>
             </tbody>
             <tfoot>
@@ -209,6 +145,35 @@
             </tr>
             </tfoot>
         </table>
+        <section class="actions">
+            <form class="leave">
+                <button class="leave-button">Покинути торги</button>
+                <dialog class="leave-dialog">
+                    <p>Are you sure?</p>
+                    <label for="leave">Здатися</label>
+                    <input type="submit" name="leave" id="leave">
+                    <button class="cancel-button">Скасувати</button>
+                </dialog>
+            </form>
+            <form class="raise steps">
+                <div class="fieldset">
+                    <label for="raise-by-steps">Підвищити на </label>
+                    <input type="number" name="raise-by-steps" id="raise-by-steps" min="1" max="100" step="1" required placeholder="17">
+                    <label for="raise-by-steps">крок(-ів)</label>
+                </div>
+                <label for="submit-steps">Підтвердити</label>
+                <input type="submit" name="submit-steps" id="submit-steps">
+            </form>
+            <form class="raise amount">
+                <div class="fieldset">
+                    <label for="raise-by-amount">Підвищити на </label>
+                    <input type="number" name="raise-by-amount" id="raise-by-amount" min="10000" max="1000000" step="10000" required placeholder="17">
+                    <label for="raise-by-amount">грн.</label>
+                </div>
+                <label for="submit-amount">Підтвердити</label>
+                <input type="submit" name="submit-amount" id="submit-amount">
+            </form>
+        </section>
         <div class="chat-info">
             <div class="chat admin">
                 <h2>Повідомлення адміністратора торгу</h2>
