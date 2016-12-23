@@ -80,7 +80,10 @@ body {
 
         .reg,
         .log,
-        .admin {
+        .admin,
+        .about,
+        .info,
+        .partners {
           display: block;
           background: {
             color: fade_out($olive, 0.1);

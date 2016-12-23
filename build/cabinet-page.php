@@ -54,7 +54,7 @@ $user = User::getUserById($_SESSION["id"]);
         <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
             <ul class="menu">
                 <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
-                <li><img class="ico" src="SVG/hammer2-light.svg"><a href="lots.php">Наявні лоти</a></li>
+                <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.html">Аукціон</a></li>
                 <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
                 <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.html">Новини проекту</a></li>
                 <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
@@ -87,7 +87,6 @@ $user = User::getUserById($_SESSION["id"]);
                 </section>
                 <section class="access">
                     <h2>Доступ до торгів</h2>
-                    <a href="auction.html" class="auction">Перейти до аукціону</a>
                     <ul class="accessable">
                         <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
                         <li><span class="lot-num">Номер лоту: <strong id="drag2" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>

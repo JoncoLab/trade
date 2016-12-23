@@ -162,11 +162,11 @@
     background-color: #4d5c33;
     box-shadow: 0 -2px 10px 0 #020718 inset; 
 
-    -webkit-box-pack: justify; 
+    -webkit-box-pack: center; 
 
-        -ms-flex-pack: justify; 
+        -ms-flex-pack: center; 
 
-            justify-content: space-between;
+            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;

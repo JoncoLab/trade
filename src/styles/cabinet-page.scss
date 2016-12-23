@@ -62,17 +62,6 @@
         .access {
             margin: 0 0 0 $line * 2;
 
-            .auction {
-                display: block;
-                text: {
-                    align: center;
-                    decoration: none;
-                    transform: uppercase;
-                }
-                @include button();
-                color: $light;
-            }
-
             .accessable {
                 margin: 0;
                 padding: $line 0;

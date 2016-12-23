@@ -84,47 +84,6 @@
 {
     margin: 0 0 0 20px;
 }
-.cabinet-content .layout .access .auction
-{
-    font-weight: bold;
-
-    display: block;
-
-    margin: 10px;
-    padding: 10px;
-
-    cursor: pointer;
-    -webkit-transition-timing-function: linear;
-            transition-timing-function: linear;
-    -webkit-transition-duration: .15s;
-            transition-duration: .15s;
-    -webkit-transition-property: opacity;
-    transition-property: opacity;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-
-    opacity: .9;
-    color: #f7ecf3; 
-    border: none;
-    border-radius: 10px;
-    background-image: -webkit-linear-gradient(top, #020718, rgba(2, 7, 24, .8));
-    background-image: linear-gradient(to bottom, #020718, rgba(2, 7, 24, .8));
-}
-.cabinet-content .layout .access .auction:active,
-.cabinet-content .layout .access .auction:focus
-{
-    outline: none;
-}
-.cabinet-content .layout .access .auction:active
-{
-    background-image: -webkit-linear-gradient(bottom, #020718, rgba(2, 7, 24, .8));
-    background-image: linear-gradient(to top, #020718, rgba(2, 7, 24, .8));
-}
-.cabinet-content .layout .access .auction:hover
-{
-    opacity: 1;
-}
 .cabinet-content .layout .access .accessable
 {
     margin: 0;

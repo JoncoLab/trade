@@ -38,7 +38,6 @@ $user = User::getUserById($_SESSION["id"]);
                 </section>
                 <section class="access">
                     <h2>Доступ до торгів</h2>
-                    <a href="auction.html" class="auction">Перейти до аукціону</a>
                     <ul class="accessable">
                         <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
                         <li><span class="lot-num">Номер лоту: <strong id="drag2" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>

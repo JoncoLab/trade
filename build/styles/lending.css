@@ -128,7 +128,10 @@ body main .content .buttons
 }
 body main .content .buttons .reg,
 body main .content .buttons .log,
-body main .content .buttons .admin
+body main .content .buttons .admin,
+body main .content .buttons .about,
+body main .content .buttons .info,
+body main .content .buttons .partners
 {
     font-size: 25px;
     font-weight: bold;
@@ -152,7 +155,10 @@ body main .content .buttons .admin
 }
 body main .content .buttons .reg:hover,
 body main .content .buttons .log:hover,
-body main .content .buttons .admin:hover
+body main .content .buttons .admin:hover,
+body main .content .buttons .about:hover,
+body main .content .buttons .info:hover,
+body main .content .buttons .partners:hover
 {
     background-color: #4d5c33;
 }
