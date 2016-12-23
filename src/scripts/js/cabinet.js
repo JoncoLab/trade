@@ -2,7 +2,7 @@
 
 var main = function () {
     $('button.add-docs').click(function () {
-        var docs = $('.load-docs');
+        var docs = $('#load-docs');
         docs.slideToggle(300);
         if (docs.css('display') === 'block') {
             docs.css('display', 'flex');
@@ -11,12 +11,15 @@ var main = function () {
 
     var input = document.getElementById('files');
     input.addEventListener('change', function () {
-        var html = '<ul>';
+        var html = '';
         for (var i = 0; i < this.files.length; i++) {
-            html += '<li>' + this.files[i].name + ' - ' + this.files[i].size + '</li>'
+            html += '<figure><img src="SVG/doc.svg"><figcaption>' + this.files[i].name + '</figcaption></figure>'
         }
-        html += '</ul>';
         $('.files').html(html);
+    });
+
+    $('#reset').click(function () {
+        $('.files').empty();
     });
 };
 

@@ -12,6 +12,11 @@ body {
     display: flex;
     flex-direction: column;
 
+    overflow: {
+        x: hidden;
+        y: scroll;
+    }
+
     transition: {
         duration: $time * 3;
         property:
