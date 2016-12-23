@@ -9,42 +9,15 @@ var main = function () {
         }
     });
 
-    var $dropZone = $('#drop-files'),
-        bg = $dropZone.css('background-color'),
-        border = $dropZone.css('border-style');
-
-    $dropZone.droppable();
-
-    $dropZone.on({
-        dragenter: function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            $(this).css({
-                'background-color': 'white',
-                'border-style': 'solid'
-            });
-        },
-        dragover: function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        },
-        dragleave: function () {
-            $(this).css({
-                'background-color': bg,
-                'border-style': border
-            });
-        },
-        mouseleave: function () {
-            $(this).css({
-                'background-color': bg,
-                'border-style': border
-            });
+    var input = document.getElementById('files');
+    input.addEventListener('change', function () {
+        var html = '<ul>';
+        for (var i = 0; i < this.files.length; i++) {
+            html += '<li>' + this.files[i].name + ' - ' + this.files[i].size + '</li>'
         }
+        html += '</ul>';
+        $('.files').html(html);
     });
-},
-    doDrop = function (event) {
-        var dt = DataTransfer;
-        alert(dt);
-    };
+};
 
 $(document).ready(main);

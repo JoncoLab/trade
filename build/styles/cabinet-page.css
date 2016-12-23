@@ -236,7 +236,7 @@
 
             justify-content: space-between;
 }
-.cabinet-content .load-docs #drop-files
+.cabinet-content .load-docs .files
 {
     display: -webkit-box;
     display: -ms-flexbox;

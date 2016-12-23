@@ -50,14 +50,19 @@ $user = User::getUserById($_SESSION["id"]);
                 </section>
             </div>
             <section class="load-docs">
-                <div id="drop-files" ondrop="event.preventDefault(); event.stopPropagation(); doDrop(event);"></div>
+                <div class="files">
+                    <figure>
+                        <img src="SVG/doc.svg" alt="doc">
+                        <figcaption>document.doc</figcaption>
+                    </figure>
+                </div>
                 <div class="actions">
                     <label for="files">Виберіть файли з комп'ютера</label>
-                    <input type="file" name="files" id="files" value="Завантажити" form="send-docs" accept="" multiple required>
+                    <input type="file" name="files[]" id="files" value="Завантажити" form="send-docs" multiple required>
                     <label for="reset">Очистити</label>
                     <input type="reset" name="reset" id="reset" value="Очистити" form="send-docs">
                 </div>
-                <form method="post" id="send-docs" name="send-docs">
+                <form method="post" id="send-docs" name="send-docs" enctype="multipart/form-data">
                     <label for="submit">Прикріпити та надіслати завантажені документи</label>
                     <input type="submit" name="submit" id="submit" value="Прикріпити та надіслати завантажені документи">
                 </form>
