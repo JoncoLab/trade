@@ -1,13 +1,17 @@
 var main = function () {
+    var currentForm = null;
     $('#jur, #fiz').click(function () {
         var target = $('input:checked').attr('id'),
-            targetFields = 'fieldset[data-display*="' + target + '"]',
-            otherFields = 'fieldset:not([data-display*="' + target + '"])';
-        $(targetFields + ' input, ' + targetFields + ' select').attr('required', 'required');
-        $(otherFields + ' input, ' + otherFields + ' select').removeAttr('required');
-        $('input:not([type="submit"]):not([type="reset"]), select').val('');
-        $(targetFields).slideDown(300);
-        $(otherFields).slideUp(300);
+            form = $('#register');
+        if (currentForm !== target) {
+            form.slideUp(500, function () {
+                form.load(target + '.html', function () {
+                    form.slideDown(500);
+                    form.css('display', 'flex');
+                });
+            });
+            currentForm = target;
+        }
     });
     $('#register').submit(function () {
         $.mail_permission = false;

@@ -204,8 +204,6 @@ body main #register
 }
 body main #register fieldset
 {
-    display: none;
-
     margin: 0 0 5px; 
 
     border-width: 5px;
