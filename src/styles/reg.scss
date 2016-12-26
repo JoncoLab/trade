@@ -285,46 +285,45 @@ body {
             }
           }
         }
-      }
-    }
 
-    > .buttons {
-      display: none;
-      margin: $line auto;
-      border: none;
-      padding: 0;
-
-      #submit,
-      #reset {
-        background: {
-          color: fade_out($olive, 0.1);
-        }
-        padding: $line;
-        margin: $line;
-        flex-basis: 25%;
-        font: {
-          weight: bold;
-          size: $line * 1.5;
-        }
-        text: {
-          decoration: none;
-          align: center;
-        }
-        color: $light;
-        border: none;
-        border-radius: $line;
-
-        cursor: pointer;
-
-        &:hover {
-          background: {
-            color: $olive;
-          }
-        }
-        &:active,
-        &:focus {
-          outline: none;
+        &.buttons {
+          margin: $line auto;
           border: none;
+          padding: 0;
+
+          #submit,
+          #reset {
+            background: {
+              color: fade_out($olive, 0.1);
+            }
+            padding: $line;
+            margin: $line;
+            flex-basis: 25%;
+            font: {
+              weight: bold;
+              size: $line * 1.5;
+            }
+            text: {
+              decoration: none;
+              align: center;
+            }
+            color: $light;
+            border: none;
+            border-radius: $line;
+
+            cursor: pointer;
+
+            &:hover {
+              background: {
+                color: $olive;
+              }
+            }
+            &:active,
+            &:focus {
+              outline: none;
+              border: none;
+            }
+          }
         }
       }
     }

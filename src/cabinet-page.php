@@ -19,7 +19,6 @@ $user = User::getUserById($_SESSION["id"]);
 <body>
     <header>
         //= modules/logo.html
-        //= modules/reg-log.html
     </header>
     <main>
         //= modules/menu.html
@@ -28,8 +27,8 @@ $user = User::getUserById($_SESSION["id"]);
                 <section class="my-info">
                     <h2>Ваші дані</h2>
                     <ul>
-                        <li class="name"><?php print $user->name;?></li>
-                        <li class="number"><?php print $user->number;?></li>
+                        <li class="name"><?php print $user->full_name;?></li>
+                        <li class="number"><?php print $user->tel;?></li>
                         <li class="mail"><?php print $user->email;?></li>
                         <li class="registration-date" title="Дата реєстрації">21.01.2017</li>
                     </ul>

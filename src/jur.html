@@ -1,31 +1,32 @@
 <fieldset>
     <legend>Юридичні дані</legend>
+    <p class="error-name">Ця компанія вже зареєстрована!</p>
     <div class="form-item">
-        <input type="text" name="company-name" id="company-name" placeholder="Товариство з Обмеженою Відповідальністю 'ЛісВас'" required>
-        <label for="company-name">Повна назва:</label>
+        <input type="text" name="full-name" id="full-name" placeholder="Товариство з Обмеженою Відповідальністю 'ЛісВас'" required>
+        <label for="full-name">Повна назва:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="company-minname" id="company-minname" placeholder="ТОВ 'ЛісВас'" required>
-        <label for="company-name">Скорочена назва:</label>
+        <input type="text" name="short-name" id="short-name" placeholder="ТОВ 'ЛісВас'" required>
+        <label for="short-name">Скорочена назва:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="pp-name" id="pp-name" placeholder="Іван Остапенко Юрійович" required>
-        <label for="company-name">В особі:</label>
+        <input type="text" name="person" id="person" placeholder="Іван Остапенко Юрійович" required>
+        <label for="person">В особі:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="fiz-name" id="fiz-name" placeholder="Статуту" required>
-        <label for="company-name">Діє на підставі:</label>
+        <input type="text" name="reason" id="reason" placeholder="Статуту" required>
+        <label for="reason">Діє на підставі:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="id-name" id="id-name" placeholder="1234567899" required>
-        <label for="company-name">Ідентифікаційний номер:</label>
+        <input type="text" name="ind" id="ind" placeholder="1234567899" pattern="[0-9]{10}" required>
+        <label for="ind">Індентифікаційний номер:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="doc-name" id="doc-name" placeholder="Назва для документів" required>
-        <label for="company-name">Скорочено для документів:</label>
+        <input type="text" name="docs-name" id="docs-name" placeholder="Назва для документів" required>
+        <label for="docs-name">Скорочено для документів:</label>
     </div>
     <div class="form-item edrpou">
-        <input type="text" name="edrpou" id="edrpou" pattern="[1-9]{8}" placeholder="34655234" required>
+        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8}" placeholder="34655234" required>
         <label for="edrpou">ЄДРПОУ:</label>
     </div>
 </fieldset>
@@ -89,7 +90,7 @@
 </fieldset>
 <fieldset>
     <legend>Ваша поштова адреса</legend>
-    <p class="error-address">Ця адреса вже зареєстрована!</p>
+    <p class="error-post">Коректно заповніть поштову адресу, або залиште всі поля пустими!</p>
     <div class="form-item">
         <input  type="text" name="country" id="country" placeholder="Україна">
         <label for="country">Країна:</label>

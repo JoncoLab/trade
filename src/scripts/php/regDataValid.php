@@ -7,7 +7,7 @@
  */
 
 $permitted = true;
-$host = 'joncolab.mysql.ukraine.com.ua' ;
+$host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';
 $password = '2014';
 $db = 'joncolab_trade';
@@ -20,13 +20,16 @@ if ($connection->connect_error) {
     $value = $_POST["value"];
     switch ($type) {
         case 'number':
-            $sql = "SELECT number FROM registered WHERE number='" . $value . "'";
+            $sql = "SELECT tel FROM registered WHERE tel='" . $value . "'";
             break;
         case 'address':
-            $sql = "SELECT address FROM registered WHERE address='" . $value . "'";
+            $sql = "SELECT `j-address` FROM registered WHERE `j-address`='" . $value . "'";
             break;
         case 'email':
             $sql = "SELECT email FROM registered WHERE email='" . $value . "'";
+            break;
+        case 'name':
+            $sql = "SELECT full_name FROM registered WHERE full_name='" . $value . "'";
             break;
         default:
             echo 'error';

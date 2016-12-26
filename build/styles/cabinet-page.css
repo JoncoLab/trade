@@ -166,6 +166,8 @@
 {
     font-size: 20px;
 
+    max-width: 40%; 
+
     text-align: center;
 }
 .cabinet-content .layout .my-info .user-id

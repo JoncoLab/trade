@@ -344,17 +344,15 @@ body main #register fieldset.docs .form-item label
 {
     font-weight: bold;
 }
-body main > .buttons
+body main #register fieldset.buttons
 {
-    display: none;
-
     margin: 10px auto;
     padding: 0; 
 
     border: none;
 }
-body main > .buttons #submit,
-body main > .buttons #reset
+body main #register fieldset.buttons #submit,
+body main #register fieldset.buttons #reset
 {
     font-size: 15px;
     font-weight: bold;
@@ -375,15 +373,15 @@ body main > .buttons #reset
 
         flex-basis: 25%;
 }
-body main > .buttons #submit:hover,
-body main > .buttons #reset:hover
+body main #register fieldset.buttons #submit:hover,
+body main #register fieldset.buttons #reset:hover
 {
     background-color: #4d5c33;
 }
-body main > .buttons #submit:active,
-body main > .buttons #submit:focus,
-body main > .buttons #reset:active,
-body main > .buttons #reset:focus
+body main #register fieldset.buttons #submit:active,
+body main #register fieldset.buttons #submit:focus,
+body main #register fieldset.buttons #reset:active,
+body main #register fieldset.buttons #reset:focus
 {
     border: none; 
     outline: none;

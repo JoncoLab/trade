@@ -22,33 +22,6 @@ $user = User::getUserById($_SESSION["id"]);
             <img src="images/logo.png" alt="Логотип">
             <h1>Назва компанії</h1>
         </div>
-        <!--<div class="reg-log">-->
-            <!--<button class="login">Увійти</button>-->
-            <!--<button class="signup">Зареєструватися</button>-->
-            <!--<dialog class="login" open>-->
-                <!--<form class="login-form">-->
-                    <!--<label for="login">Ваш логін:</label>-->
-                    <!--<input required type="email" name="login" id="login" placeholder="Ваш логін (ел. пошта)" autocomplete="on">-->
-                    <!--<label for="password-in">Ваш пароль:</label>-->
-                    <!--<input required type="password" name="password-in" id="password-in" placeholder="Ваш пароль" required>-->
-                    <!--<label for="remember">-->
-                        <!--<div class="checkbox"></div><span>Запам'ятати мене</span> </label>-->
-                    <!--<input type="checkbox" id="remember" name="remember" checked>-->
-                    <!--<input type="submit" value="Увійти до кабінету">-->
-                <!--</form>-->
-                <!--<script>-->
-                    <!--$(document).ready(function () {-->
-                        <!--$('button.login').click(function () {-->
-                            <!--$('dialog.login').fadeToggle(300);-->
-                        <!--});-->
-                        <!--$('label[for="remember"]').click(function () {-->
-                            <!--$(this).children('.checkbox').toggleClass('checked');-->
-                        <!--});-->
-                    <!--});-->
-                <!--</script>-->
-            <!--</dialog>-->
-            <!--<dialog class="signup"></dialog>-->
-        <!--</div>-->
     </header>
     <main>
         <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
@@ -77,8 +50,8 @@ $user = User::getUserById($_SESSION["id"]);
                 <section class="my-info">
                     <h2>Ваші дані</h2>
                     <ul>
-                        <li class="name"><?php print $user->name;?></li>
-                        <li class="number"><?php print $user->number;?></li>
+                        <li class="name"><?php print $user->full_name;?></li>
+                        <li class="number"><?php print $user->tel;?></li>
                         <li class="mail"><?php print $user->email;?></li>
                         <li class="registration-date" title="Дата реєстрації">21.01.2017</li>
                     </ul>

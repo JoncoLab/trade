@@ -7,7 +7,7 @@
  */
 
 $permitted = true;
-$host = 'joncolab.mysql.ukraine.com.ua' ;
+$host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';
 $password = '2014';
 $db = 'joncolab_trade';
