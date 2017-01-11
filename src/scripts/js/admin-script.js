@@ -68,7 +68,7 @@ main = function () {
             $('article.preview').dblclick(function () {
                 $(this).remove();
                 $('fieldset').show();
-            })
+            });
         });
     });
 };
