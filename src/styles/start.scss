@@ -1,0 +1,67 @@
+@import "templates/variables.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: {
+    color: fade_out($bluegrey, 0.8);
+    image: url("../images/bgledn.png");
+    size: 100% 100%;
+    repeat: no-repeat;
+    position: center;
+    blend-mode: overlay;
+  }
+
+  main {
+    background: {
+      color: fade_out($light, 0.2);
+    }
+    height: $line * 25;
+    position: relative;
+
+    display: flex;
+    justify-content: space-around;
+
+    .reg,
+    .log {
+      display: block;
+      background: {
+        color: fade_out($olive, 0.1);
+      }
+      padding: $line;
+      margin: 0 $line $line 0;
+      flex-basis: 25%;
+
+      font: {
+        weight: bold;
+        size: $line * 2.5;
+      }
+      text: {
+        decoration: none;
+        align: center;
+      }
+      color: $light;
+
+      border-radius: $line;
+
+      box-shadow: $line / 5 $line / 5 $line / 2 0 $dark;
+
+      &:hover {
+        background: {
+          color: $olive
+        }
+      }
+    }
+  }
+}

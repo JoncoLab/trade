@@ -18,6 +18,12 @@ body {
     blend-mode: overlay;
   }
 
+  @include scroll();
+  overflow: {
+    x: hidden;
+    y: scroll;
+  }
+
   main {
     height: 100%;
     display: flex;

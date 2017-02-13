@@ -210,13 +210,14 @@
 {
     list-style-image: url('../SVG/calendar.svg');
 }
-.cabinet-content .layout .my-info .add-docs,
-.cabinet-content .layout .my-info .application
+.cabinet-content .layout .my-info .add-docs
 {
+    font-size: 15px; 
     font-weight: bold;
 
+    width: 90%;
     margin: 10px;
-    margin: 0 0 10px; 
+    margin: 0 auto 10px;
     padding: 10px;
 
     cursor: pointer;
@@ -235,31 +236,18 @@
     background-image: linear-gradient(to bottom, #020718, rgba(2, 7, 24, .8));
 }
 .cabinet-content .layout .my-info .add-docs:active,
-.cabinet-content .layout .my-info .add-docs:focus,
-.cabinet-content .layout .my-info .application:active,
-.cabinet-content .layout .my-info .application:focus
+.cabinet-content .layout .my-info .add-docs:focus
 {
     outline: none;
 }
-.cabinet-content .layout .my-info .add-docs:active,
-.cabinet-content .layout .my-info .application:active
+.cabinet-content .layout .my-info .add-docs:active
 {
     background-image: -webkit-linear-gradient(bottom, #020718, rgba(2, 7, 24, .8));
     background-image: linear-gradient(to top, #020718, rgba(2, 7, 24, .8));
 }
-.cabinet-content .layout .my-info .add-docs:hover,
-.cabinet-content .layout .my-info .application:hover
+.cabinet-content .layout .my-info .add-docs:hover
 {
     opacity: 1;
-}
-.cabinet-content .layout .my-info .application
-{
-    font-size: 13px;
-
-    display: inline-block;
-
-    text-decoration: none; 
-    text-transform: none;
 }
 .cabinet-content #load-docs
 {

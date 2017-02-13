@@ -48,13 +48,12 @@ body {
       flex-grow: 4;
       display: flex;
       flex-direction: column;
-      //justify-content: space-around;
       align-items: flex-start;
 
       .name {
-        width: $line * 70;
+        width: $line * 80;
         color: $olive;
-        margin: $line * 4 0 0 0;
+        margin: $line 0 0;
         font: {
           size: $line * 7;
         }
@@ -68,23 +67,18 @@ body {
       }
 
       .buttons {
-        width: $line * 70;
+        width: $line * 80;
         min-height: $line * 10;
 
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        align-items: flex-start;
-        align-content: flex-start;
 
-
-        .reg,
-        .log,
-        .admin,
-        .about,
-        .info,
-        .partners {
-          display: block;
+        .start,
+        .ztsb,
+        .rules {
+          display: flex;
+          align-items: center;
           background: {
             color: fade_out($olive, 0.1);
           }

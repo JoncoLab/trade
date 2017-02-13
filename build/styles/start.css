@@ -1,0 +1,82 @@
+html,
+body
+{
+    width: 100%;
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    position: relative;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    background-color: rgba(59, 82, 94, .2);
+    background-image: url('../images/bgledn.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+
+    -webkit-box-pack: center;
+
+        -ms-flex-pack: center;
+
+            justify-content: center;
+    background-blend-mode: overlay;
+}
+body main
+{
+    position: relative;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    height: 250px;
+
+    background-color: rgba(247, 236, 243, .8);
+
+    -ms-flex-pack: distribute;
+
+        justify-content: space-around;
+}
+body main .reg,
+body main .log
+{
+    font-size: 25px;
+    font-weight: bold;
+
+    display: block;
+
+    margin: 0 10px 10px 0;
+    padding: 10px;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #f7ecf3;
+    border-radius: 10px;
+    background-color: rgba(77, 92, 51, .9);
+    box-shadow: 2px 2px 5px 0 #020718; 
+
+    -ms-flex-preferred-size: 25%; 
+
+        flex-basis: 25%;
+}
+body main .reg:hover,
+body main .log:hover
+{
+    background-color: #4d5c33;
+}

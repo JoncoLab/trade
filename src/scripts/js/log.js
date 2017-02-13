@@ -31,7 +31,7 @@ var main = function () {
                                 $('main').empty().html(
                                     '<h1>Виникла проблема!</h1>' +
                                     '<p class="status" style="font-size: 30px; font-weight: bold; margin: 0 auto; padding: 10px; text-align: center;">Не вдалося підключитися до бази даних:' +
-                                    '<br>Спробуйте <a href="reg.html">Перезавантажити сторінку.</a>' +
+                                    '<br>Спробуйте <a href="log.html">Перезавантажити сторінку.</a>' +
                                     '<br>Якщо проблема не зникне, зверніться, будь ласка, до адміністрації сайту.</p>');
                         }
                     },
@@ -39,7 +39,7 @@ var main = function () {
                         $('main').empty().html(
                             '<h1>Виникла проблема!</h1>' +
                             '<p class="status" style="font-size: 30px; font-weight: bold; margin: 0 auto; padding: 10px; text-align: center;">Сервер надіслав відповідь "' + text + '":<br>' + xhr.status + ' - ' + description + '<br>' +
-                            'Спробуйте <a href="reg.html">Перезавантажити сторінку.</a><br>Якщо проблема не зникне, зверніться, будь ласка, до адміністрації сайту.</p>'
+                            'Спробуйте <a href="log.html">Перезавантажити сторінку.</a><br>Якщо проблема не зникне, зверніться, будь ласка, до адміністрації сайту.</p>'
                         );
                     }
                 });

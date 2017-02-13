@@ -69,3 +69,29 @@ $olive: #4d5c33;
     opacity: 1;
   }
 }
+
+@mixin checkbox($size: $line) {
+  display: none;
+
+  ~ .checkbox {
+    display: inline-block;
+    height: $size;
+    width: $size;
+    margin: 0 $line;
+    background: {
+      image: url('../SVG/checkbox-unchecked.svg');
+      size: contain;
+      repeat: no-repeat;
+      position: center;
+    }
+
+    transition: {
+      duration: $time / 2;
+      timing-function: linear;
+    }
+  }
+
+  &:checked ~ .checkbox {
+    background-image: url('../SVG/checkbox-checked.svg');
+  }
+}

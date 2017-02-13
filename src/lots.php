@@ -30,7 +30,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -42,7 +42,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -54,7 +54,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -66,7 +66,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -78,7 +78,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -90,7 +90,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -102,7 +102,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -114,7 +114,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -126,7 +126,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -138,7 +138,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -150,7 +150,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -162,7 +162,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -174,7 +174,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -186,7 +186,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -198,7 +198,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
                 <li class="lot">
                     <img src="images/drova.png">
@@ -210,7 +210,7 @@
                         <p class="description">The fourth paragraph is probably the first paragraph you won't ever read</p>
                         <p class="description">The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. The fifth paragraph. </p>
                     </article>
-                    <a class="apply" href="application.html">Подати заяву</a>
+                    <a class="apply" href="application.php">Подати заяву</a>
                 </li>
             </ul>
         </div>

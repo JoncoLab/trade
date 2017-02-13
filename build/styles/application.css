@@ -1,0 +1,469 @@
+.app
+{
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+
+    color: #020718;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #020718;
+    border-radius: 10px;
+    background-color: #f7ecf3;
+}
+.app h2
+{
+    line-height: 1; 
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #97a29e;
+    background-color: #020718;
+}
+.app h2 span
+{
+    display: inline-block;
+
+    margin: 5px 0 0 0;
+}
+.app h2 small
+{
+    font-size: 15px;
+    font-weight: normal;
+
+    display: inline-block;
+
+    margin: 0 0 10px 0;
+}
+.app h2 small a
+{
+    color: #f7ecf3;
+}
+.app h2 small a:active,
+.app h2 small a:focus
+{
+    color: #4d5c33;
+}
+.app h2 small#trader-number
+{
+    font-size: 20px;
+    font-weight: bold;
+
+    display: inline-block;
+    float: right; 
+
+    margin: -5px -5px 0 0;
+    padding: 28px 10px;
+
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #3b525e;
+}
+.app .payment-info
+{
+    margin: 0; 
+    padding: 10px 10px 0 10px;
+
+    color: red;
+}
+.app .payment-info .five-percent
+{
+    font-size: 25px;
+    line-height: 1;
+
+    float: right;
+
+    padding: 0 20px 0 0;
+
+    text-align: center; 
+
+    color: #4d5c33;
+}
+.app h3
+{
+    margin: 0;
+    padding: 10px 0 0 0;
+
+    text-align: center;
+}
+.app h3 small
+{
+    font-weight: normal; 
+    line-height: 1.3;
+
+    display: inline-block;
+}
+.app .head-info
+{
+    width: 100%;
+    max-width: 1250px;
+    margin: 5px auto 0;
+    padding: 0;
+
+    border-collapse: collapse;
+
+    border-top: 2px solid #020718;
+    border-bottom: 2px solid #020718;
+}
+.app .head-info td
+{
+    padding: 10px;
+
+    vertical-align: middle; 
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #020718;
+}
+.app .head-info td:first-child,
+.app .head-info td:last-child
+{
+    border-right: none; 
+    border-left: none;
+}
+.app .head-info td.field-name
+{
+    font-weight: bold; 
+
+    text-align: right;
+
+    border-right: none;
+}
+.app .head-info td.field-value
+{
+    padding: 0; 
+
+    border-left: none;
+}
+.app .head-info td.field-value input
+{
+    font-weight: bold; 
+
+    display: block;
+    float: left;
+
+    width: 90%;
+    height: 40px;
+    margin: 0;
+    padding: 0 0 0 10px;
+
+    border: none;
+    background-color: transparent;
+}
+.app .head-info td.field-value input[type='number']
+{
+    text-align: center;
+}
+.app .head-info td.field-value input:focus,
+.app .head-info td.field-value input:active
+{
+    border: none;
+    outline: none;
+}
+.app .head-info td.field-value[rowspan='2'] input
+{
+    height: 80px;
+}
+.app .head-info td.field-value.auto input
+{
+    font-weight: bold; 
+
+    color: deepskyblue;
+}
+.app .rules
+{
+    margin: 0 10px;
+    padding: 10px 0 0;
+
+    list-style-position: inside;
+}
+.app .rules > li
+{
+    font-weight: bold;
+
+    padding: 10px 0 0;
+}
+.app .rules > li > *
+{
+    font-weight: normal;
+}
+.app .rules > li .lots
+{
+    width: 100%;
+    margin: 10px 0 0; 
+
+    border-collapse: collapse;
+}
+.app .rules > li .lots thead th
+{
+    text-align: center;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #020718;
+}
+.app .rules > li .lots thead th:not([rowspan='2'])
+{
+    padding: 5px 0;
+}
+.app .rules > li .lots tbody tr
+{
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+            transition-duration: .15s;
+}
+.app .rules > li .lots tbody tr.checked
+{
+    color: #f7ecf3; 
+    background-color: #3b525e;
+}
+.app .rules > li .lots tbody tr td
+{
+    padding: 5px 0; 
+
+    text-align: center;
+
+    border-bottom: 1px solid #020718;
+}
+.app .rules > li .lots tbody tr td:first-child
+{
+    font-weight: bold;
+}
+.app .rules > li .lots tbody tr td.check
+{
+    display: none;
+}
+.app .rules > li ol
+{
+    margin: 0;
+    padding: 0;
+
+    list-style-type: lower-alpha;
+}
+.app .rules > li ol li
+{
+    font-weight: bold;
+
+    padding: 10px 0 0;
+}
+.app .rules > li ol li > *
+{
+    font-weight: normal;
+}
+.app .rules > li ol li:not(:first-child)
+{
+    padding-left: 1.1em;
+}
+.app .rules > li .rules-accepted
+{
+    font-weight: bold; 
+
+    display: -webkit-inline-box; 
+
+    display: -ms-inline-flexbox; 
+
+    display: inline-flex;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+}
+.app .rules > li .rules-accepted #rules-accepted
+{
+    display: none;
+}
+.app .rules > li .rules-accepted #rules-accepted ~ .checkbox
+{
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+
+    -webkit-transition-timing-function: linear;
+
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+            transition-duration: .15s;
+
+    background-image: url('../SVG/checkbox-unchecked.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.app .rules > li .rules-accepted #rules-accepted:checked ~ .checkbox
+{
+    background-image: url('../SVG/checkbox-checked.svg');
+}
+.app .rules > li span
+{
+    padding: 10px 0 0;
+}
+.app .rules > li span:not(:first-child)
+{
+    padding-left: 1.1em;
+}
+.app .rules > li span.bank-details
+{
+    color: #97a29e;
+}
+.app .remark
+{
+    font-size: 15px; 
+
+    margin: 0;
+    padding: 10px 5px 0;
+}
+.app .agreement
+{
+    font-weight: bold; 
+
+    display: -webkit-box; 
+
+    display: -ms-flexbox; 
+
+    display: flex;
+
+    padding: 10px 10px;
+
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
+}
+.app .agreement .signature
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-align: center;
+
+        -ms-flex-align: center;
+
+            align-items: center;
+}
+.app .agreement .signature #agreed
+{
+    display: none;
+}
+.app .agreement .signature #agreed ~ .checkbox
+{
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+
+    -webkit-transition-timing-function: linear;
+
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+            transition-duration: .15s;
+
+    background-image: url('../SVG/checkbox-unchecked.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.app .agreement .signature #agreed:checked ~ .checkbox
+{
+    background-image: url('../SVG/checkbox-checked.svg');
+}
+.app #application
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    height: 50px;
+
+    background: #020718;
+
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
+}
+.app #application input
+{
+    display: none;
+}
+.app #application label
+{
+    font-weight: bold;
+
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    margin: 10px;
+    margin: 5px 0 0 0;
+    padding: 10px;
+
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+            transition-timing-function: linear;
+    -webkit-transition-duration: .15s;
+            transition-duration: .15s;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+
+    opacity: .9;
+    border: none;
+    border-radius: 10px;
+    border-top-left-radius: 0; 
+    border-top-right-radius: 0;
+    background-image: -webkit-linear-gradient(top, #f7ecf3, rgba(247, 236, 243, .8));
+    background-image: linear-gradient(to bottom, #f7ecf3, rgba(247, 236, 243, .8));
+
+    -webkit-box-flex: 5;
+
+        -ms-flex-positive: 5;
+
+            flex-grow: 5;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.app #application label:active,
+.app #application label:focus
+{
+    outline: none;
+}
+.app #application label:active
+{
+    background-image: -webkit-linear-gradient(bottom, #f7ecf3, rgba(247, 236, 243, .8));
+    background-image: linear-gradient(to top, #f7ecf3, rgba(247, 236, 243, .8));
+}
+.app #application label:hover
+{
+    opacity: 1;
+}
+.app #application label[for='reset']
+{
+    margin-right: 5px; 
+
+    -webkit-box-flex: 1; 
+
+        -ms-flex-positive: 1; 
+
+            flex-grow: 1;
+}
+.app label
+{
+    cursor: pointer;
+}

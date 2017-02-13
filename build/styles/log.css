@@ -9,6 +9,9 @@ body
 
 body
 {
+    overflow-x: hidden;
+    overflow-y: scroll; 
+
     background-color: rgba(59, 82, 94, .5);
     background-image: url('../images/bgledn.png');
     background-repeat: no-repeat;
@@ -16,6 +19,31 @@ body
     background-size: 100% 100%;
 
     background-blend-mode: overlay;
+}
+body::-webkit-scrollbar
+{
+    width: 10px;
+}
+body::-webkit-scrollbar-track
+{
+    background-color: #020718;
+}
+body::-webkit-scrollbar-track-piece
+{
+    background-color: transparent;
+}
+body::-webkit-scrollbar-thumb
+{
+    background-color: #f7ecf3;
+    box-shadow: 0 0 2px 1px #020718 inset;
+}
+body::-webkit-scrollbar-thumb:hover
+{
+    background-color: white;
+}
+body::-webkit-scrollbar-thumb:active
+{
+    box-shadow: 0 0 5px 1px #020718 inset;
 }
 body main
 {

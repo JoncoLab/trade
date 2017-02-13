@@ -95,8 +95,8 @@ body main .content .name
 {
     font-size: 70px;
 
-    width: 700px;
-    margin: 40px 0 0 0;
+    width: 800px;
+    margin: 10px 0 0;
 
     text-align: center; 
     text-transform: uppercase;
@@ -110,7 +110,7 @@ body main .content .buttons
     display: -ms-flexbox;
     display: flex;
 
-    width: 700px;
+    width: 800px;
     min-height: 100px;
 
     -webkit-box-pack: center;
@@ -120,23 +120,19 @@ body main .content .buttons
             justify-content: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
 }
-body main .content .buttons .reg,
-body main .content .buttons .log,
-body main .content .buttons .admin,
-body main .content .buttons .about,
-body main .content .buttons .info,
-body main .content .buttons .partners
+body main .content .buttons .start,
+body main .content .buttons .ztsb,
+body main .content .buttons .rules
 {
     font-size: 25px;
     font-weight: bold;
 
-    display: block;
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
 
     margin: 0 10px 10px 0;
     padding: 10px;
@@ -149,16 +145,17 @@ body main .content .buttons .partners
     background-color: rgba(77, 92, 51, .9);
     box-shadow: 2px 2px 5px 0 #020718; 
 
-    -ms-flex-preferred-size: 25%; 
+    -webkit-box-align: center; 
 
+        -ms-flex-align: center; 
+
+            align-items: center;
+    -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
 }
-body main .content .buttons .reg:hover,
-body main .content .buttons .log:hover,
-body main .content .buttons .admin:hover,
-body main .content .buttons .about:hover,
-body main .content .buttons .info:hover,
-body main .content .buttons .partners:hover
+body main .content .buttons .start:hover,
+body main .content .buttons .ztsb:hover,
+body main .content .buttons .rules:hover
 {
     background-color: #4d5c33;
 }

@@ -170,21 +170,14 @@
                 }
             }
 
-            .add-docs,
-            .application {
+            .add-docs {
                 @include button();
+                width: 90%;
                 color: $light;
-                margin: 0 0 $line;
-            }
+                margin: 0 auto $line;
 
-            .application {
-                display: inline-block;
                 font: {
-                    size: $line * 1.3;
-                }
-                text: {
-                    transform: none;
-                    decoration: none;
+                    size: $line * 1.5;
                 }
             }
         }

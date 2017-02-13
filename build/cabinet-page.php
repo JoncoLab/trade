@@ -1,7 +1,10 @@
 <?php
 session_start();
-include('scripts/php/user.php');
-$user = User::getUserById($_SESSION["id"]);
+$id = $_SESSION['id'];
+$email = $_SESSION['email'];
+$tel = $_SESSION['tel'];
+$fullName = $_SESSION['full_name'];
+$ver = $_SESSION['ver'];
 ?>
 <!doctype html>
 <html>
@@ -20,7 +23,7 @@ $user = User::getUserById($_SESSION["id"]);
     <header>
         <div class="logo">
             <img src="images/logo.png" alt="Логотип">
-            <h1>Назва компанії</h1>
+            <h1>EXChange</h1>
         </div>
     </header>
     <main>
@@ -31,6 +34,8 @@ $user = User::getUserById($_SESSION["id"]);
                 <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
                 <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.html">Новини проекту</a></li>
                 <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
+                <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
+                <li><img class="ico" src="SVG/#"><a href="#">Архів заявок</a></li>
             </ul>
             <script>
                 $(document).ready(function () {
@@ -50,46 +55,23 @@ $user = User::getUserById($_SESSION["id"]);
                 <section class="my-info">
                     <h2>Ваші дані</h2>
                     <ul>
-                        <li class="name"><?php print $user->full_name;?></li>
-                        <li class="number"><?php print $user->tel;?></li>
-                        <li class="mail"><?php print $user->email;?></li>
-                        <li class="registration-date" title="Дата реєстрації">21.01.2017</li>
+                        <li class="name"><?php print $fullName;?></li>
+                        <li class="number"><?php print $tel;?></li>
+                        <li class="mail"><?php print $email;?></li>
                     </ul>
-                    <button class="add-docs">Додати документи</button><br>
-                    <a class="application" href="application.html">Подати заявку на участь в торгах</a>
-                    <div class='user-id'>Ваш User id: <span id="user-id"><?php print $user->id?></span></div>
+                    <button class="add-docs">Додати документи</button>
+                    <?php
+                    if ($ver === 1) {
+                        echo '<div class="user-id">Ваш реєстраційний номер: <span id="user-id">123</span></div>';
+                    } else {
+                        echo '<div class="user-id">Ваш обліковий запис ще не верифіковано!</div>';
+                    }
+                    ?>
                 </section>
                 <section class="access">
                     <h2>Доступ до торгів</h2>
                     <ul class="accessable">
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag2" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag3" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag4" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag5" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag6" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
-                        <li><span class="lot-num">Номер лоту: <strong id="drag7" draggable="true">321</strong></span><span class="start">Початок торгів: <time datetime="12:43 21-12-2017"></time></span></li>
+                        <li><span class="lot-num">Номер лоту: <strong id="drag1">321</strong></span><span class="start">Початок cесії: <time datetime="12:43 21-12-2017"></time></span></li>
                     </ul>
                 </section>
             </div>
