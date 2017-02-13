@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Trade</title>
+    <title>EXChange - новини проекту</title>
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/articles-news.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
@@ -13,11 +13,63 @@
 
 <body>
     <header>
-        //= modules/logo.html
-        //= modules/reg-log.html
+        <div class="logo">
+            <img src="images/logo.png" alt="Логотип">
+            <h1>EXChange</h1>
+        </div>
+        <!--<div class="reg-log">-->
+            <!--<button class="login">Увійти</button>-->
+            <!--<button class="signup">Зареєструватися</button>-->
+            <!--<dialog class="login" open>-->
+                <!--<form class="login-form">-->
+                    <!--<label for="login">Ваш логін:</label>-->
+                    <!--<input required type="email" name="login" id="login" placeholder="Ваш логін (ел. пошта)" autocomplete="on">-->
+                    <!--<label for="password-in">Ваш пароль:</label>-->
+                    <!--<input required type="password" name="password-in" id="password-in" placeholder="Ваш пароль" required>-->
+                    <!--<label for="remember">-->
+                        <!--<div class="checkbox"></div><span>Запам'ятати мене</span> </label>-->
+                    <!--<input type="checkbox" id="remember" name="remember" checked>-->
+                    <!--<input type="submit" value="Увійти до кабінету">-->
+                <!--</form>-->
+                <!--<script>-->
+                    <!--$(document).ready(function () {-->
+                        <!--$('button.login').click(function () {-->
+                            <!--$('dialog.login').fadeToggle(300);-->
+                        <!--});-->
+                        <!--$('label[for="remember"]').click(function () {-->
+                            <!--$(this).children('.checkbox').toggleClass('checked');-->
+                        <!--});-->
+                    <!--});-->
+                <!--</script>-->
+            <!--</dialog>-->
+            <!--<dialog class="signup"></dialog>-->
+        <!--</div>-->
     </header>
     <main>
-        //= modules/menu.html
+        <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
+            <ul class="menu">
+                <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
+                <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>
+                <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
+                <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
+                <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
+                <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
+                <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
+                <li><img class="ico" src="SVG/#"><a href="logout.php">Вихід</a></li>
+            </ul>
+            <script>
+                $(document).ready(function () {
+                    $('.main-menu .menu-icon, .main-menu > span').hover(function () {
+                        $('.main-menu .menu-icon').css('transform', 'scale(1.15)');
+                    }, function () {
+                        $('.main-menu .menu-icon').css('transform', 'scale(1)');
+                    });
+                    $('.main-menu .menu-icon, .main-menu > span').click(function () {
+                        $('.main-menu ul').fadeToggle(300);
+                    });
+                });
+            </script>
+        </menu>
         <div class="news">
             <section class="list">
                 <h2>Актуальні новини</h2>
@@ -99,9 +151,23 @@
                 </article>
             </section>
         </div>
-        //= modules/feedback-form.html
     </main>
-    //= modules/footer.html
+    <footer>
+        <a class="contacts footer-item" href="about.html"> <span>Наші контактні дані:</span>
+            <br> <img class="contacts-logo" src="SVG/address-book-light.svg"> </a>
+        <!--<div class="feedback footer-item"> <span>Залиште свій відгук!</span>-->
+            <!--<br> <img src="SVG/bubbles-light.svg" class="feedback-logo"> </div>-->
+        <a class="developers footer-item" href="http://www.joncolab.pro"> <span>Site developed by:</span>
+            <br> <img class="jonco-logo" src="images/logo-jonco.png"> </a>
+        <script>
+            $('.feedback').click(function () {
+                $('.feedback-form').toggle(300);
+                if ($('.feedback-form').css('display') === 'block') {
+                    $('.feedback-form').css('display', 'flex');
+                }
+            });
+        </script>
+    </footer>
 </body>
 
 </html>

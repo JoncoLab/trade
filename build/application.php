@@ -11,7 +11,7 @@ $docsName = $_SESSION["docs_name"];
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Заявка на участь у торгах</title>
+    <title>EXChange - Заявка на участь у торгах</title>
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/application.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
@@ -29,12 +29,13 @@ $docsName = $_SESSION["docs_name"];
     <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
-            <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.html">Аукціон</a></li>
+            <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>
             <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
-            <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.html">Новини проекту</a></li>
+            <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
             <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
             <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
-            <li><img class="ico" src="SVG/#"><a href="#">Архів заявок</a></li>
+            <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
+            <li><img class="ico" src="SVG/#"><a href="logout.php">Вихід</a></li>
         </ul>
         <script>
             $(document).ready(function () {

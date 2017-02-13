@@ -196,11 +196,14 @@ body main #register
         -ms-flex-direction: column;
             flex-direction: column;
 
-    -webkit-box-align: center;
+    width: 40%;
+    margin: 0 auto; 
 
-        -ms-flex-align: center;
+    -webkit-box-align: stretch; 
 
-            align-items: center;
+        -ms-flex-align: stretch; 
+
+            align-items: stretch;
 }
 body main #register fieldset
 {
@@ -285,11 +288,17 @@ body main #register fieldset .form-item select
     margin: 0 10px;
     padding: 5px;
 
-    color: #020718; 
+    color: #020718;
     border-width: 2px;
     border-style: solid;
     border-color: #4d5c33;
     border-radius: 10px;
+
+    -webkit-box-flex: 1;
+
+        -ms-flex-positive: 1;
+
+            flex-grow: 1;
 }
 body main #register fieldset .form-item input:active,
 body main #register fieldset .form-item input:focus,
@@ -325,24 +334,56 @@ body main #register fieldset .form-item.passport
 }
 body main #register fieldset.docs
 {
+    font-size: 15px; 
+
     padding: 0;
 }
 body main #register fieldset.docs .form-item
 {
     margin: 0;
-    padding: 5px 10px;
 }
 body main #register fieldset.docs .form-item:not(:last-of-type)
 {
     border-bottom: 2px solid #4d5c33;
 }
+body main #register fieldset.docs .form-item input,
+body main #register fieldset.docs .form-item label
+{
+    margin: 0; 
+
+    cursor: pointer;
+}
 body main #register fieldset.docs .form-item input
 {
-    border: none;
+    border-top: none;
+    border-right: none; 
+    border-bottom: none;
+    border-radius: 0;
+
+    -ms-flex-item-align: stretch;
+
+        -ms-grid-row-align: stretch;
+
+        align-self: stretch;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+}
+body main #register fieldset.docs .form-item input:active,
+body main #register fieldset.docs .form-item input:focus
+{
+    border-color: #4d5c33;
+    outline: none;
 }
 body main #register fieldset.docs .form-item label
 {
-    font-weight: bold;
+    padding: 0 0 0 10px; 
+
+    -webkit-box-flex: 1; 
+
+        -ms-flex-positive: 1; 
+
+            flex-grow: 1;
 }
 body main #register fieldset.buttons
 {

@@ -11,7 +11,7 @@ $docsName = $_SESSION["docs_name"];
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Заявка на участь у торгах</title>
+    <title>EXChange - Заявка на участь у торгах</title>
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/application.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>

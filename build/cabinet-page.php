@@ -5,13 +5,15 @@ $email = $_SESSION['email'];
 $tel = $_SESSION['tel'];
 $fullName = $_SESSION['full_name'];
 $ver = $_SESSION['ver'];
+$traderId = $_SESSION['trader_id'];
+$docsName = $_SESSION['docs_name'];
 ?>
 <!doctype html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Trade</title>
+    <title>ExChange - особистий кабінет</title>
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/cabinet-page.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
@@ -30,12 +32,13 @@ $ver = $_SESSION['ver'];
         <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
             <ul class="menu">
                 <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
-                <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.html">Аукціон</a></li>
+                <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>
                 <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
-                <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.html">Новини проекту</a></li>
+                <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
                 <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
                 <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
-                <li><img class="ico" src="SVG/#"><a href="#">Архів заявок</a></li>
+                <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
+                <li><img class="ico" src="SVG/#"><a href="logout.php">Вихід</a></li>
             </ul>
             <script>
                 $(document).ready(function () {
@@ -58,13 +61,17 @@ $ver = $_SESSION['ver'];
                         <li class="name"><?php print $fullName;?></li>
                         <li class="number"><?php print $tel;?></li>
                         <li class="mail"><?php print $email;?></li>
+                        <li class="docs-name"><?php print $docsName;?></li>
                     </ul>
-                    <button class="add-docs">Додати документи</button>
                     <?php
-                    if ($ver === 1) {
-                        echo '<div class="user-id">Ваш реєстраційний номер: <span id="user-id">123</span></div>';
+                    if ($ver === '1') {
+                        echo
+                            '<button class="add-docs">Додати документи</button>' .
+                            '<div class="trader-id">Ваш реєстраційний номер:' .
+                                '<span id="trader-id"> ' . $traderId . '</span>' .
+                            '</div>';
                     } else {
-                        echo '<div class="user-id">Ваш обліковий запис ще не верифіковано!</div>';
+                        echo '<div class="trader-id">Ваш обліковий запис ще не верифіковано!</div>';
                     }
                     ?>
                 </section>
@@ -90,20 +97,6 @@ $ver = $_SESSION['ver'];
                 </form>
             </section>
         </div>
-        <form action="scripts/php/mail.php" method="post" class="feedback-form" id="feedback">
-            <label for="name">Ваше ім'я</label>
-            <input type="text" name="name" id="name" placeholder="Семен" required autofocus>
-            <label for="email">Ваша електронна адреса</label>
-            <input type="email" name="email" id="email" placeholder="zrazok@joncolab.pro" required>
-            <label for="message">Ваш коментар</label>
-            <textarea rows="5" placeholder="Введіть ваше повідомлення" maxlength="1000" id="text" name="message" id="message" required></textarea>
-            <fieldset class="buttons">
-                <label for="reset">Очистити</label>
-                <input type="reset" id="reset" name="reset" value="Очистити">
-                <label for="submit">Надіслати</label>
-                <input type="submit" id="submit" name="submit" value="Надіслати">
-            </fieldset>
-        </form>
     </main>
     <footer>
         <a class="contacts footer-item" href="about.html"> <span>Наші контактні дані:</span>

@@ -51,17 +51,20 @@ body main
     -ms-flex-pack: distribute;
 
         justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 body main .reg,
 body main .log
 {
-    font-size: 25px;
+    font-size: 50px;
     font-weight: bold;
 
     display: block;
 
-    margin: 0 10px 10px 0;
-    padding: 10px;
+    margin: 0;
+    padding: 40px 20px;
 
     text-align: center;
     text-decoration: none;
@@ -71,9 +74,9 @@ body main .log
     background-color: rgba(77, 92, 51, .9);
     box-shadow: 2px 2px 5px 0 #020718; 
 
-    -ms-flex-preferred-size: 25%; 
+    -ms-flex-preferred-size: 45%; 
 
-        flex-basis: 25%;
+        flex-basis: 45%;
 }
 body main .reg:hover,
 body main .log:hover

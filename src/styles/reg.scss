@@ -158,7 +158,9 @@ body {
     #register {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
+      width: 40%;
+      margin: 0 auto;
 
       fieldset {
         border: {
@@ -238,6 +240,8 @@ body {
             margin: 0 $line;
             color: $dark;
 
+            flex-grow: 1;
+
             &:active,
             &:focus {
               outline: none;
@@ -263,10 +267,12 @@ body {
 
         &.docs {
           padding: 0;
+          font: {
+            size: $line * 1.5;
+          }
 
           .form-item {
             margin: 0;
-            padding: $line / 2 $line;
 
             &:not(:last-of-type) {
               border: {
@@ -274,14 +280,38 @@ body {
               }
             }
 
+            input,
+            label {
+              cursor: pointer;
+              margin: 0;
+            }
+
             input {
-              border: none;
+              align-self: stretch;
+              flex: {
+                grow: 0;
+              }
+              border: {
+                radius: 0;
+                top: none;
+                bottom: none;
+                right: none;
+              }
+
+              &:active,
+              &:focus {
+                border: {
+                  color: $olive;
+                }
+                outline: none;
+              }
             }
 
             label {
-              font: {
-                weight: bold;
+              flex: {
+                grow: 1;
               }
+              padding: 0 0 0 $line;
             }
           }
         }

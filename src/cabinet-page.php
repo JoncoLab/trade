@@ -5,13 +5,15 @@ $email = $_SESSION['email'];
 $tel = $_SESSION['tel'];
 $fullName = $_SESSION['full_name'];
 $ver = $_SESSION['ver'];
+$traderId = $_SESSION['trader_id'];
+$docsName = $_SESSION['docs_name'];
 ?>
 <!doctype html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Trade</title>
+    <title>ExChange - особистий кабінет</title>
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/cabinet-page.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
@@ -33,13 +35,17 @@ $ver = $_SESSION['ver'];
                         <li class="name"><?php print $fullName;?></li>
                         <li class="number"><?php print $tel;?></li>
                         <li class="mail"><?php print $email;?></li>
+                        <li class="docs-name"><?php print $docsName;?></li>
                     </ul>
-                    <button class="add-docs">Додати документи</button>
                     <?php
-                    if ($ver === 1) {
-                        echo '<div class="user-id">Ваш реєстраційний номер: <span id="user-id">123</span></div>';
+                    if ($ver === '1') {
+                        echo
+                            '<button class="add-docs">Додати документи</button>' .
+                            '<div class="trader-id">Ваш реєстраційний номер:' .
+                                '<span id="trader-id"> ' . $traderId . '</span>' .
+                            '</div>';
                     } else {
-                        echo '<div class="user-id">Ваш обліковий запис ще не верифіковано!</div>';
+                        echo '<div class="trader-id">Ваш обліковий запис ще не верифіковано!</div>';
                     }
                     ?>
                 </section>
@@ -65,7 +71,6 @@ $ver = $_SESSION['ver'];
                 </form>
             </section>
         </div>
-        //= modules/feedback-form.html
     </main>
     //= modules/footer.html
 </body>

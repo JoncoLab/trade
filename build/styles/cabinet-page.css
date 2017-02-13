@@ -170,7 +170,7 @@
 
     text-align: center;
 }
-.cabinet-content .layout .my-info .user-id
+.cabinet-content .layout .my-info .trader-id
 {
     font-size: 20px; 
     font-weight: bold;
@@ -206,9 +206,9 @@
 {
     list-style-image: url('../SVG/mail2.svg');
 }
-.cabinet-content .layout .my-info ul li.registration-date
+.cabinet-content .layout .my-info ul li.docs-name
 {
-    list-style-image: url('../SVG/calendar.svg');
+    list-style-image: url('../SVG/doc.svg');
 }
 .cabinet-content .layout .my-info .add-docs
 {

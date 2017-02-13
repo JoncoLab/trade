@@ -32,20 +32,21 @@ body {
 
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     .reg,
     .log {
       display: block;
+      flex-basis: 45%;
       background: {
         color: fade_out($olive, 0.1);
       }
-      padding: $line;
-      margin: 0 $line $line 0;
-      flex-basis: 25%;
+      padding: $line * 4 $line * 2;
+      margin: 0;
 
       font: {
         weight: bold;
-        size: $line * 2.5;
+        size: $line * 5;
       }
       text: {
         decoration: none;

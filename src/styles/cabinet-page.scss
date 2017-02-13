@@ -121,7 +121,7 @@
             text-align: center;
             max-width: 40%;
 
-            .user-id {
+            .trader-id {
                 padding: $line / 2;
                 text-align-last: right;
                 background: {
@@ -162,9 +162,9 @@
                         }
                     }
 
-                    &.registration-date {
+                    &.docs-name {
                         list-style: {
-                            image: url("../SVG/calendar.svg");
+                            image: url("../SVG/doc.svg");
                         }
                     }
                 }
