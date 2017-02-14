@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (!isset($_SESSION["id"])) {
+    header("Location: start.html");
+    session_unset();
+    session_destroy();
+    exit();
+}
 include 'scripts/php/user.php';
 $fullName = $_SESSION["full_name"];
 $jAddress = $_SESSION["j_address"];
@@ -30,12 +36,12 @@ $docsName = $_SESSION["docs_name"];
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
             <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>
-            <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
+            <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
             <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
-            <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
+            <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
             <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
-            <li><img class="ico" src="SVG/#"><a href="logout.php">Вихід</a></li>
+            <li><img class="ico" src="SVG/exit-light.svg"><a href="logout.php">Вихід</a></li>
         </ul>
         <script>
             $(document).ready(function () {
@@ -185,14 +191,35 @@ $docsName = $_SESSION["docs_name"];
                     <label class="checkbox" for="rules-accepted"></label>
                 </div>
             </li>
-            <li><span>Даю дозвіл на проведення аудіо та відеозапису проведення аукціону (торгів).</span></li>
-            <li><span>Згоден з тим, що у випадку анулювання результатів аукціону (торгів)  з вини Покупця перерахована ним на
-                розрахунковий рахунок Продавця  сума попереднього внеску (застава) не повертається.</span></li>
-            <li><span>Банківські реквізити заявника, за якими слід повертати суму попереднього внеску (застави):</span><br>
+            <li>
+                <div class="recording-accepted">
+                    <label for="recording-accepted">Даю дозвіл на проведення аудіо та відеозапису проведення аукціону (торгів)</label>
+                    <input required form="application" type="checkbox" name="recording-accepted" id="recording-accepted" value="accepted">
+                    <label class="checkbox" for="recording-accepted"></label>
+                </div>
+            </li>
+            <li>
+                <div class="fine-accepted">
+                    <label for="fine-accepted">Згоден з тим, що у випадку анулювання результатів аукціону (торгів) з вини Покупця<br>перерахована ним на
+                        розрахунковий рахунок Продавця  сума попереднього внеску (застава) не повертається</label>
+                    <input required form="application" type="checkbox" name="fine-accepted" id="fine-accepted" value="accepted">
+                    <label class="checkbox" for="fine-accepted"></label>
+                </div>
+            </li>
+            <li>
+                <span>Банківські реквізити заявника, за якими слід повертати суму попереднього внеску (застави):</span><br>
                 <span class="bank-details">Банківські реквізити заявника</span><br>
-                <span class="five-percent">(Гар. внесок 5% суми = <strong class="value">0 грн.</strong>)</span></li>
-            <li><span>З нормами ст. 1-2, 8-10, 15, 17 Закону України "Про товарну біржу" та ст. 278-282 Господарського кодексу
-                України ознайомлений та зобов'язуюсь їх дотримуватись.</span></li>
+                <span class="five-percent">(Гар. внесок 5% суми = <strong class="value">0 грн.</strong>)</span>
+            </li>
+            <li>
+                <div class="laws-accepted">
+                    <label for="laws-accepted">З нормами ст. 1-2, 8-10, 15, 17 Закону України "Про товарну біржу" та ст. 278-282 Господарського кодексу
+                        України<br>ознайомлений та зобов'язуюсь їх дотримуватись</label>
+                    <input required form="application" type="checkbox" name="laws-accepted" id="laws-accepted" value="accepted">
+                    <label class="checkbox" for="laws-accepted"></label>
+                </div>
+                <span></span>
+            </li>
         </ol>
         <p class="remark"><strong>Примітка: Біржа відмовляє Покупцю в участі в аукціонних торгах або в реєстрації учасників, якщо у встановлену
             біржою форму заявки самовільно були внесені зміни, виправлення або доповнення.</strong></p>
@@ -214,7 +241,7 @@ $docsName = $_SESSION["docs_name"];
     </section>
 </main>
 <footer>
-    <a class="contacts footer-item" href="about.html"> <span>Наші контактні дані:</span>
+    <a class="contacts footer-item" href="../about.php"> <span>Наші контактні дані:</span>
         <br> <img class="contacts-logo" src="SVG/address-book-light.svg"> </a>
     <!--<div class="feedback footer-item"> <span>Залиште свій відгук!</span>-->
         <!--<br> <img src="SVG/bubbles-light.svg" class="feedback-logo"> </div>-->

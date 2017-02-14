@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION["id"])) {
+    header("Location: start.html");
+    session_unset();
+    session_destroy();
+    exit();
+}
+print $_SESSION["id"];
+?>
 <!doctype html>
 <html>
 <head>
@@ -19,12 +29,12 @@
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
             <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>
-            <li><img class="ico" src="SVG/office-light.svg"><a href="about.html">Про компанію</a></li>
+            <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
             <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
-            <li><img class="ico" src="SVG/book-light.svg"><a href="rules.html">Правила та умови</a></li>
+            <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
             <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
-            <li><img class="ico" src="SVG/#"><a href="logout.php">Вихід</a></li>
+            <li><img class="ico" src="SVG/exit-light.svg"><a href="logout.php">Вихід</a></li>
         </ul>
         <script>
             $(document).ready(function () {
@@ -41,7 +51,7 @@
     </menu>
 </main>
 <footer>
-    <a class="contacts footer-item" href="about.html"> <span>Наші контактні дані:</span>
+    <a class="contacts footer-item" href="../about.php"> <span>Наші контактні дані:</span>
         <br> <img class="contacts-logo" src="SVG/address-book-light.svg"> </a>
     <!--<div class="feedback footer-item"> <span>Залиште свій відгук!</span>-->
         <!--<br> <img src="SVG/bubbles-light.svg" class="feedback-logo"> </div>-->

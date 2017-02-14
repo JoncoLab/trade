@@ -37,6 +37,7 @@ var path = {
         pages: [
             'src/*.html',
             'src/modules/*.html',
+            'src/modules/*.php',
             'src/*.php',
             'src/fonts/*.ttf'
         ],

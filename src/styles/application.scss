@@ -304,14 +304,20 @@
         }
       }
 
-      .rules-accepted {
+      [class$="accepted"] {
         display: inline-flex;
         align-items: center;
         font: {
           weight: bold;
         }
 
-        #rules-accepted {
+        label:not(.checkbox) {
+          flex: {
+            shrink: 1;
+          }
+        }
+
+        [id$="accepted"] {
           @include checkbox($line * 3);
         }
       }

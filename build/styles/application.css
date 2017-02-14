@@ -258,7 +258,7 @@
 {
     padding-left: 1.1em;
 }
-.app .rules > li .rules-accepted
+.app .rules > li [class$='accepted']
 {
     font-weight: bold; 
 
@@ -274,11 +274,16 @@
 
             align-items: center;
 }
-.app .rules > li .rules-accepted #rules-accepted
+.app .rules > li [class$='accepted'] label:not(.checkbox)
+{
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+}
+.app .rules > li [class$='accepted'] [id$='accepted']
 {
     display: none;
 }
-.app .rules > li .rules-accepted #rules-accepted ~ .checkbox
+.app .rules > li [class$='accepted'] [id$='accepted'] ~ .checkbox
 {
     display: inline-block;
 
@@ -297,7 +302,7 @@
     background-position: center;
     background-size: contain;
 }
-.app .rules > li .rules-accepted #rules-accepted:checked ~ .checkbox
+.app .rules > li [class$='accepted'] [id$='accepted']:checked ~ .checkbox
 {
     background-image: url('../SVG/checkbox-checked.svg');
 }

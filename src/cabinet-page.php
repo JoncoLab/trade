@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (!isset($_SESSION["id"])) {
+    header("Location: start.html");
+    session_unset();
+    session_destroy();
+    exit();
+}
 $id = $_SESSION['id'];
 $email = $_SESSION['email'];
 $tel = $_SESSION['tel'];
