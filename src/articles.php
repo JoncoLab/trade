@@ -23,11 +23,10 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <header>
+        //= modules/menu.html
         //= modules/logo.html
-        //= modules/reg-log.html
     </header>
     <main>
-        //= modules/menu.html
         <div class="news">
             <section class="list">
                 <h2>Актуальні новини</h2>

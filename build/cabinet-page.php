@@ -29,12 +29,6 @@ $docsName = $_SESSION['docs_name'];
 
 <body>
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Логотип">
-            <h1>EXChange</h1>
-        </div>
-    </header>
-    <main>
         <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
             <ul class="menu">
                 <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
@@ -44,7 +38,7 @@ $docsName = $_SESSION['docs_name'];
                 <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
                 <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
                 <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
-                <li><img class="ico" src="SVG/exit-light.svg"><a href="logout.php">Вихід</a></li>
+                <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
             </ul>
             <script>
                 $(document).ready(function () {
@@ -59,6 +53,12 @@ $docsName = $_SESSION['docs_name'];
                 });
             </script>
         </menu>
+        <div class="logo">
+            <img src="images/logo.png" alt="Логотип">
+            <h1>EXChange</h1>
+        </div>
+    </header>
+    <main>
         <div class="cabinet-content">
             <div class="layout">
                 <section class="my-info">

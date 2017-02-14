@@ -20,10 +20,10 @@ if (!isset($_SESSION["id"])) {
 </head>
 <body>
 <header>
+    //= modules/menu.html
     //= modules/logo.html
 </header>
 <main>
-    //= modules/menu.html
     <div class="info">
         <section class="company">
             <h2>Про нас</h2>

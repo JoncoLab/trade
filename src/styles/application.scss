@@ -52,7 +52,7 @@
 
       &#trader-number {
         display: inline-block;
-        padding: $line * 2.8 $line;
+        padding: $line * 2;
         margin: $line / -2 $line / -2 0 0;
         border: {
           top-right-radius: $line;
@@ -247,6 +247,9 @@
               }
               color: $light;
             }
+
+            height: $line * 5;
+            min-height: $line * 5;
 
             transition: {
               duration: $time / 2;

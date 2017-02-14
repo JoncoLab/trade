@@ -12,6 +12,7 @@ $jAddress = $_SESSION["j_address"];
 $tel = $_SESSION["tel"];
 $edrpou = $_SESSION["edrpou"];
 $docsName = $_SESSION["docs_name"];
+$traderId = $_SESSION["trader_id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +27,6 @@ $docsName = $_SESSION["docs_name"];
 </head>
 <body>
 <header>
-    <div class="logo">
-        <img src="images/logo.png" alt="Логотип">
-        <h1>EXChange</h1>
-    </div>
-</header>
-<main>
     <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
@@ -41,7 +36,7 @@ $docsName = $_SESSION["docs_name"];
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
             <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
-            <li><img class="ico" src="SVG/exit-light.svg"><a href="logout.php">Вихід</a></li>
+            <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
         </ul>
         <script>
             $(document).ready(function () {
@@ -56,14 +51,19 @@ $docsName = $_SESSION["docs_name"];
             });
         </script>
     </menu>
+    <div class="logo">
+        <img src="images/logo.png" alt="Логотип">
+        <h1>EXChange</h1>
+    </div>
+</header>
+<main>
     <section class="app">
         <h2>
-            <small id="trader-number">Аукціонний номер: 0</small>
+            <small id="trader-number"><?php print $traderId;?></small>
             <span>Товарна біржа "Закарпатська універсальна товарно-сировинна біржа"</span><br>
             <small>
                 <span>88015, Україна, м. Ужгород, вул. Богомольця, 21;</span>
-                <span>телефон: +38 (050) 404 44 98, +38 (067) 480 00 12;</span><br>
-                <span>електронна пошта: info@ztsb.org.ua;</span>
+                <span>телефон: +38 (050) 404 44 98, +38 (067) 480 00 12; електронна пошта: info@ztsb.org.ua;</span>
                 <a href="http://www.ztsb.org.ua">веб-сайт</a>
             </small>
         </h2>

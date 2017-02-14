@@ -19,10 +19,10 @@ print $_SESSION["id"];
 </head>
 <body>
 <header>
+    //= modules/menu.html
     //= modules/logo.html
 </header>
 <main>
-    //= modules/menu.html
 </main>
 //= modules/footer.html
 </body>

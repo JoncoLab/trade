@@ -12,6 +12,7 @@ $jAddress = $_SESSION["j_address"];
 $tel = $_SESSION["tel"];
 $edrpou = $_SESSION["edrpou"];
 $docsName = $_SESSION["docs_name"];
+$traderId = $_SESSION["trader_id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,18 +27,17 @@ $docsName = $_SESSION["docs_name"];
 </head>
 <body>
 <header>
+    //= modules/menu.html
     //= modules/logo.html
 </header>
 <main>
-    //= modules/menu.html
     <section class="app">
         <h2>
-            <small id="trader-number">Аукціонний номер: 0</small>
+            <small id="trader-number"><?php print $traderId;?></small>
             <span>Товарна біржа "Закарпатська універсальна товарно-сировинна біржа"</span><br>
             <small>
                 <span>88015, Україна, м. Ужгород, вул. Богомольця, 21;</span>
-                <span>телефон: +38 (050) 404 44 98, +38 (067) 480 00 12;</span><br>
-                <span>електронна пошта: info@ztsb.org.ua;</span>
+                <span>телефон: +38 (050) 404 44 98, +38 (067) 480 00 12; електронна пошта: info@ztsb.org.ua;</span>
                 <a href="http://www.ztsb.org.ua">веб-сайт</a>
             </small>
         </h2>

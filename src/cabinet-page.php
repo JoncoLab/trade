@@ -29,10 +29,10 @@ $docsName = $_SESSION['docs_name'];
 
 <body>
     <header>
+        //= modules/menu.html
         //= modules/logo.html
     </header>
     <main>
-        //= modules/menu.html
         <div class="cabinet-content">
             <div class="layout">
                 <section class="my-info">

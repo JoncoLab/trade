@@ -47,51 +47,20 @@ body {
         align-items: center;
         min-height: $line * 10;
 
-        .logo {
-            height: $line * 9;
-            position: relative;
-            display: flex;
-            align-items: center;
-
-            cursor: pointer;
-
-            img {
-                height: inherit;
-                filter: drop-shadow($line / -10 $line / -10 $line / 8 $dark);
-            }
-
-            h1 {
-                align-self: flex-end;
-                color: $olive;
-                margin: 0 0 $line 0;
-
-                text: {
-                    transform: uppercase;
-                    shadow: $line / 10 0 $line / 10 $dark;
-                }
-                font: {
-                    size: $line * 4;
-                }
-            }
-        }
-    }
-
-    main {
-        flex-grow: 1;
-        position: relative;
         .main-menu {
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: absolute;
             width: $line * 15;
+            height: 100%;
             z-index: 100;
             text: {
                 transform: uppercase;
                 align: left;
             }
             padding: 0;
-            margin: 0 0 $line * 2 0;
+            margin: 0;
 
             > span {
                 font: {
@@ -116,7 +85,7 @@ body {
             ul {
                 position: absolute;
                 display: none;
-                top: 100%;
+                top: 70%;
                 left: 30%;
                 width: $line * 25;
                 background: {
@@ -158,75 +127,43 @@ body {
                 }
             }
         }
-        .feedback-form {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30%;
-            min-width: $line * 40;
-            padding: $line;
-            margin: $line * 2 auto 0 auto;
 
-            background: {
-                color: fade-out($dark, 0.1);
+        .logo {
+            margin: 0 auto;
+            height: $line * 9;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            cursor: pointer;
+
+            img {
+                height: inherit;
+                filter: drop-shadow($line / -10 $line / -10 $line / 8 $dark);
             }
-            border: $line / 2 solid $dark;
-            border-radius: $line;
-            #text,
-            #name,
-            #email,
-            label {
-                display: block;
-                padding: $line / 2;
-            }
-            #text,
-            #name,
-            #email {
-                border: none;
-                color: $dark;
-                padding: $line;
-                border-radius: $line;
-                &:focus {
-                    outline: none;
-                    box-shadow: 0 0 $line / 5 $line / 10 $olive inset;
+
+            h1 {
+                align-self: flex-end;
+                color: $olive;
+                margin: 0 0 $line 0;
+
+                text: {
+                    transform: uppercase;
+                    shadow: $line / 10 0 $line / 10 $dark;
                 }
-            }
-            label {
-                text-align: left;
-                margin-top: $line;
                 font: {
-                    weight: normal;
-                }
-                &:first-of-type {
-                    margin-top: 0;
-                }
-            }
-            #text {
-                resize: none;
-            }
-            .buttons {
-                position: relative;
-                text-align: center;
-                width: auto;
-                border: none;
-                padding: 0;
-                margin-top: $line;
-
-                #reset,
-                #submit {
-                    display: none;
-                }
-
-                label[for="submit"],
-                label[for="reset"] {
-                    display: inline-block;
-                    @include button($light);
-                    color: $bluegrey;
-                    text-align: center;
+                    size: $line * 4;
                 }
             }
         }
     }
+
+    main {
+        flex-grow: 1;
+        position: relative;
+        padding: $line 0 0;
+    }
+
     footer {
         display: flex;
         justify-content: space-around;

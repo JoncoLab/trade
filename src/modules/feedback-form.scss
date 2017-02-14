@@ -1,0 +1,68 @@
+.feedback-form {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  min-width: $line * 40;
+  padding: $line;
+  margin: $line * 2 auto 0 auto;
+
+  background: {
+    color: fade-out($dark, 0.1);
+  }
+  border: $line / 2 solid $dark;
+  border-radius: $line;
+  #text,
+  #name,
+  #email,
+  label {
+    display: block;
+    padding: $line / 2;
+  }
+  #text,
+  #name,
+  #email {
+    border: none;
+    color: $dark;
+    padding: $line;
+    border-radius: $line;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 $line / 5 $line / 10 $olive inset;
+    }
+  }
+  label {
+    text-align: left;
+    margin-top: $line;
+    font: {
+      weight: normal;
+    }
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  #text {
+    resize: none;
+  }
+  .buttons {
+    position: relative;
+    text-align: center;
+    width: auto;
+    border: none;
+    padding: 0;
+    margin-top: $line;
+
+    #reset,
+    #submit {
+      display: none;
+    }
+
+    label[for="submit"],
+    label[for="reset"] {
+      display: inline-block;
+      @include button($light);
+      color: $bluegrey;
+      text-align: center;
+    }
+  }
+}

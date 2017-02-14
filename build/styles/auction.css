@@ -492,11 +492,13 @@
 }
 .chat-info .chat.users
 {
-    height: 500px; 
+    display: none; 
 
-    -webkit-box-flex: 1; 
+    height: 500px;
 
-        -ms-flex-positive: 1; 
+    -webkit-box-flex: 1;
+
+        -ms-flex-positive: 1;
 
             flex-grow: 1;
     -webkit-box-pack: justify;

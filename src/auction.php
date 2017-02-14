@@ -22,10 +22,10 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <header>
+        //= modules/menu.html
         //= modules/logo.html
     </header>
     <main>
-        //= modules/menu.html
         <table class="auction-table">
             <tbody>
             <tr>

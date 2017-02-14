@@ -19,12 +19,6 @@ print $_SESSION["id"];
 </head>
 <body>
 <header>
-    <div class="logo">
-        <img src="images/logo.png" alt="Логотип">
-        <h1>EXChange</h1>
-    </div>
-</header>
-<main>
     <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
@@ -34,7 +28,7 @@ print $_SESSION["id"];
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
             <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
-            <li><img class="ico" src="SVG/exit-light.svg"><a href="logout.php">Вихід</a></li>
+            <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
         </ul>
         <script>
             $(document).ready(function () {
@@ -49,6 +43,12 @@ print $_SESSION["id"];
             });
         </script>
     </menu>
+    <div class="logo">
+        <img src="images/logo.png" alt="Логотип">
+        <h1>EXChange</h1>
+    </div>
+</header>
+<main>
 </main>
 <footer>
     <a class="contacts footer-item" href="../about.php"> <span>Наші контактні дані:</span>

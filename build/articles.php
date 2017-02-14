@@ -23,39 +23,6 @@ if (!isset($_SESSION["id"])) {
 
 <body>
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Логотип">
-            <h1>EXChange</h1>
-        </div>
-        <!--<div class="reg-log">-->
-            <!--<button class="login">Увійти</button>-->
-            <!--<button class="signup">Зареєструватися</button>-->
-            <!--<dialog class="login" open>-->
-                <!--<form class="login-form">-->
-                    <!--<label for="login">Ваш логін:</label>-->
-                    <!--<input required type="email" name="login" id="login" placeholder="Ваш логін (ел. пошта)" autocomplete="on">-->
-                    <!--<label for="password-in">Ваш пароль:</label>-->
-                    <!--<input required type="password" name="password-in" id="password-in" placeholder="Ваш пароль" required>-->
-                    <!--<label for="remember">-->
-                        <!--<div class="checkbox"></div><span>Запам'ятати мене</span> </label>-->
-                    <!--<input type="checkbox" id="remember" name="remember" checked>-->
-                    <!--<input type="submit" value="Увійти до кабінету">-->
-                <!--</form>-->
-                <!--<script>-->
-                    <!--$(document).ready(function () {-->
-                        <!--$('button.login').click(function () {-->
-                            <!--$('dialog.login').fadeToggle(300);-->
-                        <!--});-->
-                        <!--$('label[for="remember"]').click(function () {-->
-                            <!--$(this).children('.checkbox').toggleClass('checked');-->
-                        <!--});-->
-                    <!--});-->
-                <!--</script>-->
-            <!--</dialog>-->
-            <!--<dialog class="signup"></dialog>-->
-        <!--</div>-->
-    </header>
-    <main>
         <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
             <ul class="menu">
                 <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
@@ -65,7 +32,7 @@ if (!isset($_SESSION["id"])) {
                 <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
                 <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
                 <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
-                <li><img class="ico" src="SVG/exit-light.svg"><a href="logout.php">Вихід</a></li>
+                <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
             </ul>
             <script>
                 $(document).ready(function () {
@@ -80,6 +47,12 @@ if (!isset($_SESSION["id"])) {
                 });
             </script>
         </menu>
+        <div class="logo">
+            <img src="images/logo.png" alt="Логотип">
+            <h1>EXChange</h1>
+        </div>
+    </header>
+    <main>
         <div class="news">
             <section class="list">
                 <h2>Актуальні новини</h2>

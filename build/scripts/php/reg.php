@@ -49,5 +49,20 @@ if (trim($_POST["zip"]) === '' || trim($_POST["country"]) === '' || trim($_POST[
     $post_address = '';
 }
 $user = User::registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $tel, $email, $password, $docs_name, $post_address);
-$_SESSION["id"] = $user->id;
+$_SESSION['id'] = $user->id;
+$_SESSION['status'] = $user->status;
+$_SESSION['full_name'] = $user->full_name;
+$_SESSION['j_address'] = $user->j_address;
+$_SESSION['edrpou'] = $user->edrpou;
+$_SESSION['ind'] = $user->ind;
+$_SESSION['person'] = $user->person;
+$_SESSION['reason'] = $user->reason;
+$_SESSION['short_name'] = $user->short_name;
+$_SESSION['tel'] = $user->tel;
+$_SESSION['email'] = $user->email;
+$_SESSION['docs_name'] = $user->docs_name;
+$_SESSION['post_address'] = $user->post_address;
+$_SESSION['ver'] = $user->ver;
+$_SESSION['trader_id'] = $user->trader_id;
+$_SESSION['applied_for_lots'];
 header("Location: /cabinet-page.php");
