@@ -64,5 +64,5 @@ $_SESSION['docs_name'] = $user->docs_name;
 $_SESSION['post_address'] = $user->post_address;
 $_SESSION['ver'] = $user->ver;
 $_SESSION['trader_id'] = $user->trader_id;
-$_SESSION['applied_for_lots'];
+$_SESSION['applied_for_lots'] = $user->applied_for_lots;
 header("Location: /cabinet-page.php");

@@ -27,27 +27,37 @@ $traderId = $_SESSION["trader_id"];
 </head>
 <body>
 <header>
-    <menu class="main-menu"> <img class="menu-icon" src="SVG/menu.svg"> <span>Меню</span>
+    <menu class="main-menu">
+        <img class="menu-icon" src="SVG/menu.svg">
+        <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
-            <li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>
             <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
             <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
-            <li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>
-            <li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>
+            <?php
+            if ($_SESSION["ver"] === '1') {
+                echo
+                '<li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>' .
+                '<li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>' .
+                '<li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>';
+            }
+            ?>
             <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
         </ul>
         <script>
             $(document).ready(function () {
-                $('.main-menu .menu-icon, .main-menu > span').hover(function () {
-                    $('.main-menu .menu-icon').css('transform', 'scale(1.15)');
+                var clickable = $('.main-menu .menu-icon, .main-menu > span'),
+                        icon = $('.main-menu .menu-icon');
+                clickable.hover(function () {
+                    icon.css('transform', 'scale(1.15)');
                 }, function () {
-                    $('.main-menu .menu-icon').css('transform', 'scale(1)');
+                    icon.css('transform', 'scale(1)');
                 });
-                $('.main-menu .menu-icon, .main-menu > span').click(function () {
+                clickable.click(function () {
                     $('.main-menu ul').fadeToggle(300);
                 });
+    
             });
         </script>
     </menu>

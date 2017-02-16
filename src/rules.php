@@ -6,7 +6,6 @@ if (!isset($_SESSION["id"])) {
     session_destroy();
     exit();
 }
-print $_SESSION["id"];
 ?>
 <!doctype html>
 <html>

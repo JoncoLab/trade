@@ -1,498 +1,376 @@
 @import 'templates/variables.scss';
 
-.auction-table {
-    min-width: $line * 70;
-    max-width: 60%;
-    margin: 0 auto $line * 2;
-    color: $bluegrey;
-    border: {
-        color: $dark;
-        style: solid;
-        width: $line / 2;
-        radius: $line;
-    }
+#fullscreen {
+    position: fixed;
+    height: 100%;
+    width: 100%;
     background: {
+        color: fade_out($olive, 0.1);
+    }
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $light;
+
+    .fullscreen {
+        @include button();
+        margin: 0;
         color: $light;
-    }
-    text: {
-        align: center;
-    }
-    font: {
-        size: $line * 2;
-        weight: bold;
-    }
 
-    tbody {
-        .value,
-        .attribute,
-        .attr-value {
-            color: $light;
-            padding: $line;
-        }
-
-        .value {
-            background: {
-                color: $dark;
-            }
-            border: {
-                top-right-radius: $line;
-                bottom-right-radius: $line;
-            }
-        }
-
-        .attribute {
-            background: {
-                color: $olive;
-            }
-            text: {
-                align: right;
-            }
-            font: {
-                weight: normal;
-            }
-            border: {
-                top-left-radius: $line;
-                bottom-left-radius: $line;
-            }
-        }
-
-        .attr-value {
-            background: {
-                color: $dark;
-            }
-            border: {
-                radius: $line;
-            }
-        }
-
-        tr:nth-of-type(2) {
-            .attribute:last-child {
-                border: {
-                    top-right-radius: $line;
-                    bottom-left-radius: 0;
-                }
-            }
-        }
-
-        tr:nth-of-type(3) {
-            .value:last-child {
-                border: {
-                    top-right-radius: 0;
-                    bottom-left-radius: $line;
-                }
-            }
-        }
-    }
-
-    tfoot {
-        .name {
-            font: {
-                size: $line * 3;
-            }
-            color: $olive;
-        }
-
-        .value,
-        .attribute {
-            font: {
-                weight: normal;
-            }
-            color: $light;
-            padding: $line / 2;
-        }
-
-        .value {
-            background: {
-                color: $dark;
-            }
-            text: {
-                align: center;
-            }
-            border: {
-                top-right-radius: $line;
-                bottom-right-radius: $line;
-            }
-        }
-
-        .attribute {
-            background: {
-                color: $olive;
-            }
-            text: {
-                align: right;
-            }
-            border: {
-                top-left-radius: $line;
-                bottom-left-radius: $line;
-            }
+        font: {
+            size: $line * 4;
         }
     }
 }
 
-.actions {
-    min-width: $line * 70;
-    max-width: 60%;
-    min-height: $line * 10;
+main {
     display: flex;
-    margin: 0 auto $line * 2;
+    justify-content: space-around;
+    align-items: stretch;
 
-    overflow: hidden;
-
-    color: $bluegrey;
-
-    border: {
-        color: $dark;
-        style: solid;
-        width: $line / 2;
-        radius: $line;
-    }
-    background: {
-        color: $light;
-    }
-
-    form {
+    section {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        border: {
-            style: solid;
-            color: $dark;
-            width: $line / 2;
-            radius: $line;
-        }
-        overflow: hidden;
+        justify-content: center;
 
-        &.leave {
-            border: {
-                bottom: none;
-                left: none;
-                top: none;
-                radius: 0;
-            }
-
-            margin: 0 auto 0 0;
-
-            .leave-button {
-                @include button($olive);
-                margin: 0;
-                border: {
-                    radius: 0;
-                }
-                color: $light;
-                flex-basis: 100%;
-                text: {
-                    transform: uppercase;
-                }
-            }
-
-            .leave-dialog {
-
-            }
-        }
-
-        &.raise {
-            flex-grow: 1;
-
-            .fieldset {
-                margin: 0;
-                padding: 0;
-                border: none;
-
+        &.info {
+            flex-basis: 25%;
+            .chat {
                 display: flex;
-                flex-grow: 1;
+                flex-direction: column;
 
-                input[type="number"] {
+                border: {
+                    color: $dark;
+                    style: solid;
+                    width: $line / 2;
+                    radius: $line;
+                }
+
+                background: {
+                    color: $light;
+                }
+
+                color: $dark;
+
+                h2 {
+                    background-color: $dark;
+                    margin: 0;
+                    padding: $line;
                     text: {
                         align: center;
                     }
-                    font: {
-                        size: $line * 1.8;
-                        weight: bold;
-                    }
-                    color: $dark;
-                    background: {
-                        color: $light;
-                    }
-                    border: none;
-                    display: block;
-                    padding: 0 $line 0 0;
-
-                    &:active,
-                    &:focus {
-                        outline: none;
-                        box-shadow: 0 0 $line / 5 $line / 5 $olive inset;
-                    }
-
-                    &#raise-by {
-                        &-amount {
-                            width: $line * 10;
-                        }
-                        &-steps {
-                            width: $line * 10;
-                        }
-                    }
+                    color: $light;
                 }
 
-                label {
-                    display: block;
-                    color: $light;
-                    font: {
-                        size: $line * 1.4;
-                        weight: bold;
+                .messages {
+                    overflow: {
+                        y: scroll;
+                        x: hidden;
                     }
-                    text: {
-                        transform: uppercase;
-                    }
+                    @include scroll();
                     flex-grow: 1;
+                    padding: 0;
 
-                    &[for^="raise"] {
-                        background: {
-                            color: $dark;
-                        }
-                        padding: 0 $line;
+                    .message {
+                        position: relative;
+                        margin: $line / 2;
+                        padding: $line / 2;
+
+                        height: $line * 3;
+
                         display: flex;
                         align-items: center;
-                        justify-content: flex-end;
 
-                        &:nth-of-type(2) {
-                            flex-grow: 1;
-                            text-align: right;
-                            justify-content: flex-start;
+                        background: {
+                            color: fade_out($olive, 0.3);
                         }
-                    }
-                }
-            }
-
-            input[type="submit"] {
-                display: none;
-            }
-
-            label[for^="submit"] {
-                @include button($olive);
-                margin: 0;
-                padding: $line / 2;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: {
-                    radius: 0;
-                }
-                color: $light;
-                text: {
-                    transform: uppercase;
-                }
-                font: {
-                    size: $line * 1.4;
-                }
-                flex-grow: 1;
-            }
-
-            &.amount {
-                border: {
-                    bottom: none;
-                    right: none;
-                    top: none;
-                    radius: 0;
-                }
-            }
-
-            &.steps {
-                border: {
-                    bottom: none;
-                    left: none;
-                    top: none;
-                    right: none;
-                    radius: 0;
-                }
-            }
-        }
-    }
-}
-
-.chat-info {
-    min-width: $line * 70;
-    max-width: 60%;
-    margin: 0 auto;
-
-    display: flex;
-
-    .chat {
-        display: flex;
-        flex-direction: column;
-
-        border: {
-            color: $dark;
-            style: solid;
-            width: $line / 2;
-            radius: $line;
-        }
-
-        background: {
-            color: $light;
-        }
-
-        color: $dark;
-
-        h2 {
-            background-color: $dark;
-            margin: 0;
-            padding: $line;
-            text: {
-                align: center;
-            }
-            color: $light;
-        }
-
-        .messages {
-            overflow: {
-                y: scroll;
-                x: hidden;
-            }
-            @include scroll();
-            flex-grow: 1;
-            padding: 0;
-        }
-
-        &.admin {
-            align-self: flex-start;
-
-            margin-right: $line * 2;
-            max-height: $line * 50;
-
-            .messages {
-
-                .message {
-                    position: relative;
-                    margin: $line / 2;
-                    padding: $line / 2;
-
-                    height: $line * 3;
-
-                    display: flex;
-                    align-items: center;
-
-                    background: {
-                        color: fade_out($olive, 0.3);
-                    }
-                    border: {
-                        radius: $line;
-                        style: solid;
-                        width: $line / 2;
-                        color: $dark;
-                    }
-
-                    img {
-                        display: block;
-                        height: 100%;
-                        max-height: $line * 3;
                         border: {
-                            right: $line / 2 solid $dark;
+                            radius: $line;
+                            style: solid;
+                            width: $line / 2;
+                            color: $dark;
                         }
-                        margin: 0;
-                        padding: 0 $line / 2 0 0;
-                    }
 
-                    span {
-                        font: {
-                            weight: bold;
-                            size: $line * 1.5;
+                        img {
+                            display: block;
+                            height: 100%;
+                            max-height: $line * 3;
+                            border: {
+                                right: $line / 2 solid $dark;
+                            }
+                            margin: 0;
+                            padding: 0 $line / 2 0 0;
                         }
-                        margin: 0 0 0 $line / 2;
-                        color: $dark;
+
+                        span {
+                            font: {
+                                weight: bold;
+                                size: $line * 1.5;
+                            }
+                            margin: 0 0 0 $line / 2;
+                            color: $dark;
+                        }
                     }
                 }
             }
         }
 
-        &.users {
-            flex-grow: 1;
-            justify-content: space-between;
-            height: $line * 50;
-            display: none;
-
-            .messages {
-
-                .message {
-
-                    strong {
-                        margin: 0 $line / 2 0 $line * 2;
-                    }
-
-                    span {
-
-                    }
-                }
-            }
-
-            form {
-                padding: $line / 2;
-                margin: 0;
-                display: flex;
+        &.trade {
+            flex-basis: 65%;
+            .auction-table {
                 border: {
-                    top: $line / 2 solid $dark;
-                }
-
-                textarea {
-                    width: 90%;
-                    border: none;
-                    border: {
-                        radius: $line;
-                        top-right-radius: 0;
-                        bottom-right-radius: 0;
-                    }
-                    box-shadow: 0 0 0 $line / 10 $dark inset;
-                    resize: none;
-
-                    padding: $line / 2;
-
-                    &:active,
-                    &:focus {
-                        outline: none;
-                        box-shadow: 0 0 $line / 5 $line / 5 $olive inset;
-                    }
-                }
-
-                input[type="submit"] {
-                    @include button();
-                    color: $light;
-                    margin: 0;
-                    border: {
-                        top-left-radius: 0;
-                        bottom-left-radius: 0;
-                    }
-                }
-            }
-
-            #censor {
-                display: none;
-            }
-
-            label[for="censor"] {
-                display: flex;
-                align-items: flex-end;
-                margin: 0;
-                padding: $line / 2;
-                background: {
                     color: $dark;
+                    style: solid;
+                    width: $line / 2;
+                    radius: $line;
                 }
-                color: $light;
+                background: {
+                    color: $light;
+                }
+                text: {
+                    align: center;
+                }
                 font: {
+                    size: $line * 2;
                     weight: bold;
                 }
 
-                .checkbox {
-                    display: inline-block;
-                    height: $line * 2;
-                    width: $line * 2;
-                    margin: 0 $line 0 0;
-                    background: {
-                        image: url('../SVG/checkbox-unchecked-light.svg');
-                        size: contain;
-                        repeat: no-repeat;
-                        position: center;
+                tbody {
+                    .value,
+                    .attribute,
+                    .attr-value {
+                        color: $light;
+                        padding: $line;
                     }
-                    &.checked {
-                        background-image: url('../SVG/checkbox-checked-light.svg');
+
+                    .value {
+                        background: {
+                            color: $dark;
+                        }
+                        border: {
+                            top-right-radius: $line;
+                            bottom-right-radius: $line;
+                        }
+                    }
+
+                    .attribute {
+                        background: {
+                            color: $olive;
+                        }
+                        text: {
+                            align: right;
+                        }
+                        font: {
+                            weight: normal;
+                        }
+                        border: {
+                            top-left-radius: $line;
+                            bottom-left-radius: $line;
+                        }
+                    }
+
+                    .attr-value {
+                        background: {
+                            color: $dark;
+                        }
+                        border: {
+                            radius: $line;
+                        }
+                    }
+
+                    tr:nth-of-type(2) {
+                        .attribute:last-child {
+                            border: {
+                                top-right-radius: $line;
+                                bottom-left-radius: 0;
+                            }
+                        }
+                    }
+
+                    tr:nth-of-type(3) {
+                        .value:last-child {
+                            border: {
+                                top-right-radius: 0;
+                                bottom-left-radius: $line;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .actions {
+                min-height: $line * 10;
+                display: flex;
+                overflow: hidden;
+                color: $bluegrey;
+
+                border: {
+                    color: $dark;
+                    style: solid;
+                    width: $line / 2;
+                    radius: $line;
+                }
+                background: {
+                    color: $light;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    border: {
+                        style: solid;
+                        color: $dark;
+                        width: $line / 2;
+                        radius: $line;
+                    }
+                    overflow: hidden;
+
+                    &.leave {
+                        border: {
+                            bottom: none;
+                            left: none;
+                            top: none;
+                            radius: 0;
+                        }
+
+                        margin: 0 auto 0 0;
+
+                        .leave-button {
+                            @include button($olive);
+                            margin: 0;
+                            border: {
+                                radius: 0;
+                            }
+                            color: $light;
+                            flex-basis: 100%;
+                            text: {
+                                transform: uppercase;
+                            }
+                        }
+
+                        .leave-dialog {
+
+                        }
+                    }
+
+                    &.raise {
+                        flex-grow: 1;
+
+                        .fieldset {
+                            margin: 0;
+                            padding: 0;
+                            border: none;
+
+                            display: flex;
+                            flex-grow: 1;
+
+                            input[type="number"] {
+                                text: {
+                                    align: center;
+                                }
+                                font: {
+                                    size: $line * 1.8;
+                                    weight: bold;
+                                }
+                                color: $dark;
+                                background: {
+                                    color: $light;
+                                }
+                                border: none;
+                                display: block;
+                                padding: 0 $line 0 0;
+
+                                &:active,
+                                &:focus {
+                                    outline: none;
+                                    box-shadow: 0 0 $line / 5 $line / 5 $olive inset;
+                                }
+
+                                &#raise-by {
+                                    &-amount {
+                                        width: $line * 10;
+                                    }
+                                    &-steps {
+                                        width: $line * 10;
+                                    }
+                                }
+                            }
+
+                            label {
+                                display: block;
+                                color: $light;
+                                font: {
+                                    size: $line * 1.4;
+                                    weight: bold;
+                                }
+                                text: {
+                                    transform: uppercase;
+                                }
+                                flex-grow: 1;
+
+                                &[for^="raise"] {
+                                    background: {
+                                        color: $dark;
+                                    }
+                                    padding: 0 $line;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: flex-end;
+
+                                    &:nth-of-type(2) {
+                                        flex-grow: 1;
+                                        text-align: right;
+                                        justify-content: flex-start;
+                                    }
+                                }
+                            }
+                        }
+
+                        input[type="submit"] {
+                            display: none;
+                        }
+
+                        label[for^="submit"] {
+                            @include button($olive);
+                            margin: 0;
+                            padding: $line / 2;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border: {
+                                radius: 0;
+                            }
+                            color: $light;
+                            text: {
+                                transform: uppercase;
+                            }
+                            font: {
+                                size: $line * 1.4;
+                            }
+                            flex-grow: 1;
+                        }
+
+                        &.amount {
+                            border: {
+                                bottom: none;
+                                right: none;
+                                top: none;
+                                radius: 0;
+                            }
+                        }
+
+                        &.steps {
+                            border: {
+                                bottom: none;
+                                left: none;
+                                top: none;
+                                right: none;
+                                radius: 0;
+                            }
+                        }
                     }
                 }
             }
