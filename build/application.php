@@ -27,7 +27,7 @@ $traderId = $_SESSION["trader_id"];
 </head>
 <body>
 <header>
-    <menu class="main-menu">
+    <menu class="main-menu" xmlns="http://www.w3.org/1999/html">
         <img class="menu-icon" src="SVG/menu.svg">
         <span>Меню</span>
         <ul class="menu">
@@ -45,21 +45,6 @@ $traderId = $_SESSION["trader_id"];
             ?>
             <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
         </ul>
-        <script>
-            $(document).ready(function () {
-                var clickable = $('.main-menu .menu-icon, .main-menu > span'),
-                        icon = $('.main-menu .menu-icon');
-                clickable.hover(function () {
-                    icon.css('transform', 'scale(1.15)');
-                }, function () {
-                    icon.css('transform', 'scale(1)');
-                });
-                clickable.click(function () {
-                    $('.main-menu ul').fadeToggle(300);
-                });
-    
-            });
-        </script>
     </menu>
     <div class="logo">
         <img src="images/logo.png" alt="Логотип">
@@ -81,7 +66,7 @@ $traderId = $_SESSION["trader_id"];
             <strong class="five-percent">Сума 5% =<br><span class="value">0 грн.</span></strong>
             <span>5% - п/р 26006300574694 в філії ЗОУ АТ "Державний ощадний банк" м. Ужгород, МФО 312356, код ЄДРПОУ 34190565;</span><br>
             <span>375грн. з ПДВ - р/р 26009015000902 в ПАТ "Комінвестбанк", МФО 312248, код ЄДРПОУ 34190565;</span><br>
-            <strong>ОБОВ'ЯЗКОВО! в призначенні платежу вказувати: ЄДРПОУ або РНОКПП(і.п.н.), призначення та Ваш мобільний телефон!</strong>
+            <strong>ОБОВ'ЯЗКОВО! В призначенні платежу вказувати: ЄДРПОУ або РНОКПП(і.п.н.), призначення та Ваш мобільний телефон!</strong>
         </p>
         <h3>
             <span>ЗАЯВА</span><br>

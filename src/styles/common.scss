@@ -26,8 +26,6 @@ body {
     }
 
     background: {
-        color: fade_out($light, 0.4);
-        image: url("../images/bg1.png");
         size: 100% 100%;
         repeat: no-repeat;
         attachment: fixed;
@@ -53,6 +51,7 @@ body {
             justify-content: center;
             position: absolute;
             width: $line * 15;
+            left: $line;
             height: 100%;
             z-index: 100;
             text: {

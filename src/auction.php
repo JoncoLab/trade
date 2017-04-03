@@ -23,7 +23,7 @@ if (!isset($_SESSION["id"])) {
 
 <body>
 <div id="fullscreen">
-    <h1>Для зручності вікно буде розгорнуто на повний екран</h1>
+    <h1>Для зручності буде відкрито повноекранний режим</h1>
     <button class="fullscreen">ОК</button>
 </div>
     <header>

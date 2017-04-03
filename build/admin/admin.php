@@ -139,7 +139,7 @@ if ($connection->connect_error) {
             <th class="full-name">Повна назва</th>
             <th class="j-address">Юридична адреса</th>
             <th class="adrpou">ЄДРПОУ</th>
-            <th class="ind">Індентифікаційний</th>
+            <th class="ind">ідентифікаційний</th>
             <th class="person">В особі</th>
             <th class="reason">Яка діє на підставі</th>
             <th class="short-name">Скорочена назва</th>

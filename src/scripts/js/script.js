@@ -1,18 +1,14 @@
 'use strict';
 
 var main = function () {
-    var bgID = 2,
-        changeBg = function (num) {
+    var changeBg = function (num) {
         var bg1 = 'images/bg1.png',
             bg2 = 'images/bg2.png',
             bg3 = 'images/bg3.png',
             bg4 = 'images/bg4.png',
             targetBg, opacity;
 
-        if (bgID < 1 || bgID > 4) {
-            bgID = 0;
-            num = 1
-        }
+        alert(num);
 
         switch (num) {
             case 1:
@@ -40,26 +36,42 @@ var main = function () {
             'background-color': 'rgba(247, 236, 243, ' + opacity + ')',
             'background-image': 'url("' + targetBg + '")'
         });
-        bgID++;
     },
         setTime = function () {
             $('time').each(function () {
                $(this).html($(this).attr('datetime'));
             });
-        };
+        },
+        logo = $('header .logo'),
+        mainMenu = $('.main-menu'),
+        clickableMenuElements = $('.main-menu .menu-icon, .main-menu > span'),
+        menuIcon = mainMenu.children('.menu-icon'),
+        dropdownMenu = mainMenu.children('ul');
 
-    $('header .logo').click(function () {
+    clickableMenuElements.hover(function () {
+        menuIcon.css('transform', 'scale(1.15)');
+    }, function () {
+        menuIcon.css('transform', 'scale(1)');
+    });
+
+    clickableMenuElements.click(function () {
+        dropdownMenu.fadeToggle(300);
+    });
+
+    $(document).mouseup(function (e) {
+        var toCloseWindows = dropdownMenu;
+        if (toCloseWindows.has(e.target).length === 0) {
+            toCloseWindows.fadeOut(300);
+        }
+    });
+
+    logo.click(function () {
         window.location.href = 'index.html';
     });
 
-    setInterval(function () {
-        changeBg(bgID);
-    }, 10000);
-    setTime();
+    changeBg(parseInt(Math.random() * 5));
 
-    $('label').has('.checkbox').click(function () {
-        $(this).children('.checkbox').toggleClass('checked');
-    });
+    setTime();
 };
 
 $(document).ready(main);

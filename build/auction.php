@@ -23,11 +23,11 @@ if (!isset($_SESSION["id"])) {
 
 <body>
 <div id="fullscreen">
-    <h1>Для зручності вікно буде розгорнуто на повний екран</h1>
+    <h1>Для зручності буде відкрито повноекранний режим</h1>
     <button class="fullscreen">ОК</button>
 </div>
     <header>
-        <menu class="main-menu">
+        <menu class="main-menu" xmlns="http://www.w3.org/1999/html">
             <img class="menu-icon" src="SVG/menu.svg">
             <span>Меню</span>
             <ul class="menu">
@@ -45,21 +45,6 @@ if (!isset($_SESSION["id"])) {
                 ?>
                 <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
             </ul>
-            <script>
-                $(document).ready(function () {
-                    var clickable = $('.main-menu .menu-icon, .main-menu > span'),
-                            icon = $('.main-menu .menu-icon');
-                    clickable.hover(function () {
-                        icon.css('transform', 'scale(1.15)');
-                    }, function () {
-                        icon.css('transform', 'scale(1)');
-                    });
-                    clickable.click(function () {
-                        $('.main-menu ul').fadeToggle(300);
-                    });
-        
-                });
-            </script>
         </menu>
         <div class="logo">
             <img src="images/logo.png" alt="Логотип">

@@ -47,8 +47,6 @@ body
     transition-property: background-image,    background-color;
 
     color: #97a29e;
-    background-color: rgba(247, 236, 243, .6);
-    background-image: url('../images/bg1.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
@@ -119,6 +117,7 @@ body header .main-menu
 {
     position: absolute;
     z-index: 100;
+    left: 10px;
 
     display: -webkit-box;
 
