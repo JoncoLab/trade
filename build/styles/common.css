@@ -13,6 +13,10 @@ body
 
     display: -webkit-box; 
 
+    display: -webkit-flex; 
+
+    display: -moz-box; 
+
     display: -ms-flexbox; 
 
     display: flex;
@@ -20,15 +24,26 @@ body
     overflow-y: scroll;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
 
     -webkit-transition-timing-function: linear;
 
+       -moz-transition-timing-function: linear;
+
+         -o-transition-timing-function: linear;
+
             transition-timing-function: linear;
     -webkit-transition-duration: .9s;
+       -moz-transition-duration: .9s;
+         -o-transition-duration: .9s;
             transition-duration: .9s;
     -webkit-transition-property: background-image,    background-color;
+    -o-transition-property: background-image,    background-color;
+    -moz-transition-property: background-image,    background-color;
     transition-property: background-image,    background-color;
 
     color: #97a29e;
@@ -37,7 +52,8 @@ body
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
-    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+       background-size: 100% 100%;
 
     background-blend-mode: overlay;
 }
@@ -56,7 +72,8 @@ body::-webkit-scrollbar-track-piece
 body::-webkit-scrollbar-thumb
 {
     background-color: #f7ecf3;
-    box-shadow: 0 0 3px 1.5px #020718 inset;
+    -webkit-box-shadow: 0 0 3px 1.5px #020718 inset;
+            box-shadow: 0 0 3px 1.5px #020718 inset;
 }
 body::-webkit-scrollbar-thumb:hover
 {
@@ -64,13 +81,18 @@ body::-webkit-scrollbar-thumb:hover
 }
 body::-webkit-scrollbar-thumb:active
 {
-    box-shadow: 0 0 7.5px 1.5px #020718 inset;
+    -webkit-box-shadow: 0 0 7.5px 1.5px #020718 inset;
+            box-shadow: 0 0 7.5px 1.5px #020718 inset;
 }
 body header
 {
     position: relative;
 
     display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -moz-box;
 
     display: -ms-flexbox;
 
@@ -80,10 +102,16 @@ body header
 
     -webkit-box-pack: center; 
 
+    -webkit-justify-content: center; 
+
+       -moz-box-pack: center; 
+
         -ms-flex-pack: center; 
 
             justify-content: center;
     -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
         -ms-flex-align: center;
             align-items: center;
 }
@@ -93,6 +121,10 @@ body header .main-menu
     z-index: 100;
 
     display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -moz-box;
 
     display: -ms-flexbox;
 
@@ -108,10 +140,16 @@ body header .main-menu
 
     -webkit-box-align: center;
 
+    -webkit-align-items: center;
+
+       -moz-box-align: center;
+
         -ms-flex-align: center;
 
             align-items: center;
     -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
 }
@@ -133,8 +171,12 @@ body header .main-menu .menu-icon
 
     cursor: pointer;
     -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
             transition-timing-function: linear; 
     -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
             transition-duration: .15s;
 }
 body header .main-menu ul
@@ -150,15 +192,22 @@ body header .main-menu ul
 
     list-style: none;
 
-    border-radius: 20px;
+    -webkit-border-radius: 20px;
+
+            border-radius: 20px;
     background-color: #020718;
-    box-shadow: 2px 2px 5px 2px #4d5c33;
+    -webkit-box-shadow: 2px 2px 5px 2px #4d5c33;
+            box-shadow: 2px 2px 5px 2px #4d5c33;
 }
 body header .main-menu ul li
 {
     position: relative;
 
     display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -moz-box;
 
     display: -ms-flexbox;
 
@@ -169,13 +218,25 @@ body header .main-menu ul li
 
     -webkit-transition-timing-function: linear;
 
+       -moz-transition-timing-function: linear;
+
+         -o-transition-timing-function: linear;
+
             transition-timing-function: linear; 
     -webkit-transition-duration: .3s; 
+       -moz-transition-duration: .3s; 
+         -o-transition-duration: .3s; 
             transition-duration: .3s;
 
-    border-radius: 20px;
+    -webkit-border-radius: 20px;
+
+            border-radius: 20px;
 
     -webkit-box-align: center;
+
+    -webkit-align-items: center;
+
+       -moz-box-align: center;
 
         -ms-flex-align: center;
 
@@ -184,6 +245,9 @@ body header .main-menu ul li
 body header .main-menu ul li:hover
 {
     -webkit-transform: scale(1.2);
+       -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+         -o-transform: scale(1.2);
             transform: scale(1.2); 
 
     background-color: #4d5c33;
@@ -205,6 +269,10 @@ body header .main-menu ul li a
 
     -webkit-box-flex: 1;
 
+    -webkit-flex-grow: 1;
+
+       -moz-box-flex: 1;
+
         -ms-flex-positive: 1;
 
             flex-grow: 1;
@@ -214,6 +282,10 @@ body header .logo
     position: relative;
 
     display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -moz-box;
 
     display: -ms-flexbox;
 
@@ -225,6 +297,10 @@ body header .logo
     cursor: pointer; 
 
     -webkit-box-align: center; 
+
+    -webkit-align-items: center; 
+
+       -moz-box-align: center; 
 
         -ms-flex-align: center; 
 
@@ -249,9 +325,11 @@ body header .logo h1
     color: #4d5c33;
     text-shadow: 1px 0 1px #020718;
 
-    -ms-flex-item-align: end;
+    -webkit-align-self: flex-end;
 
-        align-self: flex-end;
+        -ms-flex-item-align: end;
+
+            align-self: flex-end;
 }
 body main
 {
@@ -261,6 +339,10 @@ body main
 
     -webkit-box-flex: 1; 
 
+    -webkit-flex-grow: 1; 
+
+       -moz-box-flex: 1; 
+
         -ms-flex-positive: 1; 
 
             flex-grow: 1;
@@ -268,6 +350,8 @@ body main
 body footer
 {
     display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
 
@@ -275,11 +359,14 @@ body footer
     margin: 20px 0 0 0; 
     padding-bottom: 10px;
 
-    -ms-flex-pack: distribute;
+    -webkit-justify-content: space-around;
 
-        justify-content: space-around;
-    -ms-flex-preferred-size: 80px;
-        flex-basis: 80px;
+        -ms-flex-pack: distribute;
+
+            justify-content: space-around;
+    -webkit-flex-basis: 80px;
+        -ms-flex-preferred-size: 80px;
+            flex-basis: 80px;
 }
 body footer .footer-item
 {
@@ -290,24 +377,35 @@ body footer .footer-item
 
     cursor: pointer; 
     -webkit-transition-timing-function: linear; 
+       -moz-transition-timing-function: linear; 
+         -o-transition-timing-function: linear; 
             transition-timing-function: linear;
     -webkit-transition-duration: .3s;
+       -moz-transition-duration: .3s;
+         -o-transition-duration: .3s;
             transition-duration: .3s;
     text-align: center;
     text-decoration: none;
 
     color: #97a29e;
-    border-radius: 20px;
+    -webkit-border-radius: 20px;
+            border-radius: 20px;
     background: #020718;
-    box-shadow: 2px 2px 5px 0 #4d5c33;
+    -webkit-box-shadow: 2px 2px 5px 0 #4d5c33;
+            box-shadow: 2px 2px 5px 0 #4d5c33;
 
-    -ms-flex-preferred-size: 200px;
+    -webkit-flex-basis: 200px;
 
-        flex-basis: 200px;
+        -ms-flex-preferred-size: 200px;
+
+            flex-basis: 200px;
 }
 body footer .footer-item:hover
 {
     -webkit-transform: translateY(-10px);
+       -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+         -o-transform: translateY(-10px);
             transform: translateY(-10px);
 }
 body footer .contacts .contacts-logo
@@ -325,7 +423,10 @@ body footer .developers .jonco-logo
     height: 30px;
     padding: 10px; 
 
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px; 
+
+            border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+            border-top-right-radius: 10px;
     background-color: #97a29e;
 }

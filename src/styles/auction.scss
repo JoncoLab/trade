@@ -115,11 +115,18 @@ main {
                     }
                 }
             }
+
+            &.stream {
+
+            }
         }
 
         &.trade {
             flex-basis: 65%;
+            display: flex;
+            flex-direction: column;
             .auction-table {
+                flex-grow: 1;
                 border: {
                     color: $dark;
                     style: solid;
@@ -201,6 +208,7 @@ main {
             }
 
             .actions {
+                flex-grow: 1;
                 min-height: $line * 10;
                 display: flex;
                 overflow: hidden;

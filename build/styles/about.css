@@ -1,6 +1,8 @@
 .info
 {
     display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
 
@@ -8,10 +10,16 @@
 
     -webkit-box-pack: center; 
 
+    -webkit-justify-content: center; 
+
+       -moz-box-pack: center; 
+
         -ms-flex-pack: center; 
 
             justify-content: center;
     -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+       -moz-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
 }
@@ -24,12 +32,15 @@
     border-width: 5px;
     border-style: solid;
     border-color: #020718;
-    border-radius: 10px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
     background-color: #f7ecf3;
 
-    -ms-flex-preferred-size: 400px;
+    -webkit-flex-basis: 400px;
 
-        flex-basis: 400px;
+        -ms-flex-preferred-size: 400px;
+
+            flex-basis: 400px;
 }
 .info .company h2,
 .info .contacts h2,
@@ -51,16 +62,25 @@
 .info .docs
 {
     display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     overflow-x: hidden;
     overflow-y: visible; 
     -webkit-box-orient: vertical; 
     -webkit-box-direction: normal; 
+    -webkit-flex-direction: column; 
+       -moz-box-orient: vertical; 
+       -moz-box-direction: normal; 
         -ms-flex-direction: column; 
             flex-direction: column;
 
     -webkit-box-align: center;
+
+    -webkit-align-items: center;
+
+       -moz-box-align: center;
 
         -ms-flex-align: center;
 
@@ -68,9 +88,10 @@
 }
 .info .docs h2
 {
-    -ms-flex-item-align: stretch;
-        -ms-grid-row-align: stretch;
-        align-self: stretch;
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+                -ms-grid-row-align: stretch;
+            align-self: stretch;
 }
 .info .docs figure
 {
@@ -82,11 +103,19 @@
 
     cursor: pointer; 
     -webkit-transition-timing-function: linear; 
+       -moz-transition-timing-function: linear; 
+         -o-transition-timing-function: linear; 
             transition-timing-function: linear;
     -webkit-transition-duration: .15s;
+       -moz-transition-duration: .15s;
+         -o-transition-duration: .15s;
             transition-duration: .15s;
-    -webkit-transition-property: box-shadow;
+    -webkit-transition-property: -webkit-box-shadow;
+    transition-property: -webkit-box-shadow;
+    -o-transition-property: box-shadow;
+    -moz-transition-property: box-shadow;
     transition-property: box-shadow;
+    transition-property: box-shadow, -webkit-box-shadow;
     text-align: center;
 }
 .info .docs figure:not(:last-of-type)
@@ -107,7 +136,8 @@
 }
 .info .docs figure:hover
 {
-    box-shadow: 0 0 10px 2px inset;
+    -webkit-box-shadow: 0 0 10px 2px inset;
+            box-shadow: 0 0 10px 2px inset;
 }
 .info .company p
 {

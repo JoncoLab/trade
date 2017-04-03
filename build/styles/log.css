@@ -16,7 +16,8 @@ body
     background-image: url('../images/bgledn.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+       background-size: 100% 100%;
 
     background-blend-mode: overlay;
 }
@@ -35,7 +36,8 @@ body::-webkit-scrollbar-track-piece
 body::-webkit-scrollbar-thumb
 {
     background-color: #f7ecf3;
-    box-shadow: 0 0 2px 1px #020718 inset;
+    -webkit-box-shadow: 0 0 2px 1px #020718 inset;
+            box-shadow: 0 0 2px 1px #020718 inset;
 }
 body::-webkit-scrollbar-thumb:hover
 {
@@ -43,15 +45,21 @@ body::-webkit-scrollbar-thumb:hover
 }
 body::-webkit-scrollbar-thumb:active
 {
-    box-shadow: 0 0 5px 1px #020718 inset;
+    -webkit-box-shadow: 0 0 5px 1px #020718 inset;
+            box-shadow: 0 0 5px 1px #020718 inset;
 }
 body main
 {
     display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
 
@@ -61,10 +69,16 @@ body main
 
     -webkit-box-pack: center; 
 
+    -webkit-justify-content: center; 
+
+       -moz-box-pack: center; 
+
         -ms-flex-pack: center; 
 
             justify-content: center;
     -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
         -ms-flex-align: center;
             align-items: center;
 }
@@ -75,7 +89,8 @@ body main #login-form
     border-width: 5px;
     border-style: solid;
     border-color: #4d5c33;
-    border-radius: 10px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
     background-color: rgba(255, 255, 255, .5);
 }
 body main #login-form p[class^='error']
@@ -99,10 +114,16 @@ body main #login-form h1
 body main #login-form h1 small
 {
     display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: -ms-flexbox;
     display: flex;
 
     -webkit-box-pack: center;
+
+    -webkit-justify-content: center;
+
+       -moz-box-pack: center;
 
         -ms-flex-pack: center;
 
@@ -158,7 +179,8 @@ body main #login-form .form-item input
     border-width: 2px;
     border-style: solid;
     border-color: #4d5c33;
-    border-radius: 10px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
 }
 body main #login-form .form-item input:focus,
 body main #login-form .form-item input:active
@@ -193,12 +215,15 @@ body main #login-form .buttons #reset
 
     color: #f7ecf3;
     border: none;
-    border-radius: 10px;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
     background-color: rgba(77, 92, 51, .9);
 
-    -ms-flex-preferred-size: 25%;
+    -webkit-flex-basis: 25%;
 
-        flex-basis: 25%;
+        -ms-flex-preferred-size: 25%;
+
+            flex-basis: 25%;
 }
 body main #login-form .buttons #submit:hover,
 body main #login-form .buttons #reset:hover

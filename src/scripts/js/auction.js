@@ -13,4 +13,6 @@ $(document).ready(function () {
         }
         $('#fullscreen').fadeOut(500);
     });
+
+    $('video').attr('autoplay', 'autoplay');
 });

@@ -1,0 +1,290 @@
+@import 'templates/variables';
+
+.error {
+  animation-name: header-scale-error;
+  animation-duration: 1.5s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: $line * 2 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+
+    button {
+        padding: $line;
+        background-color: darken($light, 20px);
+        font: {
+            weight: bold;
+        }
+        cursor: pointer;
+        border: 2px double darken($light, 30px);
+    }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-width: 800px;
+
+  overflow: {
+    x: auto;
+    y: scroll;
+  };
+
+  .page-maker {
+    display: none;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto $line * 2;
+    width: 100%;
+    position: relative;
+    text: {
+      align: center;
+    }
+
+    td,
+    th {
+      border: $line / 10 solid $grey;
+      padding: $line;
+      input {
+        width: 100%;
+        border: none;
+      }
+    }
+
+    thead {
+      z-index: 2;
+      tr {
+        th {
+          background-color: lightblue;
+        }
+        &.sum {
+          th {
+            background-color: darken(lightblue, 25px);
+          }
+        }
+      }
+    }
+    tbody {
+      box-sizing: border-box;
+      z-index: -1;
+      width: 100%;
+      transition-property: transform;
+      transition-duration: $time;
+      tr {
+        box-sizing: border-box;
+        td {
+
+          &.ver {
+
+            input[type="text"] {
+              padding: $line;
+              margin: 0 auto;
+              width: 80%;
+              border: $line / 5 solid lightblue;
+            }
+
+            .verify {
+              background: {
+                image: linear-gradient(-30deg, darken(lightblue, 10%), lighten(lightblue, 10%));
+              }
+              padding: $line;
+              border: {
+                radius: $line;
+              }
+            }
+          }
+        }
+        &:nth-of-type(2n) {
+          background-color: lighten(lightblue, 18px);
+        }
+        text-align-last: center;
+      }
+    }
+  }
+
+  form {
+    border-radius: $line;
+    padding: $line;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    button {
+      padding: $line;
+      background-color: $pink;
+      font: {
+        weight: bold;
+      }
+      cursor: pointer;
+      border: 2px double darken($light, 30px);
+      &.send-article {
+        background-color: darken($pink, 10px);
+        font: {
+          size: $line * 2;
+        }
+      }
+      &.watch {
+        background-color: darken($pink, 10px);
+        font: {
+          size: $line * 1.5;
+        }
+      }
+    }
+    fieldset {
+      border: none;
+      border-top: $line / 3 solid $light;
+      margin-bottom: $line * 1.5;
+      legend {
+        font: {
+          size: $line * 1.7;
+        }
+        color: darken($light, 45px);
+      }
+      input {
+        width: 50%;
+      }
+      &.header {
+        flex: 1;
+        input {
+          font: {
+            size: $line * 1.8;
+          }
+          text-transform: uppercase;
+        }
+      }
+      &.content {
+        textarea {
+          width: 95%;
+          margin: $line *1.5 auto $line /2 auto;
+          line-height: $line * 1.8;
+          padding: $line * 1.7;
+          font: {
+            size: $line * 1.6;
+          }
+          resize: none;
+        }
+        .add-paragr {}
+        .new-paragr {
+          margin-top: $line;
+          padding: $line;
+          border: $line / 2 solid darken($light, 10px);
+          p {
+            line-height: $line * 2.2;
+            padding: 0 $line * 2;
+            &::first-letter {
+              padding-left: $line *3;
+              font: {
+                size: $line *2;
+                weight: bold;
+              }
+            }
+          }
+          button {
+            padding: $line / 2 $line * 2.5;
+            margin-left: $line * 2;
+            &.edited {
+              display: none;
+            }
+          }
+          textarea {
+            margin: 0;
+          }
+        }
+      }
+      &.files {
+        flex: 2;
+        input {}
+      }
+      input,
+      textarea {
+        border: none;
+        background: {
+          color: $light;
+        }
+        padding: $line * 1.5;
+      }
+    }
+    article {
+      margin-top: $line;
+      padding: $line;
+      border: $line / 2 solid darken($light, 10px);
+      p {
+        line-height: $line * 2.2;
+        padding: 0 $line * 2;
+        &::first-letter {
+          padding-left: $line *3;
+          font: {
+            size: $line *2;
+            weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .trade {
+    > *:not(.start-trade) {
+      display: none;
+    }
+  }
+
+  #loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font: {
+      size: $line * 5;
+      weight: bold;
+    }
+    color: white;
+    background: {
+      color: rgba(0, 0, 0, 0.5);
+    };
+  }
+}
+
+[id$="_wrapper"] {
+  text-align: center;
+  display: none;
+  margin: $line * 3;
+
+  .dataTables_filter,
+  .dataTables_length,
+  .dataTables_paginate,
+  .dataTables_info {
+    display: inline-block;
+    float: none;
+    text-align: center;
+
+    margin: 0 $line $line;
+    padding: $line;
+
+    background-color: lighten(lightblue, 10px);
+
+    font: {
+      size: $line * 1.5;
+      family: Arial;
+      weight: bold;
+    }
+  }
+  .dataTables_paginate {
+    display: block;
+    background-color: white;
+  }
+}

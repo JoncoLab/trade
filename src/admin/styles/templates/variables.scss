@@ -1,0 +1,20 @@
+$line: 10px;
+$time: 0.3s;
+
+$dark: #020718;
+$bluegrey: #3b525e;
+$grey: #97a29e;
+$light: #f7ecf3;
+$olive: #4d5c33;
+$pink: darken($light, 20px);
+
+@keyframes header-scale-error {
+  50% {
+    transform: scale(1.5);
+    background-color: $bluegrey;
+  }
+  100% {
+    transform: scale(1);
+    background-color: $light;
+  }
+}

@@ -32,17 +32,19 @@ if (!isset($_SESSION["id"])) {
     </header>
     <main>
         <section class="info">
-            <div class="stream"></div>
+            <div class="stream">
+                <iframe width="460" height="315" src="https://www.youtube.com/embed/vVG-YcshwAw" frameborder="0" allowfullscreen></iframe>
+            </div>
             <div class="chat">
                 <h2>Повідомлення адміністратора торгу</h2>
                 <div class="messages">
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
-                    <p class="message"><img src="SVG/alarm.svg"><span>Залишилось 13 сек.</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 123 продано 555</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Торгується лот 456</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>лот 456 продано 505</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Торгується лот 222</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 222 продано 505</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Торгується лот 178</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
                 </div>
             </div>
         </section>
@@ -99,13 +101,7 @@ if (!isset($_SESSION["id"])) {
             </table>
             <div class="actions">
                 <form class="leave">
-                    <button class="leave-button">Покинути торги</button>
-                    <dialog class="leave-dialog">
-                        <p>Are you sure?</p>
-                        <label for="leave">Здатися</label>
-                        <input type="submit" name="leave" id="leave">
-                        <button class="cancel-button">Скасувати</button>
-                    </dialog>
+                    <input type="submit" name="leave" class="leave-button" value="Не торгуватися">
                 </form>
                 <form class="raise steps">
                     <div class="fieldset">
