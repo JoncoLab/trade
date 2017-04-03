@@ -176,8 +176,7 @@ gulp.task('project:build', [
     'img:build',
     'svg:build',
     'php:build',
-    'fonts:build',
-    'zip:build'
+    'fonts:build'
 ]);
 
 gulp.task('watch', function () {

@@ -8,8 +8,6 @@ var main = function () {
             bg4 = 'images/bg4.png',
             targetBg, opacity;
 
-        alert(num);
-
         switch (num) {
             case 1:
                 targetBg = bg1;
