@@ -47,6 +47,8 @@ body
     transition-property: background-image,    background-color;
 
     color: #97a29e;
+    background-color: #f7ecf3;
+    background-image: none;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top;
