@@ -194,19 +194,20 @@ $connection->set_charset('utf8');
     </form>
     <form class="trade page-maker" action="session.php" method="post">
         <fieldset>
+            <legend>Наступна сесія:</legend>
             <?php
             foreach ($sellers as $seller) {
                 echo
                     '<label class="form-item">' .
                     '<span class="seller">' . $seller . '</span>' .
-                    '<input type="checkbox" name="sellers" value="' . $seller . '">' .
+                    '<input type="checkbox" value="' . $seller . '">' .
                     '</label>';
             }
             }
             ?>
         </fieldset>
         <input type="submit" id="start-session-submit" name="start-session-submit">
-        <label for="start-session-submit">Почати сесію</label>
+        <label for="start-session-submit">Почати</label>
     </form>
     <div id="loading">Завантаження...</div>
     </main>

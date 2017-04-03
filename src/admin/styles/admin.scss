@@ -112,7 +112,7 @@ body {
     }
   }
 
-  form {
+  .write-article {
     border-radius: $line;
     padding: $line;
     display: flex;
@@ -234,7 +234,19 @@ body {
   }
 
   .trade {
+    width: 100%;
 
+    fieldset {
+      text: {
+        align: center;
+      }
+
+      .form-item {
+        display: inline-flex;
+        max-width: 20%;
+        margin: $line;
+      }
+    }
   }
 
   #loading {

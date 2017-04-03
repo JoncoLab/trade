@@ -240,7 +240,7 @@ body table tbody tr:nth-of-type(2n)
 {
     background-color: #f3f9fb;
 }
-body form
+body .write-article
 {
     position: relative; 
 
@@ -277,7 +277,7 @@ body form
 
             justify-content: space-between;
 }
-body form button
+body .write-article button
 {
     font-weight: bold;
 
@@ -288,36 +288,36 @@ body form button
     border: 2px double #ca80af; 
     background-color: #d9a4c6;
 }
-body form button.send-article
+body .write-article button.send-article
 {
     font-size: 20px; 
 
     background-color: #ca80af;
 }
-body form button.watch
+body .write-article button.watch
 {
     font-size: 15px; 
 
     background-color: #ca80af;
 }
-body form fieldset
+body .write-article fieldset
 {
     margin-bottom: 15px; 
 
     border: none;
     border-top: 3.33333px solid #f7ecf3;
 }
-body form fieldset legend
+body .write-article fieldset legend
 {
     font-size: 17px;
 
     color: #b24b8d;
 }
-body form fieldset input
+body .write-article fieldset input
 {
     width: 50%;
 }
-body form fieldset.header
+body .write-article fieldset.header
 {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -325,13 +325,13 @@ body form fieldset.header
         -ms-flex: 1;
             flex: 1;
 }
-body form fieldset.header input
+body .write-article fieldset.header input
 {
     font-size: 18px;
 
     text-transform: uppercase;
 }
-body form fieldset.content textarea
+body .write-article fieldset.content textarea
 {
     font-size: 16px;
     line-height: 18px;
@@ -342,40 +342,40 @@ body form fieldset.content textarea
 
     resize: none;
 }
-body form fieldset.content .new-paragr
+body .write-article fieldset.content .new-paragr
 {
     margin-top: 10px;
     padding: 10px;
 
     border: 5px solid #e8c8dc;
 }
-body form fieldset.content .new-paragr p
+body .write-article fieldset.content .new-paragr p
 {
     line-height: 22px;
 
     padding: 0 20px;
 }
-body form fieldset.content .new-paragr p::first-letter
+body .write-article fieldset.content .new-paragr p::first-letter
 {
     font-size: 20px;
     font-weight: bold; 
 
     padding-left: 30px;
 }
-body form fieldset.content .new-paragr button
+body .write-article fieldset.content .new-paragr button
 {
     margin-left: 20px; 
     padding: 5px 25px;
 }
-body form fieldset.content .new-paragr button.edited
+body .write-article fieldset.content .new-paragr button.edited
 {
     display: none;
 }
-body form fieldset.content .new-paragr textarea
+body .write-article fieldset.content .new-paragr textarea
 {
     margin: 0;
 }
-body form fieldset.files
+body .write-article fieldset.files
 {
     -webkit-box-flex: 2;
     -webkit-flex: 2;
@@ -383,33 +383,52 @@ body form fieldset.files
         -ms-flex: 2;
             flex: 2;
 }
-body form fieldset input,
-body form fieldset textarea
+body .write-article fieldset input,
+body .write-article fieldset textarea
 {
     padding: 15px; 
 
     border: none;
     background-color: #f7ecf3;
 }
-body form article
+body .write-article article
 {
     margin-top: 10px;
     padding: 10px;
 
     border: 5px solid #e8c8dc;
 }
-body form article p
+body .write-article article p
 {
     line-height: 22px;
 
     padding: 0 20px;
 }
-body form article p::first-letter
+body .write-article article p::first-letter
 {
     font-size: 20px;
     font-weight: bold; 
 
     padding-left: 30px;
+}
+body .trade
+{
+    width: 100%;
+}
+body .trade fieldset
+{
+    text-align: center;
+}
+body .trade fieldset .form-item
+{
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+
+    max-width: 20%;
+    margin: 10px;
 }
 body #loading
 {

@@ -25,7 +25,8 @@ var main = function () {
             }
         },
         newArticleContent = $('form .content'),
-        addParagraphBar = newArticleContent.children('.add-paragr');
+        addParagraphBar = newArticleContent.children('.add-paragr'),
+        sessionPreparationForm = $('.trade');
     
     main.css('margin-top', height + 20 + 'px');
 
@@ -169,6 +170,11 @@ var main = function () {
                 fieldSets.show();
             });
         });
+    });
+
+    sessionPreparationForm.submit(function () {
+
+        return false;
     });
 };
 
