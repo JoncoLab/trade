@@ -16,6 +16,7 @@ $connection = new mysqli($host, $username, $password, $db);
 if ($connection->connect_error) {
     echo 'Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error;
 } else {
+    $connection->set_charset('utf8');
     $login = $_POST["login"];
     $password = $_POST["password"];
 

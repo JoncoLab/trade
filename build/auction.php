@@ -17,7 +17,7 @@ if (!isset($_SESSION["id"])) {
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/auction.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js"></script>
+    <script src="scripts/js/common.js"></script>
     <script src="scripts/js/auction.js"></script>
 </head>
 
@@ -31,7 +31,7 @@ if (!isset($_SESSION["id"])) {
             <img class="menu-icon" src="SVG/menu.svg">
             <span>Меню</span>
             <ul class="menu">
-                <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
+                <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
                 <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
                 <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
                 <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
@@ -54,7 +54,7 @@ if (!isset($_SESSION["id"])) {
     <main>
         <section class="info">
             <div class="stream">
-                <iframe width="460" height="315" src="https://www.youtube.com/embed/vVG-YcshwAw" frameborder="0" allowfullscreen></iframe>
+                <iframe width="460" height="315" src="https://www.youtube.com/embed/vVG-YcshwAw" frameborder="0"></iframe>
             </div>
             <div class="chat">
                 <h2>Повідомлення адміністратора торгу</h2>
@@ -65,6 +65,16 @@ if (!isset($_SESSION["id"])) {
                     <p class="message"><img src="SVG/alarm.svg"><span>Торгується лот 222</span></p>
                     <p class="message"><img src="SVG/alarm.svg"><span>Лот 222 продано 505</span></p>
                     <p class="message"><img src="SVG/alarm.svg"><span>Торгується лот 178</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
+                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
                     <p class="message"><img src="SVG/alarm.svg"><span>Лот 178 продано 286</span></p>
                 </div>
             </div>

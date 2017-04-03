@@ -98,15 +98,21 @@ body header
 
     display: flex;
 
-    min-height: 100px; 
+    -webkit-box-sizing: content-box;
 
-    -webkit-box-pack: center; 
+       -moz-box-sizing: content-box;
 
-    -webkit-justify-content: center; 
+            box-sizing: content-box; 
+    min-height: 100px;
+    padding: 0 0 10px;
 
-       -moz-box-pack: center; 
+    -webkit-box-pack: center;
 
-        -ms-flex-pack: center; 
+    -webkit-justify-content: center;
+
+       -moz-box-pack: center;
+
+        -ms-flex-pack: center;
 
             justify-content: center;
     -webkit-box-align: center;
@@ -293,7 +299,7 @@ body header .logo
     display: flex;
 
     height: 90px;
-    margin: 0 auto;
+    margin: 20px auto 0;
 
     cursor: pointer; 
 

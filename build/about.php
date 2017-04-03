@@ -16,7 +16,7 @@ if (!isset($_SESSION["id"])) {
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/about.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js"></script>
+    <script src="scripts/js/common.js"></script>
 </head>
 <body>
 <header>
@@ -24,7 +24,7 @@ if (!isset($_SESSION["id"])) {
         <img class="menu-icon" src="SVG/menu.svg">
         <span>Меню</span>
         <ul class="menu">
-            <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
+            <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
             <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
             <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>

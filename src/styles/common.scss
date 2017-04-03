@@ -46,6 +46,9 @@ body {
         justify-content: center;
         align-items: center;
         min-height: $line * 10;
+        padding: 0 0 $line;
+
+        box-sizing: content-box;
 
         .main-menu {
             display: flex;
@@ -130,7 +133,7 @@ body {
         }
 
         .logo {
-            margin: 0 auto;
+            margin: $line * 2 auto 0;
             height: $line * 9;
             position: relative;
             display: flex;

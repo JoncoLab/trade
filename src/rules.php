@@ -14,7 +14,7 @@ if (!isset($_SESSION["id"])) {
     <title>EXChange - правила користування майданчиком</title>
     <link href="styles/common.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js"></script>
+    <script src="scripts/js/common.js"></script>
 </head>
 <body>
 <header>

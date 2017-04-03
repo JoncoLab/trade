@@ -26,7 +26,7 @@ if ($user = User::getUserByEmail($email)) {
     $_SESSION['ver'] = $user->ver;
     $_SESSION['trader_id'] = $user->trader_id;
     $_SESSION['applied_for_lots'] = $user->applied_for_lots;
-    header("Location: /cabinet-page.php");
+    header("Location: /cabinet.php");
 } else {
     die('Помилка підключення до бази даних!');
 }

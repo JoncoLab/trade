@@ -16,7 +16,7 @@ if (!isset($_SESSION["id"])) {
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/about.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js"></script>
+    <script src="scripts/js/common.js"></script>
 </head>
 <body>
 <header>

@@ -64,7 +64,10 @@ class User
 
         if ($connection->connect_error) {
             die('Не вдається встановити підключення до бази даних');
-        } else return $connection;
+        } else {
+            $connection->set_charset('utf-8');
+            return $connection;
+        }
     }
 
     public static function getUserById($id) {

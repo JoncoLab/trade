@@ -22,7 +22,7 @@ $traderId = $_SESSION["trader_id"];
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/application.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js" type="text/javascript"></script>
+    <script src="scripts/js/common.js" type="text/javascript"></script>
     <script src="scripts/js/application.js" type="text/javascript"></script>
 </head>
 <body>
@@ -31,7 +31,7 @@ $traderId = $_SESSION["trader_id"];
         <img class="menu-icon" src="SVG/menu.svg">
         <span>Меню</span>
         <ul class="menu">
-            <li><img class="ico" src="SVG/user-light.svg"><a href="cabinet-page.php">Мій кабінет</a></li>
+            <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
             <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
             <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
@@ -138,6 +138,7 @@ $traderId = $_SESSION["trader_id"];
                     if ($connection->connect_error) {
                         die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
                     } else {
+                        $connection->set_charset('utf8');
                         $sql = 'SELECT id, seller_name, type, gost, breed, size, characteristics_diametr, characteristics_length, characteristics_sort, characteristics_storage, cost_start, price_start FROM lots ORDER BY id ASC';
                         $lots = $connection->query($sql);
                         $connection->close();

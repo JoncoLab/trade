@@ -1,5 +1,5 @@
 <?php
-include 'scripts/php/user.php';
+include '../scripts/php/user.php';
 $host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';
 $userPassword = '2014';
@@ -9,6 +9,7 @@ $connection = new mysqli($host, $username, $userPassword, $db);
 if ($connection->connect_error) {
     die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
 } else {
+$connection->set_charset('utf8');
 ?>
 
 <!DOCTYPE html>
@@ -16,11 +17,11 @@ if ($connection->connect_error) {
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link href="styles/admin-style.css" rel="stylesheet">
+    <link href="styles/admin.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="scripts/js/admin-script.js"></script>
+    <script src="scripts/js/admin.js"></script>
 </head>
 <body>
 <header>
@@ -36,7 +37,6 @@ if ($connection->connect_error) {
         <thead>
         <tr>
             <th rowspan="2" class="id">Номер лоту</th>
-            <th rowspan="2" class="seller-id">Номер продавця</th>
             <th rowspan="2" class="seller-name">Назва продавця</th>
             <th rowspan="2" class="type">Назва асортименту</th>
             <th rowspan="2" class="gost">ГОСТ</th>
@@ -49,6 +49,7 @@ if ($connection->connect_error) {
             <th rowspan="2" class="cost-final">Остаточна ціна за куб</th>
             <th rowspan="2" class="customer-number">Номер покупця</th>
             <th rowspan="2" class="price-final">Остаточна вартість</th>
+            <th rowspan="2" class="seller-id">Номер продавця</th>
             <th rowspan="2" class="customers-applied">Заявлені учасники</th>
             <th rowspan="2" class="guarantee">Гарантійний внесок</th>
             <th rowspan="2" class="profit">Біржова винагорода</th>
@@ -64,28 +65,12 @@ if ($connection->connect_error) {
         <?php
         $sql = 'SELECT * FROM lots';
         $lots = $connection->query($sql);
-        $JSLotsArray = "<script>" .
-            "var lots = []; \r\n";
+        $connection->close();
+        $sellers = array();
         while ($lot = $lots->fetch_assoc()) {
-            $JSLotsArray .= "lots.push({" .
-                "sellerName:'" . $lot['seller_name'] .
-                "', id:'" . $lot['id'] .
-                "', type:'" . $lot['type'] .
-                "', characteristicsDiametr:'" . $lot['characteristics_diametr'] .
-                "', characteristicsSort:'" . $lot['characteristics_sort'] .
-                "', breed:'" . $lot['breed'] .
-                "', characteristicsLength:'" . $lot['characteristics_length'] .
-                "', characteristicsStorage:'" . $lot['characteristics_storage'] .
-                "', gost:'" . $lot['gost'] .
-                "', size:'" . $lot['size'] .
-                "', customersApplied:'" . $lot['customers_applied'] .
-                "', costStart:'" . $lot['cost_start'] .
-                "', step:'" . $lot['step'] .
-                "'}); \r\n";
             echo
                 '<tr>' .
                 '<td class="id">' . $lot["id"] . '</td>' .
-                '<td class="seller-id">' . $lot["seller_id"] . '</td>' .
                 '<td class="seller-name">' . $lot["seller_name"] . '</td>' .
                 '<td class="type">' . $lot["type"] . '</td>' .
                 '<td class="gost">' . $lot["gost"] . '</td>' .
@@ -101,26 +86,16 @@ if ($connection->connect_error) {
                 '<td class="cost-final">' . $lot["cost-final"] . '</td>' .
                 '<td class="customer-number">' . $lot["customer_number"] . '</td>' .
                 '<td class="price-final">' . $lot["price_final"] . '</td>' .
+                '<td class="seller-id">' . $lot["seller_id"] . '</td>' .
                 '<td class="customers-applied">' . $lot["customers_applied"] . '</td>' .
                 '<td class="guarantee">' . $lot["guarantee"] . '</td>' .
                 '<td class="profit">' . $lot["profit"] . '</td>' .
                 '</tr>';
+
+            if (in_array($lot["seller_name"], $sellers) === false) {
+                array_push($sellers, $lot["seller_name"]);
+            }
         }
-        $JSLotsArray .=
-            "$('.trade td.seller-name').text(lots[0].sellerName);
-                $('.trade td.id').text(lots[0].id);
-                $('.trade td.type').text(lots[0].type);
-                $('.trade td.characteristics-diametr').text(lots[0].characteristicsDiametr);
-                $('.trade td.characteristics-sort').text(lots[0].characteristicsSort);
-                $('.trade td.breed').text(lots[0].breed);
-                $('.trade td.characteristics-length').text(lots[0].characteristicsLength);
-                $('.trade td.characteristics-storage').text(lots[0].characteristicsStorage);
-                $('.trade td.gost').text(lots[0].gost);
-                $('.trade td.size').text(lots[0].size);
-                $('.trade td.customers-applied').text(lots[0].customersApplied);
-                $('.trade td.cost-start').text(lots[0].costStart);
-                $('.trade td.step').text(lots[0].step);" .
-            "</script>"
         ?>
         </tbody>
     </table>
@@ -155,35 +130,47 @@ if ($connection->connect_error) {
         </thead>
         <tbody>
         <?php
-        $sql = 'SELECT * FROM registered';
-        $users = $connection->query($sql);
-        while ($user = $users->fetch_assoc()) {
-            echo
-                '<tr>' .
-                '<td class="id">' . $user["id"] . '</td>' .
-                '<td class="status">' . $user["status"] . '</td>' .
-                '<td class="full-name">' . $user["full_name"] . '</td>' .
-                '<td class="j-address">' . $user["j-address"] . '</td>' .
-                '<td class="edrpou">' . $user["edrpou"] . '</td>' .
-                '<td class="ind">' . $user["ind"] . '</td>' .
-                '<td class="person">' . $user["person"] . '</td>' .
-                '<td class="reason">' . $user["reason"] . '</td>' .
-                '<td class="short-name">' . $user["short_name"] . '</td>' .
-                '<td class="head">' . $user["head"] . '</td>' .
-                '<td class="tel">' . $user["tel"] . '</td>' .
-                '<td class="email">' . $user["email"] . '</td>' .
-                '<td class="docs-name">' . $user["docs_name"] . '</td>' .
-                '<td class="post-address">' . $user["post_address"] . '</td>' .
-                '<td class="ver">' . ($user["ver"] === '0' ? 'Не верифікований' : 'Верифікований') . '</td>' .
-                '<td class="trader-id">' . $user["trader_id"] . '</td>' .
-                '<td class="applied-for-lots">' . $user["applied_for_lots"] . '</td>' .
-                '</tr>';
+        $connection = new mysqli($host, $username, $userPassword, $db);
+        if ($connection->connect_error) {
+            die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
+        } else {
+            $connection->set_charset('utf8');
+            $sql = 'SELECT * FROM registered';
+            $users = $connection->query($sql);
+            $connection->close();
+            while ($user = $users->fetch_assoc()) {
+                echo
+                    '<tr>' .
+                    '<td class="id">' . $user["id"] . '</td>' .
+                    '<td class="status">' . $user["status"] . '</td>' .
+                    '<td class="full-name">' . $user["full_name"] . '</td>' .
+                    '<td class="j-address">' . $user["j-address"] . '</td>' .
+                    '<td class="edrpou">' . $user["edrpou"] . '</td>' .
+                    '<td class="ind">' . $user["ind"] . '</td>' .
+                    '<td class="person">' . $user["person"] . '</td>' .
+                    '<td class="reason">' . $user["reason"] . '</td>' .
+                    '<td class="short-name">' . $user["short_name"] . '</td>' .
+                    '<td class="head">' . $user["head"] . '</td>' .
+                    '<td class="tel">' . $user["tel"] . '</td>' .
+                    '<td class="email">' . $user["email"] . '</td>' .
+                    '<td class="docs-name">' . $user["docs_name"] . '</td>' .
+                    '<td class="post-address">' . $user["post_address"] . '</td>' .
+                    '<td class="ver">' .
+                    (($user["ver"] === '0') ? (
+                        '<form class="verification-form">' .
+                        '<input type="text" name="set-trader-id" class="set-trader-id" maxlength="4" pattern="[0-9]{3}" placeholder="Реєстр. №">' .
+                        '<label class="verify">Верифікувати<input style="display: none;" type="submit" name="submit" value="verify"></label>' .
+                        '</form>'
+                    ) : 'Верифікований') .
+                    '</td>' .
+                    '<td class="trader-id">' . $user["trader_id"] . '</td>' .
+                    '<td class="applied-for-lots">' . $user["applied_for_lots"] . '</td>' .
+                    '</tr>';
+            }
         }
-        $connection->close();
-        }
-            ?>
-            </tbody>
-        </table>
+        ?>
+        </tbody>
+    </table>
     <form method="post" class="write-article page-maker">
         <button type="button" class="send-article" style="margin: 0 10px ">Надіслати статтю</button>
         <button type="button" class="watch" style="margin: 10px">Проглянути</button>
@@ -205,73 +192,22 @@ if ($connection->connect_error) {
             </label>
         </fieldset>
     </form>
-    <div class="trade page-maker">
-        <button class="start-trade" onclick="startTrade(); $(this).hide();">Почати сесію :(</button>
-        <table class="auction-table">
-            <tbody>
-            <tr>
-                <td class="attribute" colspan="2">Продавець:</td>
-                <td class="value seller-name" colspan="7"></td>
-            </tr>
-            <tr>
-                <td class="attribute">Лот №</td>
-                <td class="value id"></td>
-                <td class="attr-value type" colspan="2"></td>
-                <td class="attribute">Діаметр, см:</td>
-                <td class="value characteristics-diametr"></td>
-                <td class="attribute">Сорт:</td>
-                <td class="value characteristics-sort"></td>
-                <td class="attribute">ГОСТ</td>
-            </tr>
-            <tr>
-                <td class="attribute">№ ПП в лоті</td>
-                <td class="value">-</td>
-                <td class="attr-value breed" colspan="2"></td>
-                <td class="attribute">Довжина, м:</td>
-                <td class="value characteristics-length"></td>
-                <td class="attribute">Склад:</td>
-                <td class="value characteristics-storage"></td>
-                <td class="value gost"></td>
-            </tr>
-            <tr>
-                <td class="attribute">Об'єм лоту, м<sup>3</sup></td>
-                <td class="value size" colspan="3"></td>
-                <td class="attribute">Учасники:</td>
-                <td class="value customers-applied" colspan="4"></td>
-            </tr>
-            <tr>
-                <td class="attribute" colspan="2">Початкова ціна, <sup>грн</sup>/<sub>м<sup>3</sup></sub>:</td>
-                <td class="value cost-start" colspan="2"></td>
-                <td class="attribute">Покупець:</td>
-                <td class="value customer-number" colspan="2"></td>
-                <td class="attribute">Розмір кроку:</td>
-                <td class="value step"></td>
-            </tr>
-            <tr>
-                <td class="attribute" colspan="2">Остаточна ціна, <sup>грн</sup>/<sub>м<sup>3</sup></sub>:</td>
-                <td class="value cost-final" colspan="2"></td>
-                <td class="attribute">Остаточна вартість, <sup>грн.</sup>/<sub>лот</sub>:</td>
-                <td class="value price-final" colspan="2"></td>
-                <td class="attribute">Крок:</td>
-                <td class="value current-step">0</td>
-            </tr>
-            </tbody>
-        </table>
-        <?php
-        echo $JSLotsArray;
-        ?>
-        <p class="admin-info"></p>
-        <button class="add-step">+</button>
-        <button class="remove-step">-</button>
-        <span class="set-final-cost">
-            <label for="set-final-cost">Остаточна: </label>
-            <input type="number" id="set-final-cost">
-            <button><< Підвищити</button>
-        </span>
-        <button class="next-lot">Наступний лот</button>
-        <button class="previous-lot">Попередній лот</button>
-        <button class="end-trade">Закінчити сесію</button>
-    </div>
+    <form class="trade page-maker" action="session.php" method="post">
+        <fieldset>
+            <?php
+            foreach ($sellers as $seller) {
+                echo
+                    '<label class="form-item">' .
+                    '<span class="seller">' . $seller . '</span>' .
+                    '<input type="checkbox" name="sellers" value="' . $seller . '">' .
+                    '</label>';
+            }
+            }
+            ?>
+        </fieldset>
+        <input type="submit" id="start-session-submit" name="start-session-submit">
+        <label for="start-session-submit">Почати сесію</label>
+    </form>
     <div id="loading">Завантаження...</div>
     </main>
 </body>

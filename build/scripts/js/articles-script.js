@@ -1,1 +1,0 @@
-"use strict";var main=function(){var i=function(i){$('.articles article:not([data-heading="'+i+'"])').slideUp(600,function(){setTimeout(function(){$('.articles article[data-heading="'+i+'"]').slideDown(600)},600)})};$(".article-list li").click(function(){var t=$(this).data("heading");i(t)}),i($(".article-list li:last-of-type").data("heading"))};$(document).ready(main);

@@ -15,10 +15,10 @@ if (!isset($_SESSION["id"])) {
     <meta charset="utf-8">
     <title>EXChange - новини проекту</title>
     <link href="styles/common.css" rel="stylesheet">
-    <link href="styles/articles-news.css" rel="stylesheet">
+    <link href="styles/articles.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js"></script>
-    <script src="scripts/js/articles-script.js"></script>
+    <script src="scripts/js/common.js"></script>
+    <script src="scripts/js/articles.js"></script>
 </head>
 
 <body>

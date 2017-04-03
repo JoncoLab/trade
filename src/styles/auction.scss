@@ -27,19 +27,22 @@
 
 main {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: stretch;
 
     section {
         display: flex;
         flex-direction: column;
-        justify-content: center;
 
         &.info {
             flex-basis: 25%;
+            margin: 0 $line * 2 0 0;
+            padding: 0 0 $line * 2 $line * 2;
+
             .chat {
                 display: flex;
                 flex-direction: column;
+                flex-grow: 1;
 
                 border: {
                     color: $dark;
@@ -57,7 +60,7 @@ main {
                 h2 {
                     background-color: $dark;
                     margin: 0;
-                    padding: $line;
+                    padding: 0 0 $line / 2;
                     text: {
                         align: center;
                     }
@@ -75,8 +78,8 @@ main {
 
                     .message {
                         position: relative;
-                        margin: $line / 2;
-                        padding: $line / 2;
+                        margin: $line / 5;
+                        padding: $line / 5;
 
                         height: $line * 3;
 
@@ -86,6 +89,7 @@ main {
                         background: {
                             color: fade_out($olive, 0.3);
                         }
+
                         border: {
                             radius: $line;
                             style: solid;
@@ -116,17 +120,25 @@ main {
                 }
             }
 
-            &.stream {
+            .stream {
+                margin: 0 0 $line 0;
 
+                iframe {
+                    width: 100%;
+                }
             }
         }
 
         &.trade {
-            flex-basis: 65%;
+            flex-basis: 75%;
             display: flex;
             flex-direction: column;
+            padding: 0 $line * 2 $line * 2 0;
+
             .auction-table {
-                flex-grow: 1;
+                width: 100%;
+                min-height: 60%;
+
                 border: {
                     color: $dark;
                     style: solid;
@@ -208,7 +220,6 @@ main {
             }
 
             .actions {
-                flex-grow: 1;
                 min-height: $line * 10;
                 display: flex;
                 overflow: hidden;
@@ -223,6 +234,8 @@ main {
                 background: {
                     color: $light;
                 }
+
+                margin: $line * 2 0 0 0;
 
                 form {
                     display: flex;

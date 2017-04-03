@@ -6,7 +6,7 @@
  * Time: 9:19
  */
 
-include 'user.php';
+include '../../../scripts/php/user.php';
 
 if(isset($_POST['id'])) {
     $id = $_POST['id'];

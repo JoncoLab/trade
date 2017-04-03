@@ -7,6 +7,7 @@ $grey: #97a29e;
 $light: #f7ecf3;
 $olive: #4d5c33;
 $pink: darken($light, 20px);
+$green: invert($pink);
 
 @keyframes header-scale-error {
   50% {

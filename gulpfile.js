@@ -22,7 +22,21 @@ var path = {
         img: 'src/images/*.png',
         svg: 'src/SVG/*.svg',
         font: 'src/fonts/*.ttf',
-        js: 'src/scripts/js/*.js'
+        js: 'src/scripts/js/*.js',
+        PHPExcel: [
+            'src/scripts/php/PHPExcelLibrary/*',
+            'src/scripts/php/PHPExcelLibrary/**/*',
+            'src/scripts/php/PHPExcelLibrary/**/**/*',
+            'src/scripts/php/PHPExcelLibrary/**/**/**/*',
+            'src/scripts/php/PHPExcelLibrary/**/**/**/**/*',
+            'src/scripts/php/PHPExcelLibrary/**/**/**/**/**/*',
+            'src/scripts/php/PHPExcelLibrary/**/**/**/**/**/**/*'
+        ],
+        zip: [
+            'build/*',
+            'build/**/*',
+            'build/**/**/*'
+        ]
     },
 
     build: {
@@ -32,7 +46,9 @@ var path = {
         img: 'build/images/',
         svg: 'build/SVG/',
         font: 'build/fonts/',
-        js: 'build/scripts/js/'
+        js: 'build/scripts/js/',
+        PHPExcel: 'build/scripts/php/PHPExcelLibrary/',
+        zip: 'zip/'
     },
 
     watch: {
@@ -163,9 +179,15 @@ gulp.task('fonts:build', function () {
 
 //Збірка сайту в архів для хостингу
 gulp.task('zip:build', function () {
-    gulp.src(['build/*', 'build/**/*', 'build/**/**/*', 'build/**/**/**/*'])
+    gulp.src(path.src.zip)
         .pipe(zip('build.zip'))
-        .pipe(gulp.dest('tmp/'));
+        .pipe(gulp.dest(path.build.zip));
+});
+
+//Збірка PHPExcel
+gulp.task('PHPExcel:build', function () {
+    gulp.src(path.src.PHPExcel)
+        .pipe(gulp.dest(path.build.PHPExcel));
 });
 
 //Загальна збірка

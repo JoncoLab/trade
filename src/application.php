@@ -22,7 +22,7 @@ $traderId = $_SESSION["trader_id"];
     <link href="styles/common.css" rel="stylesheet">
     <link href="styles/application.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="scripts/js/script.js" type="text/javascript"></script>
+    <script src="scripts/js/common.js" type="text/javascript"></script>
     <script src="scripts/js/application.js" type="text/javascript"></script>
 </head>
 <body>
@@ -117,6 +117,7 @@ $traderId = $_SESSION["trader_id"];
                     if ($connection->connect_error) {
                         die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
                     } else {
+                        $connection->set_charset('utf8');
                         $sql = 'SELECT id, seller_name, type, gost, breed, size, characteristics_diametr, characteristics_length, characteristics_sort, characteristics_storage, cost_start, price_start FROM lots ORDER BY id ASC';
                         $lots = $connection->query($sql);
                         $connection->close();
