@@ -28,6 +28,7 @@ $ind = $_POST["ind"];
 $person = $_POST["person"];
 $reason = $_POST["reason"];
 $short_name = $_POST["short-name"];
+$head = $_POST["head"];
 $tel = $_POST["number"];
 $email = $_POST["email"];
 $password = $_POST["password"];
@@ -48,7 +49,7 @@ $post_address .=
 if (trim($_POST["zip"]) === '' || trim($_POST["country"]) === '' || trim($_POST["region"]) === '' || trim($_POST["city"]) === '' || trim($_POST["street"]) === '' || trim($_POST["streetnum"]) === '' || trim($_POST["doornum"])=== '') {
     $post_address = '';
 }
-$user = User::registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $tel, $email, $password, $docs_name, $post_address);
+$user = User::registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address);
 $_SESSION['id'] = $user->id;
 $_SESSION['status'] = $user->status;
 $_SESSION['full_name'] = $user->full_name;
@@ -58,6 +59,7 @@ $_SESSION['ind'] = $user->ind;
 $_SESSION['person'] = $user->person;
 $_SESSION['reason'] = $user->reason;
 $_SESSION['short_name'] = $user->short_name;
+$_SESSION['head'] = $user->head;
 $_SESSION['tel'] = $user->tel;
 $_SESSION['email'] = $user->email;
 $_SESSION['docs_name'] = $user->docs_name;

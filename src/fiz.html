@@ -10,6 +10,10 @@
         <label for="short-name">Скорочена назва:</label>
     </div>
     <div class="form-item">
+        <input type="text" name="head" id="head" placeholder="Петров Василь Васильович" required>
+        <label for="head">Директор:</label>
+    </div>
+    <div class="form-item">
         <input type="text" name="person" id="person" placeholder="Іван Остапенко Юрійович" required>
         <label for="person">В особі:</label>
     </div>
@@ -18,7 +22,7 @@
         <label for="reason">Діє на підставі:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="ind" id="ind" placeholder="1234567899" pattern="[0-9]{10}" required>
+        <input type="text" name="ind" id="ind" placeholder="1234567899" pattern="[0-9]{10}">
         <label for="ind">Індентифікаційний номер:</label>
     </div>
     <div class="form-item">
@@ -26,7 +30,7 @@
         <label for="docs-name">Скорочено для документів:</label>
     </div>
     <div class="form-item edrpou">
-        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8}" placeholder="34655234" required>
+        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8,10}" placeholder="34655234">
         <label for="edrpou">ЄДРПОУ:</label>
     </div>
 </fieldset>
@@ -43,8 +47,12 @@
         <label for="email">Ваша електронна адреса:</label>
     </div>
     <div class="form-item">
-        <input type="password" name="password" id="password" placeholder="k91523111" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-z]).*$" required>
-        <label for="password" title="не менше 8 цифр + мінімум одна латинська літери">Введіть пароль:</label>
+        <input type="password" name="password" id="password"
+               title="Мінімум одна латинська літера, мінімум одна цифра, мінімум 8 символів"
+               placeholder="Мінімум одна латинська літера, мінімум одна цифра, мінімум 8 символів"
+               pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[aA-zZ]).*$" required>
+        <label for="password" title="Мінімум одна латинська літера, мінімум одна цифра, мінімум 8 символів">Введіть
+            пароль:</label>
     </div>
     <p class="error-pass">Паролі не співпадають!</p>
     <div class="form-item">
@@ -80,10 +88,6 @@
         <label for="j-streetnum">Номер будинку:</label>
     </div>
     <div class="form-item">
-        <input type="number" name="j-doornum" id="j-doornum" placeholder="100" min="1" required>
-        <label for="j-doornum">Номер квартири:</label>
-    </div>
-    <div class="form-item">
         <input type="text" name="j-zip" id="j-zip" placeholder="00000" pattern="[0-9]{5}" required>
         <label for="j-zip">Поштовий індекс:</label>
     </div>
@@ -114,10 +118,6 @@
     <div class="form-item">
         <input  type="number" name="streetnum" id="streetnum" placeholder="100" min="1">
         <label for="streetnum">Номер будинку:</label>
-    </div>
-    <div class="form-item">
-        <input  type="number" name="doornum" id="doornum" placeholder="100" min="1">
-        <label for="doornum">Номер квартири:</label>
     </div>
     <div class="form-item">
         <input  type="text" name="zip" id="zip" placeholder="00000" pattern="[0-9]{5}">

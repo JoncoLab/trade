@@ -222,8 +222,6 @@ var main = function () {
                 return $.mail_permission && $.number_permission && $.address_permission && $.name_permission && $.password_permission && $.post_permission;
             };
 
-        // permitted();
-        // alert('$.mail_permission ' + $.mail_permission + ' $.number_permission ' + $.number_permission + ' $.address_permission ' + $.address_permission + ' $.name_permission ' + $.name_permission + ' $.password_permission ' + $.password_permission);
         return permitted();
     });
 };

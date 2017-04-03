@@ -143,6 +143,7 @@ if ($connection->connect_error) {
             <th class="person">В особі</th>
             <th class="reason">Яка діє на підставі</th>
             <th class="short-name">Скорочена назва</th>
+            <th class="head">Директор</th>
             <th class="tel">Телефон</th>
             <th class="email">Логін</th>
             <th class="docs-name">Скорочено для документів</th>
@@ -168,6 +169,7 @@ if ($connection->connect_error) {
                 '<td class="person">' . $user["person"] . '</td>' .
                 '<td class="reason">' . $user["reason"] . '</td>' .
                 '<td class="short-name">' . $user["short_name"] . '</td>' .
+                '<td class="head">' . $user["head"] . '</td>' .
                 '<td class="tel">' . $user["tel"] . '</td>' .
                 '<td class="email">' . $user["email"] . '</td>' .
                 '<td class="docs-name">' . $user["docs_name"] . '</td>' .

@@ -11,6 +11,7 @@ class User
     var $person;
     var $reason;
     var $short_name;
+    var $head;
     var $tel;
     var $email;
     var $password;
@@ -20,7 +21,8 @@ class User
     var $trader_id;
     var $applied_for_lots;
 
-    private function User($id, $status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $tel, $email, $password, $docs_name, $post_address, $ver, $trader_id, $applied_for_lots) {
+    private function User($id, $status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address, $ver, $trader_id, $applied_for_lots)
+    {
         $this->id = $id;
         $this->status = $status;
         $this->full_name = $full_name;
@@ -30,6 +32,7 @@ class User
         $this->person = $person;
         $this->reason = $reason;
         $this->short_name = $short_name;
+        $this->head = $head;
         $this->tel = $tel;
         $this->email = $email;
         $this->password = $password;
@@ -38,6 +41,18 @@ class User
         $this->ver = $ver;
         $this->trader_id = $trader_id;
         $this->applied_for_lots = $applied_for_lots;
+    }
+
+    public static function registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address)
+    {
+        $connection = self::connectToDB();
+        $sql = 'INSERT INTO registered (status, full_name, `j-address`, edrpou, ind, person, reason, short_name, head, tel, email, password, docs_name, post_address) VALUES (\'' . $status . '\', \'' . $full_name . '\', \'' . $j_address . '\', \'' . $edrpou . '\', \'' . $ind . '\', \'' . $person . '\', \'' . $reason . '\', \'' . $short_name . '\', \'' . $tel . '\', \'' . $email . '\', \'' . $password . '\', \'' . $docs_name . '\', \'' . $post_address . '\')';
+        $connection->query($sql);
+        $sql = 'SELECT * FROM registered WHERE email=\'' . $email . '\'';
+        $result = $connection->query($sql);
+        $connection->close();
+        $currentUser = $result->fetch_assoc();
+        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j-address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], false, null, null);
     }
 
     private static function connectToDB() {
@@ -50,17 +65,6 @@ class User
         if ($connection->connect_error) {
             die('Не вдається встановити підключення до бази даних');
         } else return $connection;
-    }
-
-    public static function registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $tel, $email, $password, $docs_name, $post_address) {
-        $connection = self::connectToDB();
-        $sql = 'INSERT INTO registered (status, full_name, `j-address`, edrpou, ind, person, reason, short_name, tel, email, password, docs_name, post_address) VALUES (\'' . $status . '\', \'' . $full_name . '\', \'' . $j_address . '\', \'' . $edrpou . '\', \'' . $ind . '\', \'' . $person . '\', \'' . $reason . '\', \'' . $short_name . '\', \'' . $tel . '\', \'' . $email . '\', \'' . $password . '\', \'' . $docs_name . '\', \'' . $post_address . '\')';
-        $connection->query($sql);
-        $sql = 'SELECT * FROM registered WHERE email=\'' . $email . '\'';
-        $result = $connection->query($sql);
-        $connection->close();
-        $currentUser = $result->fetch_assoc();
-        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j-address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], false, null, null);
     }
 
     public static function getUserById($id) {
