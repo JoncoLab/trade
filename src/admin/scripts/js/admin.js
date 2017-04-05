@@ -173,8 +173,23 @@ var main = function () {
     });
 
     sessionPreparationForm.submit(function () {
-
-        return false;
+        var sellers = $(this).find('.form-item'),
+            selectedSellers = sellers.has('input:checked'),
+            input = $('#sellers'),
+            amount = selectedSellers.length;
+        if (amount == 0) {
+            alert('Жодного продавця не вибрано!');
+            return false;
+        } else {
+            var sellerNames = '';
+            selectedSellers.each(function (iterator) {
+                sellerNames += $(this).children('.seller').text();
+                if (iterator != amount - 1) {
+                    sellerNames += ',';
+                }
+            });
+            input.val(sellerNames);
+        }
     });
 };
 

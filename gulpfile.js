@@ -36,7 +36,8 @@ var path = {
             'build/*',
             'build/**/*',
             'build/**/**/*'
-        ]
+        ],
+        docs: 'src/docs/*'
     },
 
     build: {
@@ -48,7 +49,8 @@ var path = {
         font: 'build/fonts/',
         js: 'build/scripts/js/',
         PHPExcel: 'build/scripts/php/PHPExcelLibrary/',
-        zip: 'zip/'
+        zip: 'zip/',
+        docs: 'build/docs/'
     },
 
     watch: {
@@ -74,7 +76,8 @@ var path = {
             'src/admin/styles/templates/*.scss'
         ],
         images: 'src/images/*.png',
-        svg: 'src/SVG/*.svg'
+        svg: 'src/SVG/*.svg',
+        docs: 'src/docs/*'
     },
 
     admin: {
@@ -190,6 +193,12 @@ gulp.task('PHPExcel:build', function () {
         .pipe(gulp.dest(path.build.PHPExcel));
 });
 
+//Збірка документів
+gulp.task('docs:build', function () {
+    gulp.src(path.src.docs)
+        .pipe(gulp.dest(path.build.docs));
+});
+
 //Загальна збірка
 gulp.task('project:build', [
     'html:build',
@@ -198,7 +207,9 @@ gulp.task('project:build', [
     'img:build',
     'svg:build',
     'php:build',
-    'fonts:build'
+    'fonts:build',
+    'docs:build',
+    'PHPExcel:build'
 ]);
 
 gulp.task('watch', function () {
@@ -213,6 +224,7 @@ gulp.task('watch', function () {
     ]);
     gulp.watch(path.watch.images, ['img:build']);
     gulp.watch(path.watch.svg, ['svg:build']);
+    gulp.watch(path.watch.docs, ['docs:build']);
 });
 
 //Очистка

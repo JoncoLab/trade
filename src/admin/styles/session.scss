@@ -1,0 +1,141 @@
+@import "templates/variables";
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+
+  main {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+
+    .auction-table {
+      width: 100%;
+      border: {
+        spacing: $line / 2;
+      }
+      margin: 0 0 $line;
+
+      td {
+        padding: $line / 2;
+        background: {
+          color: transparentize($green, 0.7)
+        }
+
+        &.attribute {
+          box-shadow: $line / 5 0 0 0 transparentize($green, 0.7);
+
+          text: {
+            align: right;
+          }
+
+          &:last-child {
+            text: {
+              align: center;
+            }
+          }
+        }
+
+        &.value,
+        &.attr-value {
+          background: {
+            color: transparentize($green, 0.9)
+          }
+        }
+      }
+    }
+
+    button {
+      padding: $line / 2;
+      background: {
+        color: darken(transparentize($green, 0.7), $line * 2);
+      }
+      font: {
+        weight: bold;
+      }
+      cursor: pointer;
+      border: $line / 2 double darken(transparentize($green, 0.7), $line * 3);
+    }
+
+    .set-final-cost {
+      button {
+        border: {
+          left: none;
+        }
+        margin: 0 0 0 $line / -2;
+      }
+
+      input {
+        padding: $line / 2;
+        background: {
+          color: darken(transparentize($green, 0.9), $line * 2);
+        }
+        border: $line / 2 double darken(transparentize($green, 0.7), $line * 3);
+        border: {
+          right: none;
+          left: none;
+        }
+        outline: none;
+        width: $line * 10;
+      }
+
+      label {
+        padding: $line / 2;
+        font: {
+          size: $line * 1.4;
+        }
+        border: $line / 2 double darken(transparentize($green, 0.7), $line * 3);
+        background: {
+          color: darken(transparentize($green, 0.7), $line * 2);
+        }
+        border: {
+          right: none;
+        }
+      }
+    }
+
+    .all {
+      list-style: none;
+      border: {
+        top: $line / 5 solid transparentize($green, 0.7);
+      }
+      margin: $line 0 $line;
+      width: 100%;
+      padding: 0;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      .id {
+        cursor: pointer;
+        padding: $line;
+        margin: $line / 2;
+        background: {
+          color: transparentize($green, 0.7)
+        }
+        text: {
+          align: center;
+        }
+
+        &.selected {
+          background: {
+            color: transparentize($green, 0.5);
+          }
+        }
+      }
+    }
+  }
+}

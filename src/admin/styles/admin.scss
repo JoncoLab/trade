@@ -16,12 +16,12 @@
 
     button {
         padding: $line;
-        background-color: darken($light, 20px);
+        background-color: darken($light, $line * 2);
         font: {
             weight: bold;
         }
         cursor: pointer;
-        border: 2px double darken($light, 30px);
+        border: $line / 5 double darken($light, $line * 3);
     }
 }
 
@@ -29,7 +29,7 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  min-width: 800px;
+  min-width: $line * 80;
 
   overflow: {
     x: auto;
@@ -69,7 +69,7 @@ body {
         }
         &.sum {
           th {
-            background-color: darken(lightblue, 25px);
+            background-color: darken(lightblue, $line * 2.5);
           }
         }
       }
@@ -105,7 +105,7 @@ body {
           }
         }
         &:nth-of-type(2n) {
-          background-color: lighten(lightblue, 18px);
+          background-color: lighten(lightblue, $line * 1.8);
         }
         text-align-last: center;
       }
@@ -127,15 +127,15 @@ body {
         weight: bold;
       }
       cursor: pointer;
-      border: 2px double darken($light, 30px);
+      border: $line / 2 double darken($light, $line * 3);
       &.send-article {
-        background-color: darken($pink, 10px);
+        background-color: darken($pink, $line);
         font: {
           size: $line * 2;
         }
       }
       &.watch {
-        background-color: darken($pink, 10px);
+        background-color: darken($pink, $line);
         font: {
           size: $line * 1.5;
         }
@@ -149,7 +149,7 @@ body {
         font: {
           size: $line * 1.7;
         }
-        color: darken($light, 45px);
+        color: darken($light, $line / 2);
       }
       input {
         width: 50%;
@@ -178,7 +178,7 @@ body {
         .new-paragr {
           margin-top: $line;
           padding: $line;
-          border: $line / 2 solid darken($light, 10px);
+          border: $line / 2 solid darken($light, $line);
           p {
             line-height: $line * 2.2;
             padding: 0 $line * 2;
@@ -218,7 +218,7 @@ body {
     article {
       margin-top: $line;
       padding: $line;
-      border: $line / 2 solid darken($light, 10px);
+      border: $line / 2 solid darken($light, $line);
       p {
         line-height: $line * 2.2;
         padding: 0 $line * 2;
@@ -234,17 +234,42 @@ body {
   }
 
   .trade {
-    width: 100%;
+    width: 90%;
+    margin: $line auto 0;
 
     fieldset {
       text: {
         align: center;
+      }
+      border: {
+        bottom: none;
+        left: none;
+        right: none;
+        color: $green;
       }
 
       .form-item {
         display: inline-flex;
         max-width: 20%;
         margin: $line;
+        padding: $line / 2;
+        background: {
+          color: transparentize($green, 0.7);
+        }
+      }
+    }
+
+    #start-session-submit {
+      display: none;
+
+      + label {
+        padding: $line;
+        background-color: darken(transparentize($green, 0.7), $line * 2);
+        font: {
+          weight: bold;
+        }
+        cursor: pointer;
+        border: $line / 2 double darken(transparentize($green, 0.7), $line * 3);
       }
     }
   }
@@ -265,7 +290,7 @@ body {
     color: white;
     background: {
       color: rgba(0, 0, 0, 0.5);
-    };
+    }
   }
 }
 
@@ -285,7 +310,7 @@ body {
     margin: 0 $line $line;
     padding: $line;
 
-    background-color: lighten(lightblue, 10px);
+    background-color: lighten(lightblue, $line);
 
     font: {
       size: $line * 1.5;

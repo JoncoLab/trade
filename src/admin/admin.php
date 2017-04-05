@@ -1,4 +1,5 @@
 <?php
+mb_internal_encoding("UTF-8");
 include '../scripts/php/user.php';
 $host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';
@@ -9,135 +10,128 @@ $connection = new mysqli($host, $username, $userPassword, $db);
 if ($connection->connect_error) {
     die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
 } else {
-$connection->set_charset('utf8');
-?>
+    $connection->set_charset('utf8');
+    ?>
 
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Admin</title>
-    <link href="styles/admin.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script src="scripts/js/jquery-3.1.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="scripts/js/admin.js"></script>
-</head>
-<body>
-<header>
-    <nav class="navbar">
-        <button id="lots">Лоти</button>
-        <button id="users">Користувачі</button>
-        <button id="write-article">Статті</button>
-        <button id="trade">Вести торги</button>
-    </nav>
-</header>
-<main>
-    <table class="lots page-maker">
-        <thead>
-        <tr>
-            <th rowspan="2" class="id">Номер лоту</th>
-            <th rowspan="2" class="seller-name">Назва продавця</th>
-            <th rowspan="2" class="type">Назва асортименту</th>
-            <th rowspan="2" class="gost">ГОСТ</th>
-            <th rowspan="2" class="breed">Порода</th>
-            <th colspan="4">Характеристика</th>
-            <th rowspan="2" class="size">Об'єм</th>
-            <th rowspan="2" class="cost-start">Ціна за куб</th>
-            <th rowspan="2" class="price-start">Вартість лоту</th>
-            <th rowspan="2" class="step">Крок ціни</th>
-            <th rowspan="2" class="cost-final">Остаточна ціна за куб</th>
-            <th rowspan="2" class="customer-number">Номер покупця</th>
-            <th rowspan="2" class="price-final">Остаточна вартість</th>
-            <th rowspan="2" class="seller-id">Номер продавця</th>
-            <th rowspan="2" class="customers-applied">Заявлені учасники</th>
-            <th rowspan="2" class="guarantee">Гарантійний внесок</th>
-            <th rowspan="2" class="profit">Біржова винагорода</th>
-        </tr>
-        <tr>
-            <th class="characteristics-sort">Гатунок</th>
-            <th class="characteristics-diametr">Діаметр</th>
-            <th class="characteristics-length">Довжина</th>
-            <th class="characteristics-storage">Склад</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $sql = 'SELECT * FROM lots';
-        $lots = $connection->query($sql);
-        $connection->close();
-        $sellers = array();
-        while ($lot = $lots->fetch_assoc()) {
-            echo
-                '<tr>' .
-                '<td class="id">' . $lot["id"] . '</td>' .
-                '<td class="seller-name">' . $lot["seller_name"] . '</td>' .
-                '<td class="type">' . $lot["type"] . '</td>' .
-                '<td class="gost">' . $lot["gost"] . '</td>' .
-                '<td class="breed">' . $lot["breed"] . '</td>' .
-                '<td class="characteristics-sort">' . $lot["characteristics_sort"] . '</td>' .
-                '<td class="characteristics-diametr">' . $lot["characteristics_diametr"] . '</td>' .
-                '<td class="characteristics-length">' . $lot["characteristics_length"] . '</td>' .
-                '<td class="characteristics-storage">' . $lot["characteristics_storage"] . '</td>' .
-                '<td class="size">' . $lot["size"] . '</td>' .
-                '<td class="cost-start">' . $lot["cost_start"] . '</td>' .
-                '<td class="price-start">' . $lot["price_start"] . '</td>' .
-                '<td class="step">' . $lot["step"] . '</td>' .
-                '<td class="cost-final">' . $lot["cost-final"] . '</td>' .
-                '<td class="customer-number">' . $lot["customer_number"] . '</td>' .
-                '<td class="price-final">' . $lot["price_final"] . '</td>' .
-                '<td class="seller-id">' . $lot["seller_id"] . '</td>' .
-                '<td class="customers-applied">' . $lot["customers_applied"] . '</td>' .
-                '<td class="guarantee">' . $lot["guarantee"] . '</td>' .
-                '<td class="profit">' . $lot["profit"] . '</td>' .
-                '</tr>';
+    <!DOCTYPE html>
+    <html lang="uk">
+    <head>
+        <meta charset="utf-8">
+        <title>Admin</title>
+        <link href="styles/admin.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+        <script src="scripts/js/jquery-3.1.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="scripts/js/admin.js"></script>
+    </head>
+    <body>
+    <header>
+        <nav class="navbar">
+            <button id="lots">Лоти</button>
+            <button id="users">Користувачі</button>
+            <button id="write-article">Статті</button>
+            <button id="trade">Вести торги</button>
+        </nav>
+    </header>
+    <main>
+        <table class="lots page-maker">
+            <thead>
+            <tr>
+                <th rowspan="2" class="id">Номер лоту</th>
+                <th rowspan="2" class="seller-name">Назва продавця</th>
+                <th rowspan="2" class="type">Назва асортименту</th>
+                <th rowspan="2" class="gost">ГОСТ</th>
+                <th rowspan="2" class="breed">Порода</th>
+                <th colspan="4">Характеристика</th>
+                <th rowspan="2" class="size">Об'єм</th>
+                <th rowspan="2" class="cost-start">Ціна за куб</th>
+                <th rowspan="2" class="price-start">Вартість лоту</th>
+                <th rowspan="2" class="step">Крок ціни</th>
+                <th rowspan="2" class="cost-final">Остаточна ціна за куб</th>
+                <th rowspan="2" class="customer-number">Номер покупця</th>
+                <th rowspan="2" class="price-final">Остаточна вартість</th>
+                <th rowspan="2" class="seller-id">Номер продавця</th>
+                <th rowspan="2" class="customers-applied">Заявлені учасники</th>
+                <th rowspan="2" class="guarantee">Гарантійний внесок</th>
+                <th rowspan="2" class="profit">Біржова винагорода</th>
+            </tr>
+            <tr>
+                <th class="characteristics-sort">Гатунок</th>
+                <th class="characteristics-diametr">Діаметр</th>
+                <th class="characteristics-length">Довжина</th>
+                <th class="characteristics-storage">Склад</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $sql = 'SELECT * FROM lots';
+            $lots = $connection->query($sql);
+            $sellers = array();
+            while ($lot = $lots->fetch_assoc()) {
+                echo
+                    '<tr>' .
+                    '<td class="id">' . $lot["id"] . '</td>' .
+                    '<td class="seller-name">' . $lot["seller_name"] . '</td>' .
+                    '<td class="type">' . $lot["type"] . '</td>' .
+                    '<td class="gost">' . $lot["gost"] . '</td>' .
+                    '<td class="breed">' . $lot["breed"] . '</td>' .
+                    '<td class="characteristics-sort">' . $lot["characteristics_sort"] . '</td>' .
+                    '<td class="characteristics-diametr">' . $lot["characteristics_diametr"] . '</td>' .
+                    '<td class="characteristics-length">' . $lot["characteristics_length"] . '</td>' .
+                    '<td class="characteristics-storage">' . $lot["characteristics_storage"] . '</td>' .
+                    '<td class="size">' . $lot["size"] . '</td>' .
+                    '<td class="cost-start">' . $lot["cost_start"] . '</td>' .
+                    '<td class="price-start">' . $lot["price_start"] . '</td>' .
+                    '<td class="step">' . $lot["step"] . '</td>' .
+                    '<td class="cost-final">' . $lot["cost-final"] . '</td>' .
+                    '<td class="customer-number">' . $lot["customer_number"] . '</td>' .
+                    '<td class="price-final">' . $lot["price_final"] . '</td>' .
+                    '<td class="seller-id">' . $lot["seller_id"] . '</td>' .
+                    '<td class="customers-applied">' . $lot["customers_applied"] . '</td>' .
+                    '<td class="guarantee">' . $lot["guarantee"] . '</td>' .
+                    '<td class="profit">' . $lot["profit"] . '</td>' .
+                    '</tr>';
 
-            if (in_array($lot["seller_name"], $sellers) === false) {
-                array_push($sellers, $lot["seller_name"]);
+                if (in_array($lot["seller_name"], $sellers) === false) {
+                    array_push($sellers, $lot["seller_name"]);
+                }
             }
-        }
-        ?>
-        </tbody>
-    </table>
-    <table class="users page-maker">
-        <thead>
-        <tr class="sum">
-            <th class="total">Всього: <span id="total"><?php print User::count(); ?></span>
-            </th>
-            <th class="total-verified">Верифікованих: <span
-                    id="total-verified"><?php print User::countVerified(); ?></span>
-            </th>
-        </tr>
-        <tr>
-            <th class="id">ID</th>
-            <th class="status">Акредитація</th>
-            <th class="full-name">Повна назва</th>
-            <th class="j-address">Юридична адреса</th>
-            <th class="adrpou">ЄДРПОУ</th>
-            <th class="ind">ідентифікаційний</th>
-            <th class="person">В особі</th>
-            <th class="reason">Яка діє на підставі</th>
-            <th class="short-name">Скорочена назва</th>
-            <th class="head">Директор</th>
-            <th class="tel">Телефон</th>
-            <th class="email">Логін</th>
-            <th class="docs-name">Скорочено для документів</th>
-            <th class="post-address">Поштова адреса</th>
-            <th class="ver">Стан верифікації</th>
-            <th class="trader-id">Номер учасника</th>
-            <th class="applied-for-lots">Заявився на лоти</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $connection = new mysqli($host, $username, $userPassword, $db);
-        if ($connection->connect_error) {
-            die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
-        } else {
-            $connection->set_charset('utf8');
+            ?>
+            </tbody>
+        </table>
+        <table class="users page-maker">
+            <thead>
+            <tr class="sum">
+                <th class="total">Всього: <span id="total"><?php print User::count(); ?></span>
+                </th>
+                <th class="total-verified">Верифікованих: <span
+                        id="total-verified"><?php print User::countVerified(); ?></span>
+                </th>
+            </tr>
+            <tr>
+                <th class="id">ID</th>
+                <th class="status">Акредитація</th>
+                <th class="full-name">Повна назва</th>
+                <th class="j-address">Юридична адреса</th>
+                <th class="adrpou">ЄДРПОУ</th>
+                <th class="ind">ідентифікаційний</th>
+                <th class="person">В особі</th>
+                <th class="reason">Яка діє на підставі</th>
+                <th class="short-name">Скорочена назва</th>
+                <th class="head">Директор</th>
+                <th class="tel">Телефон</th>
+                <th class="email">Логін</th>
+                <th class="docs-name">Скорочено для документів</th>
+                <th class="post-address">Поштова адреса</th>
+                <th class="ver">Стан верифікації</th>
+                <th class="trader-id">Номер учасника</th>
+                <th class="applied-for-lots">Заявився на лоти</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
             $sql = 'SELECT * FROM registered';
             $users = $connection->query($sql);
-            $connection->close();
             while ($user = $users->fetch_assoc()) {
                 echo
                     '<tr>' .
@@ -167,50 +161,53 @@ $connection->set_charset('utf8');
                     '<td class="applied-for-lots">' . $user["applied_for_lots"] . '</td>' .
                     '</tr>';
             }
-        }
-        ?>
-        </tbody>
-    </table>
-    <form method="post" class="write-article page-maker">
-        <button type="button" class="send-article" style="margin: 0 10px ">Надіслати статтю</button>
-        <button type="button" class="watch" style="margin: 10px">Проглянути</button>
-        <fieldset class=" header">
-            <legend>Введіть заголовок:</legend>
-            <input type="text" name="header" placeholder="Mama" id="header" tabindex="1"></fieldset>
-        <fieldset class=" content">
-            <legend>Напишіть статтю:</legend>
-            <textarea rows="10" placeholder="you know what to do.." autofocus tabindex="2"></textarea>
-            <button class="add-paragr" type="button">Додати абзац</button>
-            <button type="button" class="clear">Очистити</button>
-            <br>
-        </fieldset>
-        <fieldset class=" files">
-            <legend>Приєднайте щось до неї:</legend>
-            <label>Завантажте файл сюди:
-                <input type="file" id="upload-smth" multiple>
-                <button class="reset-upload" type="reset">Удалить</button>
-            </label>
-        </fieldset>
-    </form>
-    <form class="trade page-maker" action="session.php" method="post">
-        <fieldset>
-            <legend>Наступна сесія:</legend>
-            <?php
-            foreach ($sellers as $seller) {
-                echo
-                    '<label class="form-item">' .
-                    '<span class="seller">' . $seller . '</span>' .
-                    '<input type="checkbox" value="' . $seller . '">' .
-                    '</label>';
-            }
-            }
             ?>
-        </fieldset>
-        <input type="submit" id="start-session-submit" name="start-session-submit">
-        <label for="start-session-submit">Почати</label>
-    </form>
-    <div id="loading">Завантаження...</div>
+            </tbody>
+        </table>
+        <form method="post" class="write-article page-maker">
+            <button type="button" class="send-article" style="margin: 0 10px ">Надіслати статтю</button>
+            <button type="button" class="watch" style="margin: 10px">Проглянути</button>
+            <fieldset class=" header">
+                <legend>Введіть заголовок:</legend>
+                <input type="text" name="header" placeholder="Mama" id="header" tabindex="1"></fieldset>
+            <fieldset class=" content">
+                <legend>Напишіть статтю:</legend>
+                <textarea rows="10" placeholder="you know what to do.." autofocus tabindex="2"></textarea>
+                <button class="add-paragr" type="button">Додати абзац</button>
+                <button type="button" class="clear">Очистити</button>
+                <br>
+            </fieldset>
+            <fieldset class=" files">
+                <legend>Приєднайте щось до неї:</legend>
+                <label>Завантажте файл сюди:
+                    <input type="file" id="upload-smth" multiple>
+                    <button class="reset-upload" type="reset">Удалить</button>
+                </label>
+            </fieldset>
+        </form>
+        <form class="trade page-maker" action="session.php" method="post">
+            <fieldset>
+                <legend>Наступна сесія:</legend>
+                <?php
+                foreach ($sellers as $seller) {
+                    echo
+                        '<label class="form-item">' .
+                        '<span class="seller">' . $seller . '</span>' .
+                        '<input type="checkbox">' .
+                        '</label>';
+                }
+                ?>
+            </fieldset>
+            <input type="submit" id="start-session-submit" name="start-session-submit">
+            <label for="start-session-submit">Почати</label>
+            <input type="hidden" id="sellers" name="sellers">
+        </form>
+        <div id="loading">Завантаження...</div>
     </main>
-</body>
+    </body>
 
-</html>
+    </html>
+    <?php
+    $connection->close();
+}
+?>
