@@ -50,6 +50,7 @@ if (!isset($_SESSION["id"])) {
             <img src="images/logo.png" alt="Логотип">
             <h1>EXChange</h1>
         </div>
+        <div class="clock"></div>
     </header>
     <main>
         <section class="info">
@@ -58,35 +59,32 @@ if (!isset($_SESSION["id"])) {
             </div>
             <div class="chat">
                 <h2>Повідомлення адміністратора торгу</h2>
-                <div class="messages">
-<!--                    <p class="message"><img src="SVG/alarm.svg"><span>Лот 123 продано 555</span></p>-->
-                </div>
+                <div class="messages"></div>
             </div>
+            <div class="trader-id" style="display: none"><?php print $_SESSION["trader_id"];?></div>
         </section>
         <section class="trade">
             <table class="auction-table"></table>
             <div class="actions">
-                <form class="leave">
-                    <input type="submit" name="leave" class="leave-button" value="Не торгуватися">
-                </form>
-                <form class="raise steps">
+                <div class="action leave">
+                    <button class="leave">Не торгуватися</button>
+                </div>
+                <div class="action raise steps">
                     <div class="fieldset">
-                        <label for="raise-by-steps">Підвищити на </label>
-                        <input type="number" name="raise-by-steps" id="raise-by-steps" min="1" max="100" step="1" required>
-                        <label for="raise-by-steps">крок(-ів)</label>
+                        <label for="raise-to-steps">Підвищити  ще на </label>
+                        <input type="number" name="raise-to-steps" id="raise-to-steps" min="1" max="100" step="1">
+                        <label for="raise-to-steps">крок(-ів)</label>
                     </div>
-                    <label for="submit-steps">Підтвердити</label>
-                    <input type="submit" name="submit-steps" id="submit-steps">
-                </form>
-                <form class="raise amount">
+                    <button class="raise-to-steps">Підтвердити</button>
+                </div>
+                <div class="action raise amount">
                     <div class="fieldset">
-                        <label for="raise-by-amount">Підвищити на </label>
-                        <input type="number" name="raise-by-amount" id="raise-by-amount" min="10" max="10000" step="10" required>
-                        <label for="raise-by-amount">грн.</label>
+                        <label for="raise-to-amount">Підвищити до </label>
+                        <input type="number" name="raise-to-amount" id="raise-to-amount" min="10" max="10000" step="10">
+                        <label for="raise-to-amount">грн.</label>
                     </div>
-                    <label for="submit-amount">Підтвердити</label>
-                    <input type="submit" name="submit-amount" id="submit-amount">
-                </form>
+                    <button class="raise-to-price">Підтвердити</button>
+                </div>
             </div>
         </section>
     </main>

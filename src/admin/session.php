@@ -6,7 +6,6 @@
  * Time: 18:33
  */
 mb_internal_encoding("UTF-8");
-include '../scripts/php/user.php';
 $host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';
 $userPassword = '2014';
@@ -14,12 +13,12 @@ $db = 'joncolab_trade';
 $connection = new mysqli($host, $username, $userPassword, $db);
 
 if ($connection->connect_error) {
-    die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
+    die('Не вдається встановити підключення до бази даних!');
 } else {
     $connection->set_charset('utf8');
     $sellers = explode(',', $_POST["sellers"]);
     $amount = count($sellers);
-    $sql = 'SELECT id FROM lots WHERE seller_name=\'' . $sellers[0] . '\'';
+    $sql = 'SELECT id FROM lots WHERE seller_name=\'' . $sellers[0] . '\' ';
     if ($amount > 1) {
         for ($i = 1; $i <= $amount; $i++) {
             $sql .= 'OR seller_name=\'' . $sellers[$i] . '\'';
@@ -46,11 +45,11 @@ if ($connection->connect_error) {
     <span class="set-final-cost">
         <label for="set-final-cost">Остаточна: </label>
         <input type="number" id="set-final-cost">
-        <button><< Підвищити</button>
+        <button class="raise-to-price"><< Підвищити</button>
     </span>
     <button class="next-lot">Наступний лот</button>
     <button class="previous-lot">Попередній лот</button>
-    <button class="end-trade">Закінчити сесію</button>
+    <button class="end-session">Закінчити сесію</button>
     <ul class="all">
         <?php
         while ($lot = $result->fetch_assoc()) {
@@ -58,6 +57,7 @@ if ($connection->connect_error) {
         }
         ?>
     </ul>
+    <div class="chat"></div>
 </main>
 </body>
 </html>

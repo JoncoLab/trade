@@ -12,7 +12,6 @@ if ($connection->connect_error) {
 } else {
     $connection->set_charset('utf8');
     ?>
-
     <!DOCTYPE html>
     <html lang="uk">
     <head>
@@ -102,10 +101,10 @@ if ($connection->connect_error) {
         <table class="users page-maker">
             <thead>
             <tr class="sum">
-                <th class="total">Всього: <span id="total"><?php print User::count(); ?></span>
+                <th class="total">Всього: <span id="total"><?php print User::count();?></span>
                 </th>
                 <th class="total-verified">Верифікованих: <span
-                        id="total-verified"><?php print User::countVerified(); ?></span>
+                        id="total-verified"><?php print User::countVerified();?></span>
                 </th>
             </tr>
             <tr>
@@ -130,35 +129,36 @@ if ($connection->connect_error) {
             </thead>
             <tbody>
             <?php
-            $sql = 'SELECT * FROM registered';
+            $sql = 'SELECT id FROM registered';
             $users = $connection->query($sql);
-            while ($user = $users->fetch_assoc()) {
+            while ($userId = $users->fetch_assoc()) {
+                $user = User::getUserById($userId["id"]);
                 echo
                     '<tr>' .
-                    '<td class="id">' . $user["id"] . '</td>' .
-                    '<td class="status">' . $user["status"] . '</td>' .
-                    '<td class="full-name">' . $user["full_name"] . '</td>' .
-                    '<td class="j-address">' . $user["j-address"] . '</td>' .
-                    '<td class="edrpou">' . $user["edrpou"] . '</td>' .
-                    '<td class="ind">' . $user["ind"] . '</td>' .
-                    '<td class="person">' . $user["person"] . '</td>' .
-                    '<td class="reason">' . $user["reason"] . '</td>' .
-                    '<td class="short-name">' . $user["short_name"] . '</td>' .
-                    '<td class="head">' . $user["head"] . '</td>' .
-                    '<td class="tel">' . $user["tel"] . '</td>' .
-                    '<td class="email">' . $user["email"] . '</td>' .
-                    '<td class="docs-name">' . $user["docs_name"] . '</td>' .
-                    '<td class="post-address">' . $user["post_address"] . '</td>' .
+                    '<td class="id">' . $user->id . '</td>' .
+                    '<td class="status">' . $user->status . '</td>' .
+                    '<td class="full-name">' . $user->full_name . '</td>' .
+                    '<td class="j-address">' . $user->j_address . '</td>' .
+                    '<td class="edrpou">' . $user->edrpou . '</td>' .
+                    '<td class="ind">' . $user->ind . '</td>' .
+                    '<td class="person">' . $user->person . '</td>' .
+                    '<td class="reason">' . $user->reason . '</td>' .
+                    '<td class="short-name">' . $user->short_name . '</td>' .
+                    '<td class="head">' . $user->head . '</td>' .
+                    '<td class="tel">' . $user->tel . '</td>' .
+                    '<td class="email">' . $user->email . '</td>' .
+                    '<td class="docs-name">' . $user->docs_name . '</td>' .
+                    '<td class="post-address">' . $user->post_address . '</td>' .
                     '<td class="ver">' .
-                    (($user["ver"] === '0') ? (
+                    (($user->ver === '0') ? (
                         '<form class="verification-form">' .
                         '<input type="text" name="set-trader-id" class="set-trader-id" maxlength="4" pattern="[0-9]{3}" placeholder="Реєстр. №">' .
                         '<label class="verify">Верифікувати<input style="display: none;" type="submit" name="submit" value="verify"></label>' .
                         '</form>'
                     ) : 'Верифікований') .
                     '</td>' .
-                    '<td class="trader-id">' . $user["trader_id"] . '</td>' .
-                    '<td class="applied-for-lots">' . $user["applied_for_lots"] . '</td>' .
+                    '<td class="trader-id">' . $user->trader_id . '</td>' .
+                    '<td class="applied-for-lots">' . $user->applied_for_lots . '</td>' .
                     '</tr>';
             }
             ?>

@@ -1,0 +1,180 @@
+<fieldset>
+    <legend>Юридичні дані</legend>
+    <p class="error-name">Ця компанія вже зареєстрована!</p>
+    <div class="form-item">
+        <input type="text" name="full-name" id="full-name" required>
+        <label for="full-name">Повна назва:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="short-name" id="short-name" required>
+        <label for="short-name">Скорочена назва:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="head" id="head" required>
+        <label for="head">Директор:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="person" id="person" required>
+        <label for="person">В особі:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="reason" id="reason" required>
+        <label for="reason">Діє на підставі:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="ind" id="ind" pattern="[0-9]{10}">
+        <label for="ind">Ідентифікаційний номер:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="docs-name" id="docs-name" required>
+        <label for="docs-name">Скорочено для документів:</label>
+    </div>
+    <div class="form-item edrpou">
+        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8,10}">
+        <label for="edrpou">ЄДРПОУ:</label>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Ваш профіль</legend>
+    <p class="error-number">Цей мобільний вже зареєстрований!</p>
+    <div class="form-item">
+        <input type="tel" name="number" id="number" pattern="[+]+[0-9]{12}" required>
+        <label for="number">Номер телефону:</label>
+    </div>
+    <p class="error-mail">Така елекронна пошта вже зареєстрована!<br><a href="../log.html">Увійти в профіль</a></p>
+    <div class="form-item">
+        <input type="email" name="email" id="email" required>
+        <label for="email">Ваша електронна адреса:</label>
+    </div>
+    <div class="form-item">
+        <input type="password" name="password" id="password"
+               title="Мінімум одна латинська літера, мінімум одна цифра, мінімум 8 символів"
+               pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[aA-zZ]).*$" required>
+        <label for="password" title="Мінімум одна латинська літера, мінімум одна цифра, мінімум 8 символів">Введіть
+            пароль:</label>
+    </div>
+    <p class="error-pass">Паролі не співпадають!</p>
+    <div class="form-item">
+        <input type="password" name="password-confirm" id="password-confirm" required>
+        <label for="password-confirm">Підтвердіть пароль:</label>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Ваша юридична адреса</legend>
+    <p class="error-address">Ця адреса вже зареєстрована!</p>
+    <div class="form-item">
+        <input type="text" name="j-country" id="j-country" required>
+        <label for="j-country">Країна:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="j-region" id="j-region" required>
+        <label for="j-region">Область:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="j-district" id="j-district">
+        <label for="j-district">Район:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="j-city" id="j-city" required>
+        <label for="j-city">Ваше місто (село):</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="j-street" id="j-street" required>
+        <label for="j-street">Вулиця:</label>
+    </div>
+    <div class="form-item">
+        <input type="number" name="j-streetnum" id="j-streetnum" min="1" required>
+        <label for="j-streetnum">Номер будинку:</label>
+    </div>
+    <div class="form-item">
+        <input type="number" name="j-doornum" id="j-doornum" min="1">
+        <label for="j-doornum">Номер квартири:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="j-zip" id="j-zip" pattern="[0-9]{5}" required>
+        <label for="j-zip">Поштовий індекс:</label>
+    </div>
+</fieldset>
+<fieldset>
+    <legend>Ваша поштова адреса</legend>
+    <p class="error-post">Коректно заповніть поштову адресу, або залиште всі поля пустими!</p>
+    <div class="form-item">
+        <input type="text" name="country" id="country">
+        <label for="country">Країна:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="region" id="region">
+        <label for="region">Область:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="district" id="district">
+        <label for="district">Район:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="city" id="city">
+        <label for="city">Ваше місто (село):</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="street" id="street">
+        <label for="street">Вулиця:</label>
+    </div>
+    <div class="form-item">
+        <input type="number" name="streetnum" id="streetnum" min="1">
+        <label for="streetnum">Номер будинку:</label>
+    </div>
+    <div class="form-item">
+        <input type="number" name="doornum" id="doornum" min="1">
+        <label for="doornum">Номер квартири:</label>
+    </div>
+    <div class="form-item">
+        <input type="text" name="zip" id="zip" pattern="[0-9]{5}">
+        <label for="zip">Поштовий індекс:</label>
+    </div>
+</fieldset>
+<fieldset class="docs">
+    <legend>Документи</legend>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-letter" name="docs-letter">
+        <label for="docs-letter" title="Лист на фірмовому бланку з проханням про прийняття в асоційовані члени">Лист:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-blank" name="docs-blank" >
+        <label for="docs-blank" title="Анкета учаника товарної біржі за формою, розробленою біржею">Анкета учасника товарної біржі:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-accept-personal-info-usage" name="docs-accept-personal-info-usage">
+        <label for="docs-accept-personal-info-usage" title="Заява-погодження на опрацювання персональних даних за зразком, розробленим біржою.">Заява-погодження на опрацювання персональних даних:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-state-register" name="docs-state-register">
+        <label for="docs-state-register" title="Витяг з Єдиного державного реєстру юридичних осіб, фізичних осіб-підприємців та громадських формувань, скріплений печаткою державного реєстратора.">Витяг з Єдиного державного реєстру:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-statute" name="docs-statute">
+        <label for="docs-statute" title="Копія статуту завіреного власною печаткою, або довідка про провадження діяльності на підставі модельного статуту.">Копія статуту:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-boss" name="docs-boss">
+        <label for="docs-boss" title="Копія документу, що підтверджує повноваження керівника юридичної особи.">Копія про повноваження керівника:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-taxes" name="docs-taxes">
+        <label for="docs-taxes" title="Копія витягу з реєстру платників податку на додану вартість / реєстру платників єдиного податку / довідка про перебування на загальній системі оподаткування без реєстрації платником податку на додану вартість / довідка про неприбутковий статус особи.">Документ платника податку:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-permission" name="docs-permission">
+        <label for="docs-permission" title="Дозвіл на виконання робіт підвищеної небезпеки та на експлуатацію (застосування) машин, механізмів, устаткування підвищенної небезпеки.">Дозвіл на виконання робіт підвищеної небезпеки:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-deal" name="docs-deal">
+        <label for="docs-deal" title="Копія договору про надання послуг (договору-доручення), на підставі якого врегульовано правовідносини між клієнтом і членом біржі щодо здійснення повноважень останнього в ітересах його клієнта (брокерську угоду, при бажанні діяти через брокера) (за наявністю).">Копія договору про надання послуг:</label>
+    </div>
+    <div class="form-item">
+        <input type="file" accept="application/msword, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.openxmlformats-officedocument.wordprocessingml.template, application/vnd.ms-word.document.macroEnabled.12, application/vnd.ms-word.template.macroEnabled.12, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.openxmlformats-officedocument.spreadsheetml.template, application/vnd.ms-excel.sheet.macroEnabled.12, application/vnd.ms-excel.template.macroEnabled.12, application/vnd.ms-excel.addin.macroEnabled.12, application/vnd.ms-excel.sheet.binary.macroEnabled.12" id="docs-money" name="docs-money">
+        <label for="docs-money" title="Довідка з банку про наявність та реквізити рахунку.">Довідка з банку:</label>
+    </div>
+</fieldset>
+<fieldset form="register" class="buttons">
+    <input form="register" type="submit" class="submit" name="submit" value="Зареєструватись" id="submit">
+    <input form="register" type="reset" class="reset" name="reset" value="Скинути дані" id="reset">
+</fieldset>

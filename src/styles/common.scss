@@ -160,6 +160,26 @@ body {
                 }
             }
         }
+
+        .clock {
+            position: absolute;
+            right: $line;
+            font: {
+                weight: bold;
+                size: $line * 2;
+            }
+            padding: $line;
+            color: $dark;
+            background: {
+                color: $light;
+            }
+            border: {
+                width: $line / 2;
+                style: solid;
+                color: $dark;
+                radius: $line * 2;
+            }
+        }
     }
 
     main {

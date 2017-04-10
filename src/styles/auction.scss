@@ -172,6 +172,13 @@ main {
                             top-right-radius: $line;
                             bottom-right-radius: $line;
                         }
+
+                        &.customers-applied .customer:hover {
+                            cursor: pointer;
+                            text: {
+                                decoration: underline;
+                            }
+                        }
                     }
 
                     .attribute {
@@ -237,7 +244,7 @@ main {
 
                 margin: $line * 2 0 0 0;
 
-                form {
+                .action {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
@@ -259,7 +266,7 @@ main {
 
                         margin: 0 auto 0 0;
 
-                        .leave-button {
+                        .leave {
                             @include button($olive);
                             margin: 0;
                             border: {
@@ -270,10 +277,6 @@ main {
                             text: {
                                 transform: uppercase;
                             }
-                        }
-
-                        .leave-dialog {
-
                         }
                     }
 
@@ -350,11 +353,7 @@ main {
                             }
                         }
 
-                        input[type="submit"] {
-                            display: none;
-                        }
-
-                        label[for^="submit"] {
+                        button {
                             @include button($olive);
                             margin: 0;
                             padding: $line / 2;

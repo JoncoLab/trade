@@ -161,9 +161,7 @@ body main .content .buttons
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 }
-body main .content .buttons .start,
-body main .content .buttons .ztsb,
-body main .content .buttons .rules
+body main .content .buttons a
 {
     font-size: 25px;
     font-weight: bold;
@@ -191,22 +189,25 @@ body main .content .buttons .rules
     -webkit-box-shadow: 2px 2px 5px 0 #020718;
             box-shadow: 2px 2px 5px 0 #020718; 
 
-    -webkit-box-align: center; 
+    -webkit-box-pack: center; 
 
-    -webkit-align-items: center; 
+    -webkit-justify-content: center; 
 
-       -moz-box-align: center; 
+       -moz-box-pack: center; 
 
-        -ms-flex-align: center; 
+        -ms-flex-pack: center; 
 
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
             align-items: center;
-    -webkit-flex-basis: 25%;
-        -ms-flex-preferred-size: 25%;
-            flex-basis: 25%;
+    -webkit-flex-basis: 40%;
+        -ms-flex-preferred-size: 40%;
+            flex-basis: 40%;
 }
-body main .content .buttons .start:hover,
-body main .content .buttons .ztsb:hover,
-body main .content .buttons .rules:hover
+body main .content .buttons a:hover
 {
     background-color: #4d5c33;
 }

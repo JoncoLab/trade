@@ -13,6 +13,7 @@ $fullName = $_SESSION['full_name'];
 $ver = $_SESSION['ver'];
 $traderId = $_SESSION['trader_id'];
 $docsName = $_SESSION['docs_name'];
+$lots = $_SESSION["applied_for_lots"];
 ?>
 <!doctype html>
 <html>
@@ -52,6 +53,7 @@ $docsName = $_SESSION['docs_name'];
             <img src="images/logo.png" alt="Логотип">
             <h1>EXChange</h1>
         </div>
+        <div class="clock"></div>
     </header>
     <main>
         <div class="cabinet-content">
@@ -79,7 +81,10 @@ $docsName = $_SESSION['docs_name'];
                 <section class="access">
                     <h2>Доступ до торгів</h2>
                     <ul class="accessable">
-                        <li><span class="lot-num">Номер лоту: <strong id="drag1">321</strong></span><span class="start">Початок cесії: <time datetime="12:43 21-12-2017"></time></span></li>
+                        <li>
+                            <span class="lot-num">Номери лотів: <strong id="drag1"><?php print $lots;?></strong></span>
+                            <span class="start">Початок cесії: <time>17:00 05.04.17</time></span>
+                        </li>
                     </ul>
                 </section>
             </div>

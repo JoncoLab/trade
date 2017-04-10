@@ -338,6 +338,24 @@ body header .logo h1
 
             align-self: flex-end;
 }
+body header .clock
+{
+    font-size: 20px;
+    font-weight: bold;
+
+    position: absolute;
+    right: 10px;
+
+    padding: 10px;
+
+    color: #020718;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #020718;
+    -webkit-border-radius: 20px;
+            border-radius: 20px; 
+    background-color: #f7ecf3;
+}
 body main
 {
     position: relative;

@@ -5,9 +5,10 @@
  * Date: 13.12.2016
  * Time: 5:16
  */
+mb_internal_encoding("UTF-8");
 session_start();
 include('user.php');
-mb_internal_encoding("UTF-8");
+
 
 $status = $_POST["status-button"];
 $full_name = $_POST["full-name"];

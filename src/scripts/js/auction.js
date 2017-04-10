@@ -4,24 +4,35 @@
 $(document).ready(function () {
     var fullScreenRequest = $('.fullscreen'),
         auctionTable = $('.auction-table'),
-        sellerName = auctionTable.find('.seller-name'),
-        id = auctionTable.find('.id'),
-        type = auctionTable.find('.type'),
-        breed = auctionTable.find('.breed'),
-        characteristicsDiametr = auctionTable.find('.characteristics-diametr'),
-        characteristicsSort = auctionTable.find('.characteristics-sort'),
-        gost = auctionTable.find('.gost'),
-        characteristicsLength = auctionTable.find('.characteristics-length'),
-        characteristicsStorage = auctionTable.find('.characteristics-storage'),
-        size = auctionTable.find('.size'),
-        customersApplied = auctionTable.find('.customers-applied'),
-        costStart = auctionTable.find('.cost-start'),
-        priceStart = auctionTable.find('.price-start'),
-        customerNumber = auctionTable.find('.customer-number'),
-        step = auctionTable.find('.step'),
-        costFinal = auctionTable.find('.cost-final'),
-        priceFinal = auctionTable.find('.price-final'),
-        currentStep = auctionTable.find('.current-step');
+        tradeSession = 'scripts/php/trade-session.php',
+        buttons = {
+            leave: $('.action button.leave'),
+            raiseToSteps: $('.action button.raise-to-steps'),
+            raiseToPrice: $('.action button.raise-to-price')
+        },
+        chat = $('.info .messages'),
+        traderId = $('.info .trader-id').text(),
+        insertData = function (functionType, value) {
+            $.ajax({
+                url: tradeSession,
+                data: {
+                    function: functionType,
+                    value: value,
+                    who: traderId
+                },
+                method: 'post'
+            });
+        },
+        changeData = function (functionType) {
+            $.ajax({
+                url: tradeSession,
+                data: {
+                    function: functionType,
+                    who: traderId
+                },
+                method: 'post'
+            });
+        };
 
     fullScreenRequest.click(function () {
         var page = document.documentElement,
@@ -36,7 +47,18 @@ $(document).ready(function () {
         fullScreenWindow.fadeOut(500);
     });
 
+    buttons.leave.click(function () {
+        changeData('leave');
+    });
+    buttons.raiseToPrice.click(function () {
+        insertData('raiseToPrice', $('#raise-to-amount').val());
+    });
+    buttons.raiseToSteps.click(function () {
+        insertData('raiseToSteps', $('#raise-to-steps').val());
+    });
+
     setInterval(function () {
-        auctionTable.load('auction-table.php');
+        auctionTable.load('assets/auction-table.php');
+        chat.load('assets/auction-chat.html');
     }, 500);
 });

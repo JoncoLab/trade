@@ -348,6 +348,11 @@ main section.trade .auction-table tbody .value
             border-bottom-right-radius: 10px; 
     background-color: #020718;
 }
+main section.trade .auction-table tbody .value.customers-applied .customer:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
 main section.trade .auction-table tbody .attribute
 {
     font-weight: normal;
@@ -401,7 +406,7 @@ main section.trade .actions
             border-radius: 10px;
     background-color: #f7ecf3;
 }
-main section.trade .actions form
+main section.trade .actions .action
 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -433,7 +438,7 @@ main section.trade .actions form
 
             justify-content: space-between;
 }
-main section.trade .actions form.leave
+main section.trade .actions .action.leave
 {
     margin: 0 auto 0 0; 
 
@@ -443,7 +448,7 @@ main section.trade .actions form.leave
     -webkit-border-radius: 0;
             border-radius: 0;
 }
-main section.trade .actions form.leave .leave-button
+main section.trade .actions .action.leave .leave
 {
     font-weight: bold;
 
@@ -485,12 +490,12 @@ main section.trade .actions form.leave .leave-button
 
             flex-basis: 100%;
 }
-main section.trade .actions form.leave .leave-button:active,
-main section.trade .actions form.leave .leave-button:focus
+main section.trade .actions .action.leave .leave:active,
+main section.trade .actions .action.leave .leave:focus
 {
     outline: none;
 }
-main section.trade .actions form.leave .leave-button:active
+main section.trade .actions .action.leave .leave:active
 {
     background-image: -webkit-gradient(linear, left bottom, left top, from(#4d5c33), to(rgba(77, 92, 51, .8)));
     background-image: -webkit-linear-gradient(bottom, #4d5c33, rgba(77, 92, 51, .8));
@@ -498,11 +503,11 @@ main section.trade .actions form.leave .leave-button:active
     background-image: -o-linear-gradient(bottom, #4d5c33, rgba(77, 92, 51, .8));
     background-image: linear-gradient(to top, #4d5c33, rgba(77, 92, 51, .8));
 }
-main section.trade .actions form.leave .leave-button:hover
+main section.trade .actions .action.leave .leave:hover
 {
     opacity: 1;
 }
-main section.trade .actions form.raise
+main section.trade .actions .action.raise
 {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
@@ -510,7 +515,7 @@ main section.trade .actions form.raise
         -ms-flex-positive: 1;
             flex-grow: 1;
 }
-main section.trade .actions form.raise .fieldset
+main section.trade .actions .action.raise .fieldset
 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -533,7 +538,7 @@ main section.trade .actions form.raise .fieldset
 
             flex-grow: 1;
 }
-main section.trade .actions form.raise .fieldset input[type='number']
+main section.trade .actions .action.raise .fieldset input[type='number']
 {
     font-size: 18px;
     font-weight: bold;
@@ -548,22 +553,22 @@ main section.trade .actions form.raise .fieldset input[type='number']
     border: none;
     background-color: #f7ecf3;
 }
-main section.trade .actions form.raise .fieldset input[type='number']:active,
-main section.trade .actions form.raise .fieldset input[type='number']:focus
+main section.trade .actions .action.raise .fieldset input[type='number']:active,
+main section.trade .actions .action.raise .fieldset input[type='number']:focus
 {
     outline: none;
     -webkit-box-shadow: 0 0 2px 2px #4d5c33 inset;
             box-shadow: 0 0 2px 2px #4d5c33 inset;
 }
-main section.trade .actions form.raise .fieldset input[type='number']#raise-by-amount
+main section.trade .actions .action.raise .fieldset input[type='number']#raise-by-amount
 {
     width: 100px;
 }
-main section.trade .actions form.raise .fieldset input[type='number']#raise-by-steps
+main section.trade .actions .action.raise .fieldset input[type='number']#raise-by-steps
 {
     width: 100px;
 }
-main section.trade .actions form.raise .fieldset label
+main section.trade .actions .action.raise .fieldset label
 {
     font-size: 14px;
     font-weight: bold;
@@ -584,7 +589,7 @@ main section.trade .actions form.raise .fieldset label
 
             flex-grow: 1;
 }
-main section.trade .actions form.raise .fieldset label[for^='raise']
+main section.trade .actions .action.raise .fieldset label[for^='raise']
 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -611,7 +616,7 @@ main section.trade .actions form.raise .fieldset label[for^='raise']
         -ms-flex-pack: end;
             justify-content: flex-end;
 }
-main section.trade .actions form.raise .fieldset label[for^='raise']:nth-of-type(2)
+main section.trade .actions .action.raise .fieldset label[for^='raise']:nth-of-type(2)
 {
     text-align: right;
 
@@ -630,11 +635,7 @@ main section.trade .actions form.raise .fieldset label[for^='raise']:nth-of-type
         -ms-flex-pack: start;
             justify-content: flex-start;
 }
-main section.trade .actions form.raise input[type='submit']
-{
-    display: none;
-}
-main section.trade .actions form.raise label[for^='submit']
+main section.trade .actions .action.raise button
 {
     font-size: 14px;
     font-weight: bold;
@@ -702,12 +703,12 @@ main section.trade .actions form.raise label[for^='submit']
         -ms-flex-positive: 1;
             flex-grow: 1;
 }
-main section.trade .actions form.raise label[for^='submit']:active,
-main section.trade .actions form.raise label[for^='submit']:focus
+main section.trade .actions .action.raise button:active,
+main section.trade .actions .action.raise button:focus
 {
     outline: none;
 }
-main section.trade .actions form.raise label[for^='submit']:active
+main section.trade .actions .action.raise button:active
 {
     background-image: -webkit-gradient(linear, left bottom, left top, from(#4d5c33), to(rgba(77, 92, 51, .8)));
     background-image: -webkit-linear-gradient(bottom, #4d5c33, rgba(77, 92, 51, .8));
@@ -715,11 +716,11 @@ main section.trade .actions form.raise label[for^='submit']:active
     background-image: -o-linear-gradient(bottom, #4d5c33, rgba(77, 92, 51, .8));
     background-image: linear-gradient(to top, #4d5c33, rgba(77, 92, 51, .8));
 }
-main section.trade .actions form.raise label[for^='submit']:hover
+main section.trade .actions .action.raise button:hover
 {
     opacity: 1;
 }
-main section.trade .actions form.raise.amount
+main section.trade .actions .action.raise.amount
 {
     border-top: none;
     border-right: none;
@@ -727,7 +728,7 @@ main section.trade .actions form.raise.amount
     -webkit-border-radius: 0;
             border-radius: 0;
 }
-main section.trade .actions form.raise.steps
+main section.trade .actions .action.raise.steps
 {
     border-top: none;
     border-right: none;

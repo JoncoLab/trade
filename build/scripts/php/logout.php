@@ -9,5 +9,5 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: /start.html");
+header("Location: http://exchange.roik.pro/");
 exit();

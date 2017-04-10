@@ -35,16 +35,12 @@ var main = function () {
             'background-image': 'url("' + targetBg + '")'
         });
     },
-        setTime = function () {
-            $('time').each(function () {
-               $(this).html($(this).attr('datetime'));
-            });
-        },
         logo = $('header .logo'),
         mainMenu = $('.main-menu'),
         clickableMenuElements = $('.main-menu .menu-icon, .main-menu > span'),
         menuIcon = mainMenu.children('.menu-icon'),
-        dropdownMenu = mainMenu.children('ul');
+        dropdownMenu = mainMenu.children('ul'),
+        clock = $('header .clock');
 
     clickableMenuElements.hover(function () {
         menuIcon.css('transform', 'scale(1.15)');
@@ -67,9 +63,13 @@ var main = function () {
         window.location.href = 'index.html';
     });
 
-    changeBg(parseInt(Math.random() * 5));
 
-    setTime();
+    clock.load('../../assets/clock.php');
+    setInterval(function () {
+        clock.load('../../assets/clock.php');
+    }, 1000);
+
+    changeBg(parseInt(Math.random() * 5));
 };
 
 $(document).ready(main);

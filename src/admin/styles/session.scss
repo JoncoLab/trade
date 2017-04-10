@@ -52,6 +52,19 @@ body {
           background: {
             color: transparentize($green, 0.9)
           }
+
+          &.customers-applied .customer:hover {
+            cursor: pointer;
+            text: {
+              decoration: underline;
+            }
+          }
+        }
+
+        &.gost {
+          text: {
+            align: center;
+          }
         }
       }
     }
@@ -136,6 +149,15 @@ body {
           }
         }
       }
+    }
+
+    .chat {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-end;
     }
   }
 }

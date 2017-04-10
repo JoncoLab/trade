@@ -74,17 +74,16 @@ body {
         justify-content: center;
         flex-wrap: wrap;
 
-        .start,
-        .ztsb,
-        .rules {
+        a {
           display: flex;
+          justify-content: center;
           align-items: center;
           background: {
             color: fade_out($olive, 0.1);
           }
           padding: $line;
           margin: 0 $line $line 0;
-          flex-basis: 25%;
+          flex-basis: 40%;
 
           font: {
             weight: bold;
@@ -102,7 +101,7 @@ body {
 
           &:hover {
             background: {
-              color: $olive
+              color: $olive;
             }
           }
         }

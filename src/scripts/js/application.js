@@ -17,7 +17,6 @@ var main = function () {
         },
         lots = $('.lots tbody tr'),
         bankDetails = $('#bank-details'),
-        date = $('.agreement .date strong'),
         sender = $('#application');
 
     lots.click(function () {
@@ -47,14 +46,6 @@ var main = function () {
                 'color': '#97a29e'
             });
         }
-    });
-
-    date.text(function () {
-        var today = new Date(),
-            day = today.getDate().toString(),
-            month = today.getMonth().toString(),
-            year = today.getFullYear().toString();
-        return (day.length > 1 ? day : ('0' + day)) + '.' + (month.length > 1 ? month : ('0' + month)) + '.' + year;
     });
 
     sender.children('#reset').click(function () {

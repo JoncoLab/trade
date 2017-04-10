@@ -60,7 +60,7 @@ $traderId = $_SESSION["trader_id"];
                 <td class="field-name">Заявник:</td>
                 <?php echo '<td class="field-value auto" colspan="2"><input type="text" readonly form="application" name="applicator" id="applicator" value="' . $fullName . '" title="' . $fullName . '"></td>'; ?>
                 <td class="field-name" rowspan="2" colspan="2"><label for="previously-processed">Перероблено деревини за минулий квартал (м<sup>3</sup>):</label></td>
-                <td class="field-value" rowspan="2"><input required form="application" type="number" min="0" max="50000" step="5" maxlength="5" name="previously-processed" id="previously-processed" placeholder="1000"></td>
+                <td class="field-value" rowspan="2"><input required form="application" type="number" min="0" max="500000" maxlength="5" name="previously-processed" id="previously-processed" placeholder="1000"></td>
             </tr>
             <tr>
                 <td class="field-name"><label for="representative-name">Представник:</label></td>
@@ -199,7 +199,7 @@ $traderId = $_SESSION["trader_id"];
         <p class="remark"><strong>Примітка: Біржа відмовляє Покупцю в участі в аукціонних торгах або в реєстрації учасників, якщо у встановлену
             біржою форму заявки самовільно були внесені зміни, виправлення або доповнення.</strong></p>
         <div class="agreement">
-            <span class="date">Дата: <strong></strong></span>
+            <span class="date">Дата: <strong><?php print date("d.m.Y")?></strong></span>
             <div class="signature">
                 <label for="agreed">Усі поля заповнені мною вірно</label>
                 <input required form="application" type="checkbox" name="agreed" id="agreed" value="agreed">
