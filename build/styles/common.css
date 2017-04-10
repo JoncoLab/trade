@@ -103,7 +103,7 @@ body header
        -moz-box-sizing: content-box;
 
             box-sizing: content-box; 
-    min-height: 100px;
+    min-height: 110px;
     padding: 0 0 10px;
 
     -webkit-box-pack: center;

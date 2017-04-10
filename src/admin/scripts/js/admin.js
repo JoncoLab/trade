@@ -6,6 +6,8 @@ var main = function () {
         navigationButtons = $('header .navbar button'),
         usersVerificationCells = $('.users td.ver'),
         usersVerificationForm = usersVerificationCells.children('.verification-form'),
+        deleteUserButton = $('.users td.delete .delete-button'),
+        deleteLotButton = $('.lots td.delete .delete-button'),
         loading = function (status) {
             var loadingBar = $('#loading');
             switch (status) {
@@ -53,7 +55,7 @@ var main = function () {
         }
     });
     
-    usersVerificationForm.on('submit', function () {
+    usersVerificationForm.on('submit', function (event) {
         var verificationCell = $(this).parents('td'),
             id = verificationCell.siblings('.id').text(),
             traderId = $(this).children('.set-trader-id').val(),
@@ -79,7 +81,55 @@ var main = function () {
                 window.location.reload();
             }
         });
-        return false;
+        return event.preventDefault();
+    });
+
+    deleteUserButton.click(function () {
+        var userId = $(this).parent().siblings('.id').text(),
+            userRow = $(this).parentsUntil('tbody');
+
+        loading(true);
+
+        $.ajax({
+            url: 'scripts/php/admin-delete-user.php',
+            data: {
+                userId: userId
+            },
+            method: 'post',
+            error: function () {
+                loading(false);
+                alert('Не вдається з\'єднатися з базою даних! Сторінку буде перезавантажено!');
+                window.location.reload();
+            },
+            success: function () {
+                loading(false);
+                userRow.remove();
+            }
+        });
+    });
+
+    deleteLotButton.click(function () {
+        var lotId = $(this).parent().siblings('.id').text(),
+            lotRow = $(this).parentsUntil('tbody');
+
+        loading(true);
+
+        $.ajax({
+            url: 'scripts/php/admin-delete-lot.php',
+            data: {
+                lotId: lotId
+            },
+            method: 'post',
+            error: function () {
+                loading(false);
+                alert('Не вдається з\'єднатися з базою даних! Сторінку буде перезавантажено!');
+                window.location.reload();
+            },
+            success: function () {
+                loading(false);
+                lotRow.remove();
+            }
+        });
     });
 
     addParagraphBar.click(function () {

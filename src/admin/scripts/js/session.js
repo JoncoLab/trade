@@ -14,7 +14,7 @@ var main = function () {
             previousLot: $('button.previous-lot'),
             endSession: $('button.end-session')
         },
-        chat = $('.chat'),
+        chat = $('.chat .messages'),
         switchLot = function (id) {
             var targetLot = $(".all .id:contains(\'" + id + "\')");
             $.ajax({
@@ -34,7 +34,8 @@ var main = function () {
             $.ajax({
                 url: tradeSession,
                 data: {
-                    function: functionType
+                    function: functionType,
+                    who: 'Ліцетатор'
                 },
                 method: 'post'
             });
@@ -84,7 +85,7 @@ var main = function () {
     setInterval(function () {
         auctionTable.load('../../../assets/auction-table.php');
         chat.load('../../../assets/auction-chat.html');
-    }, 500);
+    }, 1000);
 };
 
 $(document).ready(main);

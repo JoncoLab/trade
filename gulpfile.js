@@ -174,23 +174,23 @@ gulp.task('php:build', function () {
 //Збірка JS
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
+        .pipe(connectToFtp.newer(path.ftp.js))
         .pipe(jsMinify({
             ext: {
                 min: '.js'
             },
             noSource: '*.js'
         }))
-        .pipe(connectToFtp.newer(path.ftp.js))
         .pipe(connectToFtp.dest(path.ftp.js))
         .pipe(gulp.dest(path.build.js));
     gulp.src(path.admin.src.js)
+        .pipe(connectToFtp.newer(path.admin.ftp.js))
         .pipe(jsMinify({
             ext: {
                 min: '.js'
             },
             noSource: '*.js'
         }))
-        .pipe(connectToFtp.newer(path.admin.ftp.js))
         .pipe(connectToFtp.dest(path.admin.ftp.js))
         .pipe(gulp.dest(path.admin.build.js));
 });
@@ -278,7 +278,8 @@ gulp.task('project:build', [
 gulp.task('watch', function () {
     gulp.watch(path.watch.pages, [
         'html:build',
-        'fonts:build'
+        'fonts:build',
+        'assets:build'
     ]);
     gulp.watch(path.watch.styles, ['css:build']);
     gulp.watch(path.watch.scripts, [

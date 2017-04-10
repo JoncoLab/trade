@@ -24,7 +24,7 @@ if (!isset($_SESSION["id"])) {
 <body>
 <div id="fullscreen">
     <h1>Для зручності буде відкрито повноекранний режим</h1>
-    <button class="fullscreen">ОК</button>
+    <button class="fullscreen" autofocus>ОК</button>
 </div>
     <header>
         //= modules/menu.html
@@ -38,7 +38,9 @@ if (!isset($_SESSION["id"])) {
             </div>
             <div class="chat">
                 <h2>Повідомлення адміністратора торгу</h2>
-                <div class="messages"></div>
+                <div class="messages">
+                    <div class="wrapper"></div>
+                </div>
             </div>
             <div class="trader-id" style="display: none"><?php print $_SESSION["trader_id"];?></div>
         </section>
@@ -59,7 +61,7 @@ if (!isset($_SESSION["id"])) {
                 <div class="action raise amount">
                     <div class="fieldset">
                         <label for="raise-to-amount">Підвищити до </label>
-                        <input type="number" name="raise-to-amount" id="raise-to-amount" min="10" max="10000" step="10">
+                        <input type="number" name="raise-to-amount" id="raise-to-amount" min="" max="10000" step="10">
                         <label for="raise-to-amount">грн.</label>
                     </div>
                     <button class="raise-to-price">Підтвердити</button>

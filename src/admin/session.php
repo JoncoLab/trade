@@ -57,7 +57,9 @@ if ($connection->connect_error) {
         }
         ?>
     </ul>
-    <div class="chat"></div>
+    <div class="chat">
+        <div class="messages"></div>
+    </div>
 </main>
 </body>
 </html>

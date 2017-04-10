@@ -36,6 +36,7 @@ if ($connection->connect_error) {
         <table class="lots page-maker">
             <thead>
             <tr>
+                <th rowspan="2" class="delete"></th>
                 <th rowspan="2" class="id">Номер лоту</th>
                 <th rowspan="2" class="seller-name">Назва продавця</th>
                 <th rowspan="2" class="type">Назва асортименту</th>
@@ -69,6 +70,7 @@ if ($connection->connect_error) {
             while ($lot = $lots->fetch_assoc()) {
                 echo
                     '<tr>' .
+                    '<td class="delete"><button class="delete-button">Видалити лот</button></td>' .
                     '<td class="id">' . $lot["id"] . '</td>' .
                     '<td class="seller-name">' . $lot["seller_name"] . '</td>' .
                     '<td class="type">' . $lot["type"] . '</td>' .
@@ -108,6 +110,7 @@ if ($connection->connect_error) {
                 </th>
             </tr>
             <tr>
+                <th class="delete"></th>
                 <th class="id">ID</th>
                 <th class="status">Акредитація</th>
                 <th class="full-name">Повна назва</th>
@@ -135,6 +138,7 @@ if ($connection->connect_error) {
                 $user = User::getUserById($userId["id"]);
                 echo
                     '<tr>' .
+                    '<td class="delete"><button class="delete-button">Видалити користувача</button></td>' .
                     '<td class="id">' . $user->id . '</td>' .
                     '<td class="status">' . $user->status . '</td>' .
                     '<td class="full-name">' . $user->full_name . '</td>' .

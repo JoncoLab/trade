@@ -5,7 +5,7 @@ var main = function () {
             form = $('#register');
         if (currentForm !== target) {
             form.slideUp(500, function () {
-                form.load(target + '.html', function () {
+                form.load('assets/' + target + '.html', function () {
                     form.slideDown(500);
                     form.css('display', 'flex');
                 });
@@ -13,7 +13,7 @@ var main = function () {
             currentForm = target;
         }
     });
-    $('#register').submit(function () {
+    $('#register').submit(function (event) {
         $.mail_permission = false;
         $.number_permission = false;
         $.address_permission = false;
@@ -222,7 +222,9 @@ var main = function () {
                 return $.mail_permission && $.number_permission && $.address_permission && $.name_permission && $.password_permission && $.post_permission;
             };
 
-        return permitted();
+        if (!permitted()) {
+            event.preventDefault();
+        }
     });
 };
 

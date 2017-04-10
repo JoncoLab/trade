@@ -228,12 +228,33 @@ body table tbody tr td.ver .verify
 {
     padding: 10px;
 
-    -webkit-border-radius: 10px;
+    cursor: pointer; 
 
-            border-radius: 10px; 
-    background-image: -webkit-linear-gradient(120deg, #86c5da, #d4ebf2); 
-    background-image: -moz-linear-gradient(120deg, #86c5da, #d4ebf2); 
-    background-image: -o-linear-gradient(120deg, #86c5da, #d4ebf2); 
+    -webkit-border-radius: 10px; 
+
+            border-radius: 10px;
+    -webkit-border-top-left-radius: 0;
+            border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+            border-top-right-radius: 0;
+    background-image: -webkit-linear-gradient(120deg, #86c5da, #d4ebf2);
+    background-image: -moz-linear-gradient(120deg, #86c5da, #d4ebf2);
+    background-image: -o-linear-gradient(120deg, #86c5da, #d4ebf2);
+    background-image: linear-gradient(-30deg, #86c5da, #d4ebf2);
+}
+body table tbody tr td.delete button
+{
+    padding: 10px;
+
+    cursor: pointer; 
+
+    border: none;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    outline: none;
+    background-image: -webkit-linear-gradient(120deg, #86c5da, #d4ebf2);
+    background-image: -moz-linear-gradient(120deg, #86c5da, #d4ebf2);
+    background-image: -o-linear-gradient(120deg, #86c5da, #d4ebf2);
     background-image: linear-gradient(-30deg, #86c5da, #d4ebf2);
 }
 body table tbody tr:nth-of-type(2n)

@@ -10,8 +10,11 @@ $(document).ready(function () {
             raiseToSteps: $('.action button.raise-to-steps'),
             raiseToPrice: $('.action button.raise-to-price')
         },
-        chat = $('.info .messages'),
+        chat = $('.info .messages .wrapper'),
         traderId = $('.info .trader-id').text(),
+        section = $('main section'),
+        height = section.height,
+        raiseToPrice = $('#raise-to-amount'),
         insertData = function (functionType, value) {
             $.ajax({
                 url: tradeSession,
@@ -51,14 +54,24 @@ $(document).ready(function () {
         changeData('leave');
     });
     buttons.raiseToPrice.click(function () {
-        insertData('raiseToPrice', $('#raise-to-amount').val());
+        if (raiseToPrice.val() <= raiseToPrice.attr('min')) {
+            raiseToPrice.val(raiseToPrice.attr('min'));
+            raiseToPrice.focus();
+        } else {
+            insertData('raiseToPrice', raiseToPrice.val());
+        }
     });
     buttons.raiseToSteps.click(function () {
         insertData('raiseToSteps', $('#raise-to-steps').val());
     });
 
+    section.css({
+        'max-height': height
+    });
+
     setInterval(function () {
         auctionTable.load('assets/auction-table.php');
         chat.load('assets/auction-chat.html');
-    }, 500);
+        raiseToPrice.attr('min', auctionTable.find('.cost-final').text());
+    }, 1000);
 });

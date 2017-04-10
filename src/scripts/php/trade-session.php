@@ -30,6 +30,53 @@ function save() {
     $connection->set_charset('utf8');
     $sql = 'SELECT * FROM trade';
 }
+
+function get24hTime() {
+    $time = null;
+    if (date("a") === 'pm') {
+        switch (date("h")) {
+            case '01':
+                $time = '13:' . date("i:s");
+                break;
+            case '02':
+                $time = '14:' . date("i:s");
+                break;
+            case '03':
+                $time = '15:' . date("i:s");
+                break;
+            case '04':
+                $time = '16:' . date("i:s");
+                break;
+            case '05':
+                $time = '17:' . date("i:s");
+                break;
+            case '06':
+                $time = '18:' . date("i:s");
+                break;
+            case '07':
+                $time = '19:' . date("i:s");
+                break;
+            case '08':
+                $time = '20:' . date("i:s");
+                break;
+            case '09':
+                $time = '21:' . date("i:s");
+                break;
+            case '10':
+                $time = '22:' . date("i:s");
+                break;
+            case '11':
+                $time = '23:' . date("i:s");
+                break;
+            default:
+                $time = date("h:i:s");
+        }
+    } else {
+        $time = date("h:i:s");
+    }
+    return $time;
+}
+
 switch ($_POST["function"]) {
     case 'switch':
         $sql = 'SELECT * FROM lots WHERE id=\'' . $_POST["id"] . '\'';
@@ -54,8 +101,12 @@ switch ($_POST["function"]) {
             'price_final = \'' . $result["price_start"] . '\', ' .
             'current_step = \'0\'';
         $connection->query($sql);
-        $message = '<p class="message"><span>Торгується лот №' . $result["id"] . '</span></p>';
-        $chat = fopen('auction-chat.html', 'a');
+        $message =
+            '<p class="message">' .
+            '<span class="time">' . get24hTime() . '</span>' .
+            '<span>Торгується лот №' . $result["id"] . '</span>' .
+            '</p>';
+        $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
         fclose($chat);
         break;
@@ -71,6 +122,14 @@ switch ($_POST["function"]) {
             'cost_final = \'' . $costFinal . '\', ' .
             'price_final = \'' . $priceFinal . '\'';
         $connection->query($sql);
+        $message =
+            '<p class="message">' .
+            '<span class="time">' . get24hTime() . '</span>' .
+            '<span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку</span>' .
+            '</p>';
+        $chat = fopen('../../assets/auction-chat.html', 'a');
+        fwrite($chat, $message);
+        fclose($chat);
         break;
     case 'removeStep':
         $sql = 'SELECT current_step, step, cost_start, size FROM trade';
@@ -84,6 +143,14 @@ switch ($_POST["function"]) {
             'cost_final = \'' . $costFinal . '\', ' .
             'price_final = \'' . $priceFinal . '\'';
         $connection->query($sql);
+        $message =
+            '<p class="message">' .
+            '<span class="time">' . get24hTime() . '</span>' .
+            '<span>' . $_POST["who"] . ' знижує до ' . $nextStep . '-го кроку</span>' .
+            '</p>';
+        $chat = fopen('../../assets/auction-chat.html', 'a');
+        fwrite($chat, $message);
+        fclose($chat);
         break;
     case 'raiseToPrice':
         $sql = 'SELECT current_step, step, cost_start, size FROM trade';
@@ -97,8 +164,12 @@ switch ($_POST["function"]) {
             'cost_final = \'' . $costFinal . '\', ' .
             'price_final = \'' . $priceFinal . '\'';
         $connection->query($sql);
-        $message = '<p class="message"><span>' . $_POST["who"] . ' підвищує до ' . $costFinal . 'грн.</span></p>';
-        $chat = fopen('auction-chat.html', 'a');
+        $message =
+            '<p class="message">' .
+            '<span class="time">' . get24hTime() . '</span>' .
+            '<span>' . $_POST["who"] . ' підвищує до ' . $costFinal . 'грн.</span>' .
+            '</p>';
+        $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
         fclose($chat);
         break;
@@ -114,8 +185,12 @@ switch ($_POST["function"]) {
             'cost_final = \'' . $costFinal . '\', ' .
             'price_final = \'' . $priceFinal . '\'';
         $connection->query($sql);
-        $message = '<p class="message"><span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку</span></p>';
-        $chat = fopen('auction-chat.html', 'a');
+        $message =
+            '<p class="message">' .
+            '<span class="time">' . get24hTime() . '</span>' .
+            '<span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку</span>' .
+            '</p>';
+        $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
         fclose($chat);
         break;
@@ -124,8 +199,12 @@ switch ($_POST["function"]) {
         $connection->query($sql);
         $sql = 'SELECT * FROM trade';
         $id = $connection->query($sql)->fetch_assoc()["id"];
-        $message = '<p class="message"><span>Лот №' . $id . ' придбав ' . $_POST["value"] . '-й</span></p>';
-        $chat = fopen('auction-chat.html', 'a');
+        $message =
+            '<p class="message">' .
+            '<span class="time">' . get24hTime() . '</span>' .
+            '<span>Лот №' . $id . ' придбав ' . $_POST["value"] . '-й</span>' .
+            '</p>';
+        $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
         fclose($chat);
         break;

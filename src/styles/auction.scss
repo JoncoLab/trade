@@ -76,45 +76,55 @@ main {
                     flex-grow: 1;
                     padding: 0;
 
-                    .message {
-                        position: relative;
-                        margin: $line / 5;
-                        padding: $line / 5;
-
-                        height: $line * 3;
+                    .wrapper {
+                        width: 100%;
+                        height: 100%;
 
                         display: flex;
-                        align-items: center;
+                        flex-direction: column-reverse;
+                        justify-content: flex-end;
 
-                        background: {
-                            color: fade_out($olive, 0.3);
-                        }
-
-                        border: {
-                            radius: $line;
-                            style: solid;
-                            width: $line / 2;
-                            color: $dark;
-                        }
-
-                        img {
-                            display: block;
-                            height: 100%;
-                            max-height: $line * 3;
-                            border: {
-                                right: $line / 2 solid $dark;
-                            }
+                        .message {
+                            position: relative;
                             margin: 0;
-                            padding: 0 $line / 2 0 0;
-                        }
+                            padding: 0;
 
-                        span {
-                            font: {
-                                weight: bold;
-                                size: $line * 1.5;
+                            height: $line * 2;
+                            min-height: $line * 2;
+
+                            display: flex;
+                            align-items: center;
+
+                            border: {
+                                style: solid;
+                                width: $line / 5;
+                                color: $dark;
+                                top: none;
+                                right: none;
+                                left: none;
                             }
-                            margin: 0 0 0 $line / 2;
-                            color: $dark;
+
+                            span {
+                                display: inline-block;
+                                font: {
+                                    weight: bold;
+                                    size: $line * 1.5;
+                                }
+                                margin: 0 0 0 $line / 2;
+                                color: $dark;
+
+                                &.time {
+                                    border: {
+                                        style: solid;
+                                        width: $line / 5;
+                                        color: $dark;
+                                        top: none;
+                                        bottom: none;
+                                        left: none;
+                                    }
+                                    padding: $line / 4 $line / 2 $line / 4 0;
+                                }
+                            }
                         }
                     }
                 }

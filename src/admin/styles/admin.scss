@@ -100,7 +100,25 @@ body {
               padding: $line;
               border: {
                 radius: $line;
+                top-right-radius: 0;
+                top-left-radius: 0;
               }
+              cursor: pointer;
+            }
+          }
+
+          &.delete {
+            button {
+              background: {
+                image: linear-gradient(-30deg, darken(lightblue, 10%), lighten(lightblue, 10%));
+              }
+              padding: $line;
+              border: none;
+              outline: none;
+              border: {
+                radius: $line;
+              }
+              cursor: pointer;
             }
           }
         }
