@@ -45,10 +45,10 @@ $lots = $_SESSION["applied_for_lots"];
                         <li class="mail"><?php print $email;?></li>
                         <li class="docs-name"><?php print $docsName;?></li>
                     </ul>
+                    <button class="add-docs">Додати документи</button>
                     <?php
                     if ($ver === '1') {
                         echo
-                            '<button class="add-docs">Додати документи</button>' .
                             '<div class="trader-id">Ваш реєстраційний номер:' .
                                 '<span id="trader-id"> ' . $traderId . '</span>' .
                             '</div>';
@@ -62,7 +62,7 @@ $lots = $_SESSION["applied_for_lots"];
                     <ul class="accessable">
                         <li>
                             <span class="lot-num">Номери лотів: <strong id="drag1"><?php print $lots;?></strong></span>
-                            <span class="start">Початок cесії: <time>17:00 05.04.17</time></span>
+                            <span class="start">Початок cесії: <time>10:00 18.04.17</time></span>
                         </li>
                     </ul>
                 </section>

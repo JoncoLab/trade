@@ -83,7 +83,8 @@ body {
       border: $line / 2 double darken(transparentize($green, 0.7), $line * 3);
     }
 
-    .set-final-cost {
+    .set-final-cost,
+    .set-winner {
       button {
         border: {
           left: none;
@@ -216,6 +217,63 @@ body {
               }
               padding: $line / 4 $line / 2 $line / 4 0;
             }
+          }
+        }
+      }
+    }
+
+    .users {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: flex;
+
+      border: {
+        color: transparentize($green, 0.7);
+        style: solid;
+        width: $line / 5;
+      }
+
+      background: {
+        color: transparentize($green, 0.9);
+      }
+
+      .user {
+        flex-grow: 1;
+        padding: $line * 2;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: {
+          width: $line / 5;
+          color: transparentize($green, 0.7);
+          style: solid;
+          left: none;
+          top: none;
+          bottom: none;
+        }
+        background: {
+          color: $offline;
+        }
+
+        font: {
+          weight: bold;
+        }
+        color: white;
+
+        transition: {
+          duration: $time / 2;
+          timing-function: linear;
+        }
+
+        &:last-of-type {
+          border: none;
+        }
+
+        &.online {
+          background: {
+            color: $online;
           }
         }
       }

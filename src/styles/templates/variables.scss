@@ -6,6 +6,8 @@ $bluegrey: #3b525e;
 $grey: #97a29e;
 $light: #f7ecf3;
 $olive: #4d5c33;
+$offline: rgba(255, 73, 76, 0.71);
+$online: rgba(110, 255, 96, 0.71);
 
 @mixin scroll($size: $line, $track: $dark, $thumb: $light, $shadow: $dark) {
   &::-webkit-scrollbar {

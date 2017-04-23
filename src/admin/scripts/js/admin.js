@@ -222,14 +222,14 @@ var main = function () {
         });
     });
 
-    sessionPreparationForm.submit(function () {
+    sessionPreparationForm.submit(function (event) {
         var sellers = $(this).find('.form-item'),
             selectedSellers = sellers.has('input:checked'),
             input = $('#sellers'),
             amount = selectedSellers.length;
         if (amount == 0) {
             alert('Жодного продавця не вибрано!');
-            return false;
+            event.preventDefault();
         } else {
             var sellerNames = '';
             selectedSellers.each(function (iterator) {

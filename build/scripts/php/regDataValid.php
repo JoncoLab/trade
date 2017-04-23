@@ -6,7 +6,7 @@
  * Time: 2:07
  */
 
-$permitted = true;
+$permitted = false;
 $host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';
 $password = '2014';
@@ -38,10 +38,9 @@ if ($connection->connect_error) {
     $result = $connection->query($sql);
     $rows = $result->num_rows;
 
-    if ($rows > 0) {
-        $permitted = false;
+    if ($rows == 0) {
+        $permitted = true;
     }
     $connection->close();
     echo $permitted ? 'permitted' : 'denied';
-    exit();
 }

@@ -72,18 +72,31 @@
 
     color: red;
 }
-.app .payment-info .five-percent
+.app .payment-info .application-numbers
 {
-    font-size: 25px;
-    line-height: 1;
+    font-size: 15px;
 
     float: right;
 
-    padding: 0 20px 0 0;
-
-    text-align: center; 
+    border-collapse: collapse; 
 
     color: #4d5c33;
+}
+.app .payment-info .application-numbers th
+{
+    font-weight: normal;
+
+    padding: 0 2px 0 0;
+
+    text-align: right;
+}
+.app .payment-info .application-numbers td
+{
+    font-weight: bold;
+
+    padding: 0 0 0 2px; 
+
+    text-align: left;
 }
 .app h3
 {

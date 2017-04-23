@@ -41,12 +41,25 @@ $traderId = $_SESSION["trader_id"];
                 <a href="http://www.ztsb.org.ua">веб-сайт</a>
             </small>
         </h2>
-        <p class="payment-info">
-            <strong class="five-percent">Сума 5% =<br><span class="value">0 грн.</span></strong>
+        <div class="payment-info">
+            <table class="application-numbers">
+            <tr>
+                <th>Сума 5% = </th>
+                <td class="five-percent">0 грн.</td>
+            </tr>
+            <tr>
+                <th>Об'єм заявлених м<sup>3</sup> = </th>
+                <td class="application-size">0</td>
+            </tr>
+            <tr>
+                <th>Початкова вартість заявки = </th>
+                <td class="application-sum">0 грн.</td>
+            </tr>
+            </table>
             <span>5% - п/р 26006300574694 в філії ЗОУ АТ "Державний ощадний банк" м. Ужгород, МФО 312356, код ЄДРПОУ 34190565;</span><br>
-            <span>375грн. з ПДВ - р/р 26009015000902 в ПАТ "Комінвестбанк", МФО 312248, код ЄДРПОУ 34190565;</span><br>
+            <span>400 грн. з ПДВ - р/р 26009015000902 в ПАТ "Комінвестбанк", МФО 312248, код ЄДРПОУ 34190565;</span><br>
             <strong>ОБОВ'ЯЗКОВО! В призначенні платежу вказувати: ЄДРПОУ або РНОКПП(і.п.н.), призначення та Ваш мобільний телефон!</strong>
-        </p>
+        </div>
         <h3>
             <span>ЗАЯВА</span><br>
             <small>
@@ -58,7 +71,7 @@ $traderId = $_SESSION["trader_id"];
             <tbody>
             <tr>
                 <td class="field-name">Заявник:</td>
-                <?php echo '<td class="field-value auto" colspan="2"><input type="text" readonly form="application" name="applicator" id="applicator" value="' . $fullName . '" title="' . $fullName . '"></td>'; ?>
+                <td class="field-value auto" colspan="2"><input type="text" readonly form="application" name="applicator" id="applicator" value="<?php print str_replace('"', '\'\'', $fullName);?>" title="<?php print str_replace('"', '\'\'', $fullName);?>"></td>
                 <td class="field-name" rowspan="2" colspan="2"><label for="previously-processed">Перероблено деревини за минулий квартал (м<sup>3</sup>):</label></td>
                 <td class="field-value" rowspan="2"><input required form="application" type="number" min="0" max="500000" maxlength="5" name="previously-processed" id="previously-processed" placeholder="1000"></td>
             </tr>
@@ -184,7 +197,7 @@ $traderId = $_SESSION["trader_id"];
             <li>
                 <span>Банківські реквізити заявника, за якими слід повертати суму попереднього внеску (застави):</span><br>
                 <span class="bank-details">Банківські реквізити заявника</span><br>
-                <span class="five-percent">(Гар. внесок 5% суми = <strong class="value">0 грн.</strong>)</span>
+                <span>(Гар. внесок 5% суми = <strong class="five-percent">0 грн.</strong>)</span>
             </li>
             <li>
                 <div class="laws-accepted">
@@ -213,6 +226,9 @@ $traderId = $_SESSION["trader_id"];
             <input type="submit" id="submit" name="submit">
             <label for="submit">Надіслати заявку до опрацювання</label>
             <input type="hidden" name="trader-id" value="<?php print $traderId;?>">
+            <input type="hidden" name="five-percent" id="five-percent">
+            <input type="hidden" name="application-size" id="application-size">
+            <input type="hidden" name="application-sum" id="application-sum">
         </form>
     </section>
 </main>

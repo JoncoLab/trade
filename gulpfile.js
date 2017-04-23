@@ -23,13 +23,12 @@ var gulp = require("gulp"),
             font: 'src/fonts/*.ttf',
             js: 'src/scripts/js/*.js',
             PHPExcel: [
-                'src/scripts/php/PHPExcelLibrary/*',
-                'src/scripts/php/PHPExcelLibrary/**/*',
-                'src/scripts/php/PHPExcelLibrary/**/**/*',
-                'src/scripts/php/PHPExcelLibrary/**/**/**/*',
-                'src/scripts/php/PHPExcelLibrary/**/**/**/**/*',
-                'src/scripts/php/PHPExcelLibrary/**/**/**/**/**/*',
-                'src/scripts/php/PHPExcelLibrary/**/**/**/**/**/**/*'
+                'src/scripts/php/PHPExcel/*',
+                'src/scripts/php/PHPExcel/**/*',
+                'src/scripts/php/PHPExcel/**/**/*',
+                'src/scripts/php/PHPExcel/**/**/**/*',
+                'src/scripts/php/PHPExcel/**/**/**/**/*',
+                'src/scripts/php/PHPExcel/**/**/**/**/**/*'
             ],
             zip: [
                 'build/*',
@@ -94,7 +93,7 @@ var gulp = require("gulp"),
             svg: '/SVG/',
             font: '/fonts/',
             js: '/scripts/js/',
-            PHPExcel: '/scripts/php/PHPExcelLibrary/',
+            PHPExcel: '/scripts/php/PHPExcel/',
             docs: '/docs/',
             assets: '/assets/'
         },
@@ -253,12 +252,16 @@ gulp.task('zip:build', function () {
 //Збірка PHPExcel
 gulp.task('PHPExcel:build', function () {
     gulp.src(path.src.PHPExcel)
+        .pipe(connectToFtp.newer(path.ftp.PHPExcel))
+        .pipe(connectToFtp.dest(path.ftp.PHPExcel))
         .pipe(gulp.dest(path.build.PHPExcel));
 });
 
 //Збірка документів
 gulp.task('docs:build', function () {
     gulp.src(path.src.docs)
+        .pipe(connectToFtp.newer(path.ftp.docs))
+        .pipe(connectToFtp.dest(path.ftp.docs))
         .pipe(gulp.dest(path.build.docs));
 });
 
@@ -272,6 +275,7 @@ gulp.task('project:build', [
     'php:build',
     'fonts:build',
     'docs:build',
+    'assets:build',
     'PHPExcel:build'
 ]);
 

@@ -3,17 +3,29 @@
  */
 
 var main = function () {
-    var fivePercentCount = function () {
-            var fivePercent = $('.five-percent .value');
-            fivePercent.text(function () {
-                var value = 0;
-                lots.each(function () {
-                    if ($(this).is('.checked')) {
-                        value = value + parseInt($(this).children('.price-start').text());
-                    }
-                });
-                return value * 0.05 + ' грн.';
+    var applicationNumbersCount = function () {
+            var fivePercent = $('.five-percent'),
+                fivePercentInput = $('#five-percent'),
+                fivePercentValue = 0,
+                applicationSize = $('.application-numbers .application-size'),
+                applicationSizeInput = $('#application-size'),
+                applicationSizeValue = 0,
+                applicationSum = $('.application-numbers .application-sum'),
+                applicationSumInput = $('#application-sum'),
+                applicationSumValue = 0;
+            lots.each(function () {
+                if ($(this).is('.checked')) {
+                    fivePercentValue = (fivePercentValue + parseInt($(this).children('.price-start').text()) * 0.05);
+                    applicationSizeValue = applicationSizeValue + parseInt($(this).children('.size').text());
+                    applicationSumValue = applicationSumValue + parseInt($(this).children('.price-start').text());
+                }
             });
+        fivePercent.text(fivePercentValue + ' грн.');
+        fivePercentInput.val(fivePercentValue);
+        applicationSize.text(applicationSizeValue);
+        applicationSizeInput.val(applicationSizeValue);
+        applicationSum.text(applicationSumValue + ' грн.');
+        applicationSumInput.val(applicationSumValue);
         },
         lots = $('.lots tbody tr'),
         bankDetails = $('#bank-details'),
@@ -30,7 +42,7 @@ var main = function () {
             checkBox.removeAttr('checked');
             checkBox.val('');
         }
-        fivePercentCount();
+        applicationNumbersCount();
     });
 
     bankDetails.change(function () {
@@ -53,11 +65,18 @@ var main = function () {
             checkboxes = $('.lots td.check input');
         lots.removeClass('checked');
         checkboxes.removeAttr('checked');
-        fivePercentCount();
+        applicationNumbersCount();
         bankDetails.css({
             'color': '#97a29e'
         });
         bankDetails.text('Банківські реквізити заявника');
+    });
+
+    sender.submit(function (event) {
+        var selectedLots = lots.has('input:checked');
+        if (selectedLots.length == 0) {
+            event.preventDefault();
+        }
     });
 };
 $(document).ready(main);

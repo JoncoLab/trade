@@ -1,3 +1,94 @@
+.closed
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+
+    -webkit-justify-content: center;
+
+       -moz-box-pack: center;
+
+        -ms-flex-pack: center;
+
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.closed > *:not(#auction-closed)
+{
+    display: none;
+}
+.closed #auction-closed
+{
+    font-size: 30px; 
+
+    display: block;
+
+    padding: 5px;
+
+    text-align: center;
+
+    color: #f7ecf3;
+    -webkit-border-radius: 20px;
+            border-radius: 20px;
+    background-color: #4d5c33;
+}
+.closed #auction-closed span,
+.closed #auction-closed a
+{
+    margin: 5px;
+}
+.closed #auction-closed a
+{
+    font-weight: bold;
+
+    display: -webkit-inline-box;
+
+    display: -webkit-inline-flex;
+
+    display: -moz-inline-box;
+
+    display: -ms-inline-flexbox;
+
+    display: inline-flex;
+
+    padding: 5px 20px;
+
+    text-decoration: none;
+
+    color: #f7ecf3;
+    -webkit-border-radius: 20px;
+            border-radius: 20px; 
+    background-color: #020718;
+
+    -webkit-box-pack: center;
+
+    -webkit-justify-content: center;
+
+       -moz-box-pack: center;
+
+        -ms-flex-pack: center;
+
+            justify-content: center;
+}
+.closed #auction-closed a img
+{
+    height: 30px;
+    margin: 0 10px 0 0;
+}
+.closed #auction-closed a:hover
+{
+    -webkit-box-shadow: 0 0 5px 0 #f7ecf3;
+            box-shadow: 0 0 5px 0 #f7ecf3;
+}
+
 #fullscreen
 {
     position: fixed;
@@ -93,6 +184,11 @@
     opacity: 1;
 }
 
+#auction-closed
+{
+    display: none;
+}
+
 main
 {
     display: -webkit-box;
@@ -136,11 +232,11 @@ main section.info
     margin: 0 20px 0 0;
     padding: 0 0 20px 20px; 
 
-    -webkit-flex-basis: 25%; 
+    -webkit-flex-basis: 30%; 
 
-        -ms-flex-preferred-size: 25%; 
+        -ms-flex-preferred-size: 30%; 
 
-            flex-basis: 25%;
+            flex-basis: 30%;
 }
 main section.info .chat
 {
@@ -340,19 +436,24 @@ main section.trade
 
     padding: 0 20px 20px 0; 
 
-    -webkit-flex-basis: 75%; 
+    -webkit-flex-basis: 70%; 
 
-        -ms-flex-preferred-size: 75%; 
+        -ms-flex-preferred-size: 70%; 
 
-            flex-basis: 75%;
+            flex-basis: 70%;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+       -moz-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 main section.trade .auction-table
 {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold; 
 
     width: 100%;
-    min-height: 60%;
+    min-height: 50%;
 
     text-align: center;
 
@@ -427,7 +528,7 @@ main section.trade .actions
     overflow: hidden;
 
     min-height: 100px;
-    margin: 20px 0 0 0; 
+    margin: 20px 0 0; 
 
     color: #3b525e;
     border-width: 5px;
@@ -576,7 +677,8 @@ main section.trade .actions .action.raise .fieldset input[type='number']
 
     display: block;
 
-    padding: 0 10px 0 0; 
+    max-width: 30%; 
+    padding: 0 10px 0 0;
 
     text-align: center;
 
@@ -767,4 +869,139 @@ main section.trade .actions .action.raise.steps
     border-left: none;
     -webkit-border-radius: 0;
             border-radius: 0;
+}
+main section.trade .users-online
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden; 
+    -webkit-box-orient: vertical; 
+    -webkit-box-direction: normal; 
+    -webkit-flex-direction: column; 
+       -moz-box-orient: vertical; 
+       -moz-box-direction: normal; 
+        -ms-flex-direction: column; 
+            flex-direction: column;
+
+    min-height: 100px;
+    margin: 20px 0 0;
+
+    border-width: 5px;
+    border-style: solid;
+    border-color: #020718;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+    background-color: #f7ecf3;
+
+    -webkit-box-pack: start;
+
+    -webkit-justify-content: flex-start;
+
+       -moz-box-pack: start;
+
+        -ms-flex-pack: start;
+
+            justify-content: flex-start;
+}
+main section.trade .users-online h2
+{
+    margin: 0;
+    padding: 0 0 5px;
+
+    text-align: center;
+
+    color: #f7ecf3; 
+    background-color: #020718;
+}
+main section.trade .users-online .users
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex; 
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    -webkit-box-flex: 1;
+
+    -webkit-flex-grow: 1;
+
+       -moz-box-flex: 1;
+
+        -ms-flex-positive: 1;
+
+            flex-grow: 1;
+}
+main section.trade .users-online .users .user
+{
+    font-weight: bold;
+
+    display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+
+    -webkit-transition-timing-function: linear;
+
+       -moz-transition-timing-function: linear;
+
+         -o-transition-timing-function: linear;
+
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
+            transition-duration: .15s;
+
+    color: #020718;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #020718;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    background-color: rgba(255, 73, 76, .71);
+
+    -webkit-box-flex: 1;
+
+    -webkit-flex-grow: 1;
+
+       -moz-box-flex: 1;
+
+        -ms-flex-positive: 1;
+
+            flex-grow: 1;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+main section.trade .users-online .users .user:last-of-type
+{
+    border: none;
+}
+main section.trade .users-online .users .user.online
+{
+    background-color: rgba(110, 255, 96, .71);
 }

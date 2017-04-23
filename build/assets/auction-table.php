@@ -41,16 +41,7 @@ if ($connection->connect_error) {
     <td class="attribute">Об'єм лоту, м<sup>3</sup></td>
     <td class="value size" colspan="3"><?php print $lot["size"];?></td>
     <td class="attribute">Учасники:</td>
-    <td class="value customers-applied" colspan="4">
-        <?php
-        $customers = explode(', ', $lot["customers_applied"]);
-        $length = count($customers);
-        for ($i = 0; $i < $length - 1; $i++) {
-            echo '<span class="customer">' . $customers[$i] . '</span>, ';
-        }
-        echo '<span class="customer">' . $customers[$length - 1] . '</span>;';
-        ?>
-    </td>
+    <td class="value customers-applied" colspan="4"><?php print $lot["customers_applied"];?></td>
 </tr>
 <tr>
     <td class="attribute" colspan="2">Початкова ціна, <sup>грн</sup>/<sub>м<sup>3</sup></sub>:</td>

@@ -11,6 +11,7 @@ $(document).ready(function () {
             raiseToPrice: $('.action button.raise-to-price')
         },
         chat = $('.info .messages .wrapper'),
+        users = $('ul.users'),
         traderId = $('.info .trader-id').text(),
         section = $('main section'),
         height = section.height,
@@ -35,6 +36,12 @@ $(document).ready(function () {
                 },
                 method: 'post'
             });
+        },
+        load = function () {
+            auctionTable.load('assets/auction-table.php');
+            chat.load('assets/auction-chat.html');
+            users.load('assets/users-online.php');
+            raiseToPrice.attr('min', auctionTable.find('.cost-final').text());
         };
 
     fullScreenRequest.click(function () {
@@ -69,9 +76,7 @@ $(document).ready(function () {
         'max-height': height
     });
 
-    setInterval(function () {
-        auctionTable.load('assets/auction-table.php');
-        chat.load('assets/auction-chat.html');
-        raiseToPrice.attr('min', auctionTable.find('.cost-final').text());
-    }, 1000);
+    load();
+
+    setInterval(load, 1000);
 });

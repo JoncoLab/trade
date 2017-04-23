@@ -17,20 +17,6 @@ if ($connection->connect_error) {
     die('База даних не може опрацювати запит зараз, спробуйте за кілька хвилин');
 }
 $connection->set_charset('utf8');
-function save() {
-    $host = 'joncolab.mysql.ukraine.com.ua';
-    $username = 'joncolab_saladin';
-    $password = '2014';
-    $db = 'joncolab_trade';
-
-    $connection = new mysqli($host, $username, $password, $db);
-    if ($connection->connect_error) {
-        die('База даних не може опрацювати запит зараз, спробуйте за кілька хвилин');
-    }
-    $connection->set_charset('utf8');
-    $sql = 'SELECT * FROM trade';
-}
-
 function get24hTime() {
     $time = null;
     if (date("a") === 'pm') {
@@ -79,6 +65,16 @@ function get24hTime() {
 
 switch ($_POST["function"]) {
     case 'switch':
+        $sql = 'SELECT id, customer_number, cost_final, price_final FROM trade WHERE id IS NOT NULL';
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            $lot = $result->fetch_assoc();
+            $sql = 'UPDATE lots SET customer_number=\'' . $lot["customer_number"] .
+                '\', cost_final=\'' . $lot["cost_final"] .
+                '\', price_final=\'' . $lot["price_final"] . '\'' .
+                'WHERE id=\'' . $lot["id"] . '\'';
+            $connection->query($sql);
+        }
         $sql = 'SELECT * FROM lots WHERE id=\'' . $_POST["id"] . '\'';
         $result = $connection->query($sql)->fetch_assoc();
         $sql = 'UPDATE trade SET ' .
@@ -97,8 +93,8 @@ switch ($_POST["function"]) {
             'cost_start = \'' . $result["cost_start"] . '\', ' .
             'price_start = \'' . $result["price_start"] . '\', ' .
             'step = \'' . $result["step"] . '\', ' .
-            'cost_final = \'' . $result["cost_start"]  . '\', ' .
-            'price_final = \'' . $result["price_start"] . '\', ' .
+            'cost_final = \'' . $result["cost_final"]  . '\', ' .
+            'price_final = \'' . $result["price_final"] . '\', ' .
             'current_step = \'0\'';
         $connection->query($sql);
         $message =
@@ -106,6 +102,15 @@ switch ($_POST["function"]) {
             '<span class="time">' . get24hTime() . '</span>' .
             '<span>Торгується лот №' . $result["id"] . '</span>' .
             '</p>';
+        $sql = 'SELECT customers_applied FROM trade';
+        $result = $connection->query($sql)->fetch_assoc();
+        $customers = explode(', ', $result["customers_applied"]);
+        $sql = 'TRUNCATE TABLE online';
+        $connection->query($sql);
+        foreach ($customers as $customer) {
+            $sql = 'INSERT INTO online VALUES (\'' . $customer . '\', TRUE)';
+            $connection->query($sql);
+        }
         $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
         fclose($chat);
@@ -209,7 +214,16 @@ switch ($_POST["function"]) {
         fclose($chat);
         break;
     case 'leave':
+        $sql = 'UPDATE online SET online = FALSE WHERE id=\'' . $_POST["who"] . '\'';
+        $connection->query($sql);
+        header('Location: http://exhange.roik.pro/admin/admin.php');
         break;
+    case 'end':
+        $sql = 'UPDATE trade SET session_active = FALSE, seller_name = NULL, id = NULL, type = NULL, breed = NULL, characteristics_diametr = NULL, characteristics_storage = NULL, characteristics_length = NULL, characteristics_sort = NULL, gost = NULL, size = NULL, customers_applied = NULL, cost_start = NULL, customer_number = NULL, step = NULL, cost_final = NULL, price_final = NULL, current_step = NULL';
+        $connection->query($sql);
+        $chat = fopen('../../assets/auction-chat.html', 'w');
+        fwrite($chat, '');
+        fclose($chat);
 }
 $connection->close();
 

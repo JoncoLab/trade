@@ -18,10 +18,10 @@ if ($connection->connect_error) {
     $connection->set_charset('utf8');
     $sellers = explode(',', $_POST["sellers"]);
     $amount = count($sellers);
-    $sql = 'SELECT id FROM lots WHERE seller_name=\'' . $sellers[0] . '\' ';
+    $sql = 'SELECT id FROM lots WHERE seller_name=\'' . $sellers[0] . '\'';
     if ($amount > 1) {
         for ($i = 1; $i <= $amount; $i++) {
-            $sql .= 'OR seller_name=\'' . $sellers[$i] . '\'';
+            $sql .= ' OR seller_name=\'' . $sellers[$i] . '\'';
         }
     }
     $result = $connection->query($sql);
@@ -38,6 +38,7 @@ if ($connection->connect_error) {
 </head>
 <body>
 <main>
+    <ul class="users"></ul>
     <table class="auction-table"></table>
     <p class="admin-info"></p>
     <button class="add-step">+</button>
@@ -50,6 +51,11 @@ if ($connection->connect_error) {
     <button class="next-lot">Наступний лот</button>
     <button class="previous-lot">Попередній лот</button>
     <button class="end-session">Закінчити сесію</button>
+    <span class="set-winner">
+        <label for="set-winner">Переможець: </label>
+        <input type="text" id="set-winner">
+        <button class="set-winner-button"><< Встановити</button>
+    </span>
     <ul class="all">
         <?php
         while ($lot = $result->fetch_assoc()) {
@@ -64,5 +70,7 @@ if ($connection->connect_error) {
 </body>
 </html>
 <?php
+$sql = 'UPDATE trade SET session_active = TRUE';
+$connection->query($sql);
 $connection->close();
 ?>

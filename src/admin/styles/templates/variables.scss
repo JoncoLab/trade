@@ -9,6 +9,9 @@ $olive: #4d5c33;
 $pink: darken($light, 20px);
 $green: invert($pink);
 
+$offline: rgba(255, 73, 76, 0.71);
+$online: rgba(110, 255, 96, 0.71);
+
 @keyframes header-scale-error {
   50% {
     transform: scale(1.5);

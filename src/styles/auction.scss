@@ -1,5 +1,65 @@
 @import 'templates/variables.scss';
 
+.closed {
+    > *:not(#auction-closed) {
+        display: none;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #auction-closed {
+        display: block;
+        background: {
+            color: $olive;
+        }
+        border: {
+            radius: $line * 2;
+        }
+        color: $light;
+        padding: $line / 2;
+        text: {
+            align: center;
+        }
+        font: {
+            size: $line * 3;
+        }
+
+        span,
+        a {
+            margin: $line / 2;
+        }
+
+        a {
+            display: inline-flex;
+            justify-content: center;
+            padding: $line / 2 $line * 2;
+            text: {
+                decoration: none;
+            }
+            color: $light;
+            font: {
+                weight: bold;
+            }
+            background: {
+                color: $dark;
+            }
+            border: {
+                radius: $line * 2;
+            }
+
+            img {
+                height: $line * 3;
+                margin: 0 $line 0 0;
+            }
+
+            &:hover {
+                box-shadow: 0 0 $line / 2 0 $light;
+            }
+        }
+    }
+}
+
 #fullscreen {
     position: fixed;
     height: 100%;
@@ -25,6 +85,10 @@
     }
 }
 
+#auction-closed {
+    display: none;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -35,7 +99,7 @@ main {
         flex-direction: column;
 
         &.info {
-            flex-basis: 25%;
+            flex-basis: 30%;
             margin: 0 $line * 2 0 0;
             padding: 0 0 $line * 2 $line * 2;
 
@@ -140,14 +204,15 @@ main {
         }
 
         &.trade {
-            flex-basis: 75%;
+            flex-basis: 70%;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             padding: 0 $line * 2 $line * 2 0;
 
             .auction-table {
                 width: 100%;
-                min-height: 60%;
+                min-height: 50%;
 
                 border: {
                     color: $dark;
@@ -162,7 +227,7 @@ main {
                     align: center;
                 }
                 font: {
-                    size: $line * 2;
+                    size: $line * 1.5;
                     weight: bold;
                 }
 
@@ -252,7 +317,7 @@ main {
                     color: $light;
                 }
 
-                margin: $line * 2 0 0 0;
+                margin: $line * 2 0 0;
 
                 .action {
                     display: flex;
@@ -316,6 +381,7 @@ main {
                                 border: none;
                                 display: block;
                                 padding: 0 $line 0 0;
+                                max-width: 30%;
 
                                 &:active,
                                 &:focus {
@@ -399,6 +465,88 @@ main {
                                 top: none;
                                 right: none;
                                 radius: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .users-online {
+                min-height: $line * 10;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                border: {
+                    color: $dark;
+                    style: solid;
+                    width: $line / 2;
+                    radius: $line;
+                }
+
+                background: {
+                    color: $light;
+                }
+
+                margin: $line * 2 0 0;
+
+                overflow: hidden;
+
+                h2 {
+                    background: {
+                        color: $dark;
+                    }
+                    margin: 0;
+                    padding: 0 0 $line / 2;
+                    text: {
+                        align: center;
+                    }
+                    color: $light;
+                }
+
+                .users {
+                    flex-grow: 1;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+
+                    .user {
+                        flex-grow: 1;
+                        padding: 0;
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: {
+                            width: $line / 2;
+                            color: $dark;
+                            style: solid;
+                            left: none;
+                            top: none;
+                            bottom: none;
+                        }
+                        background: {
+                            color: $offline;
+                        }
+
+                        font: {
+                            weight: bold;
+                        }
+                        color: $dark;
+
+                        transition: {
+                            duration: $time / 2;
+                            timing-function: linear;
+                        }
+
+                        &:last-of-type {
+                            border: none;
+                        }
+
+                        &.online {
+                            background: {
+                                color: $online;
                             }
                         }
                     }

@@ -12,9 +12,11 @@ var main = function () {
             raiseToPrice: $('button.raise-to-price'),
             nextLot: $('button.next-lot'),
             previousLot: $('button.previous-lot'),
-            endSession: $('button.end-session')
+            endSession: $('button.end-session'),
+            setWinner: $('button.set-winner-button')
         },
         chat = $('.chat .messages'),
+        usersOnline = $('ul.users'),
         switchLot = function (id) {
             var targetLot = $(".all .id:contains(\'" + id + "\')");
             $.ajax({
@@ -46,10 +48,15 @@ var main = function () {
                 data: {
                     function: functionType,
                     value: value,
-                    who: 'Адміністратор'
+                    who: 'Ліцетатор'
                 },
                 method: 'post'
             });
+        },
+        load = function () {
+            auctionTable.load('../../../assets/auction-table.php');
+            chat.load('../../../assets/auction-chat.html');
+            usersOnline.load('../../../assets/users-online.php')
         };
 
     lots.click(function () {
@@ -68,24 +75,27 @@ var main = function () {
     buttons.raiseToPrice.click(function () {
         insertData('raiseToPrice', $('#set-final-cost').val());
     });
-
     buttons.nextLot.click(function () {
         var currentLot = $('.selected'),
             newId = (currentLot.is('.id:last-child')) ? (currentLot.text()) : (currentLot.next('.id').text());
         switchLot(newId);
     });
-
     buttons.previousLot.click(function () {
         var currentLot = $('.selected'),
             newId = (currentLot.is('.id:first-child')) ? (currentLot.text()) : (currentLot.prev('.id').text());
         switchLot(newId);
     });
+    buttons.endSession.click(function () {
+        changeData('end');
+    });
+    buttons.setWinner.click(function () {
+        var winner = $('#set-winner').val();
+        insertData('setWinner', winner);
+    });
 
-    switchLot(lots.first().text());
-    setInterval(function () {
-        auctionTable.load('../../../assets/auction-table.php');
-        chat.load('../../../assets/auction-chat.html');
-    }, 1000);
+    load();
+
+    setInterval(load, 1000);
 };
 
 $(document).ready(main);

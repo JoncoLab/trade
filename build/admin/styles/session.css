@@ -170,13 +170,15 @@ body main button
     border: 5px double rgba(0, 0, 0, .3); 
     background-color: rgba(8, 19, 12, .3);
 }
-body main .set-final-cost button
+body main .set-final-cost button,
+body main .set-winner button
 {
     margin: 0 0 0 -5px; 
 
     border-left: none;
 }
-body main .set-final-cost input
+body main .set-final-cost input,
+body main .set-winner input
 {
     width: 100px; 
     padding: 5px;
@@ -187,7 +189,8 @@ body main .set-final-cost input
     outline: none;
     background-color: rgba(8, 19, 12, .1);
 }
-body main .set-final-cost label
+body main .set-final-cost label,
+body main .set-winner label
 {
     font-size: 14px;
 
@@ -338,4 +341,88 @@ body main .chat .messages .message span.time
     border-top: none;
     border-bottom: none;
     border-left: none;
+}
+body main .users
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(38, 91, 57, .3);
+    background-color: rgba(38, 91, 57, .1);
+}
+body main .users .user
+{
+    font-weight: bold;
+
+    display: -webkit-box;
+
+    display: -webkit-flex;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    margin: 0;
+    padding: 20px;
+
+    -webkit-transition-timing-function: linear;
+
+       -moz-transition-timing-function: linear;
+
+         -o-transition-timing-function: linear;
+
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
+            transition-duration: .15s;
+
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(38, 91, 57, .3);
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    background-color: rgba(255, 73, 76, .71);
+
+    -webkit-box-flex: 1;
+
+    -webkit-flex-grow: 1;
+
+       -moz-box-flex: 1;
+
+        -ms-flex-positive: 1;
+
+            flex-grow: 1;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+body main .users .user:last-of-type
+{
+    border: none;
+}
+body main .users .user.online
+{
+    background-color: rgba(110, 255, 96, .71);
 }

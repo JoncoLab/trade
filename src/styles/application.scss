@@ -75,16 +75,34 @@
     padding: $line $line 0 $line;
     margin: 0;
 
-    .five-percent {
+    .application-numbers {
       float: right;
       color: $olive;
-      padding: 0 $line * 2 0 0;
-      line-height: 1;
       font: {
-        size: $line * 2.5;
+        size: $line * 1.5;
       }
-      text: {
-        align: center;
+      border: {
+        collapse: collapse;
+      }
+
+      th {
+        padding: 0 $line / 5 0 0;
+        font: {
+          weight: normal;
+        }
+        text: {
+          align: right;
+        }
+      }
+
+      td {
+        text: {
+          align: left;
+        }
+        font: {
+          weight: bold;
+        }
+        padding: 0 0 0 $line / 5;
       }
     }
   }
