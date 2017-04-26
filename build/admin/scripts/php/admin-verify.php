@@ -8,6 +8,12 @@
 
 include '../../../scripts/php/user.php';
 
+$error =
+    "<script>" .
+    "alert('Сталася помилка! Сторінку буде перезавантажено!');" .
+    "window.location.reload();" .
+    "</script>";
+
 if(isset($_POST['id'])) {
     $id = $_POST['id'];
     $trader_id = $_POST["traderId"];
@@ -16,11 +22,6 @@ if(isset($_POST['id'])) {
     $verificationStatus = $user->ver;
     $verificationCount = User::countVerified();
     $traderId = $user->trader_id;
-    $error =
-        "<script>" .
-            "alert('Сталася помилка! Сторінку буде перезавантажено!');" .
-            "window.location.reload();" .
-        "</script>";
     if ($verificationStatus !== '1') {
         echo $error;
     } else {
@@ -39,9 +40,12 @@ if(isset($_POST['id'])) {
         $p = "\r\n";
         $to = $user->email;
         $subject = "Верифікація";
-        $headers = 'From: EXChange <no-reply@exchange.roik.pro>';
+        $headers = 'From: EXChange <no-reply@exchange.roik.pro>' . $p;
+        $headers .= 'BCC: joncolab@gmail.com';
         $message = 'Доброго дня!' . $p . $p;
-        $message .= 'Ви успішно пройшли верифікацію на порталі excgange.roik.pro';
+        $message .= 'Ви успішно пройшли верифікацію на порталі excgange.roik.pro' . $p;
+        $message .= 'Вам присвоєно аукціонний номер ' . $trader_id;
+        mail($to, $subject, $message, $headers);
     }
 } else {
     echo $error;

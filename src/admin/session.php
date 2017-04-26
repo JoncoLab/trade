@@ -5,6 +5,13 @@
  * Date: 03.04.2017
  * Time: 18:33
  */
+session_start();
+if ($_SESSION["id"] !== 'ADMIN') {
+    session_unset();
+    session_destroy();
+    header('Location: index.html');
+    die();
+}
 mb_internal_encoding("UTF-8");
 $host = 'joncolab.mysql.ukraine.com.ua';
 $username = 'joncolab_saladin';

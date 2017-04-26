@@ -1,4 +1,11 @@
 <?php
+session_start();
+if ($_SESSION["id"] !== 'ADMIN') {
+    session_unset();
+    session_destroy();
+    header('Location: index.html');
+    die();
+}
 mb_internal_encoding("UTF-8");
 include '../scripts/php/user.php';
 $host = 'joncolab.mysql.ukraine.com.ua';
@@ -72,8 +79,10 @@ if ($connection->connect_error) {
                         <input type="file" accept=".xlsx" id="upload" name="lots">
                     </form>
                 </th>
-                <th colspan="5" id="clear-lots">
-                    <button id="clear">Очистити таблицю лотів</button>
+                <th colspan="5">
+                    <div id="clear-lots">
+                        <span id="clear">Очистити таблицю лотів</span>
+                    </div>
                 </th>
             </tr>
             <tr>
@@ -125,7 +134,7 @@ if ($connection->connect_error) {
                     '<td class="cost-start">' . $lot["cost_start"] . '</td>' .
                     '<td class="price-start">' . $lot["price_start"] . '</td>' .
                     '<td class="step">' . $lot["step"] . '</td>' .
-                    '<td class="cost-final">' . $lot["cost-final"] . '</td>' .
+                    '<td class="cost-final">' . $lot["cost_final"] . '</td>' .
                     '<td class="customer-number">' . $lot["customer_number"] . '</td>' .
                     '<td class="price-final">' . $lot["price_final"] . '</td>' .
                     '<td class="seller-id">' . $lot["seller_id"] . '</td>' .
@@ -144,10 +153,16 @@ if ($connection->connect_error) {
         <table class="users page-maker">
             <thead>
             <tr class="sum">
-                <th class="total">Всього: <span id="total"><?php print User::count();?></span>
+                <th class="total">Всього:
+                    <span id="total"><?php print User::count();?></span>
                 </th>
-                <th class="total-verified">Верифікованих: <span
-                        id="total-verified"><?php print User::countVerified();?></span>
+                <th class="total-verified">Верифікованих:
+                    <span id="total-verified"><?php print User::countVerified();?></span>
+                </th>
+                <th>
+                    <div id="cancel-all-verifications">
+                        <span id="cancel">Анулювати всі верифікації</span>
+                    </div>
                 </th>
             </tr>
             <tr>
@@ -179,7 +194,7 @@ if ($connection->connect_error) {
                 $user = User::getUserById($userId["id"]);
                 echo
                     '<tr>' .
-                    '<td class="delete"><button class="delete-button">Видалити користувача</button></td>' .
+                    '<td class="delete"><button class="delete-button">Видалити користувача</button><button class="cancel-verification-button">Анулювати верифікацію</button></td>' .
                     '<td class="id">' . $user->id . '</td>' .
                     '<td class="status">' . $user->status . '</td>' .
                     '<td class="full-name">' . $user->full_name . '</td>' .

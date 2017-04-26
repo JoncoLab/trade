@@ -146,6 +146,8 @@ body .page-maker
 }
 body .settings
 {
+    display: block; 
+
     padding: 10px;
 }
 body .settings form
@@ -248,7 +250,7 @@ body table thead
 }
 body table thead tr:first-of-type th
 {
-    padding: 2px;
+    padding: 0 !important;
 }
 body table thead tr th
 {
@@ -270,11 +272,17 @@ body table thead tr th #upload-lots label
 
     padding: 10px;
 
-    cursor: pointer; 
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
+            transition-duration: .15s;
 
     border: none;
-    -webkit-border-radius: 10px;
-            border-radius: 10px;
     outline: none;
     background-image: -webkit-linear-gradient(120deg, #e6e6e6, white);
     background-image: -moz-linear-gradient(120deg, #e6e6e6, white);
@@ -290,6 +298,11 @@ body table thead tr th #upload-lots label
         -ms-flex-positive: 1;
 
             flex-grow: 1;
+}
+body table thead tr th #upload-lots label:hover
+{
+    -webkit-box-shadow: 0 0 5px 2px #3b525e inset;
+            box-shadow: 0 0 5px 2px #3b525e inset;
 }
 body table thead tr th #upload-lots #upload
 {
@@ -307,13 +320,20 @@ body table thead tr th #clear-lots #clear
 {
     display: block;
 
-    margin: 0; 
+    margin: 0;
+    padding: 10px !important;
 
     cursor: pointer;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
+            transition-duration: .15s;
 
     border: none;
-    -webkit-border-radius: 10px;
-            border-radius: 10px;
     outline: none;
     background-image: -webkit-linear-gradient(120deg, #e6e6e6, white);
     background-image: -moz-linear-gradient(120deg, #e6e6e6, white);
@@ -329,6 +349,50 @@ body table thead tr th #clear-lots #clear
         -ms-flex-positive: 1;
 
             flex-grow: 1;
+}
+body table thead tr th #clear-lots #clear:hover
+{
+    -webkit-box-shadow: 0 0 5px 2px #3b525e inset;
+            box-shadow: 0 0 5px 2px #3b525e inset;
+}
+body table thead tr th #cancel-all-verifications #cancel
+{
+    display: block;
+
+    margin: 0;
+    padding: 10px !important;
+
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
+            transition-duration: .15s;
+
+    border: none;
+    outline: none;
+    background-image: -webkit-linear-gradient(120deg, #e6e6e6, white);
+    background-image: -moz-linear-gradient(120deg, #e6e6e6, white);
+    background-image: -o-linear-gradient(120deg, #e6e6e6, white);
+    background-image: linear-gradient(-30deg, #e6e6e6, white);
+
+    -webkit-box-flex: 1;
+
+    -webkit-flex-grow: 1;
+
+       -moz-box-flex: 1;
+
+        -ms-flex-positive: 1;
+
+            flex-grow: 1;
+}
+body table thead tr th #cancel-all-verifications #cancel:hover
+{
+    -webkit-box-shadow: 0 0 5px 2px #3b525e inset;
+            box-shadow: 0 0 5px 2px #3b525e inset;
 }
 body table thead tr.sum th
 {
@@ -385,20 +449,38 @@ body table tbody tr td.ver .verify
     background-image: -o-linear-gradient(120deg, #86c5da, #d4ebf2);
     background-image: linear-gradient(-30deg, #86c5da, #d4ebf2);
 }
+body table tbody tr td.delete
+{
+    padding: 0 !important;
+}
 body table tbody tr td.delete button
 {
+    margin: 2px;
     padding: 10px;
 
-    cursor: pointer; 
+    cursor: pointer;
+    -webkit-transition-timing-function: linear;
+       -moz-transition-timing-function: linear;
+         -o-transition-timing-function: linear;
+            transition-timing-function: linear; 
+    -webkit-transition-duration: .15s; 
+       -moz-transition-duration: .15s; 
+         -o-transition-duration: .15s; 
+            transition-duration: .15s;
 
     border: none;
-    -webkit-border-radius: 10px;
-            border-radius: 10px;
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
     outline: none;
     background-image: -webkit-linear-gradient(120deg, #86c5da, #d4ebf2);
     background-image: -moz-linear-gradient(120deg, #86c5da, #d4ebf2);
     background-image: -o-linear-gradient(120deg, #86c5da, #d4ebf2);
     background-image: linear-gradient(-30deg, #86c5da, #d4ebf2);
+}
+body table tbody tr td.delete button:hover
+{
+    -webkit-box-shadow: 0 0 5px 2px #3b525e inset;
+            box-shadow: 0 0 5px 2px #3b525e inset;
 }
 body table tbody tr:nth-of-type(2n)
 {

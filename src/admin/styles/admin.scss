@@ -44,6 +44,7 @@ body {
 
   .settings {
     padding: $line;
+    display: block;
 
     form {
       display: flex;
@@ -133,7 +134,7 @@ body {
         &:first-of-type {
 
           th {
-            padding: $line / 5;
+            padding: 0 !important;
           }
         }
 
@@ -153,10 +154,16 @@ body {
               padding: $line;
               border: none;
               outline: none;
-              border: {
-                radius: $line;
-              }
               cursor: pointer;
+
+              transition: {
+                duration: $time / 2;
+                timing-function: linear;
+              }
+
+              &:hover {
+                box-shadow: 0 0 $line / 2 $line / 5 $bluegrey inset;
+              }
             }
 
             #upload {
@@ -175,11 +182,42 @@ body {
               }
               border: none;
               outline: none;
-              border: {
-                radius: $line;
-              }
               cursor: pointer;
               margin: 0;
+              padding: $line !important;
+
+              transition: {
+                duration: $time / 2;
+                timing-function: linear;
+              }
+
+              &:hover {
+                box-shadow: 0 0 $line / 2 $line / 5 $bluegrey inset;
+              }
+            }
+          }
+
+          #cancel-all-verifications {
+            #cancel {
+              display: block;
+              flex-grow: 1;
+              background: {
+                image: linear-gradient(-30deg, darken(white, 10%), lighten(white, 10%));
+              }
+              border: none;
+              outline: none;
+              cursor: pointer;
+              margin: 0;
+              padding: $line !important;
+
+              transition: {
+                duration: $time / 2;
+                timing-function: linear;
+              }
+
+              &:hover {
+                box-shadow: 0 0 $line / 2 $line / 5 $bluegrey inset;
+              }
             }
           }
         }
@@ -225,17 +263,29 @@ body {
           }
 
           &.delete {
+            padding: 0 !important;
             button {
               background: {
                 image: linear-gradient(-30deg, darken(lightblue, 10%), lighten(lightblue, 10%));
               }
               padding: $line;
+              margin: $line / 5;
               border: none;
               outline: none;
-              border: {
-                radius: $line;
-              }
               cursor: pointer;
+
+              border: {
+                radius: $line / 2;
+              }
+
+              transition: {
+                duration: $time / 2;
+                timing-function: linear;
+              }
+
+              &:hover {
+                box-shadow: 0 0 $line / 2 $line / 5 $bluegrey inset;
+              }
             }
           }
         }

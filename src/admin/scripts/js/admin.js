@@ -7,9 +7,13 @@ var main = function () {
         usersVerificationCells = $('.users td.ver'),
         usersVerificationForm = usersVerificationCells.children('.verification-form'),
         deleteUserButton = $('.users td.delete .delete-button'),
+        cancelVerificationButton = $('.users td.delete .cancel-verification-button'),
+        cancelAllVerificationsButton = $('#cancel-all-verifications #cancel'),
         deleteLotButton = $('.lots td.delete .delete-button'),
         uploadLotsInput = $('#upload'),
         clearLotsButton = $('#clear-lots'),
+        totalCell = $('#total'),
+        totalVerifiedCell = $('#total-verified'),
         settings = {
             nextSession: $('#set-next-session'),
             adminPass: $('#set-admin-pass')
@@ -169,7 +173,8 @@ var main = function () {
 
     deleteUserButton.click(function () {
         var userId = $(this).parent().siblings('.id').text(),
-            userRow = $(this).parentsUntil('tbody');
+            userRow = $(this).parentsUntil('tbody'),
+            ver = userRow.siblings('.ver').text();
 
         loading(true);
 
@@ -187,6 +192,70 @@ var main = function () {
             success: function () {
                 loading(false);
                 userRow.remove();
+                totalCell.text(parseInt(totalCell.text() - 1));
+                if (ver == 'Верифікований') {
+                    totalVerifiedCell.text(parseInt(totalVerifiedCell.text()) - 1);
+                }
+            }
+        });
+    });
+
+    cancelVerificationButton.click(function () {
+        var user = $(this).parentsUntil('tbody'),
+            id = user.children('.id').text(),
+            traderIdCell = user.children('.trader-id'),
+            verificationCell = user.children('.ver'),
+            form = '<form class="verification-form">' +
+                '<input type="text" name="set-trader-id" class="set-trader-id" maxlength="4" pattern="[0-9]{3}" placeholder="Реєстр. №">' +
+                '<label class="verify">Верифікувати<input style="display: none;" type="submit" name="submit" value="verify"></label>' +
+                '</form>';
+
+        loading(true);
+
+        $.ajax({
+            url: 'scripts/php/admin-cancel-verification.php',
+            method: 'POST',
+            data: {
+                id: id
+            },
+            success: function () {
+                traderIdCell.empty();
+                verificationCell.html(form);
+                totalVerifiedCell.text(parseInt(totalVerifiedCell.text()) - 1);
+            },
+            error: function () {
+                alert('Не вдається з\'єднатися з базою даних! Сторінку буде перезавантажено!');
+                window.location.reload();
+            },
+            complete: function () {
+                loading(false);
+            }
+        });
+    });
+
+    cancelAllVerificationsButton.click(function () {
+        var traderIdCells = $('.users td.trader-id'),
+            verificationCells = $('.users td.ver'),
+            form = '<form class="verification-form">' +
+                '<input type="text" name="set-trader-id" class="set-trader-id" maxlength="4" pattern="[0-9]{3}" placeholder="Реєстр. №">' +
+                '<label class="verify">Верифікувати<input style="display: none;" type="submit" name="submit" value="verify"></label>' +
+                '</form>';
+
+        loading(true);
+
+        $.ajax({
+            url: 'scripts/php/admin-cancel-all-verifications.php',
+            success: function () {
+                traderIdCells.empty();
+                verificationCells.html(form);
+                totalVerifiedCell.text('0');
+            },
+            error: function () {
+                alert('Не вдається з\'єднатися з базою даних! Сторінку буде перезавантажено!');
+                window.location.reload();
+            },
+            complete: function () {
+                loading(false);
             }
         });
     });
