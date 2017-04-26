@@ -72,7 +72,7 @@ if (isset($_POST["submit"])) {
     $_SESSION['applied_for_lots'] = $user->applied_for_lots;
 
     $p = "\r\n";
-    $to = 'Jonco Lab <joncolab@gmail.com>';
+    $to = 'Jonco Lab <joncolab@gmail.com>, ZTSB <info@ztsb.org.ua>';
     $subject = 'Новий користувач';
     $boundary = md5(date('r', time()));
     $headers = 'From: EXChange <no-reply@exchange.roik.pro>' . $p;
@@ -86,81 +86,76 @@ if (isset($_POST["submit"])) {
     $message .= '4) Назва для документів: ' . $docs_name . ';' . $p;
     $message .= '5) В особі: ' . $person . ';' . $p;
     $message .= '6) Діє на підставі: ' . $reason . ';' . $p;
-    $message .= '7) Директор: ' . $head . ';' . $p;
-    $message .= '8) Контактний телефон: ' . $tel . ';' . $p;
-    $message .= '9) Електронна пошта: ' . $email . ';' . $p;
-    $message .= '10) Юридична адреса: ' . $j_address . ';' . $p;
-    $message .= ($post_address == '') ? ('Поштову адресу не вказав.' . $p) : ('11) Поштова адреса: ' . $post_address . '.' . $p);
+    if ($status == 'Юридична особа') {
+        $message .= '7) Директор: ' . $head . ';' . $p;
+        $message .= '8) Контактний телефон: ' . $tel . ';' . $p;
+        $message .= '9) Електронна пошта: ' . $email . ';' . $p;
+        $message .= '10) Юридична адреса: ' . $j_address . ';' . $p;
+        $message .= ($post_address == '') ? ('Поштову адресу не вказав.' . $p) : ('11) Поштова адреса: ' . $post_address . '.' . $p);
+    } else {
+        $message .= '7) Контактний телефон: ' . $tel . ';' . $p;
+        $message .= '8) Електронна пошта: ' . $email . ';' . $p;
+        $message .= '9) Юридична адреса: ' . $j_address . ';' . $p;
+        $message .= ($post_address == '') ? ('Поштову адресу не вказав.' . $p) : ('10) Поштова адреса: ' . $post_address . '.' . $p);
+    }
     $message .= 'До листа додані документи, що прикріпив користувач.';
     if ($status == 'Фізична особа-підприємець') {
         $paths = array(
             $_FILES["docs-letter"]["tmp_name"],
-            $_FILES["docs-blank"]["tmp_name"],
             $_FILES["docs-accept-personal-info-usage"]["tmp_name"],
             $_FILES["docs-state-register"]["tmp_name"],
             $_FILES["docs-passport"]["tmp_name"],
             $_FILES["docs-taxes"]["tmp_name"],
             $_FILES["docs-permission"]["tmp_name"],
-            $_FILES["docs-deal"]["tmp_name"],
             $_FILES["docs-money"]["tmp_name"]
         );
         $files = array(
             basename($_FILES["docs-letter"]["name"]),
-            basename($_FILES["docs-blank"]["name"]),
             basename($_FILES["docs-accept-personal-info-usage"]["name"]),
             basename($_FILES["docs-state-register"]["name"]),
             basename($_FILES["docs-passport"]["name"]),
             basename($_FILES["docs-taxes"]["name"]),
             basename($_FILES["docs-permission"]["name"]),
-            basename($_FILES["docs-deal"]["name"]),
             basename($_FILES["docs-money"]["name"])
         );
         $names = array(
             'Лист',
-            'Анкета',
             'Опрацювання персональних',
             'Витяг з ЄДР',
             'Копії документів',
             'Податковий витяг',
             'Дозвіл',
-            'Копія договору',
             'Довідка'
         );
     } else {
         $paths = array(
             $_FILES["docs-letter"]["tmp_name"],
-            $_FILES["docs-blank"]["tmp_name"],
             $_FILES["docs-accept-personal-info-usage"]["tmp_name"],
             $_FILES["docs-state-register"]["tmp_name"],
             $_FILES["docs-statute"]["tmp_name"],
             $_FILES["docs-boss"]["tmp_name"],
             $_FILES["docs-taxes"]["tmp_name"],
             $_FILES["docs-permission"]["tmp_name"],
-            $_FILES["docs-deal"]["tmp_name"],
             $_FILES["docs-money"]["tmp_name"]
         );
         $files = array(
             basename($_FILES["docs-letter"]["name"]),
-            basename($_FILES["docs-blank"]["name"]),
             basename($_FILES["docs-accept-personal-info-usage"]["name"]),
             basename($_FILES["docs-state-register"]["name"]),
             basename($_FILES["docs-statute"]["name"]),
             basename($_FILES["docs-boss"]["name"]),
             basename($_FILES["docs-taxes"]["name"]),
             basename($_FILES["docs-permission"]["name"]),
-            basename($_FILES["docs-deal"]["name"]),
             basename($_FILES["docs-money"]["name"])
         );
         $names = array(
             'Лист',
-            'Анкета',
             'Опрацювання персональних',
             'Витяг з ЄДР',
             'Статут',
             'Керівник',
             'Податковий витяг',
             'Дозвіл',
-            'Копія договору',
             'Довідка'
         );
     }

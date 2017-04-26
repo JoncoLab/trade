@@ -254,6 +254,14 @@ main {
                                 decoration: underline;
                             }
                         }
+
+                        &.blink {
+                            animation: {
+                                name: blink;
+                                duration: $time;
+                                timing-function: linear;
+                            }
+                        }
                     }
 
                     .attribute {
@@ -327,16 +335,35 @@ main {
                         style: solid;
                         color: $dark;
                         width: $line / 2;
-                        radius: $line;
                     }
                     overflow: hidden;
+
+                    &.take-part {
+                        border: {
+                            bottom: none;
+                            left: none;
+                            top: none;
+                        }
+
+                        .take-part {
+                            @include button($olive);
+                            margin: 0;
+                            color: $light;
+                            flex-basis: 100%;
+                            text: {
+                                transform: uppercase;
+                            }
+                            border: {
+                                radius: 0;
+                            }
+                        }
+                    }
 
                     &.leave {
                         border: {
                             bottom: none;
                             left: none;
                             top: none;
-                            radius: 0;
                         }
 
                         margin: 0 auto 0 0;
@@ -344,13 +371,13 @@ main {
                         .leave {
                             @include button($olive);
                             margin: 0;
-                            border: {
-                                radius: 0;
-                            }
                             color: $light;
                             flex-basis: 100%;
                             text: {
                                 transform: uppercase;
+                            }
+                            border: {
+                                radius: 0;
                             }
                         }
                     }
@@ -408,6 +435,7 @@ main {
                                 }
                                 text: {
                                     transform: uppercase;
+                                    align: center;
                                 }
                                 flex-grow: 1;
 
@@ -415,14 +443,15 @@ main {
                                     background: {
                                         color: $dark;
                                     }
-                                    padding: 0 $line;
+                                    font: {
+                                        weight: normal;
+                                    }
+                                    padding: 0 $line / 5;
                                     display: flex;
                                     align-items: center;
                                     justify-content: flex-end;
 
                                     &:nth-of-type(2) {
-                                        flex-grow: 1;
-                                        text-align: right;
                                         justify-content: flex-start;
                                     }
                                 }
@@ -454,18 +483,11 @@ main {
                                 bottom: none;
                                 right: none;
                                 top: none;
-                                radius: 0;
                             }
                         }
 
                         &.steps {
-                            border: {
-                                bottom: none;
-                                left: none;
-                                top: none;
-                                right: none;
-                                radius: 0;
-                            }
+                            border: none;
                         }
                     }
                 }

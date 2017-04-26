@@ -36,6 +36,12 @@ if(isset($_POST['id'])) {
             "targetCell.siblings('.trader-id').text(" . $traderId . ");" .
             "targetCell.siblings('.ver').text('Верифікований');" .
         "</script>";
+        $p = "\r\n";
+        $to = $user->email;
+        $subject = "Верифікація";
+        $headers = 'From: EXChange <no-reply@exchange.roik.pro>';
+        $message = 'Доброго дня!' . $p . $p;
+        $message .= 'Ви успішно пройшли верифікацію на порталі excgange.roik.pro';
     }
 } else {
     echo $error;

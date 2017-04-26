@@ -8,14 +8,15 @@ $(document).ready(function () {
         buttons = {
             leave: $('.action button.leave'),
             raiseToSteps: $('.action button.raise-to-steps'),
-            raiseToPrice: $('.action button.raise-to-price')
+            raiseToPrice: $('.action button.raise-to-price'),
+            takePart: $('.action button.take-part')
         },
         chat = $('.info .messages .wrapper'),
         users = $('ul.users'),
-        traderId = $('.info .trader-id').text(),
-        section = $('main section'),
-        height = section.height,
+        traderId = $('header .additional .trader-id').text(),
         raiseToPrice = $('#raise-to-amount'),
+        selfOnlineStatus = $('header .additional .self-online-status'),
+        finalPrice = 0,
         insertData = function (functionType, value) {
             $.ajax({
                 url: tradeSession,
@@ -41,7 +42,34 @@ $(document).ready(function () {
             auctionTable.load('assets/auction-table.php');
             chat.load('assets/auction-chat.html');
             users.load('assets/users-online.php');
+            $.ajax({
+                url: 'assets/self-online-status.php',
+                method: 'POST',
+                data: {
+                    trader_id: traderId
+                },
+                dataType: 'text',
+                success: function (text) {
+                    selfOnlineStatus.text(text);
+                },
+                error: function () {
+                    selfOnlineStatus.text('ERROR');
+                },
+                complete: function () {
+                    if (selfOnlineStatus.text() == 'Торгується' && !selfOnlineStatus.is('.online')) {
+                        selfOnlineStatus.addClass('online');
+                    } else if (selfOnlineStatus.text() !== 'Торгується') {
+                        selfOnlineStatus.removeClass('online');
+                    }
+                }
+            });
             raiseToPrice.attr('min', auctionTable.find('.cost-final').text());
+            var finalPriceCell = auctionTable.find('.price-final'),
+                newPrice = parseInt(finalPriceCell.text());
+            if (finalPrice != newPrice) {
+                finalPriceCell.addClass('blink');
+                finalPrice = newPrice;
+            }
         };
 
     fullScreenRequest.click(function () {
@@ -71,9 +99,13 @@ $(document).ready(function () {
     buttons.raiseToSteps.click(function () {
         insertData('raiseToSteps', $('#raise-to-steps').val());
     });
+    buttons.takePart.click(function () {
+        changeData('takePart');
+    });
 
-    section.css({
-        'max-height': height
+    $(window).on('beforeunload', function () {
+        changeData('leave');
+        return 'Намагайтеся не виходити зі сторінки аукціону під час сесії.';
     });
 
     load();

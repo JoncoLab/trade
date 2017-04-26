@@ -22,15 +22,11 @@
         <label for="reason">Діє на підставі:</label>
     </div>
     <div class="form-item">
-        <input type="text" name="ind" id="ind" pattern="[0-9]{10}">
-        <label for="ind">Ідентифікаційний номер:</label>
-    </div>
-    <div class="form-item">
         <input type="text" name="docs-name" id="docs-name" required>
         <label for="docs-name">Скорочено для документів:</label>
     </div>
     <div class="form-item edrpou">
-        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8,10}">
+        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8,10}" required>
         <label for="edrpou">ЄДРПОУ:</label>
     </div>
 </fieldset>
@@ -134,43 +130,41 @@
 <fieldset class="docs">
     <legend>Документи</legend>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-letter" name="docs-letter" required>
-        <label for="docs-letter" title="Лист на фірмовому бланку з проханням про прийняття в асоційовані члени">Лист:</label>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-letter" name="docs-letter">
+        <label for="docs-letter" title="Лист на фірмовому бланку з проханням про прийняття в асоційовані члени">
+            <span>Лист:</span>
+            <a href="docs/letter-template.doc">Завантажити шаблон</a>
+        </label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-blank" name="docs-blank" required>
-        <label for="docs-blank" title="Анкета учаника товарної біржі за формою, розробленою біржею">Анкета учасника товарної біржі:</label>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-accept-personal-info-usage" name="docs-accept-personal-info-usage">
+        <label for="docs-accept-personal-info-usage" title="Заява-погодження на опрацювання персональних даних за зразком, розробленим біржою.">
+            <span>Заява-погодження на опрацювання персональних даних:</span>
+            <a href="docs/personal-data-usage-agreement-template.doc">Завантажити шаблон</a>
+        </label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-accept-personal-info-usage" name="docs-accept-personal-info-usage" required>
-        <label for="docs-accept-personal-info-usage" title="Заява-погодження на опрацювання персональних даних за зразком, розробленим біржою.">Заява-погодження на опрацювання персональних даних:</label>
-    </div>
-    <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-state-register" name="docs-state-register" required>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-state-register" name="docs-state-register">
         <label for="docs-state-register" title="Витяг з Єдиного державного реєстру юридичних осіб, фізичних осіб-підприємців та громадських формувань, скріплений печаткою державного реєстратора.">Витяг з Єдиного державного реєстру:</label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-statute" name="docs-statute" required>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-statute" name="docs-statute">
         <label for="docs-statute" title="Копія статуту завіреного власною печаткою, або довідка про провадження діяльності на підставі модельного статуту.">Копія статуту:</label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-boss" name="docs-boss" required>
-        <label for="docs-boss" title="Копія документу, що підтверджує повноваження керівника юридичної особи.">Копія про повноваження керівника:</label>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-boss" name="docs-boss">
+        <label for="docs-boss" title="Копія документу про призначення керівника.">Копія про призначення керівника:</label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-taxes" name="docs-taxes" required>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-taxes" name="docs-taxes">
         <label for="docs-taxes" title="Копія витягу з реєстру платників податку на додану вартість / реєстру платників єдиного податку / довідка про перебування на загальній системі оподаткування без реєстрації платником податку на додану вартість / довідка про неприбутковий статус особи.">Документ платника податку:</label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-permission" name="docs-permission" required>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-permission" name="docs-permission">
         <label for="docs-permission" title="Дозвіл на виконання робіт підвищеної небезпеки та на експлуатацію (застосування) машин, механізмів, устаткування підвищенної небезпеки.">Дозвіл на виконання робіт підвищеної небезпеки:</label>
     </div>
     <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-deal" name="docs-deal" required>
-        <label for="docs-deal" title="Копія договору про надання послуг (договору-доручення), на підставі якого врегульовано правовідносини між клієнтом і членом біржі щодо здійснення повноважень останнього в ітересах його клієнта (брокерську угоду, при бажанні діяти через брокера) (за наявністю).">Копія договору про надання послуг:</label>
-    </div>
-    <div class="form-item">
-        <input type="file" accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-money" name="docs-money" required>
+        <input type="file" required accept=".csv, .txt, .xls, .xlsx, .doc, .docx, .pdf" id="docs-money" name="docs-money">
         <label for="docs-money" title="Довідка з банку про наявність та реквізити рахунку.">Довідка з банку:</label>
     </div>
 </fieldset>

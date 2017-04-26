@@ -1,11 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: start.html");
     session_unset();
     session_destroy();
+    header("Location: index.html");
     exit();
 }
+require_once "scripts/php/user.php";
 mb_internal_encoding("UTF-8");
 
 $host = 'joncolab.mysql.ukraine.com.ua';
@@ -20,12 +21,14 @@ if ($connection->connect_error) {
 $connection->set_charset('utf8');
 $sql = 'SELECT session_active FROM trade';
 $result = $connection->query($sql)->fetch_assoc();
-$connection->close();
 $active = $result["session_active"];
 
 if ($active == 0) {
     header('refresh: 15; url="http://exchange.roik.pro/auction.php"');
 }
+$id = $_SESSION["id"];
+$user = User::getUserById($id);
+$connection->close();
 ?>
 <!doctype html>
 <html>
@@ -55,7 +58,11 @@ if ($active == 0) {
 <header>
     //= modules/menu.html
     //= modules/logo.html
-    <div class="clock"></div>
+    <div class="additional">
+        <div class="clock"></div>
+        <div class="trader-id"><?php print $user->trader_id;?></div>
+        <div class="self-online-status"></div>
+    </div>
 </header>
 <main>
     <section class="info">
@@ -68,11 +75,13 @@ if ($active == 0) {
                 <div class="wrapper"></div>
             </div>
         </div>
-        <div class="trader-id" style="display: none"><?php print $_SESSION["trader_id"];?></div>
     </section>
     <section class="trade">
         <table class="auction-table"></table>
         <div class="actions">
+            <div class="action take-part">
+                <button class="take-part">Торгуватися</button>
+            </div>
             <div class="action leave">
                 <button class="leave">Не торгуватися</button>
             </div>

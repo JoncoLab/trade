@@ -42,6 +42,72 @@ body {
     margin: 0 auto;
   }
 
+  .settings {
+    padding: $line;
+
+    form {
+      display: flex;
+      margin: $line 0 0;
+
+      label {
+        padding: $line / 2;
+        font: {
+          size: $line * 1.5;
+        }
+        border: $line / 2 double transparentize($bluegrey, 0.7);
+        background: {
+          color: transparentize($bluegrey, 0.7);
+        }
+        border: {
+          right: none;
+        }
+        display: flex;
+        align-items: center;
+      }
+
+      input {
+        padding: $line / 2;
+        background: {
+          color: transparentize($bluegrey, 0.9);
+        }
+        border: $line / 2 double transparentize($bluegrey, 0.7);
+        border: {
+          right: none;
+          left: none;
+        }
+        outline: none;
+      }
+
+      button {
+        padding: $line / 2;
+        background: {
+          color: transparentize($bluegrey, 0.7);
+        }
+        font: {
+          weight: bold;
+        }
+        cursor: pointer;
+        border: $line / 2 double transparentize($bluegrey, 0.7);
+        border: {
+          left: none;
+        }
+        margin: 0;
+      }
+
+      &[id^="upload"] {
+        label {
+          border: {
+            right: $line / 2 double transparentize($bluegrey, 0.7);
+          }
+        }
+
+        input {
+          display: none;
+        }
+      }
+    }
+  }
+
   table {
     border-collapse: collapse;
     margin: 0 auto $line * 2;
@@ -54,7 +120,6 @@ body {
     td,
     th {
       border: $line / 10 solid $grey;
-      padding: $line;
       input {
         width: 100%;
         border: none;
@@ -64,9 +129,61 @@ body {
     thead {
       z-index: 2;
       tr {
+
+        &:first-of-type {
+
+          th {
+            padding: $line / 5;
+          }
+        }
+
         th {
           background-color: lightblue;
+          padding: $line / 5 $line * 1.8 !important;
+
+          #upload-lots {
+            display: flex;
+
+            label {
+              display: block;
+              flex-grow: 1;
+              background: {
+                image: linear-gradient(-30deg, darken(white, 10%), lighten(white, 10%));
+              }
+              padding: $line;
+              border: none;
+              outline: none;
+              border: {
+                radius: $line;
+              }
+              cursor: pointer;
+            }
+
+            #upload {
+              display: none;
+            }
+          }
+
+          #clear-lots {
+            display: flex;
+
+            #clear {
+              display: block;
+              flex-grow: 1;
+              background: {
+                image: linear-gradient(-30deg, darken(white, 10%), lighten(white, 10%));
+              }
+              border: none;
+              outline: none;
+              border: {
+                radius: $line;
+              }
+              cursor: pointer;
+              margin: 0;
+            }
+          }
         }
+
         &.sum {
           th {
             background-color: darken(lightblue, $line * 2.5);
@@ -78,11 +195,11 @@ body {
       box-sizing: border-box;
       z-index: -1;
       width: 100%;
-      transition-property: transform;
-      transition-duration: $time;
+
       tr {
         box-sizing: border-box;
         td {
+          padding: $line / 5 !important;
 
           &.ver {
 
@@ -133,7 +250,7 @@ body {
   .write-article {
     border-radius: $line;
     padding: $line;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
@@ -325,7 +442,7 @@ body {
     float: none;
     text-align: center;
 
-    margin: 0 $line $line;
+    margin: $line;
     padding: $line;
 
     background-color: lighten(lightblue, $line);

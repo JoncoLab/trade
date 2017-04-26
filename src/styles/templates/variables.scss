@@ -97,3 +97,16 @@ $online: rgba(110, 255, 96, 0.71);
     background-image: url('../SVG/checkbox-checked.svg');
   }
 }
+
+@keyframes blink {
+  20% {
+    background: {
+      color: $bluegrey;
+    }
+  }
+  to {
+    background: {
+      color: $dark;
+    }
+  }
+}

@@ -87,6 +87,7 @@ var main = function () {
     });
     buttons.endSession.click(function () {
         changeData('end');
+        window.location.replace('admin.php');
     });
     buttons.setWinner.click(function () {
         var winner = $('#set-winner').val();

@@ -161,23 +161,49 @@ body {
             }
         }
 
-        .clock {
+        .additional {
             position: absolute;
-            right: $line;
-            font: {
-                weight: bold;
-                size: $line * 2;
-            }
-            padding: $line;
-            color: $dark;
-            background: {
-                color: $light;
-            }
-            border: {
-                width: $line / 2;
-                style: solid;
+            right: $line * 2;
+            height: 100%;
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .clock,
+            .trader-id,
+            .self-online-status {
+                font: {
+                    weight: bold;
+                    size: $line * 2;
+                }
+                padding: $line;
                 color: $dark;
-                radius: $line * 2;
+                background: {
+                    color: $light;
+                }
+                border: {
+                    width: $line / 2;
+                    style: solid;
+                    color: $dark;
+                    radius: $line * 2;
+                }
+            }
+
+            .self-online-status {
+                background: {
+                    color: $offline;
+                }
+                transition: {
+                    duration: $time / 2;
+                    timing-function: linear;
+                }
+
+                &.online {
+                    background: {
+                        color: $online;
+                    }
+                }
             }
         }
     }

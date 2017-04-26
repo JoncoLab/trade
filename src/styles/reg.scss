@@ -312,6 +312,24 @@ body {
                 grow: 1;
               }
               padding: 0 0 0 $line;
+              position: relative;
+
+              a {
+                display: block;
+                font: {
+                  size: $line * 1.5;
+                }
+                @include button($olive);
+                color: $light;
+                position: absolute;
+                right: 100%;
+                bottom: 0;
+                margin-bottom: 0;
+                text: {
+                  decoration: none;
+                  align: center;
+                }
+              }
             }
           }
         }

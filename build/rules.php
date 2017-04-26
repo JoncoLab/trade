@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!doctype html>
 <html>
@@ -7,6 +6,7 @@ session_start();
     <meta charset="utf-8">
     <title>EXChange - правила користування майданчиком</title>
     <link href="styles/common.css" rel="stylesheet">
+    <link href="styles/rules.css" rel="stylesheet">
     <script src="scripts/js/jquery-3.1.1.js"></script>
     <script src="scripts/js/common.js"></script>
 </head>
@@ -17,8 +17,8 @@ session_start();
         <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
-            <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
-            <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
+            <!--<li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>-->
+            <!--<li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>-->
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <?php
             if ($_SESSION["ver"] === '1') {
@@ -37,6 +37,14 @@ session_start();
     </div>
 </header>
 <main>
+    <div class="video">
+        <h2>Реєстрація для участі в електронних торгів</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jGST9GTUa68" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="video">
+        <h2>Заповнення заявки для участі в електронних торгах</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VXAZGzKRuEY" frameborder="0" allowfullscreen></iframe>
+    </div>
 </main>
 <footer>
     <a class="contacts footer-item" href="../about.php"> <span>Наші контактні дані:</span>

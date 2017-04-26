@@ -1,9 +1,9 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: start.html");
     session_unset();
     session_destroy();
+    header("Location: index.html");
     exit();
 }
 ?>

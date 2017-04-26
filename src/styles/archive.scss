@@ -1,0 +1,81 @@
+@import "templates/variables";
+
+.content {
+  width: 80%;
+  margin: $line auto;
+
+  border: {
+    color: $dark;
+    width: $line / 2;
+    style: solid;
+    radius: $line;
+  }
+  background: {
+    color: $light;
+  }
+  padding: 0;
+
+  h2 {
+    margin: 0;
+    font: {
+      size: $line * 3;
+    }
+
+    background: {
+      color: $dark;
+    }
+
+    text: {
+      align: center;
+    }
+    padding: $line / 2;
+  }
+
+  .applications {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .application {
+      display: flex;
+      border: {
+        bottom: $line / 5 solid $dark;
+      }
+      padding: $line / 2;
+      color: $dark;
+
+      .open,
+      .download {
+        @include button($olive);
+        margin: 0;
+        color: $light;
+        font: {
+          weight: bold;
+          size: $line * 1.5;
+        }
+      }
+
+      .download {
+        margin-right: $line / 2;
+        text: {
+          decoration: none;
+        }
+      }
+
+      .name {
+        flex-grow: 1;
+        align-self: center;
+        font: {
+          weight: bold;
+          size: $line * 2;
+        }
+      }
+
+      &:last-of-type {
+        border: {
+          bottom: none;
+        }
+      }
+    }
+  }
+}

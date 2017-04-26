@@ -97,20 +97,12 @@ switch ($_POST["function"]) {
             'price_final = \'' . $result["price_final"] . '\', ' .
             'current_step = \'0\'';
         $connection->query($sql);
+        $sql = 'UPDATE online SET online=FALSE';
         $message =
             '<p class="message">' .
             '<span class="time">' . get24hTime() . '</span>' .
             '<span>Торгується лот №' . $result["id"] . '</span>' .
             '</p>';
-        $sql = 'SELECT customers_applied FROM trade';
-        $result = $connection->query($sql)->fetch_assoc();
-        $customers = explode(', ', $result["customers_applied"]);
-        $sql = 'TRUNCATE TABLE online';
-        $connection->query($sql);
-        foreach ($customers as $customer) {
-            $sql = 'INSERT INTO online VALUES (\'' . $customer . '\', TRUE)';
-            $connection->query($sql);
-        }
         $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
         fclose($chat);
@@ -158,46 +150,52 @@ switch ($_POST["function"]) {
         fclose($chat);
         break;
     case 'raiseToPrice':
-        $sql = 'SELECT current_step, step, cost_start, size FROM trade';
-        $currentValues = $connection->query($sql)->fetch_assoc();
-        $costFinal = $_POST["value"];
-        $priceFinal = $costFinal * $currentValues["size"];
-        $nextStep = floor(($costFinal - $currentValues["cost_start"]) / $currentValues["step"]);
-        $sql =
-            'UPDATE trade SET ' .
-            'current_step = \'' . $nextStep . '\', ' .
-            'cost_final = \'' . $costFinal . '\', ' .
-            'price_final = \'' . $priceFinal . '\'';
-        $connection->query($sql);
-        $message =
-            '<p class="message">' .
-            '<span class="time">' . get24hTime() . '</span>' .
-            '<span>' . $_POST["who"] . ' підвищує до ' . $costFinal . 'грн.</span>' .
-            '</p>';
-        $chat = fopen('../../assets/auction-chat.html', 'a');
-        fwrite($chat, $message);
-        fclose($chat);
+        $sql = 'SELECT online FROM online WHERE trader_id=\'' . $_POST["who"] . '\' AND online=TRUE';
+        if ($connection->query($sql)->num_rows > 0 || $_POST["who"] == 'Ліцетатор') {
+            $sql = 'SELECT current_step, step, cost_start, size FROM trade';
+            $currentValues = $connection->query($sql)->fetch_assoc();
+            $costFinal = $_POST["value"];
+            $priceFinal = $costFinal * $currentValues["size"];
+            $nextStep = floor(($costFinal - $currentValues["cost_start"]) / $currentValues["step"]);
+            $sql =
+                'UPDATE trade SET ' .
+                'current_step = \'' . $nextStep . '\', ' .
+                'cost_final = \'' . $costFinal . '\', ' .
+                'price_final = \'' . $priceFinal . '\'';
+            $connection->query($sql);
+            $message =
+                '<p class="message">' .
+                '<span class="time">' . get24hTime() . '</span>' .
+                '<span>' . $_POST["who"] . ' підвищує до ' . $costFinal . 'грн.</span>' .
+                '</p>';
+            $chat = fopen('../../assets/auction-chat.html', 'a');
+            fwrite($chat, $message);
+            fclose($chat);
+        }
         break;
     case 'raiseToSteps':
-        $sql = 'SELECT current_step, step, cost_start, size FROM trade';
-        $currentValues = $connection->query($sql)->fetch_assoc();
-        $nextStep = $currentValues["current_step"] + $_POST["value"];
-        $costFinal = $currentValues["cost_start"] + ($nextStep * $currentValues["step"]);
-        $priceFinal = $costFinal * $currentValues["size"];
-        $sql =
-            'UPDATE trade SET ' .
-            'current_step = \'' . $nextStep . '\', ' .
-            'cost_final = \'' . $costFinal . '\', ' .
-            'price_final = \'' . $priceFinal . '\'';
-        $connection->query($sql);
-        $message =
-            '<p class="message">' .
-            '<span class="time">' . get24hTime() . '</span>' .
-            '<span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку</span>' .
-            '</p>';
-        $chat = fopen('../../assets/auction-chat.html', 'a');
-        fwrite($chat, $message);
-        fclose($chat);
+        $sql = 'SELECT online FROM online WHERE trader_id=\'' . $_POST["who"] . '\' AND online=TRUE';
+        if ($connection->query($sql)->num_rows > 0) {
+            $sql = 'SELECT current_step, step, cost_start, size FROM trade';
+            $currentValues = $connection->query($sql)->fetch_assoc();
+            $nextStep = $currentValues["current_step"] + $_POST["value"];
+            $costFinal = $currentValues["cost_start"] + ($nextStep * $currentValues["step"]);
+            $priceFinal = $costFinal * $currentValues["size"];
+            $sql =
+                'UPDATE trade SET ' .
+                'current_step = \'' . $nextStep . '\', ' .
+                'cost_final = \'' . $costFinal . '\', ' .
+                'price_final = \'' . $priceFinal . '\'';
+            $connection->query($sql);
+            $message =
+                '<p class="message">' .
+                '<span class="time">' . get24hTime() . '</span>' .
+                '<span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку</span>' .
+                '</p>';
+            $chat = fopen('../../assets/auction-chat.html', 'a');
+            fwrite($chat, $message);
+            fclose($chat);
+        }
         break;
     case 'setWinner':
         $sql = 'UPDATE trade SET customer_number = \'' . $_POST["value"] . '\'';
@@ -214,16 +212,27 @@ switch ($_POST["function"]) {
         fclose($chat);
         break;
     case 'leave':
-        $sql = 'UPDATE online SET online = FALSE WHERE id=\'' . $_POST["who"] . '\'';
+        $sql = 'UPDATE online SET online=FALSE WHERE trader_id=\'' . $_POST["who"] . '\'';
         $connection->query($sql);
-        header('Location: http://exhange.roik.pro/admin/admin.php');
+        break;
+    case 'takePart':
+        $sql = 'SELECT customers_applied FROM trade';
+        $customersApplied = explode(', ', $connection->query($sql)->fetch_assoc()["customers_applied"]);
+        if (in_array($_POST["who"], $customersApplied)) {
+            $sql = 'UPDATE online SET online=TRUE WHERE trader_id=\'' . $_POST["who"] . '\'';
+            $connection->query($sql);
+        }
         break;
     case 'end':
         $sql = 'UPDATE trade SET session_active = FALSE, seller_name = NULL, id = NULL, type = NULL, breed = NULL, characteristics_diametr = NULL, characteristics_storage = NULL, characteristics_length = NULL, characteristics_sort = NULL, gost = NULL, size = NULL, customers_applied = NULL, cost_start = NULL, customer_number = NULL, step = NULL, cost_final = NULL, price_final = NULL, current_step = NULL';
         $connection->query($sql);
+        $sql = 'TRUNCATE TABLE online';
+        $connection->query($sql);
         $chat = fopen('../../assets/auction-chat.html', 'w');
         fwrite($chat, '');
         fclose($chat);
+        $connection->close();
+        break;
 }
 $connection->close();
 

@@ -1,18 +1,21 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: start.html");
     session_unset();
     session_destroy();
+    header("Location: index.html");
     exit();
 }
-include 'scripts/php/user.php';
-$fullName = $_SESSION["full_name"];
-$jAddress = $_SESSION["j_address"];
-$tel = $_SESSION["tel"];
-$edrpou = $_SESSION["edrpou"];
-$docsName = $_SESSION["docs_name"];
-$traderId = $_SESSION["trader_id"];
+require_once "scripts/php/user.php";
+$id = $_SESSION["id"];
+$user = User::getUserById($id);
+$fullName = $user->full_name;
+$jAddress = $user->j_address;
+$tel = $user->tel;
+$edrpou = $user->edrpou;
+$ind = $user->ind;
+$docsName = $user->docs_name;
+$traderId = $user->trader_id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +35,8 @@ $traderId = $_SESSION["trader_id"];
         <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
-            <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
-            <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
+            <!--<li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>-->
+            <!--<li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>-->
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <?php
             if ($_SESSION["ver"] === '1') {
@@ -112,7 +115,7 @@ $traderId = $_SESSION["trader_id"];
             </tr>
             <tr>
                 <td class="field-name">ЄДРПОУ або РНОКПП(ІПН):</td>
-                <td class="field-value auto" colspan="5"><input type="text" readonly form="application" name="edrpou" id="edrpou" value="<?php print $edrpou; ?>" title="<?php print $edrpou; ?>"></td>
+                <td class="field-value auto" colspan="5"><input type="text" readonly form="application" name="edrpou" id="edrpou" value="<?php print ($edrpou == '' ? $ind : $edrpou);?>" title="<?php print ($edrpou == '' ? $ind : $edrpou);?>"></td>
             </tr>
             </tbody>
         </table>

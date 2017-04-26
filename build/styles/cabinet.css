@@ -112,44 +112,6 @@
 }
 .cabinet-content .layout .access .accessable
 {
-    overflow-x: hidden;
-    overflow-y: scroll;
-
-    max-height: 400px; 
-    margin: 0;
-    padding: 10px 0;
-
-    color: #3b525e;
-}
-.cabinet-content .layout .access .accessable::-webkit-scrollbar
-{
-    width: 10px;
-}
-.cabinet-content .layout .access .accessable::-webkit-scrollbar-track
-{
-    background-color: #020718;
-}
-.cabinet-content .layout .access .accessable::-webkit-scrollbar-track-piece
-{
-    background-color: transparent;
-}
-.cabinet-content .layout .access .accessable::-webkit-scrollbar-thumb
-{
-    background-color: #f7ecf3;
-    -webkit-box-shadow: 0 0 2px 1px #020718 inset;
-            box-shadow: 0 0 2px 1px #020718 inset;
-}
-.cabinet-content .layout .access .accessable::-webkit-scrollbar-thumb:hover
-{
-    background-color: white;
-}
-.cabinet-content .layout .access .accessable::-webkit-scrollbar-thumb:active
-{
-    -webkit-box-shadow: 0 0 5px 1px #020718 inset;
-            box-shadow: 0 0 5px 1px #020718 inset;
-}
-.cabinet-content .layout .access .accessable li
-{
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -157,36 +119,25 @@
     display: flex;
 
     margin: 0;
-    padding: 10px; 
+    padding: 10px 0;
 
-    -webkit-justify-content: space-around; 
+    color: #3b525e;
 
-        -ms-flex-pack: distribute; 
+    -webkit-justify-content: space-around;
+
+        -ms-flex-pack: distribute;
 
             justify-content: space-around;
 }
-.cabinet-content .layout .access .accessable li:not(:last-of-type)
+.cabinet-content .layout .access .accessable p
 {
-    border-bottom: 2px solid #020718;
+    margin: 0;
 }
-.cabinet-content .layout .access .accessable li .lot-num,
-.cabinet-content .layout .access .accessable li .start
+.cabinet-content .layout .access .accessable p strong
 {
-    padding: 5px;
-}
-.cabinet-content .layout .access .accessable li .lot-num strong
-{
-    padding: 2px;
+    display: inline-block;
 
-    color: #020718; 
-    border-width: 2px;
-    border-style: solid;
-    border-color: #020718;
-    -webkit-border-radius: 10px;
-            border-radius: 10px;
-}
-.cabinet-content .layout .access .accessable li .start time
-{
+    margin: 5px 0 0;
     padding: 2px;
 
     color: #020718; 
@@ -244,7 +195,7 @@
 {
     list-style-image: url('../SVG/doc.svg');
 }
-.cabinet-content .layout .my-info .add-docs
+.cabinet-content .layout .my-info button
 {
     font-size: 15px; 
     font-weight: bold;
@@ -279,12 +230,12 @@
     background-image: -o-linear-gradient(top, #020718, rgba(2, 7, 24, .8));
     background-image: linear-gradient(to bottom, #020718, rgba(2, 7, 24, .8));
 }
-.cabinet-content .layout .my-info .add-docs:active,
-.cabinet-content .layout .my-info .add-docs:focus
+.cabinet-content .layout .my-info button:active,
+.cabinet-content .layout .my-info button:focus
 {
     outline: none;
 }
-.cabinet-content .layout .my-info .add-docs:active
+.cabinet-content .layout .my-info button:active
 {
     background-image: -webkit-gradient(linear, left bottom, left top, from(#020718), to(rgba(2, 7, 24, .8)));
     background-image: -webkit-linear-gradient(bottom, #020718, rgba(2, 7, 24, .8));
@@ -292,7 +243,7 @@
     background-image: -o-linear-gradient(bottom, #020718, rgba(2, 7, 24, .8));
     background-image: linear-gradient(to top, #020718, rgba(2, 7, 24, .8));
 }
-.cabinet-content .layout .my-info .add-docs:hover
+.cabinet-content .layout .my-info button:hover
 {
     opacity: 1;
 }
@@ -351,11 +302,9 @@
     -webkit-align-content: flex-start;
         -ms-flex-line-pack: start;
             align-content: flex-start;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-       -moz-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -408,6 +357,7 @@
         -ms-flex-direction: column;
             flex-direction: column;
 
+    min-width: 25%;
     height: 70%;
     margin: 10px;
 }
@@ -432,6 +382,8 @@
     font-weight: bold;
 
     padding: 5px;
+
+    text-align: center;
 
     color: #4d5c33;
 }

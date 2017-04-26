@@ -121,7 +121,6 @@ var main = function () {
                     url: 'scripts/php/regDataValid.php',
                     type: 'POST',
                     dataType: 'text',
-                    contentType: 'text/plain; charset="utf-8"',
                     data: {
                         value: address,
                         type: 'address'
@@ -159,7 +158,6 @@ var main = function () {
                     url: 'scripts/php/regDataValid.php',
                     type: 'POST',
                     dataType: 'text',
-                    contentType: 'text/plain; charset="utf-8"',
                     data: {
                         value: name,
                         type: 'name'

@@ -8,6 +8,12 @@ var main = function () {
         usersVerificationForm = usersVerificationCells.children('.verification-form'),
         deleteUserButton = $('.users td.delete .delete-button'),
         deleteLotButton = $('.lots td.delete .delete-button'),
+        uploadLotsInput = $('#upload'),
+        clearLotsButton = $('#clear-lots'),
+        settings = {
+            nextSession: $('#set-next-session'),
+            adminPass: $('#set-admin-pass')
+        },
         loading = function (status) {
             var loadingBar = $('#loading');
             switch (status) {
@@ -25,6 +31,26 @@ var main = function () {
                     alert('Сталася помилка! Сторінку буде перезавантажено!');
                     window.location.reload();
             }
+        },
+        set = function (type, input) {
+            loading(true);
+            $.ajax({
+                url: 'scripts/php/admin-settings.php',
+                method: 'POST',
+                data: {
+                    function: type,
+                    input: input
+                },
+                success: function () {
+                    alert('Налаштування змінено!');
+                },
+                error: function () {
+                    alert('Щось пішло не так! Налаштування не було змінено!');
+                },
+                complete: function () {
+                    loading(false);
+                }
+            });
         },
         newArticleContent = $('form .content'),
         addParagraphBar = newArticleContent.children('.add-paragr'),
@@ -53,6 +79,63 @@ var main = function () {
                 lotsDataTable.show();
                 break;
         }
+    });
+
+    settings.nextSession.submit(function (event) {
+        var nextSession = $('#next-session').val();
+        event.preventDefault();
+        set('nextSession', nextSession);
+    });
+
+    settings.adminPass.submit(function () {
+        var adminPass = $('#admin-pass').val();
+        event.preventDefault();
+        set('adminPass', adminPass);
+    });
+
+    uploadLotsInput.change(function () {
+        var file = this.files[0];
+        if (file.name.length > 0) {
+            var data = new FormData();
+            data.append('lots', file);
+            loading(true);
+            $.ajax({
+                url: 'scripts/php/admin-upload-lots.php',
+                method: 'POST',
+                data: data,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    alert('Лоти успішно оновлено!');
+                },
+                error: function () {
+                    alert('Проблема з файлом! Таблицю не буде оновлено!');
+                },
+                complete: function () {
+                    loading(false);
+                }
+            });
+            uploadLotsInput.val('');
+        } else {
+            alert('Ви не вибрали файл, таблицю не буле оновлено!');
+            loading(false);
+        }
+    });
+
+    clearLotsButton.click(function () {
+        loading(true);
+        $.ajax({
+            url: 'scripts/php/admin-clear-lots.php',
+            success: function () {
+                alert('Таблицю лотів успішно очищено!');
+            },
+            error: function () {
+                alert('Виникла проблема. Не вдалося очистити лоти.');
+            },
+            complete: function () {
+                loading(false);
+            }
+        });
     });
     
     usersVerificationForm.on('submit', function (event) {

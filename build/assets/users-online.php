@@ -18,13 +18,20 @@ if ($connection->connect_error) {
     die('База даних не може опрацювати запит зараз, спробуйте за кілька хвилин');
 }
 $connection->set_charset('utf8');
-$sql = 'SELECT * FROM online';
-$customers = $connection->query($sql);
-$connection->close();
-while ($customer = $customers->fetch_assoc()) {
-    if ($customer["online"] == '1') {
-        echo '<li class="user online">' . $customer["id"] . '</li>';
-    } else {
-        echo '<li class="user offline">' . $customer["id"] . '</li>';
+$sql = 'SELECT customers_applied FROM trade';
+$list = $connection->query($sql)->fetch_assoc()["customers_applied"];
+if ($list != '') {
+    $customers = explode(', ', $connection->query($sql)->fetch_assoc()["customers_applied"]);
+    foreach ($customers as $customer) {
+        $sql = 'SELECT online FROM online WHERE trader_id=\'' . $customer . '\'';
+        $online = $connection->query($sql)->fetch_assoc()["online"];
+        if ($online == '1') {
+            echo '<li class="user online">' . $customer . '</li>';
+        } else {
+            echo '<li class="user offline">' . $customer . '</li>';
+        }
     }
+} else {
+    echo '<li class="user offline">Ніхто не заявився!</li>';
 }
+$connection->close();

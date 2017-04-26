@@ -26,15 +26,56 @@ if ($connection->connect_error) {
     <body>
     <header>
         <nav class="navbar">
+            <button id="settings">Загальне адміністрування</button>
             <button id="lots">Лоти</button>
             <button id="users">Користувачі</button>
-            <button id="write-article">Статті</button>
+<!--            <button id="write-article">Статті</button>-->
             <button id="trade">Вести торги</button>
         </nav>
     </header>
     <main>
+        <section class="settings page-maker">
+            <?php
+            $sql = 'SELECT * FROM settings';
+            $settings = $connection->query($sql)
+                ->fetch_assoc();
+            ?>
+            <form method="post" id="set-next-session">
+                <label for="next-session">Наступна сесія: </label>
+                <input type="datetime-local" name="next-session" id="next-session" required>
+                <button type="submit" id="next-session-submit">Підтвердити</button>
+            </form>
+            <form method="post" id="set-admin-pass">
+                <label for="admin-pass">Пароль адміністратора: </label>
+                <input type="text" name="admin-pass" id="admin-pass" placeholder="<?php print $settings["admin_password"];?>" required>
+                <button type="submit" id="admin-pass-submit">Підтвердити</button>
+            </form>
+            <form method="post" id="upload-application">
+                <label for="application-template">Завантажити шаблон заявки</label>
+                <input type="file" accept=".xlsx" id="application-template" name="application-template">
+            </form>
+            <form method="post" id="upload-letter">
+                <label for="letter-template">Завантажити шаблон листа</label>
+                <input type="file" accept=".docx, .doc" id="letter-template" name="letter-template">
+            </form>
+            <form method="post" id="upload-personal-data-usage-agreement">
+                <label for="personal-data-usage-agreement-template">Завантажити шаблон заяви-погодження на обробку персональних даних</label>
+                <input type="file" accept=".docx, .doc" id="personal-data-usage-agreement-template" name="personal-data-usage-agreement-template">
+            </form>
+        </section>
         <table class="lots page-maker">
             <thead>
+            <tr>
+                <th colspan="6">
+                    <form id="upload-lots">
+                        <label for="upload">Завантажити бюлетень для формування таблиці лотів</label>
+                        <input type="file" accept=".xlsx" id="upload" name="lots">
+                    </form>
+                </th>
+                <th colspan="5" id="clear-lots">
+                    <button id="clear">Очистити таблицю лотів</button>
+                </th>
+            </tr>
             <tr>
                 <th rowspan="2" class="delete"></th>
                 <th rowspan="2" class="id">Номер лоту</th>
@@ -168,27 +209,27 @@ if ($connection->connect_error) {
             ?>
             </tbody>
         </table>
-        <form method="post" class="write-article page-maker">
-            <button type="button" class="send-article" style="margin: 0 10px ">Надіслати статтю</button>
-            <button type="button" class="watch" style="margin: 10px">Проглянути</button>
-            <fieldset class=" header">
-                <legend>Введіть заголовок:</legend>
-                <input type="text" name="header" placeholder="Mama" id="header" tabindex="1"></fieldset>
-            <fieldset class=" content">
-                <legend>Напишіть статтю:</legend>
-                <textarea rows="10" placeholder="you know what to do.." autofocus tabindex="2"></textarea>
-                <button class="add-paragr" type="button">Додати абзац</button>
-                <button type="button" class="clear">Очистити</button>
-                <br>
-            </fieldset>
-            <fieldset class=" files">
-                <legend>Приєднайте щось до неї:</legend>
-                <label>Завантажте файл сюди:
-                    <input type="file" id="upload-smth" multiple>
-                    <button class="reset-upload" type="reset">Удалить</button>
-                </label>
-            </fieldset>
-        </form>
+<!--        <form method="post" class="write-article page-maker">-->
+<!--            <button type="button" class="send-article" style="margin: 0 10px ">Надіслати статтю</button>-->
+<!--            <button type="button" class="watch" style="margin: 10px">Проглянути</button>-->
+<!--            <fieldset class=" header">-->
+<!--                <legend>Введіть заголовок:</legend>-->
+<!--                <input type="text" name="header" placeholder="Mama" id="header" tabindex="1"></fieldset>-->
+<!--            <fieldset class=" content">-->
+<!--                <legend>Напишіть статтю:</legend>-->
+<!--                <textarea rows="10" placeholder="you know what to do.." autofocus tabindex="2"></textarea>-->
+<!--                <button class="add-paragr" type="button">Додати абзац</button>-->
+<!--                <button type="button" class="clear">Очистити</button>-->
+<!--                <br>-->
+<!--            </fieldset>-->
+<!--            <fieldset class=" files">-->
+<!--                <legend>Приєднайте щось до неї:</legend>-->
+<!--                <label>Завантажте файл сюди:-->
+<!--                    <input type="file" id="upload-smth" multiple>-->
+<!--                    <button class="reset-upload" type="reset">Удалить</button>-->
+<!--                </label>-->
+<!--            </fieldset>-->
+<!--        </form>-->
         <form class="trade page-maker" action="session.php" method="post">
             <fieldset>
                 <legend>Наступна сесія:</legend>

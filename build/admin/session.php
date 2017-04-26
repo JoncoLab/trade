@@ -72,5 +72,10 @@ if ($connection->connect_error) {
 <?php
 $sql = 'UPDATE trade SET session_active = TRUE';
 $connection->query($sql);
+$sql = 'INSERT INTO online (trader_id) SELECT trader_id FROM registered WHERE ver=TRUE AND applied_for_lots IS NOT NULL';
+$sql = $connection->query($sql);
+if ($connection->error) {
+    print_r($connection->error_list);
+}
 $connection->close();
 ?>

@@ -1,13 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: start.html");
     session_unset();
     session_destroy();
+    header("Location: index.html");
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -25,8 +24,8 @@ if (!isset($_SESSION["id"])) {
         <span>Меню</span>
         <ul class="menu">
             <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
-            <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
-            <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
+            <!--<li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>-->
+            <!--<li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>-->
             <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
             <?php
             if ($_SESSION["ver"] === '1') {

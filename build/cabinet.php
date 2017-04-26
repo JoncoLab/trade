@@ -1,19 +1,34 @@
 <?php
 session_start();
 if (!isset($_SESSION["id"])) {
-    header("Location: start.html");
     session_unset();
     session_destroy();
+    header("Location: index.html");
     exit();
 }
+require_once "scripts/php/user.php";
+$host = 'joncolab.mysql.ukraine.com.ua';
+$username = 'joncolab_saladin';
+$userPassword = '2014';
+$db = 'joncolab_trade';
+$connection = new mysqli($host, $username, $userPassword, $db);
+
+if ($connection->connect_error) {
+    die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
+}
+$connection->set_charset('utf8');
+$sql = 'SELECT * FROM settings';
+$settings = $connection->query($sql)
+    ->fetch_assoc();
 $id = $_SESSION['id'];
-$email = $_SESSION['email'];
-$tel = $_SESSION['tel'];
-$fullName = $_SESSION['full_name'];
-$ver = $_SESSION['ver'];
-$traderId = $_SESSION['trader_id'];
-$docsName = $_SESSION['docs_name'];
-$lots = $_SESSION["applied_for_lots"];
+$user = User::getUserById($id);
+$email = $user->email;
+$tel = $user->tel;
+$fullName = $user->full_name;
+$ver = $user->ver;
+$traderId = $user->trader_id;
+$docsName = $user->docs_name;
+$lots = $user->applied_for_lots;
 ?>
 <!doctype html>
 <html>
@@ -27,7 +42,6 @@ $lots = $_SESSION["applied_for_lots"];
     <script src="scripts/js/common.js"></script>
     <script src="scripts/js/cabinet.js"></script>
 </head>
-
 <body>
     <header>
         <menu class="main-menu" xmlns="http://www.w3.org/1999/html">
@@ -35,8 +49,8 @@ $lots = $_SESSION["applied_for_lots"];
             <span>Меню</span>
             <ul class="menu">
                 <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
-                <li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>
-                <li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>
+                <!--<li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>-->
+                <!--<li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>-->
                 <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
                 <?php
                 if ($_SESSION["ver"] === '1') {
@@ -53,7 +67,9 @@ $lots = $_SESSION["applied_for_lots"];
             <img src="images/logo.png" alt="Логотип">
             <h1>EXChange</h1>
         </div>
-        <div class="clock"></div>
+        <div class="additional">
+            <div class="clock"></div>
+        </div>
     </header>
     <main>
         <div class="cabinet-content">
@@ -66,6 +82,7 @@ $lots = $_SESSION["applied_for_lots"];
                         <li class="mail"><?php print $email;?></li>
                         <li class="docs-name"><?php print $docsName;?></li>
                     </ul>
+                    <button class="manage">Керувати профілем</button>
                     <button class="add-docs">Додати документи</button>
                     <?php
                     if ($ver === '1') {
@@ -80,12 +97,16 @@ $lots = $_SESSION["applied_for_lots"];
                 </section>
                 <section class="access">
                     <h2>Доступ до торгів</h2>
-                    <ul class="accessable">
-                        <li>
-                            <span class="lot-num">Номери лотів: <strong id="drag1"><?php print $lots;?></strong></span>
-                            <span class="start">Початок cесії: <time>10:00 18.04.17</time></span>
-                        </li>
-                    </ul>
+                    <div class="accessable">
+                        <p>
+                            <span>Номери лотів:</span><br>
+                            <strong><?php print $lots;?></strong>
+                        </p>
+                        <p>
+                            <span>Початок наступної cесії:</span><br>
+                            <strong><?php print $settings["next_session"]?></strong>
+                        </p>
+                    </div>
                 </section>
             </div>
             <section id="load-docs">
@@ -97,7 +118,8 @@ $lots = $_SESSION["applied_for_lots"];
                     <label for="reset">Очистити</label>
                     <input type="reset" name="reset" id="reset" value="Очистити" form="send-docs">
                 </div>
-                <form method="post" id="send-docs" name="send-docs" enctype="multipart/form-data">
+                <form method="post" id="send-docs" name="send-docs" enctype="multipart/form-data" action="scripts/php/addDocs.php">
+                    <input type="hidden" name="id" value="<?php print $user->id;?>">
                     <label for="submit">Прикріпити та надіслати завантажені документи</label>
                     <input type="submit" name="submit" id="submit" value="Прикріпити та надіслати завантажені документи">
                 </form>
