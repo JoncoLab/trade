@@ -13,7 +13,7 @@ $p = "\r\n";
 $to = 'Jonco Lab <joncolab@gmail.com>, ZTSB <info@ztsb.org.ua>';
 $subject = 'Додаткові документи';
 $boundary = md5(date('r', time()));
-$headers = 'From: ' . $user->person . ' <' . $user->email . '>' . $p;
+$headers = 'From: ' . $user->short_name . ' <' . $user->email . '>' . $p;
 $headers .= 'MIME-Version: 1.0' . $p;
 $headers .= 'Content-Type: multipart/mixed; boundary="' . $boundary . '"; charset="utf-8"' . $p;
 $message = 'Користувач №' . $user->id . ' надіслав документи зі свого кабінету.' . $p . $p;

@@ -205,6 +205,7 @@ var main = function () {
             id = user.children('.id').text(),
             traderIdCell = user.children('.trader-id'),
             verificationCell = user.children('.ver'),
+            appliedForLotsCell = user.children('.applied-for-lots'),
             form = '<form class="verification-form">' +
                 '<input type="text" name="set-trader-id" class="set-trader-id" maxlength="4" pattern="[0-9]{3}" placeholder="Реєстр. №">' +
                 '<label class="verify">Верифікувати<input style="display: none;" type="submit" name="submit" value="verify"></label>' +
@@ -222,6 +223,7 @@ var main = function () {
                 traderIdCell.empty();
                 verificationCell.html(form);
                 totalVerifiedCell.text(parseInt(totalVerifiedCell.text()) - 1);
+                appliedForLotsCell.empty();
             },
             error: function () {
                 alert('Не вдається з\'єднатися з базою даних! Сторінку буде перезавантажено!');

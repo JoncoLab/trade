@@ -84,6 +84,11 @@ if ($connection->connect_error) {
                         <span id="clear">Очистити таблицю лотів</span>
                     </div>
                 </th>
+                <th colspan="4">
+                    <div id="download-lots">
+                        <span id="download">Завантажити таблицю лотів</span>
+                    </div>
+                </th>
             </tr>
             <tr>
                 <th rowspan="2" class="delete"></th>

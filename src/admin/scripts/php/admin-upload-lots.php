@@ -6,6 +6,15 @@
  * Time: 15:11
  */
 
+session_start();
+if ($_SESSION["id"] !== 'ADMIN') {
+    session_unset();
+    session_destroy();
+    header('Location: index.html');
+    die();
+}
+mb_internal_encoding("UTF-8");
+
 require_once "../../../scripts/php/PHPExcel.php";
 require_once "../../../scripts/php/PHPExcel/IOFactory.php";
 

@@ -171,10 +171,12 @@ body {
             }
           }
 
-          #clear-lots {
+          #clear-lots,
+          #download-lots {
             display: flex;
 
-            #clear {
+            #clear,
+            #download {
               display: block;
               flex-grow: 1;
               background: {

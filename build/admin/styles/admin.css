@@ -308,7 +308,8 @@ body table thead tr th #upload-lots #upload
 {
     display: none;
 }
-body table thead tr th #clear-lots
+body table thead tr th #clear-lots,
+body table thead tr th #download-lots
 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -316,7 +317,10 @@ body table thead tr th #clear-lots
     display: -ms-flexbox;
     display: flex;
 }
-body table thead tr th #clear-lots #clear
+body table thead tr th #clear-lots #clear,
+body table thead tr th #clear-lots #download,
+body table thead tr th #download-lots #clear,
+body table thead tr th #download-lots #download
 {
     display: block;
 
@@ -350,7 +354,10 @@ body table thead tr th #clear-lots #clear
 
             flex-grow: 1;
 }
-body table thead tr th #clear-lots #clear:hover
+body table thead tr th #clear-lots #clear:hover,
+body table thead tr th #clear-lots #download:hover,
+body table thead tr th #download-lots #clear:hover,
+body table thead tr th #download-lots #download:hover
 {
     -webkit-box-shadow: 0 0 5px 2px #3b525e inset;
             box-shadow: 0 0 5px 2px #3b525e inset;

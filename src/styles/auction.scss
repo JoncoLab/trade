@@ -169,7 +169,6 @@ main {
                             }
 
                             span {
-                                display: inline-block;
                                 font: {
                                     weight: bold;
                                     size: $line * 1.5;
@@ -199,6 +198,11 @@ main {
 
                 iframe {
                     width: 100%;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }
@@ -256,10 +260,8 @@ main {
                         }
 
                         &.blink {
-                            animation: {
-                                name: blink;
-                                duration: $time;
-                                timing-function: linear;
+                            background: {
+                                color: $bluegrey;
                             }
                         }
                     }

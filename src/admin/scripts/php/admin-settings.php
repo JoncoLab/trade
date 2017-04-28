@@ -6,6 +6,15 @@
  * Time: 3:54
  */
 
+session_start();
+if ($_SESSION["id"] !== 'ADMIN') {
+    session_unset();
+    session_destroy();
+    header('Location: index.html');
+    die();
+}
+mb_internal_encoding("UTF-8");
+
 if (isset($_POST["function"])) {
     $host = 'joncolab.mysql.ukraine.com.ua';
     $username = 'joncolab_saladin';

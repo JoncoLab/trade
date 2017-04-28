@@ -191,7 +191,7 @@ switch ($_POST["function"]) {
             $message =
                 '<p class="message">' .
                 '<span class="time">' . get24hTime() . '</span>' .
-                '<span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку</span>' .
+                '<span>' . $_POST["who"] . ' підвищує до ' . $nextStep . '-го кроку (' . $costFinal . 'грн.</span>' .
                 '</p>';
             $chat = fopen('../../assets/auction-chat.html', 'a');
             fwrite($chat, $message);
@@ -203,10 +203,11 @@ switch ($_POST["function"]) {
         $connection->query($sql);
         $sql = 'SELECT * FROM trade';
         $id = $connection->query($sql)->fetch_assoc()["id"];
+        $finalPrice = $connection->query($sql)->fetch_assoc()["price_final"];
         $message =
             '<p class="message">' .
             '<span class="time">' . get24hTime() . '</span>' .
-            '<span>Лот №' . $id . ' придбав ' . $_POST["value"] . '-й</span>' .
+            '<span>Лот №' . $id . ' придбав ' . $_POST["value"] . '-й за ' . $finalPrice . '</span>' .
             '</p>';
         $chat = fopen('../../assets/auction-chat.html', 'a');
         fwrite($chat, $message);
@@ -243,7 +244,9 @@ switch ($_POST["function"]) {
         $chat = fopen('../../assets/auction-chat.html', 'w');
         fwrite($chat, '');
         fclose($chat);
+        copy('../../assets/auction-chat.html', '../../docs/chat-' . date("d-m-Y") . '.html');
         $connection->close();
+        header('Location: admin.php');
         break;
 }
 $connection->close();

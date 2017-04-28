@@ -46,17 +46,19 @@ if (isset($_POST["submit"])) {
     $email = $result["email"];
     $fullName = $result["full_name"];
 
-    $sql = 'SELECT customers_applied FROM lots WHERE id=\'' . $selectedLot . '\'';
-    $lot = $connection->query($sql)->fetch_assoc();
-    $customersApplied = explode(', ', $lot["customers_applied"]);
-    if (!in_array($traderId, $customersApplied)) {
-        if ($lot["customers_applied"] == '') {
-            $sql = 'UPDATE lots SET customers_applied = \'' . $traderId . '\' WHERE id=\'' . $selectedLot . '\'';
-        } else {
-            $sql = 'UPDATE lots SET customers_applied = \'' . $lot["customers_applied"] . ', ' . $traderId . '\' WHERE id=\'' . $selectedLot . '\'';
+    foreach ($selectedLots as $selectedLot) {
+        $sql = 'SELECT customers_applied FROM lots WHERE id=\'' . $selectedLot . '\'';
+        $lot = $connection->query($sql)->fetch_assoc();
+        $customersApplied = explode(', ', $lot["customers_applied"]);
+        if (!in_array($traderId, $customersApplied)) {
+            if ($lot["customers_applied"] == '') {
+                $sql = 'UPDATE lots SET customers_applied = \'' . $traderId . '\' WHERE id=\'' . $selectedLot . '\'';
+            } else {
+                $sql = 'UPDATE lots SET customers_applied = \'' . $lot["customers_applied"] . ', ' . $traderId . '\' WHERE id=\'' . $selectedLot . '\'';
+            }
         }
+        $connection->query($sql);
     }
-    $connection->query($sql);
 
 
     $appliedForLots = implode(', ', $selectedLots);

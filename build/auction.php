@@ -88,7 +88,7 @@ $connection->close();
 <main>
     <section class="info">
         <div class="stream">
-            <iframe width="460" height="315" src="https://www.youtube.com/embed/vVG-YcshwAw" frameborder="0"></iframe>
+            <img src="http://ztsb.org.ua/uploads/images/logo.png">
         </div>
         <div class="chat">
             <h2>Повідомлення адміністратора торгу</h2>
