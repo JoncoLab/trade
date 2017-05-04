@@ -1,3 +1,51 @@
+@-webkit-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@-moz-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@-o-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
 .content
 {
     width: 80%;
@@ -42,15 +90,14 @@
     color: #020718; 
     border-bottom: 2px solid #020718;
 }
-.content .applications .application .open,
 .content .applications .application .download
 {
-    font-size: 15px; 
+    font-size: 15px;
     font-weight: bold;
     font-weight: bold;
 
     margin: 10px;
-    margin: 0;
+    margin: 0 5px 0 0;
     padding: 10px;
 
     cursor: pointer;
@@ -66,6 +113,7 @@
     -o-transition-property: opacity;
     -moz-transition-property: opacity;
     transition-property: opacity;
+    text-decoration: none; 
 
     opacity: .9;
     color: #f7ecf3;
@@ -78,14 +126,11 @@
     background-image: -o-linear-gradient(top, #4d5c33, rgba(77, 92, 51, .8));
     background-image: linear-gradient(to bottom, #4d5c33, rgba(77, 92, 51, .8));
 }
-.content .applications .application .open:active,
-.content .applications .application .open:focus,
 .content .applications .application .download:active,
 .content .applications .application .download:focus
 {
     outline: none;
 }
-.content .applications .application .open:active,
 .content .applications .application .download:active
 {
     background-image: -webkit-gradient(linear, left bottom, left top, from(#4d5c33), to(rgba(77, 92, 51, .8)));
@@ -94,16 +139,9 @@
     background-image: -o-linear-gradient(bottom, #4d5c33, rgba(77, 92, 51, .8));
     background-image: linear-gradient(to top, #4d5c33, rgba(77, 92, 51, .8));
 }
-.content .applications .application .open:hover,
 .content .applications .application .download:hover
 {
     opacity: 1;
-}
-.content .applications .application .download
-{
-    margin-right: 5px;
-
-    text-decoration: none;
 }
 .content .applications .application .name
 {

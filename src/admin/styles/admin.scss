@@ -66,7 +66,8 @@ body {
         align-items: center;
       }
 
-      input {
+      input,
+      textarea {
         padding: $line / 2;
         background: {
           color: transparentize($bluegrey, 0.9);
@@ -247,14 +248,15 @@ body {
               padding: $line;
               margin: 0 auto;
               width: 80%;
-              border: $line / 5 solid lightblue;
+              box-shadow: inset 0 0 0 $line / 5 lightblue;
             }
 
             .verify {
               background: {
                 image: linear-gradient(-30deg, darken(lightblue, 10%), lighten(lightblue, 10%));
               }
-              padding: $line;
+              padding: $line / 2 $line;
+              width: 80%;
               border: {
                 radius: $line;
                 top-right-radius: 0;
@@ -264,13 +266,14 @@ body {
             }
           }
 
-          &.delete {
+          &.delete,
+          &.access {
             padding: 0 !important;
             button {
               background: {
                 image: linear-gradient(-30deg, darken(lightblue, 10%), lighten(lightblue, 10%));
               }
-              padding: $line;
+              padding: $line * 2 $line;
               margin: $line / 5;
               border: none;
               outline: none;
@@ -283,6 +286,15 @@ body {
               transition: {
                 duration: $time / 2;
                 timing-function: linear;
+              }
+
+              &:disabled {
+                opacity: 0.5;
+                cursor: default;
+
+                &:hover {
+                  box-shadow: none;
+                }
               }
 
               &:hover {

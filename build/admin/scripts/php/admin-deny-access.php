@@ -2,11 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: Saladin
- * Date: 26.04.2017
- * Time: 3:54
+ * Date: 01.05.2017
+ * Time: 19:45
  */
 
-if (isset($_POST["next_session"])) {
+session_start();
+if ($_SESSION["id"] !== 'ADMIN') {
+    session_unset();
+    session_destroy();
+    header('Location: /index.php');
+    die();
+}
+mb_internal_encoding("UTF-8");
+if (isset($_POST["id"])) {
     $host = 'joncolab.mysql.ukraine.com.ua';
     $username = 'joncolab_saladin';
     $password = '2014';
@@ -17,14 +25,11 @@ if (isset($_POST["next_session"])) {
         die('База даних не може опрацювати запит зараз, спробуйте за кілька хвилин');
     }
     $connection->set_charset('utf8');
-    $nextSession = $_POST["next_session"];
-    $dateTime = explode('T', $nextSession);
-    $dateElements = explode('-', $dateTime[0]);
-    $date = $dateElements[1] . '.' . $dateElements[2] . '.' . $dateElements[0];
-    $time = $dateTime[1];
-    $nextSession = $time . ' ' . $date;
-    $sql = 'UPDATE settings SET next_session=\'' . $nextSession . '\'';
+
+    $sql = 'UPDATE registered SET access=FALSE WHERE id=\'' . $_POST["id"] . '\'';
     $connection->query($sql);
     $connection->close();
-    exit();
+    echo '<button class="allow-access" onclick="allowAccess($(this));">Допустити</button>';
+
 }
+exit();

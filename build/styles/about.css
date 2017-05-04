@@ -1,3 +1,51 @@
+@-webkit-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@-moz-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@-o-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
 .info
 {
     display: -webkit-box;

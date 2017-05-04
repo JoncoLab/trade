@@ -5,12 +5,33 @@
  * Date: 24.04.2017
  * Time: 1:04
  */
+session_start();
+if (!isset($_SESSION["id"])) {
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+mb_internal_encoding("UTF-8");
+$host = 'joncolab.mysql.ukraine.com.ua';
+$username = 'joncolab_saladin';
+$userPassword = '2014';
+$db = 'joncolab_trade';
+$connection = new mysqli($host, $username, $userPassword, $db);
+
+if ($connection->connect_error) {
+    die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
+}
+$connection->set_charset('utf8');
+$sql = 'SELECT * FROM settings';
+$settings = $connection->query($sql)->fetch_assoc();
+$connection->close();
 require_once "user.php";
 $id = $_POST["id"];
 $user = User::getUserById($id);
 
 $p = "\r\n";
-$to = 'Jonco Lab <joncolab@gmail.com>, ZTSB <info@ztsb.org.ua>';
+$to = $settings["to"];
 $subject = 'Додаткові документи';
 $boundary = md5(date('r', time()));
 $headers = 'From: ' . $user->short_name . ' <' . $user->email . '>' . $p;

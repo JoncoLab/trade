@@ -10,12 +10,12 @@ session_start();
 if ($_SESSION["id"] !== 'ADMIN') {
     session_unset();
     session_destroy();
-    header('Location: index.html');
+    header('Location: /index.php');
     die();
 }
 mb_internal_encoding("UTF-8");
 
-include '../../../scripts/php/user.php';
+require_once "../../../scripts/php/user.php";
 
 $error =
     "<script>" .
@@ -24,6 +24,19 @@ $error =
     "</script>";
 
 if(isset($_POST['id'])) {
+    $host = 'joncolab.mysql.ukraine.com.ua';
+    $username = 'joncolab_saladin';
+    $userPassword = '2014';
+    $db = 'joncolab_trade';
+    $connection = new mysqli($host, $username, $userPassword, $db);
+
+    if ($connection->connect_error) {
+        die('Не вдається встановити підключення до бази даних:<br>' . $connection->connect_error);
+    }
+    $connection->set_charset('utf8');
+    $sql = 'SELECT * FROM settings';
+    $settings = $connection->query($sql)->fetch_assoc();
+    $connection->close();
     $id = $_POST['id'];
     $trader_id = $_POST["traderId"];
     User::verify($id, $trader_id);
@@ -50,13 +63,11 @@ if(isset($_POST['id'])) {
         $to = $user->email;
         $subject = "Верифікація";
         $headers = 'From: EXChange <no-reply@exchange.roik.pro>' . $p;
-        $headers .= 'BCC: joncolab@gmail.com';
+        $headers .= 'BCC: ' . $settings["to"];
         $message = 'Доброго дня!' . $p . $p;
         $message .= 'Ви успішно пройшли верифікацію на порталі excgange.roik.pro' . $p;
         $message .= 'Вам присвоєно аукціонний номер ' . $trader_id;
         mail($to, $subject, $message, $headers);
     }
-} else {
-    echo $error;
 }
 exit();

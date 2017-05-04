@@ -64,14 +64,19 @@
 
             .accessable {
                 margin: 0;
-                padding: $line 0;
+                padding: 0;
                 color: $bluegrey;
 
                 display: flex;
-                justify-content: space-around;
+                justify-content: center;
 
                 p {
                     margin: 0;
+                    flex-grow: 1;
+                    padding: $line;
+                    text: {
+                        align: center;
+                    }
 
                     strong {
                         display: inline-block;
@@ -84,6 +89,44 @@
                         }
                         padding: $line / 5;
                         color: $dark;
+                    }
+
+                    &:first-of-type {
+                        border: {
+                            right: $line / 5 solid $dark;
+                        }
+                    }
+                }
+            }
+
+            .access-state {
+                margin: 0;
+                padding: $line / 2;
+                font: {
+                    weight: bold;
+                }
+                color: $dark;
+                border: {
+                    style: solid;
+                    width: $line / 5;
+                    color: $dark;
+                    left: none;
+                    right: none;
+                    top: none;
+                }
+                text: {
+                    align: center;
+                }
+
+                &.denied {
+                    background: {
+                        color: $offline;
+                    }
+                }
+
+                &.allowed {
+                    background: {
+                        color: $online;
                     }
                 }
             }

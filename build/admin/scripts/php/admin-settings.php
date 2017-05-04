@@ -10,7 +10,7 @@ session_start();
 if ($_SESSION["id"] !== 'ADMIN') {
     session_unset();
     session_destroy();
-    header('Location: index.html');
+    header('Location: /index.php');
     die();
 }
 mb_internal_encoding("UTF-8");
@@ -41,6 +41,16 @@ if (isset($_POST["function"])) {
         case 'adminPass':
             $adminPass = $_POST["input"];
             $sql = 'UPDATE settings SET admin_password=\'' . $adminPass . '\'';
+            $connection->query($sql);
+            break;
+        case 'timer':
+            $timer = $_POST["input"];
+            $sql = 'UPDATE settings SET timer=\'' . $timer . '\'';
+            $connection->query($sql);
+            break;
+        case 'to':
+            $to = $_POST["input"];
+            $sql = 'UPDATE settings SET `to`=\'' . $to . '\'';
             $connection->query($sql);
             break;
     }

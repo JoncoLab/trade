@@ -1,4 +1,14 @@
 <?php
+session_start();
+if (isset($_SESSION["id"])) {
+    require_once "scripts/php/user.php";
+    $user = User::getUserById($_SESSION["id"]);
+    $_SESSION["ver"] = $user->ver;
+    $_SESSION["access"] = $user->access;
+}
+if ($_SESSION["id"] == 'ADMIN') {
+    header('Location: admin/admin.php');
+}
 ?>
 <!doctype html>
 <html>
@@ -12,8 +22,10 @@
 </head>
 <body>
 <header>
-    //= modules/menu.html
-    //= modules/logo.html
+    <?php
+    include "assets/menu.php";
+    include "assets/logo.html";
+    ?>
 </header>
 <main>
     <div class="video">
@@ -25,6 +37,8 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/VXAZGzKRuEY" frameborder="0" allowfullscreen></iframe>
     </div>
 </main>
-//= modules/footer.html
+<?php
+include "assets/footer.html"
+?>
 </body>
 </html>

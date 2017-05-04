@@ -1,3 +1,51 @@
+@-webkit-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@-moz-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@-o-keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
+@keyframes blink
+{
+    20%
+    {
+        background-color: #3b525e;
+    }
+    to
+    {
+        background-color: #020718;
+    }
+}
+
 html,
 body
 {
@@ -353,18 +401,18 @@ body header .additional
 
     display: flex;
 
-    width: 30%;
+    width: 35%;
     height: 100%;
 
-    -webkit-box-pack: justify;
+    -webkit-box-pack: end;
 
-    -webkit-justify-content: space-between;
+    -webkit-justify-content: flex-end;
 
-       -moz-box-pack: justify;
+       -moz-box-pack: end;
 
-        -ms-flex-pack: justify;
+        -ms-flex-pack: end;
 
-            justify-content: space-between;
+            justify-content: flex-end;
     -webkit-box-align: center;
     -webkit-align-items: center;
        -moz-box-align: center;
@@ -373,11 +421,13 @@ body header .additional
 }
 body header .additional .clock,
 body header .additional .trader-id,
-body header .additional .self-online-status
+body header .additional .self-online-status,
+body header .additional .timer
 {
     font-size: 20px;
     font-weight: bold;
 
+    margin: 0 10px 0 0; 
     padding: 10px;
 
     color: #020718;
@@ -385,7 +435,7 @@ body header .additional .self-online-status
     border-style: solid;
     border-color: #020718;
     -webkit-border-radius: 20px;
-            border-radius: 20px; 
+            border-radius: 20px;
     background-color: #f7ecf3;
 }
 body header .additional .self-online-status

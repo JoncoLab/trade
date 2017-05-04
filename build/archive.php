@@ -9,12 +9,17 @@ session_start();
 if (!isset($_SESSION["id"])) {
     session_unset();
     session_destroy();
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
+}
+if ($_SESSION["id"] == 'ADMIN') {
+    header('Location: admin/admin.php');
 }
 require_once "scripts/php/user.php";
 $id = $_SESSION["id"];
 $user = User::getUserById($id);
+$_SESSION["ver"] = $user->ver;
+$_SESSION["access"] = $user->access;
 ?>
 <!doctype html>
 <html>
@@ -28,29 +33,10 @@ $user = User::getUserById($id);
 </head>
 <body>
 <header>
-    <menu class="main-menu" xmlns="http://www.w3.org/1999/html">
-        <img class="menu-icon" src="SVG/menu.svg">
-        <span>Меню</span>
-        <ul class="menu">
-            <li><img class="ico" src="SVG/user-light.svg"><a href="../cabinet.php">Мій кабінет</a></li>
-            <!--<li><img class="ico" src="SVG/office-light.svg"><a href="../about.php">Про компанію</a></li>-->
-            <!--<li><img class="ico" src="SVG/newspaper-light.svg"><a href="articles.php">Новини проекту</a></li>-->
-            <li><img class="ico" src="SVG/book-light.svg"><a href="../rules.php">Правила та умови</a></li>
-            <?php
-            if ($_SESSION["ver"] === '1') {
-                echo
-                '<li><img class="ico" src="SVG/hammer2-light.svg"><a href="auction.php">Аукціон</a></li>' .
-                '<li><img class="ico" src="SVG/doc-light.svg"><a href="application.php">Подати заявку на участь в торгах</a></li>' .
-                '<li><img class="ico" src="SVG/archive-light.svg"><a href="archive.php">Архів заявок</a></li>';
-            }
-            ?>
-            <li><img class="ico" src="SVG/exit-light.svg"><a href="../scripts/php/logout.php">Вихід</a></li>
-        </ul>
-    </menu>
-    <div class="logo">
-        <img src="images/logo.png" alt="Логотип">
-        <h1>EXChange</h1>
-    </div>
+    <?php
+    include "assets/menu.php";
+    include "assets/logo.html";
+    ?>
 </header>
 <main>
     <section class="content">
@@ -64,33 +50,21 @@ $user = User::getUserById($id);
                 $year = substr($application, 0, 4);
                 $day = substr($application, 8, 2);
                 $month = substr($application, 5, 2);
-                $name = $day . '.' . $month . '.' . $year;
+                $hour = substr($application, 11, 2);
+                $min = substr($application, 14, 2);
+                $name = $day . '.' . $month . '.' . $year . ' ' . $hour . ':' . $min;
                 echo
                 '<li class="application">' .
                 '<span class="name">Заявка від ' . $name . '</span>' .
                 '<a class="download" href="docs/' . $user->trader_id . '/' . $application . '">Завантажити</a>' .
-                '<button class="open">Відкрити</button>' .
                 '</li>';
             }
             ?>
         </ul>
     </section>
 </main>
-<footer>
-    <a class="contacts footer-item" href="../about.php"> <span>Наші контактні дані:</span>
-        <br> <img class="contacts-logo" src="SVG/address-book-light.svg"> </a>
-    <!--<div class="feedback footer-item"> <span>Залиште свій відгук!</span>-->
-        <!--<br> <img src="SVG/bubbles-light.svg" class="feedback-logo"> </div>-->
-    <a class="developers footer-item" href="http://www.joncolab.pro"> <span>Site developed by:</span>
-        <br> <img class="jonco-logo" src="images/logo-jonco.png"> </a>
-    <script>
-        $('.feedback').click(function () {
-            $('.feedback-form').toggle(300);
-            if ($('.feedback-form').css('display') === 'block') {
-                $('.feedback-form').css('display', 'flex');
-            }
-        });
-    </script>
-</footer>
+<?php
+include "assets/footer.html";
+?>
 </body>
 </html>

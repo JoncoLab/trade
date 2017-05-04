@@ -3,19 +3,17 @@ session_start();
 if (!isset($_SESSION["id"])) {
     session_unset();
     session_destroy();
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
+}
+if ($_SESSION["id"] == 'ADMIN') {
+    header('Location: admin/admin.php');
 }
 require_once "scripts/php/user.php";
 $id = $_SESSION["id"];
 $user = User::getUserById($id);
-$fullName = $user->full_name;
-$jAddress = $user->j_address;
-$tel = $user->tel;
-$edrpou = $user->edrpou;
-$ind = $user->ind;
-$docsName = $user->docs_name;
-$traderId = $user->trader_id;
+$_SESSION["ver"] = $user->ver;
+$_SESSION["access"] = $user->access;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,13 +28,15 @@ $traderId = $user->trader_id;
 </head>
 <body>
 <header>
-    //= modules/menu.html
-    //= modules/logo.html
+    <?php
+    include "assets/menu.php";
+    include "assets/logo.html";
+    ?>
 </header>
 <main>
     <section class="app">
         <h2>
-            <small id="trader-number"><?php print $traderId;?></small>
+            <small id="trader-number"><?php print $user->trader_id;?></small>
             <span>Товарна біржа "Закарпатська універсальна товарно-сировинна біржа"</span><br>
             <small>
                 <span>88015, Україна, м. Ужгород, вул. Богомольця, 21;</span>
@@ -74,7 +74,7 @@ $traderId = $user->trader_id;
             <tbody>
             <tr>
                 <td class="field-name">Заявник:</td>
-                <td class="field-value auto" colspan="2"><input type="text" readonly form="application" name="applicator" id="applicator" value="<?php print str_replace('"', '\'\'', $fullName);?>" title="<?php print str_replace('"', '\'\'', $fullName);?>"></td>
+                <td class="field-value auto" colspan="2"><input type="text" required readonly form="application" name="applicator" id="applicator" value="<?php print str_replace('"', '\'\'', $user->full_name);?>" title="<?php print str_replace('"', '\'\'', $user->full_name);?>"></td>
                 <td class="field-name" rowspan="2" colspan="2"><label for="previously-processed">Перероблено деревини за минулий квартал (м<sup>3</sup>):</label></td>
                 <td class="field-value" rowspan="2"><input required form="application" type="number" min="0" max="500000" maxlength="5" name="previously-processed" id="previously-processed" placeholder="1000"></td>
             </tr>
@@ -85,8 +85,8 @@ $traderId = $user->trader_id;
             </tr>
             <tr>
                 <td class="field-name">Юридична адреса та телефон заявника:</td>
-                <td class="field-value auto" colspan="3"><input type="text" readonly form="application" name="j-address" id="j-address" value="<?php print $jAddress;?>" title="<?php print $jAddress; ?>"></td>
-                <td class="field-value auto" colspan="2"><input type="tel" readonly form="application" name="tel" id="tel" value="<?php print $tel; ?>" title="<?php print $tel; ?>"></td>
+                <td class="field-value auto" colspan="3"><input type="text" required readonly form="application" name="j-address" id="j-address" value="<?php print $user->j_address;?>" title="<?php print $user->j_address;?>"></td>
+                <td class="field-value auto" colspan="2"><input type="tel" required readonly form="application" name="tel" id="tel" value="<?php print $user->tel; ?>" title="<?php print $user->tel;?>"></td>
             </tr>
             <tr>
                 <td class="field-name"><label for="bank-details">Банківські реквізити заявника:</label></td>
@@ -94,7 +94,7 @@ $traderId = $user->trader_id;
             </tr>
             <tr>
                 <td class="field-name">ЄДРПОУ або РНОКПП(ІПН):</td>
-                <td class="field-value auto" colspan="5"><input type="text" readonly form="application" name="edrpou" id="edrpou" value="<?php print ($edrpou == '' ? $ind : $edrpou);?>" title="<?php print ($edrpou == '' ? $ind : $edrpou);?>"></td>
+                <td class="field-value auto" colspan="5"><input type="text" required readonly form="application" name="edrpou" id="edrpou" value="<?php print ($user->edrpou == '' ? $user->ind : $user->edrpou);?>" title="<?php print ($user->edrpou == '' ? $user->ind : $user->edrpou);?>"></td>
             </tr>
             </tbody>
         </table>
@@ -220,7 +220,7 @@ $traderId = $user->trader_id;
                 <label for="agreed">Усі поля заповнені мною вірно</label>
                 <input required form="application" type="checkbox" name="agreed" id="agreed" value="agreed">
                 <label for="agreed" class="checkbox"></label>
-                <strong><?php print $docsName; ?></strong>
+                <strong><?php print $user->docs_name;?></strong>
             </div>
         </div>
         <form method="post" action="scripts/php/applicationComplete.php" id="application" name="application">
@@ -228,13 +228,15 @@ $traderId = $user->trader_id;
             <label for="reset">Очистити всі поля</label>
             <input type="submit" id="submit" name="submit">
             <label for="submit">Надіслати заявку до опрацювання</label>
-            <input type="hidden" name="trader-id" value="<?php print $traderId;?>">
-            <input type="hidden" name="five-percent" id="five-percent">
-            <input type="hidden" name="application-size" id="application-size">
-            <input type="hidden" name="application-sum" id="application-sum">
+            <input required type="hidden" name="trader-id" value="<?php print $user->trader_id;?>">
+            <input required type="hidden" name="five-percent" id="five-percent">
+            <input required type="hidden" name="application-size" id="application-size">
+            <input required type="hidden" name="application-sum" id="application-sum">
         </form>
     </section>
 </main>
-//= modules/footer.html
+<?php
+include "assets/footer.html";
+?>
 </body>
 </html>

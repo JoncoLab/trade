@@ -59,8 +59,6 @@ var gulp = require("gulp"),
         watch: {
             pages: [
                 'src/*.html',
-                'src/modules/*.html',
-                'src/modules/*.php',
                 'src/*.php',
                 'src/fonts/*.ttf',
                 'src/admin/*.html',

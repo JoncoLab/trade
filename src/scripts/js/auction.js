@@ -12,6 +12,7 @@ $(document).ready(function () {
             takePart: $('.action button.take-part')
         },
         chat = $('.info .messages .wrapper'),
+        timer = $('header .additional .timer'),
         users = $('ul.users'),
         traderId = $('header .additional .trader-id').text(),
         raiseToPrice = $('#raise-to-amount'),
@@ -42,6 +43,7 @@ $(document).ready(function () {
             auctionTable.load('assets/auction-table.php');
             chat.load('assets/auction-chat.html');
             users.load('assets/users-online.php');
+            timer.load('assets/timer.php');
             $.ajax({
                 url: 'assets/self-online-status.php',
                 method: 'POST',
@@ -64,12 +66,6 @@ $(document).ready(function () {
                 }
             });
             raiseToPrice.attr('min', auctionTable.find('.cost-final').text());
-            var finalPriceCell = auctionTable.find('.price-final'),
-                newPrice = parseInt(finalPriceCell.text());
-            if (finalPrice != newPrice) {
-                finalPriceCell.addClass('blink');
-                finalPrice = newPrice;
-            }
         };
 
     fullScreenRequest.click(function () {
@@ -89,11 +85,13 @@ $(document).ready(function () {
         changeData('leave');
     });
     buttons.raiseToPrice.click(function () {
-        if (raiseToPrice.val() <= raiseToPrice.attr('min')) {
-            raiseToPrice.val(raiseToPrice.attr('min'));
+        var amount = parseInt(raiseToPrice.val()),
+            min = parseInt(raiseToPrice.attr('min'));
+        if (amount <= min) {
+            raiseToPrice.val(min);
             raiseToPrice.focus();
         } else {
-            insertData('raiseToPrice', raiseToPrice.val());
+            insertData('raiseToPrice', amount);
         }
     });
     buttons.raiseToSteps.click(function () {
@@ -103,9 +101,9 @@ $(document).ready(function () {
         changeData('takePart');
     });
 
-    $(window).on('beforeunload', function () {
+    $(window).on('beforeunload', function (event) {
         changeData('leave');
-        return 'Намагайтеся не виходити зі сторінки аукціону під час сесії.';
+        event.returnValue("Намагайтеся не виходити зі сторінки аукціону під час сесії.");
     });
 
     load();

@@ -5,22 +5,77 @@
  * Date: 13.02.2017
  * Time: 10:44
  */
+session_start();
+if (!isset($_SESSION["id"])) {
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+
 require_once 'PHPExcel.php';
 require_once 'PHPExcel/Writer/Excel2007.php';
 require_once 'PHPExcel/IOFactory.php';
 
-if (isset($_POST["submit"])) {
+function get24hTime() {
+    $time = null;
+    if (date("a") === 'pm') {
+        switch (date("h")) {
+            case '01':
+                $time = '13:' . date("i");
+                break;
+            case '02':
+                $time = '14:' . date("i");
+                break;
+            case '03':
+                $time = '15:' . date("i");
+                break;
+            case '04':
+                $time = '16:' . date("i");
+                break;
+            case '05':
+                $time = '17:' . date("i");
+                break;
+            case '06':
+                $time = '18:' . date("i");
+                break;
+            case '07':
+                $time = '19:' . date("i");
+                break;
+            case '08':
+                $time = '20:' . date("i");
+                break;
+            case '09':
+                $time = '21:' . date("i");
+                break;
+            case '10':
+                $time = '22:' . date("i");
+                break;
+            case '11':
+                $time = '23:' . date("i");
+                break;
+            default:
+                $time = date("h:i");
+        }
+    } else {
+        $time = date("h:i");
+    }
+    return $time;
+}
+
+if (isset($_POST["submit"]) && $_SESSION["ver"] == 1) {
     $host = 'joncolab.mysql.ukraine.com.ua';
     $username = 'joncolab_saladin';
     $dbPassword = '2014';
     $db = 'joncolab_trade';
     $connection = new mysqli($host, $username, $dbPassword, $db);
 
-
     if ($connection->connect_error) {
         die('Не вдається встановити підключення до бази даних');
     }
     $connection->set_charset('utf-8');
+    $sql = 'SELECT * FROM settings';
+    $settings = $connection->query($sql)->fetch_assoc();
     $selectedLots = array();
     foreach ($_POST as $item => $value) {
         if ($value === 'selected') {
@@ -40,11 +95,10 @@ if (isset($_POST["submit"])) {
     $tel = $_POST["tel"];
     $bankDetails = $_POST["bank-details"];
     $edrpou = $_POST["edrpou"];
-    $sql = 'SELECT docs_name, email, full_name FROM registered WHERE trader_id=\'' . $traderId . '\'';
+    $sql = 'SELECT docs_name, email FROM registered WHERE trader_id=\'' . $traderId . '\'';
     $result = $connection->query($sql)->fetch_assoc();
     $docsName = $result["docs_name"];
     $email = $result["email"];
-    $fullName = $result["full_name"];
 
     foreach ($selectedLots as $selectedLot) {
         $sql = 'SELECT customers_applied FROM lots WHERE id=\'' . $selectedLot . '\'';
@@ -100,10 +154,10 @@ if (isset($_POST["submit"])) {
     }
     $writer = new PHPExcel_Writer_Excel2007($excel);
     mkdir(str_replace('scripts/php', '', __DIR__) . 'docs/' . $traderId);
-    $writer->save(str_replace('scripts/php', '', __DIR__) . 'docs/' . $traderId . '/' . date("Y-m-d") . '.xlsx');
+    $writer->save(str_replace('scripts/php', '', __DIR__) . 'docs/' . $traderId . '/' . date("Y-m-d") . '-' . get24hTime() . '.xlsx');
     $connection->close();
 
-    $filename = str_replace('scripts/php', '', __DIR__) . 'docs/' . $traderId . '/' . date("Y-m-d") . '.xlsx';
+    $filename = str_replace('scripts/php', '', __DIR__) . 'docs/' . $traderId . '/' . date("Y-m-d") . '-' . get24hTime() . '.xlsx';
     $p = "\r\n";
     $to = $email;
     $subject = 'Заявка EXChange';
@@ -111,9 +165,9 @@ if (isset($_POST["submit"])) {
     $headers = 'MIME-Version: 1.0' . $p;
     $headers .= 'Content-Type: multipart/mixed; boundary="' . $boundary . '"; charset="utf-8"' . $p;
     $headers .= 'From: EXChange <no-reply@exchange.roik.pro>' . $p;
-    $headers .= 'BCC: info@ztsb.org.ua, joncolab@gmail.com';
+    $headers .= 'BCC: ' . $settings["to"];
     $message = 'Доброго дня!' . $p;
-    $message .= 'Вашу заявку сформовано і отримано ТБ "ЗУСТБ"' . $p;
+    $message .= 'Вашу заявку за торговим номером ' . $traderId . ' сформовано і отримано ТБ "ЗУСТБ"' . $p;
     $message .= 'До листа додано копію.';
     $multipartMessage = '--' . $boundary . $p;
     $multipartMessage .= 'Content-Type: text/plain; charset="utf-8"' . $p;
@@ -122,13 +176,13 @@ if (isset($_POST["submit"])) {
     $multipartMessage .= '--' . $boundary . $p;
     $multipartMessage .= 'Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; name=' . basename($filename) . $p;
     $multipartMessage .= 'Content-Transfer-Encoding: base64' . $p;
-    $multipartMessage .= 'Content-Disposition: attachment; filename="' . $traderId . '-Заявка-' . str_replace(' ', '-', $fullName) . '.xlsx"' . $p . $p;
+    $multipartMessage .= 'Content-Disposition: attachment; filename="' . $traderId . '-Заявка-' . str_replace(' ', '-', $docsName) . '.xlsx"' . $p . $p;
     $multipartMessage .= chunk_split(base64_encode(file_get_contents($filename))). $p;
     $multipartMessage .= '--' . $boundary . '--' . $p;
     mail($to, $subject, $multipartMessage, $headers);
 
     header('Location: ../../cabinet.php');
 } else {
-    die("Dont't break my site");
+    header('Location: logout.php');
 }
 

@@ -1,11 +1,16 @@
 <?php
+header('Location: cabinet.php');
 session_start();
 if (!isset($_SESSION["id"])) {
     session_unset();
     session_destroy();
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
 }
+require_once "scripts/php/user.php";
+$user = User::getUserById($_SESSION["id"]);
+$_SESSION["ver"] = $user->ver;
+$_SESSION["access"] = $user->access;
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -19,8 +24,10 @@ if (!isset($_SESSION["id"])) {
 </head>
 <body>
 <header>
-    //= modules/menu.html
-    //= modules/logo.html
+    <?php
+    include "assets/menu.php";
+    include "assets/logo.html";
+    ?>
 </header>
 <main>
     <div class="info">
@@ -64,6 +71,8 @@ if (!isset($_SESSION["id"])) {
         </section>
     </div>
 </main>
-//= modules/footer.html
+<?php
+include "assets/footer.html";
+?>
 </body>
 </html>

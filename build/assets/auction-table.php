@@ -21,7 +21,7 @@ if ($connection->connect_error) {
 </tr>
 <tr>
     <td class="attribute" rowspan="2">Лот №</td>
-    <td class="value id" rowspan="2"><?php print $lot["id"];?></td>
+    <td class="value id attention" rowspan="2"><?php print $lot["id"];?></td>
     <td class="attr-value type" colspan="2"><?php print $lot["type"];?></td>
     <td class="attribute">Діаметр, см:</td>
     <td class="value characteristics-diametr"><?php print $lot["characteristics_diametr"];?></td>
@@ -53,11 +53,11 @@ if ($connection->connect_error) {
 </tr>
 <tr>
     <td class="attribute" colspan="2">Остаточна ціна, <sup>грн</sup>/<sub>м<sup>3</sup></sub>:</td>
-    <td class="value cost-final" colspan="2"><?php print $lot["cost_final"];?></td>
+    <td class="value cost-final attention" colspan="2"><?php print $lot["cost_final"];?></td>
     <td class="attribute">Остаточна вартість, <sup>грн.</sup>/<sub>лот</sub>:</td>
-    <td class="value price-final" colspan="2"><?php print $lot["price_final"];?></td>
+    <td class="value price-final attention" colspan="2"><?php print $lot["price_final"];?></td>
     <td class="attribute">Крок:</td>
-    <td class="value current-step"><?php print $lot["current_step"];?></td>
+    <td class="value current-step attention"><?php print $lot["current_step"];?></td>
 </tr>
 </tbody>
 <?php

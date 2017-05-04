@@ -9,7 +9,7 @@ session_start();
 if ($_SESSION["id"] !== 'ADMIN') {
     session_unset();
     session_destroy();
-    header('Location: index.html');
+    header('Location: /index.php');
     die();
 }
 mb_internal_encoding("UTF-8");

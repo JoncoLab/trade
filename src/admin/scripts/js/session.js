@@ -13,10 +13,12 @@ var main = function () {
             nextLot: $('button.next-lot'),
             previousLot: $('button.previous-lot'),
             endSession: $('button.end-session'),
-            setWinner: $('button.set-winner-button')
+            setWinner: $('button.set-winner-button'),
+            write: $('button.write-button')
         },
         chat = $('.chat .messages'),
         usersOnline = $('ul.users'),
+        timer = $('.timer'),
         switchLot = function (id) {
             var targetLot = $(".all .id:contains(\'" + id + "\')");
             $.ajax({
@@ -56,7 +58,9 @@ var main = function () {
         load = function () {
             auctionTable.load('../../../assets/auction-table.php');
             chat.load('../../../assets/auction-chat.html');
-            usersOnline.load('../../../assets/users-online.php')
+            usersOnline.load('../../../assets/users-online.php');
+            changeData('timer');
+            timer.load('../../../assets/timer.php');
         };
 
     lots.click(function () {
@@ -92,6 +96,10 @@ var main = function () {
     buttons.setWinner.click(function () {
         var winner = $('#set-winner').val();
         insertData('setWinner', winner);
+    });
+    buttons.write.click(function () {
+        var message = $('#write').val();
+        insertData('write', message);
     });
 
     load();

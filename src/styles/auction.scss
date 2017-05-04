@@ -153,11 +153,7 @@ main {
                             margin: 0;
                             padding: 0;
 
-                            height: $line * 2;
                             min-height: $line * 2;
-
-                            display: flex;
-                            align-items: center;
 
                             border: {
                                 style: solid;
@@ -168,13 +164,21 @@ main {
                                 left: none;
                             }
 
+                            &.admin {
+                                background: {
+                                    color: transparentize($bluegrey, 0.5);
+                                }
+                            }
+
                             span {
                                 font: {
                                     weight: bold;
                                     size: $line * 1.5;
                                 }
                                 margin: 0 0 0 $line / 2;
+                                padding: $line / 4 $line / 2 $line / 4 0;
                                 color: $dark;
+                                display: inline-block;
 
                                 &.time {
                                     border: {
@@ -185,7 +189,6 @@ main {
                                         bottom: none;
                                         left: none;
                                     }
-                                    padding: $line / 4 $line / 2 $line / 4 0;
                                 }
                             }
                         }
@@ -259,9 +262,12 @@ main {
                             }
                         }
 
-                        &.blink {
+                        &.attention {
                             background: {
                                 color: $bluegrey;
+                            }
+                            font: {
+                                size: $line * 2;
                             }
                         }
                     }
@@ -364,14 +370,14 @@ main {
                     &.leave {
                         border: {
                             bottom: none;
-                            left: none;
+                            right: none;
                             top: none;
                         }
 
                         margin: 0 auto 0 0;
 
                         .leave {
-                            @include button($olive);
+                            @include button(darken($offline, 10%));
                             margin: 0;
                             color: $light;
                             flex-basis: 100%;
@@ -409,8 +415,8 @@ main {
                                 }
                                 border: none;
                                 display: block;
-                                padding: 0 $line 0 0;
-                                max-width: 30%;
+                                padding: 0 $line / 2 0 0;
+                                max-width: 20%;
 
                                 &:active,
                                 &:focus {
@@ -436,7 +442,6 @@ main {
                                     weight: bold;
                                 }
                                 text: {
-                                    transform: uppercase;
                                     align: center;
                                 }
                                 flex-grow: 1;

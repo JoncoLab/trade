@@ -10,13 +10,12 @@ session_start();
 if ($_SESSION["id"] !== 'ADMIN') {
     session_unset();
     session_destroy();
-    header('Location: index.html');
+    header('Location: /index.php');
     die();
 }
 mb_internal_encoding("UTF-8");
-require_once "../../../scripts/php/user.php";
 
-if (isset($_POST["id"])) {
+if (isset($_POST["id"]) && isset($_POST["traderId"])) {
     $host = 'joncolab.mysql.ukraine.com.ua';
     $username = 'joncolab_saladin';
     $password = '2014';
@@ -27,8 +26,20 @@ if (isset($_POST["id"])) {
         die('База даних не може опрацювати запит зараз, спробуйте за кілька хвилин');
     }
     $connection->set_charset('utf8');
-    $sql = 'UPDATE registered SET ver=FALSE, trader_id=NULL, applied_for_lots=NULL WHERE id=\'' . $_POST["id"] . '\'';
+    $sql = 'UPDATE registered SET ver=FALSE, trader_id=NULL, applied_for_lots=NULL, access=FALSE WHERE id=\'' . $_POST["id"] . '\'';
     $connection->query($sql);
+    $sql = 'SELECT id, customers_applied FROM lots';
+    $result = $connection->query($sql);
+    function excludes_user($customer) {
+        return ($customer != $_POST["traderId"]);
+    }
+    while ($lot = $result->fetch_assoc()) {
+        $customersApplied = explode(', ', $lot["customers_applied"]);
+        $customersApplied = array_filter($customersApplied, "excludes_user");
+        $customersApplied = implode(', ', $customersApplied);
+        $sql = 'UPDATE lots SET customers_applied=\'' . $customersApplied . '\' WHERE id=\'' . $lot["id"] . '\'';
+        $connection->query($sql);
+    }
     $connection->close();
     exit();
 }

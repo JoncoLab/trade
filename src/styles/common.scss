@@ -165,14 +165,15 @@ body {
             position: absolute;
             right: $line * 2;
             height: 100%;
-            width: 30%;
+            width: 35%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
 
             .clock,
             .trader-id,
-            .self-online-status {
+            .self-online-status,
+            .timer {
                 font: {
                     weight: bold;
                     size: $line * 2;
@@ -188,6 +189,7 @@ body {
                     color: $dark;
                     radius: $line * 2;
                 }
+                margin: 0 $line 0 0;
             }
 
             .self-online-status {

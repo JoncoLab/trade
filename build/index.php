@@ -1,0 +1,27 @@
+<?php
+session_start();
+?>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>EXChange</title>
+    <link href="styles/lending.css" rel="stylesheet">
+</head>
+<body>
+<main>
+    <div class="logo">
+        <img src="images/logo.png" alt="Логотип">
+    </div>
+    <div class="content">
+        <h1 class="name">EXChange</h1>
+        <div class="buttons">
+            <a class="reg" href="reg.php">Зареєструватися</a>
+            <a class="log" href="log.php">Увійти</a>
+            <a class="rules" href="rules.php">Правила користування торгівельним майданчиком</a>
+            <a class="ztsb" href="http://ztsb.org.ua">Закарпатська універсальна товарно-сировинна біржа</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

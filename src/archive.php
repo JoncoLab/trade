@@ -9,12 +9,17 @@ session_start();
 if (!isset($_SESSION["id"])) {
     session_unset();
     session_destroy();
-    header("Location: index.html");
+    header("Location: index.php");
     exit();
+}
+if ($_SESSION["id"] == 'ADMIN') {
+    header('Location: admin/admin.php');
 }
 require_once "scripts/php/user.php";
 $id = $_SESSION["id"];
 $user = User::getUserById($id);
+$_SESSION["ver"] = $user->ver;
+$_SESSION["access"] = $user->access;
 ?>
 <!doctype html>
 <html>
@@ -28,8 +33,10 @@ $user = User::getUserById($id);
 </head>
 <body>
 <header>
-    //= modules/menu.html
-    //= modules/logo.html
+    <?php
+    include "assets/menu.php";
+    include "assets/logo.html";
+    ?>
 </header>
 <main>
     <section class="content">
@@ -43,18 +50,21 @@ $user = User::getUserById($id);
                 $year = substr($application, 0, 4);
                 $day = substr($application, 8, 2);
                 $month = substr($application, 5, 2);
-                $name = $day . '.' . $month . '.' . $year;
+                $hour = substr($application, 11, 2);
+                $min = substr($application, 14, 2);
+                $name = $day . '.' . $month . '.' . $year . ' ' . $hour . ':' . $min;
                 echo
                 '<li class="application">' .
                 '<span class="name">Заявка від ' . $name . '</span>' .
                 '<a class="download" href="docs/' . $user->trader_id . '/' . $application . '">Завантажити</a>' .
-                '<button class="open">Відкрити</button>' .
                 '</li>';
             }
             ?>
         </ul>
     </section>
 </main>
-//= modules/footer.html
+<?php
+include "assets/footer.html";
+?>
 </body>
 </html>

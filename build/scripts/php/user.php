@@ -19,10 +19,11 @@ class User
     var $docs_name;
     var $post_address;
     var $ver;
+    var $access;
     var $trader_id;
     var $applied_for_lots;
 
-    private function User($id, $status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address, $ver, $trader_id, $applied_for_lots)
+    private function User($id, $status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address, $ver, $access, $trader_id, $applied_for_lots)
     {
         $this->id = $id;
         $this->status = $status;
@@ -40,20 +41,9 @@ class User
         $this->docs_name = $docs_name;
         $this->post_address = $post_address;
         $this->ver = $ver;
+        $this->access = $access;
         $this->trader_id = $trader_id;
         $this->applied_for_lots = $applied_for_lots;
-    }
-
-    public static function registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address)
-    {
-        $connection = self::connectToDB();
-        $sql = 'INSERT INTO registered (status, full_name, `j-address`, edrpou, ind, person, reason, short_name, head, tel, email, password, docs_name, post_address) VALUES (\'' . $status . '\', \'' . $full_name . '\', \'' . $j_address . '\', \'' . $edrpou . '\', \'' . $ind . '\', \'' . $person . '\', \'' . $reason . '\', \'' . $short_name . '\', \'' . $head . '\', \'' . $tel . '\', \'' . $email . '\', \'' . $password . '\', \'' . $docs_name . '\', \'' . $post_address . '\')';
-        $connection->query($sql);
-        $sql = 'SELECT * FROM registered WHERE email=\'' . $email . '\'';
-        $result = $connection->query($sql);
-        $connection->close();
-        $currentUser = $result->fetch_assoc();
-        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j-address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["head"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], false, null, null);
     }
 
     private static function connectToDB() {
@@ -71,13 +61,25 @@ class User
         }
     }
 
+    public static function registerUser($status, $full_name, $j_address, $edrpou, $ind, $person, $reason, $short_name, $head, $tel, $email, $password, $docs_name, $post_address)
+    {
+        $connection = self::connectToDB();
+        $sql = 'INSERT INTO registered(status, full_name, j_address, edrpou, ind, person, reason, short_name, head, tel, email, password, docs_name, post_address) VALUES(\'' . $status . '\', \'' . $full_name . '\', \'' . $j_address . '\', \'' . $edrpou . '\', \'' . $ind . '\', \'' . $person . '\', \'' . $reason . '\', \'' . $short_name . '\', \'' . $head . '\', \'' . $tel . '\', \'' . $email . '\', \'' . $password . '\', \'' . $docs_name . '\', \'' . $post_address . '\')';
+        $connection->query($sql);
+        $sql = 'SELECT * FROM registered WHERE email=\'' . $email . '\'';
+        $result = $connection->query($sql);
+        $currentUser = $result->fetch_assoc();
+        $connection->close();
+        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j_address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["head"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], false, false, null, null);
+    }
+
     public static function getUserById($id) {
         $connection = self::connectToDB();
         $sql = 'SELECT * FROM registered WHERE id=\'' . $id . '\'';
         $result = $connection->query($sql);
         $connection->close();
         $currentUser = $result->fetch_assoc();
-        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j-address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["head"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], $currentUser["ver"], $currentUser["trader_id"], $currentUser["applied_for_lots"]);
+        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j_address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["head"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], $currentUser["ver"], $currentUser["access"], $currentUser["trader_id"], $currentUser["applied_for_lots"]);
     }
 
     public static function getUserByEmail($email) {
@@ -86,7 +88,7 @@ class User
         $result = $connection->query($sql);
         $connection->close();
         $currentUser = $result->fetch_assoc();
-        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j-address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["head"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], $currentUser["ver"], $currentUser["trader_id"], $currentUser["applied_for_lots"]);
+        return new User($currentUser["id"], $currentUser["status"], $currentUser["full_name"], $currentUser["j_address"], $currentUser["edrpou"], $currentUser["ind"], $currentUser["person"], $currentUser["reason"], $currentUser["short_name"], $currentUser["head"], $currentUser["tel"], $currentUser["email"], $currentUser["password"], $currentUser["docs_name"], $currentUser["post_address"], $currentUser["ver"], $currentUser["access"], $currentUser["trader_id"], $currentUser["applied_for_lots"]);
     }
 
     public static function verify($id, $trader_id) {
@@ -98,7 +100,7 @@ class User
 
     public static function count() {
         $connection = self::connectToDB();
-        $sql = 'SELECT ver FROM registered';
+        $sql = 'SELECT id FROM registered';
         $result = $connection->query($sql);
         $connection->close();
         return $result->num_rows;

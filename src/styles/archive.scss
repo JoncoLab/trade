@@ -44,19 +44,14 @@
       padding: $line / 2;
       color: $dark;
 
-      .open,
       .download {
         @include button($olive);
-        margin: 0;
+        margin: 0 $line / 2 0 0;
         color: $light;
         font: {
           weight: bold;
           size: $line * 1.5;
         }
-      }
-
-      .download {
-        margin-right: $line / 2;
         text: {
           decoration: none;
         }

@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset id="names">
     <legend>Юридичні дані</legend>
     <p class="error-name">Ця компанія вже зареєстрована!</p>
     <div class="form-item">
@@ -26,18 +26,18 @@
         <label for="docs-name">Скорочено для документів:</label>
     </div>
     <div class="form-item edrpou">
-        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8,10}" required>
+        <input type="text" name="edrpou" id="edrpou" pattern="[0-9]{8}" required>
         <label for="edrpou">ЄДРПОУ:</label>
     </div>
 </fieldset>
-<fieldset>
+<fieldset id="profile">
     <legend>Ваш профіль</legend>
     <p class="error-number">Цей мобільний вже зареєстрований!</p>
     <div class="form-item">
         <input type="tel" name="number" id="number" pattern="[+]+[0-9]{12}" required>
         <label for="number">Номер телефону:</label>
     </div>
-    <p class="error-mail">Така елекронна пошта вже зареєстрована!<br><a href="../log.html">Увійти в профіль</a></p>
+    <p class="error-mail">Така елекронна пошта вже зареєстрована!<br><a href="../log.php">Увійти в профіль</a></p>
     <div class="form-item">
         <input type="email" name="email" id="email" required>
         <label for="email">Ваша електронна адреса:</label>
@@ -55,7 +55,7 @@
         <label for="password-confirm">Підтвердіть пароль:</label>
     </div>
 </fieldset>
-<fieldset>
+<fieldset id="address">
     <legend>Ваша юридична адреса</legend>
     <p class="error-address">Ця адреса вже зареєстрована!</p>
     <div class="form-item">
@@ -91,7 +91,7 @@
         <label for="j-zip">Поштовий індекс:</label>
     </div>
 </fieldset>
-<fieldset>
+<fieldset id="post">
     <legend>Ваша поштова адреса</legend>
     <p class="error-post">Коректно заповніть поштову адресу, або залиште всі поля пустими!</p>
     <div class="form-item">

@@ -60,7 +60,7 @@ var main = function () {
     });
 
     logo.click(function () {
-        window.location.href = 'index.html';
+        window.location.href = '../../index.php';
     });
 
 
